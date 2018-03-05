@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  resources :project do
+  resources :projects do
     resources :project_invites, only: [:new, :create, :edit, :update]
     resources :task, only: [:new, :create, :edit, :update, :delete]
     resources :project_tech, only: [:index]
