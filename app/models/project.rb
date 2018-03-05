@@ -10,6 +10,7 @@ class Project < ApplicationRecord
 
   validates :name, presence: true
   validates :aim, presence: true
+
   validates :category, presence: true
 
   include PgSearch
@@ -22,7 +23,7 @@ class Project < ApplicationRecord
       tsearch: { prefix: true }
     }
 
-  # def technologies_search
-  #   self.technologies.join(' ')
-  # end
+  validates :type, presence: true
+  mount_uploader :image, PhotoUploader
+
 end
