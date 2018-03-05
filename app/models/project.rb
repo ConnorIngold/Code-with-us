@@ -10,4 +10,5 @@ class Project < ApplicationRecord
   validates :name, presence: true
   validates :aim, presence: true
   validates :type, presence: true
+  mount_uploader :image, PhotoUploader
 end
