@@ -20,9 +20,48 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     @project.owner = current_user
-    @tech_project =TechProject.new(tech_p_params)
-    raise
+    tech_p_params[:technologies].each do |tech|
+      if tech.length > 0
+        @technology = Technology.find(tech.to_i)
+        @project.technologies  << @technology
+      end
+    end
+    if project.save
+      redirect_to project_path(@project)
+    else
+      render :new
+    end
   end
+
+  def edit
+    @project = Project.find(params[:id])
+    @technologies = Technology.all
+  end
+
+  def update
+    @project = Project.find(params[:id])
+    @project.update(project_params)
+    @project.technologies = []
+    tech_p_params[:technologies].each do |tech|
+        if tech.length > 0
+      @technology = Technology.find(tech.to_i)
+      @project.technologies  << @technology
+      end
+    end
+    if @project.save
+      redirect_to project_path(@project)
+    else
+      render :new
+    end
+  end
+
+  def destroy
+    @project = Project.find(params[:id])
+    @project.destroy
+    redirect_to projects_path
+  end
+
+
 
   private
 
@@ -31,6 +70,6 @@ class ProjectsController < ApplicationController
   end
 
   def tech_p_params
-    params[:project].require(:tech_project).permit(:technologies)
+    params[:project].require(:tech_project).permit({technologies:[]})
   end
 end
