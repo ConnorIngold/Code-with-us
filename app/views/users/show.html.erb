@@ -1,17 +1,17 @@
 <div class="profile-page">
-<h1 class="name">User.name profile</h1>
+<h1 class="name text-center">User.name profile</h1>
 
   <div class="profile-grid">
 
     <div class="photo-grid-item-1">
-       <div class="show-white-card text-center">
-         <div class="card-show-header">
+      <div class="show-white-card text-center">
+        <div class="card-show-header">
            <h4>user.name</h4>
-           </div>
-            <h4>user.photo</h4>
-           </div>
-          </div>
-       </div>
+        </div>
+        <div class="avatar-large text-center" style="background-image: url(<%= image_path('Me.jpg',
+          width: 300, height: 300, crop: :thumb) %>)">
+        </div>
+      </div>
     </div>
 
     <div class="description-grid-item-2">
@@ -22,9 +22,31 @@
       </div>
     </div>
 
-
     <div class="tech-grid-item-3">
-      <div class="show-white-card">
+      <div class="show-white-card text-center">
+        <div class="card-show-header">
+          <h4>Setting</h4>
+        </div>
+        <div class="card-show-body">
+          <p>Edit profile</p>
+          <p>Edit projects</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="dashboard-grid-item-4">
+      <div class="show-white-card text-center">
+        <div class="card-show-header">
+          <h4>Current Projects | Completed Projects </h4>
+        </div>
+        <div class="dashboard-card">
+          <p>Overall data</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="settings-grid-item-5">
+      <div class="show-white-card text-center">
         <div class="card-show-header">
           <h4>Technologies used</h4>
         </div>
@@ -37,46 +59,23 @@
       </div>
     </div>
 
-
-    <div class="dashboard-grid-item-4">
-      <div class="show-white-card">
-        <div class="card-show-header">
-          <p>Current Projects</p>
-          <p>Completed Projects</p>
-        </div>
-        <div class="dashboard-card">
-          <h4>Dashboard</h4>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="settings-grid-item-5">
+    <div class="projects-grid-item-6">
       <div class="show-white-card text-center">
         <div class="card-show-header">
-          <h4>I use...</h4>
-        </div>
-        <div class="card-show-body">
-          <h4>Git-hub</h4>
+          <h4>Projects</h4>
         </div>
       </div>
+
+      <div class="profile-project-card">
+      </div>
+
+      <div class="profile-project-card">
+      </div>
+
+      <div class="profile-project-card">
+      </div>
+
     </div>
-
-
-    <div class="projects-grid-item-6">
-      <div class="container text-center">
-        <div class="profile-project-card">
-          <div class="flex-left">
-            <div class="project-details"></div>
-            <div class="tags"></div>
-          </div>
-          <div class="flex-right">
-            <div class="avater-card"></div>
-            <div class="progress"></div>
-          </div>
-        </div>
-      </div>
-     </div>
 
   </div>
 </div>
