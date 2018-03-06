@@ -1,0 +1,13 @@
+<% choices = [] %>
+<% @project.users.each do |user| %>
+  <% choices << user.email %>
+<% end %>
+<% choices << @project.owner.email %>
+
+<%= simple_form_for [@project, @task] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description  %>
+  <%= f.input :difficulty, collection: [1,2,3,4,5]%>
+  <%= f.input :user_id, collection: choices %>
+<%= f.button :submit, class: "btn btn-success" %>
+<% end %>
