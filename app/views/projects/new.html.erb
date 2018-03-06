@@ -6,5 +6,6 @@
     <%= t.input :technologies, collection: @technologies, as: :check_boxes %>
   <% end %>
   <%= f.input :image %>
+  <%= f.input :image_cache, as: :hidden %>
 <%= f.button :submit, class: "btn btn-success" %>
 <% end %>
