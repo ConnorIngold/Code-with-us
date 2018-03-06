@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :projects
   has_many :project_invites
   has_many :tech_users
+  has_many :tasks
   has_many :technologies, through: :tech_users
   has_many :my_projects, foreign_key: "user_id", class_name: "Project"
 
@@ -10,7 +11,7 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  # validates :full_name, presence: true
-  # validates :git_hub, presence: true, uniqueness: true
+  validates :full_name, presence: true
+  validates :git_hub, presence: true, uniqueness: true
   mount_uploader :photo, PhotoUploader
 end

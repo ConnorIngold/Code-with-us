@@ -1,7 +1,13 @@
 
+
 <div class="container text-center">
   <div class="search-bar">
-    <h1>>>>>Place Search bar here Alex<<<</h1>
+    <h1><%= form_tag projects_path, :method => 'get' do %>
+  <p>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Go", :name => nil %>
+  </p>
+<% end %></h1>
   </div>
 
   <% @projects.each do |project|%>

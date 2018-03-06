@@ -1,1 +1,64 @@
-// Specific CSS for your home-page
+
+ // the banner start here
+.banner {
+  color: white;
+  text-align: center;
+  height: 82vh;
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.banner h1 {
+  font-size: 50px;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+}
+.banner p {
+  font-size: 25px;
+  font-weight: lighter;
+  color: rgb(255, 255, 255);
+  opacity: 0.6;
+  margin-bottom: 30px;
+}
+// and ends here
+
+// first section starts here
+.recent-projects-container {
+  background-color: white;
+  display: flex;
+  height: 400px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+// div wrapped around the h3 text
+.border-for-the-h3-below {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  height: 30%;
+}
+
+.inner-h3 {
+  text-align: center;
+  flex-wrap: wrap;
+  color: $brand-success;
+}
+
+// container
+
+.innerflex {
+ display: flex;
+ flex-wrap: wrap;
+ width: 800px;
+ height: 500px;
+ margin-bottom: 40px;
+ border-radius: 100px;
+}
+
+// first section ends here
+
+
+
