@@ -24,9 +24,9 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
-    @project = Project.find(params[:id])
+    @project = Project.find(params[:project_id])
     @user = User.where(email: user_params[:user_id]).first
-    @task.user = 0
+    @task.user = nil
     @task.user = @user
     @task.update(task_params)
     if @task.save
