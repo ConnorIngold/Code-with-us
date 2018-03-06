@@ -3,7 +3,7 @@ class Project < ApplicationRecord
   has_many :project_invites
   has_many :tasks
   has_many :users, through: :project_invites
-  has_many :tech_projects
+  has_many :tech_projects, dependent: :destroy
   has_many :technologies, through: :tech_projects
   # Project.first.owner=  the project admin
   # Project.first.users = all the users in the project
