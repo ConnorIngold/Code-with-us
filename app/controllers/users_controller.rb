@@ -4,19 +4,21 @@ class UsersController < ApplicationController
 
   def show
     # set_user
-      # authorize @user
+    authorize @user
   end
 
   def edit
-      # authorize @user
+    # set_user
+    authorize @user
   end
-
+  
   def update
     @user = current_user
     @user.update(user_params)
     @user.save
     redirect_to user_path(@user)
-      # authorize @user
+    authorize @user
+
   end
 
   private
