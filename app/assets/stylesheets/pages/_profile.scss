@@ -4,28 +4,40 @@
 
 .profile-grid {
   display: grid;
-  grid-template-rows: 15% 35% 50%;
+  height: 100%;
   grid-template-columns: 25% 75%;
+  grid-template-rows: 15% 35% 50%;
   background-color: #FFFFFF;
   color: #050517;
   padding: 10px;
+  margin: 10px 10% 10px 10%;
 }
 
 .photo-grid-item-1 {
   background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 20px;
-  font-size: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 5px;
+  font-size: 20px;
   text-align: center;
   grid-row: 1 / span 1;
   grid-column: 1 / span 1 ;
 }
 
+.avatar-large {
+  background-size: cover;
+  width: 200px;
+  height: 200px;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
 .description-grid-item-2 {
   background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 20px;
-  font-size: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 5px;
+  font-size: 20px;
   text-align: center;
   grid-row: 1 / span 1;
   grid-column: 2 / span 1;
@@ -33,9 +45,9 @@
 
 .tech-grid-item-3 {
   background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 20px;
-  font-size: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 5px;
+  font-size: 20px;
   text-align: center;
   grid-row: 2 / span 1;
   grid-column: 1 / span 1;
@@ -43,19 +55,34 @@
 
 .dashboard-grid-item-4 {
   background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 20px;
-  font-size: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 5px;
+  font-size: 20px;
   text-align: center;
   grid-row: 2 / span 1;
   grid-column: 2 / span 1;
 }
 
+.dashboard-card {
+  margin: 10px;
+  width: 98%;
+  height: 30vh;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  background-size: cover;
+  background-color: #FFFFFF;
+  color: #050517;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  opacity: 0.9;
+  box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.2);
+}
+
 .settings-grid-item-5 {
   background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 20px;
-  font-size: 30px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 5px;
+  font-size: 20px;
   text-align: center;
   grid-row: 3 / span 1;
   grid-column: 1 / span 1;
@@ -63,44 +90,44 @@
 
 .projects-grid-item-6 {
   background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 20px;
-  font-size: 30px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 5px;
+  font-size: 20px;
   text-align: center;
   grid-row: 3 / span 1;
   grid-column: 2 / span 1;
 }
 
 .profile-project-card {
-  padding: 5px;
-  width: 60vw;
-  height: 30vh;
+  margin: 10px;
+  width: 98%;
+  height: 20vh;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
   background-size: cover;
-  background-color: white;
-  color: black;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  margin-left: 10%;
+  background-color: #FFFFFF;
+  color: #050517;
+  border: 1px solid rgba(0, 0, 0, 0.5);
   opacity: 0.9;
   box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.2);
 }
 
 
-// .show-white-card {
-//   margin-top: 20px;
-//   background-color: white;
-//   border-radius: 5px;
-//   // box-shadow: 2px 2px 4px lightgray;
+.show-white-card {
+  // margin-top: 2%;
+  background-color: #FFFFFF;
+  border-radius: 2px;
 
-//   .card-show-header {
-//     border-radius: 5px;
-//     background-color: lightgray;
-//     padding: 10px;
-//   }
+  .card-show-header {
+    border-radius: 2px;
+    background-color: $brand-success;
+    h4 {
+    padding: 1px;
+  }
 
-//   .card-show-body {
-//     padding: 20px;
-//   }
-// }
-
-
+  .card-show-body {
+    padding: 2px;
+  }
+}
+}
