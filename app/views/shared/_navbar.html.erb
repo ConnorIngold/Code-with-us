@@ -15,7 +15,16 @@
     <!-- Profile picture with dropdown list -->
     <div class="navbar-wagon-item">
       <div class="dropdown" id="menu-trigger">
+
+        <% if current_user.photo? %>
+
         <img style="background-size: cover; background-image: url('<%= cl_image_path current_user.photo %>');" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+
+        <% else %>
+
+           <img style="background-size: cover; background-image: url('https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png?w=300');" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+
+        <% end %>
 
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu" id="menu-drop-down">
           <li>
