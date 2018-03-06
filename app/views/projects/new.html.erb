@@ -1,0 +1,10 @@
+<%= simple_form_for @project do |f| %>
+  <%= f.input :name %>
+  <%= f.input :aim %>
+  <%= f.input :category %>
+  <%= f.input :image %>
+  <%= f.simple_fields_for :tech_project do |t|%>
+    <%= t.input :technologies, collection: @technologies, input_html: {multiple: true} %>
+  <% end %>
+<%= f.button :submit, class: "btn btn-success" %>
+<% end %>
