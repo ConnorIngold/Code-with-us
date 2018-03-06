@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
   def index
     if params[:search].nil? or params[:search].blank?
-      @projects = Project.where(private: false)
+     @projects = Project.where(private: false)
     else
       @projects = Project.where(private: false).global_search(params[:search])
     end
@@ -26,7 +26,7 @@ class ProjectsController < ApplicationController
         @project.technologies  << @technology
       end
     end
-    if project.save
+    if @project.save
       redirect_to project_path(@project)
     else
       render :new
