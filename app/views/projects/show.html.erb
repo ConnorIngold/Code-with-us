@@ -1,3 +1,54 @@
+
+<h1><%= @project.name %></h1>
+<%= @project.aim %>
+<% @project.users.each do |users| %>
+  <%= users.email %>
+<% end %>
+<% @project.technologies.each do |technology| %>
+  <%= technology.name %>
+<% end %>
+<%= @project.open %>
+<% @project.tasks.each do |task| %>
+  <%= task.name %>
+  <%= task.description %>
+  <%= task.difficulty %>
+  <br>
+  <% if @project.owner == current_user %>
+    <%= link_to "Edit Task", edit_project_task_path(@project, task) %>
+    <br>
+    <%= link_to "Delete Task", task_path(task), method: :delete %>
+  <% end %>
+  <% end %>
+<br>
+<% @project.project_invites.each do |invite| %>
+  <%= invite.user.email %>
+  <%= invite.message %>
+  <% if invite.user == current_user %>
+  <%= link_to "edit your invite", edit_project_project_invite_path(@project,invite) %>
+  <% end %>
+<% end %>
+<br>
+  <%= link_to "Request invite", new_project_project_invite_path(@project) %>
+<% if @project.owner == current_user%>
+  <%= link_to "Create a task", new_project_task_path(@project) %>
+  <br>
+  <%= link_to "Edit this project", edit_project_path(@project) %>
+  <br>
+  <%= link_to "Delete project", project_path(@project), method: :delete %>
+  <br>
+<% end %>
+<%= link_to "Back to seach", projects_path %>
+
+
+
+
+
+
+
+
+
+
+
 <div class="project-page">
 
   <h1><%= @project.name %></h1>
@@ -59,3 +110,4 @@
 
 <%= link_to "Edit this project", edit_project_path(@project) %>
 <%= link_to "Delete project", project_path(@project), method: :delete %>
+

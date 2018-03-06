@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :tasks, only: [:new, :create, :edit, :update]
     resources :project_techs, only: [:index]
   end
+  resources :project_invites, only: [:destroy]
   resources :tasks, only: [:destroy]
   resources :technologies, only: [:index]
   resources :users, only: [:show, :edit, :update] do
