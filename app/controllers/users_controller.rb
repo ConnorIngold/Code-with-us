@@ -17,13 +17,7 @@ class UsersController < ApplicationController
     @user.update(user_params)
     @user.save
     redirect_to user_path(@user)
-    authorize @user
-  end
-
-  def destroy
-    @user.destroy
-    authorize @user
-    redirect_to root_path, notice: "The user has been deleted"
+    # authorize @user
   end
 
 

@@ -4,6 +4,13 @@
   <div class="container">
     <div class="col-xs-12 col-md-3">
 
+      <div class="card-show-header">
+        <% if  @user.photo.present? %>
+          <div class="avatar-large" style="background-image: url('<%= cl_image_path @user.photo %>');">
+        <% else %>
+          <div class="avatar-large" style="background-image: url('https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png?w=300')">
+        <% end %>
+      </div>
 
 
       <div class="show-white-card text-center">

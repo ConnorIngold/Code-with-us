@@ -15,7 +15,8 @@
     <!-- Profile picture with dropdown list -->
     <div class="navbar-wagon-item">
       <div class="dropdown" id="menu-trigger">
-        <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+        <img style="background-size: cover; background-image: url('<%= cl_image_path current_user.photo %>');" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu" id="menu-drop-down">
           <li>
             <%= link_to user_path(current_user) do %>
