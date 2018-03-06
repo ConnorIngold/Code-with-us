@@ -8,7 +8,7 @@
         <div class="card-show-header">
           <h4>User name</h4>
         </div>
-     <!--      <% #if  @user.photo.present? %>
+     <!-- <% #if  @user.photo.present? %>
             <div class="avatar-large" style="background-image: url('<%= cl_image_path @user.photo %>');">
           <% #else %>
             <div class="avatar-large" style="background-image: url('https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png?w=300')">
@@ -39,9 +39,15 @@
           <h4 class="h4">Profile settings</h4>
         </div>
         <div class="card-show-body">
-       <!--    <%= link_to #"Edit Profile", edit_user_registration_path(@user) if @user == current_user%> -->
+       <!-- <%= link_to #"Edit Profile", edit_user_registration_path(@user) if @user == current_user%> -->
         </div>
       </div>
+    </div>
+
+    <div class="description">
+      <h2 class="descriptions">This is The user description </h2>
+        <h3>Hello My name is user.name</h3>
+        <p>user.description</p>
     </div>
 
   </div>
