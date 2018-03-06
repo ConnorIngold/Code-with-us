@@ -26,7 +26,7 @@ class ProjectsController < ApplicationController
         @project.technologies  << @technology
       end
     end
-    if project.save
+    if @project.save
       redirect_to project_path(@project)
     else
       render :new

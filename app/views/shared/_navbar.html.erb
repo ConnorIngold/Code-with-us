@@ -9,7 +9,7 @@
 
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Create a Project</a>
+    <%= link_to "Create a Project", new_project_path, class: "navbar-wagon-item navbar-wagon-link"  %>
 
 
     <!-- Profile picture with dropdown list -->
@@ -18,11 +18,11 @@
 
         <% if current_user.photo? %>
 
-        <img style="background-size: cover; background-image: url('<%= cl_image_path current_user.photo %>');" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+        <img src='<%= cl_image_path current_user.photo %>' class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
 
         <% else %>
 
-           <img style="background-size: cover; background-image: url('https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png?w=300');" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+           <img src='https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png?w=300' class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
 
         <% end %>
 
