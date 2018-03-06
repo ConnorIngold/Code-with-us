@@ -1,59 +1,87 @@
-<h1 class="name">User Profile</h1>
-
 <div class="profile-page">
-  <div class="container">
-    <div class="col-xs-12 col-md-3">
+<h1 class="name">User.name profile</h1>
 
-      <div class="card-show-header">
-        <% if  @user.photo.present? %>
-          <div class="avatar-large" style="background-image: url('<%= cl_image_path @user.photo %>');">
-        <% else %>
-          <div class="avatar-large" style="background-image: url('https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png?w=300')">
-        <% end %>
+  <div class="profile-grid">
+
+    <div class="grid-item-1">
+       <div class="show-white-card text-center">
+         <div class="card-show-header">
+           <h4>User name</h4>
+           </div>
+        <!-- <% #if  @user.photo.present? %>
+               <div class="avatar-large" style="background-image: url('<%= cl_image_path @user.photo %>');">
+             <% #else %>
+               <div class="avatar-large" style="background-image: url('https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png?w=300')">
+             <% #end %> -->
+           </div>
+          </div>
+       </div>
+    </div>
+
+    <div class="grid-item-2">
+      <div class="description">
+        <h2 class="descriptions">This is The user description </h2>
+          <h3>Hello My name is user.name</h3>
+          <p>user.description</p>
       </div>
+    </div>
 
 
-      <div class="show-white-card text-center">
-        <div class="card-show-header">
-          <h4>User name</h4>
-        </div>
-      </div>
-
-      <div class="edit-link">
-        <%= link_to "Edit", edit_user_path(@user)   %>
-      </div>
-
-      <div class="show-white-card text-center">
+    <div class="grid-item-3">
+      <div class="show-white-card">
         <div class="card-show-header">
           <h4>Technologies used</h4>
         </div>
         <div class="card-show-body">
-
+          <p>Ruby</p>
+          <p>HTML</p>
+          <p>CSS</p>
+          <p>Javascript</p>
         </div>
       </div>
+    </div>
 
+
+    <div class="grid-item-4">
+      <div class="show-white-card">
+        <div class="card-show-header">
+          <p>Current Projects</p>
+          <p>Completed Projects</p>
+        </div>
+        <div class="dashboard-card">
+          <h4>Dashboard</h4>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="grid-item-5">
       <div class="show-white-card text-center">
         <div class="card-show-header">
+          <h4>I use...</h4>
+        </div>
+        <div class="card-show-body">
           <h4>Git-hub</h4>
         </div>
-        <div class="card-show-body">
-
-        </div>
       </div>
-
-      <div class="show-white-card text-center">
-        <div class="card-show-header">
-          <h4 class="h4">Profile settings</h4>
-        </div>
-        <div class="card-show-body">
-        </div>
-      </div>
-    <div class="description">
-      <h2 class="descriptions">This is The user description </h2>
-        <h3>Hello My name is user.name</h3>
-        <p>user.description</p>
     </div>
-   </div>
+
+
+    <div class="grid-item-6">
+      <div class="container text-center">
+        <div class="profile-project-card">
+          <div class="flex-left">
+            <div class="project-details"></div>
+            <div class="tags"></div>
+          </div>
+          <div class="flex-right">
+            <div class="avater-card"></div>
+            <div class="progress"></div>
+          </div>
+        </div>
+      </div>
+     </div>
+        
   </div>
 </div>
 
