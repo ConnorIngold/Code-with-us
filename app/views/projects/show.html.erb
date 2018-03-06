@@ -1,0 +1,9 @@
+<h1><%= @project.name %></h1>
+<%= @project.aim %>
+<% @project.users.each do |users| %>
+  <%= users.email %>
+<% end %>
+<% @project.technologies.each do |technology| %>
+  <%= technology.name %>
+<% end %>
+<%= @project.open %>
