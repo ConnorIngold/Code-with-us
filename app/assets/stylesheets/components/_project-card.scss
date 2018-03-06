@@ -1,0 +1,33 @@
+.projects-card{
+  padding: 5px;
+  width: 60vw;
+  height: 30vh;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  background-size: cover;
+  background-color: white;
+  color: black;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  /* margin: 10px 0; */
+  margin-left: 10%;
+  opacity: 0.9;
+  box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+
+  .flex-left{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .flex-right{
+    display: flex;
+    flex-direction: column;
+  }
+
+
+
+  &:hover{
+    opacity: 1;
+  }
+}
+
+

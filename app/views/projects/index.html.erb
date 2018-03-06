@@ -1,14 +1,20 @@
-<ul>
-  <% @projects.each do |project|%>
-  <li>
-    <%= link_to project.name, project_path(project)%>
-    <%= project.open %>
-    <%= project.image %>
-    <%= project.updated_at %>
-    <% project.technologies.each do |technology| %>
-      <%= technology.name %>
-    <% end %>
-    <% end %>
-  <% end %>
-</ul>
+
+
+
+<div class="container text-center">
+  <div class="search-bar">
+    <h1>>>>>Place Search bar here Alex<<<</h1>
+  </div>
+  <div class="projects-card">
+    <div class="flex-left">
+      <div class="project-details"></div>
+      <div class="tags"></div>
+    </div>
+    <div class="flex-right">
+      <div class="avater-card"></div>
+      <div class="progress"></div>
+    </div>
+  </div>
+</div>
+
 
