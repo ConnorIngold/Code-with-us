@@ -1,11 +1,62 @@
-<h1><%= @project.name %></h1>
-<%= @project.aim %>
-<% @project.users.each do |users| %>
-  <%= users.email %>
-<% end %>
-<% @project.technologies.each do |technology| %>
-  <%= technology.name %>
-<% end %>
-<%= @project.open %>
+<div class="project-page">
+
+  <h1><%= @project.name %></h1>
+  <% @project.technologies.each do |technology| %>
+    <%= technology.name %>
+  <% end %>
+  <h3>project.users.name</h3>
+  <p><%= @project.aim %></p>
+  <% @project.users.each do |users| %>
+    <%= users.email %>
+  <% end %>
+  <%= @project.open %>
+
+  <div class="project-grid">
+
+    <div class="banner-grid-item-1">
+      <div class="project-banner">
+        <div class="title text-center">
+          <h1 class="name"><%= @project.name %></h1>
+          <% @project.technologies.each do |technology| %>
+            <%= technology.name %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="details-grid-item-2">
+      <div class="details">
+        <h2 class="description">This is the project description </h2>
+          <h3>project.users.name</h3>
+          <p><%= @project.aim %></p>
+          <% @project.users.each do |users| %>
+            <%= users.email %>
+          <% end %>
+          <%= @project.open %>
+      </div>
+    </div>
+
+    <div class="tasks-grid-item-3">
+      <div class="task-container">
+        <h2> To-do | Done | Progress Graph | Options</h2>
+          <div class="container">
+          </div>
+      </div>
+    </div>
+
+    <div class="targets-grid-item-4">
+      <div class="targets">
+      </div>
+    </div>
+
+    <div class="buttons-grid-item-5">
+      <div class="buttons">
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
 <%= link_to "Edit this project", edit_project_path(@project) %>
 <%= link_to "Delete project", project_path(@project), method: :delete %>

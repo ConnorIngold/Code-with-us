@@ -11,7 +11,7 @@
   padding: 10px;
 }
 
-.grid-item-1 {
+.photo-grid-item-1 {
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 20px;
@@ -21,7 +21,7 @@
   grid-column: 1 / span 1 ;
 }
 
-.grid-item-2 {
+.description-grid-item-2 {
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 20px;
@@ -31,7 +31,7 @@
   grid-column: 2 / span 1;
 }
 
-.grid-item-3 {
+.tech-grid-item-3 {
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 20px;
@@ -41,7 +41,7 @@
   grid-column: 1 / span 1;
 }
 
-.grid-item-4 {
+.dashboard-grid-item-4 {
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 20px;
@@ -51,7 +51,7 @@
   grid-column: 2 / span 1;
 }
 
-.grid-item-5 {
+.settings-grid-item-5 {
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 20px;
@@ -61,7 +61,7 @@
   grid-column: 1 / span 1;
 }
 
-.grid-item-6 {
+.projects-grid-item-6 {
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 20px;
@@ -103,11 +103,4 @@
 //   }
 // }
 
-
-.avatar-large {
-  background-size: cover;
-  width: auto;
-  height: 188px;
-  border-radius: 50%;
-}
 
