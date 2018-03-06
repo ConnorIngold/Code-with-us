@@ -1,1 +1,16 @@
-<h1>Edit Profile</h1>
+<div class="container">
+  <div class="edit user form">
+    <h1>Edit Profile</h1>
+
+    <%= simpe_form_for(@user) do |f| %>
+      <%= f.input :full_name %>
+      <%= f.input :description %>
+      <%= f.input :photo %>
+      <%= f.input :photo_cache, as: :hidden  %>
+
+      <%= f.button :submit, "Edit"%>
+    <% end %>
+
+  </div>
+</div>
+
