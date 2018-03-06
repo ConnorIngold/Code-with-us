@@ -1,8 +1,14 @@
 <ul>
   <% @projects.each do |project|%>
   <li>
-    <%= project.name %>
-  </li>
+    <%= link_to project.name, project_path(project)%>
+    <%= project.open %>
+    <%= project.image %>
+    <%= project.updated_at %>
+    <% project.technologies.each do |technology| %>
+      <%= technology.name %>
+    <% end %>
+    <% end %>
   <% end %>
 </ul>
 

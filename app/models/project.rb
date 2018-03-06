@@ -23,7 +23,6 @@ class Project < ApplicationRecord
       tsearch: { prefix: true }
     }
 
-  validates :type, presence: true
   mount_uploader :image, PhotoUploader
 
 end
