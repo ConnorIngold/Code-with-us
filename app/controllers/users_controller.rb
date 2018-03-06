@@ -11,14 +11,14 @@ class UsersController < ApplicationController
     # set_user
     authorize @user
   end
-
+  
   def update
-    # set_user
     @user = current_user
     @user.update(user_params)
     @user.save
     redirect_to user_path(@user)
     authorize @user
+
   end
 
   private
