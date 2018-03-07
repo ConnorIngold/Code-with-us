@@ -1,8 +1,13 @@
 # require 'faker'
 # require 'open-uri'
 
+TechProject.destroy_all
+ProjectInvite.destroy_all
+Technology.destroy_all
+Project.destroy_all
+User.destroy_all
 
-# Technology.destroy_all
+
 
 
 # puts 'Seeding tech...'
@@ -96,14 +101,12 @@ sumai = User.create!(
   git_hub: "SumaiK"
   )
 
-
 alex = User.create!(
   email: "alex.s-a@hotmail.com",
   full_name: "Alex",
   password: "123456",
   git_hub: "AlexS-a"
   )
-
 
 sam = User.create!(
   email: "1516828@brunel.ac.uk",
@@ -117,19 +120,19 @@ Project.create!(
     name: 'Code With Us',
     aim: "A website that helps coders to connect and to create projects using different technologies",
     category: 'Project',
-    user_id: 1
+    user_id: sumai.id,
 )
 Project.create!(
     name: 'Short Cuts',
     aim: "A website that helps our customers find the nearest and cheapest place to get their hair cut",
     category: 'Design',
-    user_id: 2
+    user_id: alex.id,
 )
 Project.create!(
     name: 'Game On',
     aim: "A website that allows users to find games to rent from fellow gamers",
     category: 'Hobbie',
-    user_id: 3
+    user_id: sam.id,
 )
 
-puts "projects seeding complete"
+puts "user and project seeding complete"
