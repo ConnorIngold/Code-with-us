@@ -2,6 +2,7 @@ class TasksController < ApplicationController
   def new
     @task = Task.new
     @project = Project.find(params[:project_id])
+    authorize @task
   end
 
   def create
@@ -15,11 +16,13 @@ class TasksController < ApplicationController
     else
       render :new
     end
+    authorize @task
   end
 
   def edit
     @task = Task.find(params[:id])
     @project = Project.find(params[:project_id])
+    authorize @task
   end
 
   def update
@@ -34,12 +37,14 @@ class TasksController < ApplicationController
     else
       render :new
     end
+    authorize @task
   end
 
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
     redirect_to project_path(@task.project)
+    authorize @task
   end
 
   private
