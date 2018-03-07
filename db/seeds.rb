@@ -33,72 +33,72 @@ Technology.create!(
   photo: 'html.png'
 )
 Technology.create!(
-  name: 'CSS'
-  photo:
+  name: 'CSS',
+  photo: 'css.png'
 )
 Technology.create!(
-  name: 'Javascript'
-  photo:
+  name: 'JS',
+  photo: 'js.png'
 )
 Technology.create!(
-  name: 'Ruby on Rails'
-  photo:
+  name: 'Rails',
+  photo: 'rails.png'
 )
 Technology.create!(
-  name: 'React'
-  photo:
+  name: 'React',
+
 )
 Technology.create!(
-  name: 'SQL'
-  photo:
+  name: 'SQL',
+
 )
 Technology.create!(
-  name: 'Python'
-  photo:
+  name: 'Python',
+
 )
 Technology.create!(
-  name: 'C#'
-  photo:
+  name: 'C#',
+
 )
 Technology.create!(
-  name: 'PHP'
-  photo:
+  name: 'PHP',
+
 )
 Technology.create!(
-  name: 'Objective-C'
-  photo:
+  name: 'Objective-C',
+
 )
 Technology.create!(
-  name: 'Java'
-  photo:
+  name: 'Java',
+
 )
 Technology.create!(
-  name: 'Pearl'
-  photo:
+  name: 'Pearl',
+
 )
 Technology.create!(
-  name: 'C++'
-  photo:
+  name: 'C++',
+
 )
 Technology.create!(
-  name: 'Scala'
-  photo:
+  name: 'Scala',
+
 )
 Technology.create!(
-  name: 'Shell'
-  photo:
+  name: 'Shell',
+
 )
 Technology.create!(
-  name: 'Swift'
-  photo:
+  name: 'Swift',
+
 )
 Technology.create!(
-  name: 'Typescript'
-  photo:
+  name: 'Typescript',
+
 )
 Technology.create!(
   name: 'Django'
-  photo:
+
 )
 
 puts "Tech seeding complete boi"

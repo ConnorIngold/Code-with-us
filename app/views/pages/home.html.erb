@@ -4,7 +4,7 @@
     <div class="banner-content">
       <h1>Code_With_Us</h1>
         <%= form_tag projects_path, id: 'search-form', :method => 'get' do %>
-          <%= text_field_tag :search, params[:search], placeholder: "Search for a project" %>
+          <%= text_field_tag :search, params[:search], placeholder: "Search for a project"  %>
           <%= submit_tag "Go", :name => nil %>
         <% end %>
       <a class="btn btn-primary btn-lg">Start now</a>
