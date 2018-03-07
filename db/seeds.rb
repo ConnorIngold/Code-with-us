@@ -25,67 +25,83 @@
 # Project.destroy_all
 
 Technology.create!(
-    name: 'Ruby'
+  name: 'Ruby',
+  photo: 'ruby.png'
 )
 Technology.create!(
-    name: 'HTML'
+  name: 'HTML',
+  photo: 'html.png'
 )
 Technology.create!(
-    name: 'CSS'
+  name: 'CSS'
+  photo:
 )
 Technology.create!(
-    name: 'Javascript'
+  name: 'Javascript'
+  photo:
 )
 Technology.create!(
-    name: 'Ruby on Rails'
+  name: 'Ruby on Rails'
+  photo:
 )
 Technology.create!(
-    name: 'React'
+  name: 'React'
+  photo:
 )
 Technology.create!(
-    name: 'SQL'
+  name: 'SQL'
+  photo:
 )
 Technology.create!(
-    name: 'Python'
+  name: 'Python'
+  photo:
 )
 Technology.create!(
-    name: 'C#'
+  name: 'C#'
+  photo:
 )
 Technology.create!(
-    name: 'PHP'
+  name: 'PHP'
+  photo:
 )
 Technology.create!(
-    name: 'Objective-C'
+  name: 'Objective-C'
+  photo:
 )
 Technology.create!(
-    name: 'Java'
+  name: 'Java'
+  photo:
 )
 Technology.create!(
-    name: 'Pearl'
+  name: 'Pearl'
+  photo:
 )
 Technology.create!(
-    name: 'C++'
+  name: 'C++'
+  photo:
 )
 Technology.create!(
-    name: 'Scala'
+  name: 'Scala'
+  photo:
 )
 Technology.create!(
-    name: 'Shell'
+  name: 'Shell'
+  photo:
 )
 Technology.create!(
-    name: 'Swift'
+  name: 'Swift'
+  photo:
 )
 Technology.create!(
-    name: 'Go'
+  name: 'Typescript'
+  photo:
 )
 Technology.create!(
-    name: 'Typescript'
-)
-Technology.create!(
-    name: 'Django'
+  name: 'Django'
+  photo:
 )
 
-puts "Tech seeding complete"
+puts "Tech seeding complete boi"
 
 
 sumai = User.create!(
@@ -131,5 +147,5 @@ Project.create!(
 )
 
 
-puts "user and project seeding complete"
+puts "User and Project seeding complete boi"
 

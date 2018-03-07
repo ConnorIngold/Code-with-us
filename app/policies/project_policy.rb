@@ -9,10 +9,10 @@ class ProjectPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user
+    record.owner == user
   end
 
   def destroy?
-    record.user == user
+    record.owner == user
   end
 end
