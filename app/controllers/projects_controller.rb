@@ -1,20 +1,23 @@
 class ProjectsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     if params[:search].nil? or params[:search].blank?
-     @projects = Project.where(private: false)
+     @projects = policy_scope(Project).where(private: false)
     else
-      @projects = Project.where(private: false).global_search(params[:search])
+      @projects = policy_scope(Project).where(private: false).global_search(params[:search])
     end
   end
 
   def show
     @project = Project.find(params[:id])
+    authorize @project
   end
 
   def new
     @project = Project.new
     @tech_project = TechProject.new
     @technologies = Technology.all
+    authorize @project
   end
 
   def create
@@ -31,11 +34,13 @@ class ProjectsController < ApplicationController
     else
       render :new
     end
+    authorize @project
   end
 
   def edit
     @project = Project.find(params[:id])
     @technologies = Technology.all
+    authorize @project
   end
 
   def update
@@ -53,12 +58,14 @@ class ProjectsController < ApplicationController
     else
       render :new
     end
+    authorize @project
   end
 
   def destroy
     @project = Project.find(params[:id])
     @project.destroy
     redirect_to projects_path
+    authorize @project
   end
 
 

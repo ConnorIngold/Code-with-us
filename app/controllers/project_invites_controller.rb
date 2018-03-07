@@ -1,9 +1,9 @@
 class ProjectInvitesController < ApplicationController
-  # :new, :create, :edit, :update
+  skip_before_action :authenticate_user!
   def new
     @project_invite = ProjectInvite.new
     @project = Project.find(params[:project_id])
-
+    authorize @project_invite
   end
 
   def create
@@ -16,11 +16,13 @@ class ProjectInvitesController < ApplicationController
     else
       render :new
     end
+    authorize @project_invite
   end
 
   def edit
     @project_invite = ProjectInvite.find(params[:id])
     @project = Project.find(params[:project_id])
+    authorize @project_invite
   end
 
   def update
@@ -32,12 +34,14 @@ class ProjectInvitesController < ApplicationController
     else
       render :new
     end
+    authorize @project_invite
   end
 
   def destroy
     @project_invite = ProjectInvite.find(params[:id])
     @project_invite.destroy
     redirect_to project_path(project_invite.project)
+    authorize @project_invite
   end
 
   private

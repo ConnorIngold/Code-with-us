@@ -130,5 +130,6 @@ Project.create!(
     user_id: 3
 )
 
+
 puts "user and project seeding complete"
 

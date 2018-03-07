@@ -9,6 +9,13 @@
   align-items: center;
   justify-content: center;
 }
+.banner-content #search-form {
+  opacity: 1 !important;
+  input {
+    color: black;
+    margin-bottom: 3%;
+  }
+}
 .banner h1 {
   font-size: 50px;
   font-weight: bold;

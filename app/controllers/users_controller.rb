@@ -4,12 +4,12 @@ class UsersController < ApplicationController
 
   def show
     set_user
-    # authorize @user
+    authorize @user
   end
 
   def edit
     set_user
-    # authorize @user
+    authorize @user
   end
 
   def update
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     @user.update(user_params)
     @user.save
     redirect_to user_path(@user)
-    # authorize @user
+    authorize @user
   end
 
 

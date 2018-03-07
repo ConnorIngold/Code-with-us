@@ -6,7 +6,7 @@ class CreateProjects < ActiveRecord::Migration[5.1]
       t.string :category
       t.boolean :private, default: false
       t.string :image
-      t.boolean :open
+      t.boolean :open, default: true
       t.references :user, foreign_key: true
 
       t.timestamps
