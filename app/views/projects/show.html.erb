@@ -8,6 +8,7 @@
   <%= technology.name %>
 <% end %>
 <%= @project.open %>
+<br>
 <% @project.tasks.each do |task| %>
   <%= task.name %>
   <%= task.description %>
@@ -23,8 +24,9 @@
 <% @project.project_invites.each do |invite| %>
   <%= invite.user.email %>
   <%= invite.message %>
+  <%= invite.status %>
   <% if invite.user == current_user %>
-  <%= link_to "edit your invite", edit_project_project_invite_path(@project,invite) %>
+  <%= link_to "edit your invite", edit_project_invite_path(@project,invite) %>
   <% end %>
 <% end %>
 <br>
