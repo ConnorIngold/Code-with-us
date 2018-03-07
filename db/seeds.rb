@@ -27,7 +27,7 @@ User.destroy_all
 # js.save
 # puts 'Tech Seeded boi'
 
-# Project.destroy_all
+# Technology.destroy_all
 
 Technology.create!(
     name: 'Ruby'
@@ -93,6 +93,7 @@ Technology.create!(
 puts "Tech seeding complete"
 
 
+
 sumai = User.create!(
   email: "sumaikhayat@gmail.com",
   full_name: "Sumai",
@@ -134,7 +135,4 @@ Project.create!(
     user_id: sam.id,
 )
 
-
 puts "user and project seeding complete"
-
-

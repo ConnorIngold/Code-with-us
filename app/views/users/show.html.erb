@@ -15,10 +15,6 @@
     </div>
 
 
-    <div class="edit-link">
-      <%= link_to "Edit", edit_user_path(@user) %>
-    </div>
-
     <div class="description-grid-item-2">
       <div class="description">
         <h2>This is the user description </h2>
@@ -33,7 +29,9 @@
           <h4>Setting</h4>
         </div>
         <div class="card-show-body">
-          <p>Edit profile</p>
+         <div class="edit-link">
+           <%= link_to "Edit Profile", edit_user_path(@user) %>
+         </div>
           <p>Edit projects</p>
         </div>
       </div>
