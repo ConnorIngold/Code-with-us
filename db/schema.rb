@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20180306172150) do
     t.string "name"
     t.text "aim"
     t.string "category"
-    t.boolean "private"
+    t.boolean "private", default: false
     t.string "image"
     t.boolean "open"
     t.bigint "user_id"
