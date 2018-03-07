@@ -7,6 +7,15 @@ class ApplicationController < ActionController::Base
   end
 
 
+  def after_sign_in_path_for(resource)
+   root_path
+  end
+
+  def after_sign_up_path_for(resource)
+   root_path
+  end
+
+
   before_action :authenticate_user!
   include Pundit
 
@@ -19,4 +28,5 @@ class ApplicationController < ActionController::Base
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
+
 end
