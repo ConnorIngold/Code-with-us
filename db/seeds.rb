@@ -30,67 +30,84 @@ User.destroy_all
 # Technology.destroy_all
 
 Technology.create!(
-    name: 'Ruby'
+  name: 'Ruby',
+  photo: 'ruby.png'
 )
 Technology.create!(
-    name: 'HTML'
+  name: 'HTML',
+  photo: 'html.png'
 )
 Technology.create!(
-    name: 'CSS'
+  name: 'CSS',
+  photo: 'css.png'
 )
 Technology.create!(
-    name: 'Javascript'
+  name: 'JS',
+  photo: 'js.png'
 )
 Technology.create!(
-    name: 'Ruby on Rails'
+  name: 'Rails',
+  photo: 'rails.png'
 )
 Technology.create!(
-    name: 'React'
+  name: 'React',
+
 )
 Technology.create!(
-    name: 'SQL'
+  name: 'SQL',
+
 )
 Technology.create!(
-    name: 'Python'
+  name: 'Python',
+
 )
 Technology.create!(
-    name: 'C#'
+  name: 'C#',
+ }
+Technology.create!(
+  name: 'PHP',
 )
 Technology.create!(
     name: 'C++'
+
 )
 Technology.create!(
-    name: 'PHP'
+  name: 'Objective-C',
+
 )
 Technology.create!(
-    name: 'Java'
+  name: 'Java',
 )
 Technology.create!(
-    name: 'Angular'
+  name: 'Angular'
 )
 Technology.create!(
-    name: 'Scala'
+  name: 'C++',
+
 )
 Technology.create!(
-    name: 'Perl'
+  name: 'Scala',
 )
 Technology.create!(
-    name: 'Swift'
+  name: 'Shell',
+
 )
 Technology.create!(
-    name: 'Jquery'
+  name: 'Swift';
 )
 Technology.create!(
-    name: 'Typescript'
+  name: 'Typescript',
+
 )
 Technology.create!(
-    name: 'Django'
+  name: 'Django'
+
 )
 Technology.create!(
     name: '.Net Framework'
 )
 
-puts "Tech seeding complete"
+puts "Tech seeding complete boi"
 
 
 
@@ -135,4 +152,8 @@ Project.create!(
     user_id: sam.id,
 )
 
-puts "user and project seeding complete"
+
+
+puts "User and Project seeding complete boi"
+
+
