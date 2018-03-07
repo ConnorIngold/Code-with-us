@@ -85,3 +85,45 @@
   </div>
 </div>
 
+<br>
+<br>
+
+<p>User technologies</p>
+<ul>
+  <% @user.technologies.each do |tech| %>
+  <li>
+    <%= tech.name %>
+  </li>
+  <% end %>
+</ul>
+
+<br>
+
+<p>List project they are in</p>
+<ul>
+  <% @projects.each do |project| %>
+  <li>
+    <% if project.users.include?(@user) %>
+      <%= link_to project.name, project_path(project) %>
+    <% end %>
+  </li>
+  <% end %>
+</ul>
+
+<br>
+
+<p>List porject they are the admin</p>
+<ul>
+  <% @user.my_projects.each do |project| %>
+  <li>
+    <%= link_to project.name, project_path(project) %>
+  </li>
+  <% end %>
+</ul>
+
+<br>
+
+<p>Project request index page with edit button</p>
+<% if @user == current_user %>
+<%= link_to "Edit your requests", project_invites_path %>
+<% end %>

@@ -8,3 +8,15 @@
   <%= f.input :image %>
 <%= f.button :submit, class: "btn btn-success" %>
 <% end %>
+
+<br>
+<br>
+<br>
+
+<% @project.project_invites.each do |invite| %>
+  <%= invite.user.email %>
+  <%= invite.message %>
+  <%= invite.status %>
+  <%= link_to "accept", accept_path(invite), class: "btn btn-success accept-button" %>
+  <%= link_to "decline", decline_path(invite),  class: "btn btn-danger decline" %>
+<% end %>
