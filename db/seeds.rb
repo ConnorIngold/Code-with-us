@@ -22,7 +22,7 @@
 # js.save
 # puts 'Tech Seeded boi'
 
-# Project.destroy_all
+# Technology.destroy_all
 
 Technology.create!(
     name: 'Ruby'
@@ -52,31 +52,28 @@ Technology.create!(
     name: 'C#'
 )
 Technology.create!(
-    name: 'PHP'
+    name: 'C++'
 )
 Technology.create!(
-    name: 'Objective-C'
+    name: 'PHP'
 )
 Technology.create!(
     name: 'Java'
 )
 Technology.create!(
-    name: 'Pearl'
-)
-Technology.create!(
-    name: 'C++'
+    name: 'Angular'
 )
 Technology.create!(
     name: 'Scala'
 )
 Technology.create!(
-    name: 'Shell'
+    name: 'Perl'
 )
 Technology.create!(
     name: 'Swift'
 )
 Technology.create!(
-    name: 'Go'
+    name: 'Jquery'
 )
 Technology.create!(
     name: 'Typescript'
@@ -84,8 +81,12 @@ Technology.create!(
 Technology.create!(
     name: 'Django'
 )
+Technology.create!(
+    name: '.Net Framework'
+)
 
 puts "Tech seeding complete"
+
 
 
 sumai = User.create!(
@@ -111,6 +112,7 @@ sam = User.create!(
   git_hub: "SamTy234"
   )
 
+
 Project.create!(
     name: 'Code With Us',
     aim: "A website that helps coders to connect and to create projects using different technologies",
@@ -130,6 +132,4 @@ Project.create!(
     user_id: 3
 )
 
-
-puts "user and project seeding complete"
-
+puts "projects seeding complete"

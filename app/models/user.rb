@@ -12,7 +12,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   validates :full_name, presence: true
-  validates :user_name
   validates :git_hub, presence: true, uniqueness: true
   mount_uploader :photo, PhotoUploader
 end
