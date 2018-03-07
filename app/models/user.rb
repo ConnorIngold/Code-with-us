@@ -13,5 +13,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   validates :full_name, presence: true
   validates :git_hub, presence: true, uniqueness: true
+  # validates :user_hub, presence: true, uniqueness: true
   mount_uploader :photo, PhotoUploader
 end

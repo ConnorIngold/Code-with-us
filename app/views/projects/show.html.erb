@@ -1,71 +1,37 @@
 
-<h1><%= @project.name %></h1>
-<%= @project.aim %>
-<% @project.users.each do |users| %>
-  <%= users.email %>
-<% end %>
-<% @project.technologies.each do |technology| %>
-  <%= technology.name %>
-<% end %>
-<%= @project.open %>
-<% @project.tasks.each do |task| %>
-  <%= task.name %>
-  <%= task.description %>
-  <%= task.difficulty %>
-  <br>
-  <% if @project.owner == current_user %>
-    <%= link_to "Edit Task", edit_project_task_path(@project, task) %>
-    <br>
-    <%= link_to "Delete Task", task_path(task), method: :delete %>
+<div class="modal">
+  <% @project.project_invites.each do |invite| %>
+    <%= invite.user.email %>
+    <%= invite.message %>
+    <% if invite.user == current_user %>
+     <%= link_to "Edit your invite", edit_project_project_invite_path(@project,invite) %>
+     <%= link_to "Delete request", project_invite(invite), method: :delete %>
+    <% end %>
   <% end %>
-  <% end %>
-<br>
-<% @project.project_invites.each do |invite| %>
-  <%= invite.user.email %>
-  <%= invite.message %>
-  <% if invite.user == current_user %>
-  <%= link_to "edit your invite", edit_project_project_invite_path(@project,invite) %>
-  <% end %>
-<% end %>
-<br>
-  <%= link_to "Request invite", new_project_project_invite_path(@project) %>
-<% if @project.owner == current_user%>
-  <%= link_to "Create a task", new_project_task_path(@project) %>
-  <br>
-  <%= link_to "Edit this project", edit_project_path(@project) %>
-  <br>
-  <%= link_to "Delete project", project_path(@project), method: :delete %>
-  <br>
-<% end %>
-<%= link_to "Back to seach", projects_path %>
-
-
-
-
+</div>
 
 
 <div class="project-page">
-
   <div class="project-grid">
 
     <div class="banner-grid-item-1">
       <div class="project-banner">
         <div class="title text-center">
           <h1 class="name"><%= @project.name %></h1>
-          <% @project.technologies.each do |technology| %>
-            <%= technology.name %>
-          <% end %>
+
         </div>
       </div>
     </div>
 
     <div class="details-grid-item-2">
       <div class="details">
-        <h2 class="description">This is the project description </h2>
-          <h3>project.users.name</h3>
+        <h3 class="description"><%= @project.owner.full_name %> </h3>
           <p><%= @project.aim %></p>
           <% @project.users.each do |users| %>
             <%= users.email %>
+          <% end %>
+          <% @project.technologies.each do |technology| %>
+            <%= technology.name %>
           <% end %>
           <%= @project.open %>
       </div>
@@ -75,17 +41,36 @@
       <div class="task-container">
         <h2> To-do | Done | Progress Graph | Options</h2>
           <div class="container">
+            <% if @project.owner == current_user%>
+              <%= link_to "Create a task", new_project_task_path(@project) %>
+              <br>
+            <% end %>
+            <div class="task-container">
+            <% @project.tasks.each do |task| %>
+              <%= task.name %>
+              <%= task.description %>
+              <%= task.difficulty %>
+              <br>
+              <% if @project.owner == current_user %>
+                <%= link_to "Edit Task", edit_project_task_path(@project, task) %>
+                <br>
+                <%= link_to "Delete Task", task_path(task), method: :delete %>
+              <% end %>
+            <% end %>
+            </div>
           </div>
       </div>
     </div>
 
     <div class="targets-grid-item-4">
-      <div class="targets">
+      <div class="target-container">
       </div>
     </div>
 
     <div class="buttons-grid-item-5">
       <div class="buttons">
+        <%= link_to "Request invite", new_project_project_invite_path(@project) %>
+
       </div>
     </div>
 
@@ -94,4 +79,8 @@
 
 <%= link_to "Edit this project", edit_project_path(@project) %>
 <%= link_to "Delete project", project_path(@project), method: :delete %>
+<%= link_to "Back to seach", projects_path %>
 
+
+
+<%= javascript_pack_tag 'target' %>
