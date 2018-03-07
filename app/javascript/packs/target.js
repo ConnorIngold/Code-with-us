@@ -22,8 +22,8 @@ var bar = new ProgressBar.Line(".target-container", {
       position: 'absolute',
       right: '0',
       top: '30px',
-      padding: 0,
-      margin: 0,
+      padding: 10,
+      margin: 5,
       transform: null
     },
     autoStyleContainer: false
