@@ -38,9 +38,10 @@
       <div class="task-container">
         <div class="container">
           <ul class="tabs">
-            <li class="tab-link current" data-tab="tab-1">Tasks To-Do</li>
-            <li class="tab-link" data-tab="tab-2">Tasks Completed</li>
-            <li class="tab-link" data-tab="tab-3">Options</li>
+            <li class="tab-link current" data-tab="tab-1">Create a Task</li>
+            <li class="tab-link current" data-tab="tab-2">Tasks To-Do</li>
+            <li class="tab-link" data-tab="tab-3">Tasks Completed</li>
+            <li class="tab-link" data-tab="tab-4">Options</li>
           </ul>
 
           <div id="tab-1" class="tab-content current">
@@ -56,12 +57,13 @@
                 <p>completed</p>
               <% elsif task.complete === false %>
                 <p>incomplete</p>
+
               <% end %>
               <br>
                 <% if (task.user == current_user || @project.owner == current_user) && task.complete === false %>
                   <%= link_to "Completed", complete_path(task) %>
-                <% elsif (task.user == current_user || @project.owner == current_user) && task.complete = true %>
-                  <%= link_to "Uncomplete", not_complete_path(task) %>
+                <% else (task.user == current_user || @project.owner == current_user) && task.complete = true %>
+                  <%= link_to "Incomplete", not_complete_path(task) %>
                 <% end %>
                 <%= link_to "Delete Task", task_path(task), method: :delete %>
               <br>
@@ -72,10 +74,28 @@
             <% end %>
           </div>
           <div id="tab-2" class="tab-content">
+
+            <% @project.tasks.each do |task| %>
+              <%= task.name %>
+              <%= task.description %>
+              <%= task.difficulty %>
+              <% if task.complete === true %>
+                <p> Completed </p>
+              <% elsif task.complete === false %>
+                <p> Incomplete </p>
+              <% end %>
+            <% end %>
+          </div>
+          <div id="tab-3" class="tab-content">
              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </div>
+          <div id="tab-4" class="tab-content">
+            <%= link_to "Edit this project", edit_project_path(@project) %>
+            <%= link_to "Delete project", project_path(@project), method: :delete %>
           </div>
           <div id="tab-3" class="tab-content">
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
           </div>
         </div>
       </div>
@@ -92,9 +112,17 @@
     <div class="buttons-grid-item-5">
       <div class="buttons">
         <% if @project.owner == current_user %>
-          <h3> Message Team </h3>
+          <h3> Message Team Button</h3>
         <% else %>
           <%= link_to "Request invite", new_project_project_invite_path(@project) %>
+        <% end %>
+        <% @project.project_invites.each do |invite| %>
+          <%= invite.user.email %>
+          <%= invite.message %>
+          <% if invite.user == current_user %>
+           <%= link_to "Edit your invite", edit_project_invite_path(@project,invite) %>
+           <%= link_to "Delete request", project_invite_path(invite), method: :delete %>
+          <% end %>
         <% end %>
       </div>
     </div>
@@ -102,14 +130,54 @@
   </div>
 </div>
 
+
 <%= link_to "Edit this project", edit_project_path(@project) %>
 <%= link_to "Delete project", project_path(@project), method: :delete %>
 <%= link_to "Back to seach", projects_path %>
 <br>
 <br>
-<br>
-
 
 <%= javascript_pack_tag 'target' %>
 <%= javascript_pack_tag 'task' %>
+
+<br>
+<br>
+
+<%incomplete_counter = @project.tasks.where(complete: false).length %>
+<% complete_counter = @project.tasks.where(complete: true).length%>
+<p>List of incompleted task <%= incomplete_counter %></p>
+<% @project.tasks.each do |task| %>
+  <% if task.complete === false %>
+    <%= task.name %>
+    <%= task.user.email %>
+    <%= task.description %>
+    <%= task.complete %>
+    <% if task.user == current_user || @project.owner == current_user %>
+      <%= link_to "Completed", complete_path(task) %>
+    <% end %>
+    <% if @project.owner == current_user %>
+      <%= link_to "Edit Task", edit_project_task_path(@project, task) %>
+      <%= link_to "Delete Task", task_path(task), method: :delete %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<br>
+<br>
+<p>List of completed tasks <%= complete_counter %></p>
+<% @project.tasks.each do |task| %>
+  <% if task.complete === true %>
+    <%= task.name %>
+    <%= task.user.email %>
+    <%= task.description %>
+    <%= task.complete %>
+    <% if task.user == current_user || @project.owner == current_user %>
+      <%= link_to "Uncomplete", not_complete_path(task) %>
+    <% end %>
+    <% if @project.owner == current_user %>
+      <%= link_to "Edit Task", edit_project_task_path(@project, task) %>
+      <%= link_to "Delete Task", task_path(task), method: :delete %>
+    <% end %>
+  <% end %>
+<% end %>
 
