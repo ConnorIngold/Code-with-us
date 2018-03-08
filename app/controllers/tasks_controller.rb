@@ -47,6 +47,22 @@ class TasksController < ApplicationController
     authorize @task
   end
 
+  def complete
+    @task = Task.find(params[:id])
+    @task.complete = true
+    @task.save
+    redirect_to project_path(@task.project)
+    authorize @task
+  end
+
+  def not_complete
+    @task = Task.find(params[:id])
+    @task.complete = false
+    @task.save
+    redirect_to project_path(@task.project)
+    authorize @task
+  end
+
   private
 
   def user_params
