@@ -64,14 +64,14 @@ Technology.create!(
 Technology.create!(
   name: 'C#',
   photo: 'c#.png'
+
+Technology.create!(
+  name: 'Typescript.png',
+  photo: 'typescript.png'
 )
 Technology.create!(
   name: 'PHP',
   photo: 'php.png'
-)
-Technology.create!(
-  name: 'Typescript.png',
-  photo: 'typescript.png'
 )
 Technology.create!(
   name: 'Perl',
@@ -115,7 +115,6 @@ Technology.create!(
 )
 
 puts "Tech seeding complete boi"
-
 
 
 sumai = User.create!(
@@ -165,10 +164,11 @@ Project.create!(
 )
 Project.create!(
     name: 'My Portfolio',
-    aim: "A website that allows me to manage my portfolio",
+    aim: "A website that allows me to manage my professional portfolio",
     category: 'Learning',
     user_id: connor.id,
 )
+
 
 puts "User and Project seeding complete boi"
 
