@@ -9,3 +9,46 @@
   <%= f.input :image_cache, as: :hidden %>
 <%= f.button :submit, class: "btn btn-success" %>
 <% end %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <div class="form-user">
+        <h1>Edit Project</h1>
+        <%= simple_form_for(@project) do |f| %>
+        <div class="row">
+          <div class="col-xs-12">
+            <%= f.input :name, placeholder: "Name" %>
+          </div>
+          <div class="col-xs-12">
+            <%= f.input :aim, placeholder: 'Aim of project' %>
+          </div>
+        </div>
+          <div class="col-xs-12">
+            <%= f.input :category, collection: Project::CATEGORIES, prompt: "What is the purpose of this project?" %>
+          </div>
+        </div>
+          <div class="form-group">
+            <label class="control-label check_boxes optional">Technologies</label>
+            <input type="hidden" name="post[technology_ids][]" value="">
+            <div class="technology-choices">
+              <% @technologies.each do |technology| %>
+              <div class="technology-choice">
+                <input type="checkbox" class="hidden" value="<%= technology.id %>" name="post[technology_ids][]" id="post_technology_ids_<%= technology.id %>">
+                <label for="post_technology_ids_<%= technology.id %>">
+                  <%= technology.name %>
+                  <i class="fa fa-check"></i>
+                </label>
+              </div>
+              <% end %>
+             </div>
+          </div>
+          <%= f.input :image %>
+          <%= f.input :image_cache, as: :hidden %>
+          <%= f.submit "Save", class: "btn btn-primary"  %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
