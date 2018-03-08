@@ -91,6 +91,7 @@
             class="btn btn-default">Sign-up</a>
             <a href="#myModal3" data-toggle="modal" data-dismiss="modal"
             class="btn btn-default">Forgot your password?</a>
+            <a href="/users/auth/github" class="btn github-btn"><i class="fa fa-github"></i>Sign in with GitHub</a>
           <% end %>
         </div>
       </div>
@@ -116,16 +117,18 @@
            <!-- TODO Add two input fields for full name and Github-->
           </div>
 
-          <div class="modal-footer">
-            <div class="form-actions">
-              <%= f.button :submit, "Sign up", class: "btn btn-success" %>
-            </div>
-            <a href="#myModal" data-toggle="modal" data-dismiss="modal"
-            class="btn btn-default">Log in</a>
-            <a href="#myModal3" data-toggle="modal" data-dismiss="modal"
-            class="btn btn-default">Forgot your password?</a>
-            <% end %>
+        </div>
+
+        <div class="modal-footer">
+          <div class="form-actions">
+            <%= f.button :submit, "Sign up", class: "btn btn-success" %>
           </div>
+          <a href="#myModal" data-toggle="modal" data-dismiss="modal"
+          class="btn btn-default">Log in</a>
+          <a href="#myModal3" data-toggle="modal" data-dismiss="modal"
+          class="btn btn-default">Forgot your password?</a>
+          <a href="/users/auth/github" class="btn github-btn">Sign in with GitHub</a>
+          <% end %>
         </div>
       </div>
     </div>
