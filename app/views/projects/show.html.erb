@@ -34,42 +34,17 @@
       <div class="task-container">
         <div class="container">
           <ul class="tabs">
-            <li class="tab-link current" data-tab="tab-1">Create Task</li>
-            <li class="tab-link" data-tab="tab-2">Tasks To-Do</li>
-            <li class="tab-link" data-tab="tab-3">Completed Tasks</li>
-            <li class="tab-link" data-tab="tab-4">Options</li>
+            <li class="tab-link" data-tab="To-Do">Tasks To-Do </li>
+            <li class="tab-link" data-tab="Completed">Completed Tasks</li>
+            <li class="tab-link" data-tab="Create">Create Task</li>
+            <li class="tab-link" data-tab="Options">Options</li>
           </ul>
 
-          <div id="tab-1" class="tab-content current">
-            <% if @project.owner == current_user%>
-              <%= link_to "Create a task", new_project_task_path(@project) %>
-              <br>
-            <% end %>
-            <% @project.tasks.each do |task| %>
-              <%= task.name %>
-              <%= task.description %>
-              <%= task.difficulty %>
-              <% if task.complete === true %>
-                <p>completed</p>
-              <% elsif task.complete === false %>
-                <p>incomplete</p>
-              <% end %>
-              <br>
-                <% if (task.user == current_user || @project.owner == current_user) && task.complete === false %>
-                  <%= link_to "Completed", complete_path(task) %>
-                <% else (task.user == current_user || @project.owner == current_user) && task.complete = true %>
-                  <%= link_to "Incomplete", not_complete_path(task) %>
-                <% end %>
-                <%= link_to "Delete Task", task_path(task), method: :delete %>
-              <br>
-              <% if @project.owner == current_user %>
-                <%= link_to "Edit Task", edit_project_task_path(@project, task) %>
-                <br>
-              <% end %>
-            <% end %>
-          </div>
+          <div id="To-Do" class="tab-content">
+            <%incomplete_counter = @project.tasks.where(complete: false).length %>
+            <p> You have <%= incomplete_counter %> task</p>
 
-          <div id="tab-2" class="tab-content">
+            <% complete_counter = @project.tasks.where(complete: true).length%>
             <% @project.tasks.each do |task| %>
               <% if task.complete === false %>
                 <%= task.name %>
@@ -88,8 +63,9 @@
             <% end %>
           </div>
 
-          <div id="tab-3" class="tab-content">
+          <div id="Completed" class="tab-content">
             <% complete_counter = @project.tasks.where(complete: true).length%>
+            <p> You have <%= complete_counter %> completed tasks</p>
             <p>List of completed tasks <%= complete_counter %></p>
             <% @project.tasks.each do |task| %>
               <% if task.complete === true %>
@@ -108,7 +84,13 @@
             <% end %>
           </div>
 
-          <div id="tab-4" class="tab-content">
+          <div id="Create" class="tab-content current">
+            <% if @project.owner == current_user %>
+              <%= link_to "Create a task", new_project_task_path(@project) %>
+            <% end %>
+          </div>
+
+          <div id="Options" class="tab-content">
             <%= link_to "Edit this project", edit_project_path(@project) %>
             <%= link_to "Delete project", project_path(@project), method: :delete %>
           </div>
@@ -121,7 +103,7 @@
         <svg version="1.1" id="line_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="30px" y="0px" width="50px" height="300px" xml:space="preserve">
         <path id="progress" fill="#01a09e" stroke-width="100" stroke="#7FD89B" d="M30 300 L30 0"/>
         </svg>
-      </div>
+      </div style= "display: inline-block;">
 
       <div>
 

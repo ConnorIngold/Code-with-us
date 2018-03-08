@@ -4,8 +4,9 @@
     <div class="task-simple_form">
       <% choices = [] %>
       <% @project.users.each do |user| %>
-        <% choices << user.full_name %>
+        <% choices << user.email %>
       <% end %>
+      <% choices << @project.owner.email %>
 
       <%= simple_form_for [@project, @task] do |f| %>
         <%= f.input :name %>
