@@ -2,8 +2,8 @@
   <%= invite.user.email %>
   <%= invite.message %>
   <% if invite.user == current_user %>
-   <%= link_to "Edit your invite", edit_project_project_invite_path(@project,invite) %>
-   <%= link_to "Delete request", project_invite(invite), method: :delete %>
+   <%= link_to "Edit your invite", edit_project_invite_path(@project,invite) %>
+   <%= link_to "Delete request", project_invite_path(invite), method: :delete %>
   <% end %>
 <% end %>
 
@@ -52,11 +52,22 @@
               <%= task.name %>
               <%= task.description %>
               <%= task.difficulty %>
+              <% if task.complete === true %>
+                <p>completed</p>
+              <% elsif task.complete === false %>
+                <p>incomplete</p>
+              <% end %>
+              <br>
+                <% if (task.user == current_user || @project.owner == current_user) && task.complete === false %>
+                  <%= link_to "Completed", complete_path(task) %>
+                <% elsif (task.user == current_user || @project.owner == current_user) && task.complete = true %>
+                  <%= link_to "Uncomplete", not_complete_path(task) %>
+                <% end %>
+                <%= link_to "Delete Task", task_path(task), method: :delete %>
               <br>
               <% if @project.owner == current_user %>
                 <%= link_to "Edit Task", edit_project_task_path(@project, task) %>
                 <br>
-                <%= link_to "Delete Task", task_path(task), method: :delete %>
               <% end %>
             <% end %>
           </div>
@@ -94,8 +105,11 @@
 <%= link_to "Edit this project", edit_project_path(@project) %>
 <%= link_to "Delete project", project_path(@project), method: :delete %>
 <%= link_to "Back to seach", projects_path %>
-
+<br>
+<br>
+<br>
 
 
 <%= javascript_pack_tag 'target' %>
 <%= javascript_pack_tag 'task' %>
+

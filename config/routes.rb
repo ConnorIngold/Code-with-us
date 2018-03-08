@@ -15,5 +15,7 @@ Rails.application.routes.draw do
 
   get 'project_invites/:id/accept' => 'project_invites#status_accept', as: 'accept'
   get 'project_invites/:id/decline' => 'project_invites#status_decline', as: 'decline'
+  get 'tasks/:id/complete' => 'tasks#complete', as: 'complete'
+  get 'tasks/:id/not_complete' => 'tasks#not_complete', as: 'not_complete'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

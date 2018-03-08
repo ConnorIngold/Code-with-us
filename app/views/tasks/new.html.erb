@@ -6,7 +6,6 @@
       <% @project.users.each do |user| %>
         <% choices << user.full_name %>
       <% end %>
-      <% choices << @project.owner.full_name %>
 
       <%= simple_form_for [@project, @task] do |f| %>
         <%= f.input :name %>

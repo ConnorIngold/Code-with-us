@@ -6,7 +6,6 @@ class User < ApplicationRecord
   has_many :tasks
   has_many :technologies, through: :tech_users
   has_many :my_projects, foreign_key: "user_id", class_name: "Project"
-
   #User.first.my_projects = there project they created
   #User.first.projects =  project they are working for
 
