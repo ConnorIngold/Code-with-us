@@ -24,7 +24,15 @@
             <% @project.technologies.each do |technology| %>
               <%= technology.name %>
             <% end %>
-            <%= @project.open %>
+            <% if @project.open %>
+              <div class="status-o">
+                <p class="open">OPEN</p>
+              </div>
+            <% else %>
+              <div class="status-c">
+                <p class="closed">CLOSED</p>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>
@@ -34,15 +42,15 @@
       <div class="task-container">
         <div class="container">
           <ul class="tabs">
-            <li class="tab-link" data-tab="To-Do">Tasks To-Do </li>
+            <li class="tab-link current" data-tab="To-Do">Tasks To-Do</li>
             <li class="tab-link" data-tab="Completed">Completed Tasks</li>
             <li class="tab-link" data-tab="Create">Create Task</li>
             <li class="tab-link" data-tab="Options">Options</li>
           </ul>
 
-          <div id="To-Do" class="tab-content">
+          <div id="To-Do" class="tab-content current">
             <%incomplete_counter = @project.tasks.where(complete: false).length %>
-            <p> You have <%= incomplete_counter %> task</p>
+            <p> Number of tasks to-do <%= incomplete_counter %></p>
 
             <% complete_counter = @project.tasks.where(complete: true).length%>
             <% @project.tasks.each do |task| %>
@@ -64,9 +72,10 @@
           </div>
 
           <div id="Completed" class="tab-content">
+            <%incomplete_counter = @project.tasks.where(complete: false).length %>
             <% complete_counter = @project.tasks.where(complete: true).length%>
-            <p> You have <%= complete_counter %> completed tasks</p>
-            <p>List of completed tasks <%= complete_counter %></p>
+            <p> You have a total of <%= complete_counter + incomplete_counter %> tasks</p>
+            <p>List of completed tasks: <%= complete_counter %></p>
             <% @project.tasks.each do |task| %>
               <% if task.complete === true %>
                 <%= task.name %>
@@ -84,10 +93,32 @@
             <% end %>
           </div>
 
-          <div id="Create" class="tab-content current">
-            <% if @project.owner == current_user %>
+          <div id="Create" class="tab-content">
+            <% if @project.owner == current_user || @project.users.merge(ProjectInvite.accepted_users) %>
               <%= link_to "Create a task", new_project_task_path(@project) %>
             <% end %>
+            <div class="task-form">
+            <div class="container">
+              <div class="row">
+                <div class="task-simple_form">
+                  <% choices = [] %>
+                  <% @project.users.each do |user| %>
+                    <% choices << user.email %>
+                  <% end %>
+                  <% choices << @project.owner.email %>
+
+                  <%= simple_form_for [@project, @task] do |f| %>
+                    <%= f.input :name %>
+                    <%= f.input :description  %>
+                    <%= f.input :difficulty, collection: [1,2,3,4,5]%>
+                    <%= f.input :user_id, collection: choices %>
+                  <%= f.button :submit, class: "btn btn-success" %>
+                  <% end %>
+                </div>
+                <%= link_to "Back to Project", project_path(@project), class: "btn btn-primary form-back" %>
+              </div>
+            </div>
+            </div>
           </div>
 
           <div id="Options" class="tab-content">
@@ -100,14 +131,12 @@
 
     <div class="targets-grid-item-3">
       <div class="target-container">
-        <svg version="1.1" id="line_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="30px" y="0px" width="50px" height="300px" xml:space="preserve">
-        <path id="progress" fill="#01a09e" stroke-width="100" stroke="#7FD89B" d="M30 300 L30 0"/>
+        <p><%= @project.tasks.count %></p>
+        <svg version="1.1" id="line_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="30px" y="0px" width="50px" height="250px" xml:space="preserve">
+        <path id="progress" fill="#01a09e" stroke-width="100" stroke="#7FD89B" d="M30 250 L30 0"/>
         </svg>
-      </div style= "display: inline-block;">
-
-      <div>
-
       </div>
+
     </div>
 
     <div class="buttons-grid-item-4">

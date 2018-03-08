@@ -22,6 +22,40 @@
   grid-column: 1 / span 1 ;
 }
 
+.details {
+  .status-o{
+    padding-left: 5px;
+    width: 20%;
+    background-color: green;
+    border-radius: 25px;
+    margin-right: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .open  {
+      margin-bottom: 0px;
+      color: white;
+       font-size: 20px;
+        }
+      }
+      .status-c{
+        padding-left: 5px;
+        width: 30%;
+        background-color: red;
+        border-radius: 25px;
+        margin-right: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .closed {
+          margin-bottom: 0px;
+          color: white;
+          font-size: 20px;
+        }
+      }
+    }
+
+
 .tasks-grid-item-2 {
   overflow: scroll;
   background-color: rgba(255, 255, 255, 0.8);
