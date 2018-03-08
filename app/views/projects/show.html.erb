@@ -36,13 +36,18 @@
 
     <div class="tasks-grid-item-3">
       <div class="task-container">
-        <h2> To-do | Done | Progress Graph | Options</h2>
-          <div class="container">
+        <div class="container">
+          <ul class="tabs">
+            <li class="tab-link current" data-tab="tab-1">Tasks To-Do</li>
+            <li class="tab-link" data-tab="tab-2">Tasks Completed</li>
+            <li class="tab-link" data-tab="tab-3">Options</li>
+          </ul>
+
+          <div id="tab-1" class="tab-content current">
             <% if @project.owner == current_user%>
               <%= link_to "Create a task", new_project_task_path(@project) %>
               <br>
             <% end %>
-            <div class="task-container">
             <% @project.tasks.each do |task| %>
               <%= task.name %>
               <%= task.description %>
@@ -54,13 +59,26 @@
                 <%= link_to "Delete Task", task_path(task), method: :delete %>
               <% end %>
             <% end %>
-            </div>
           </div>
+          <div id="tab-2" class="tab-content">
+             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </div>
+          <div id="tab-3" class="tab-content">
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          </div>
+        </div>
       </div>
     </div>
 
+
+
+
+
     <div class="targets-grid-item-4">
       <div class="target-container">
+        <svg version="1.1" id="line_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="30px" y="0px" width="50px" height="300px" xml:space="preserve">
+        <path id="progress" fill="#01a09e" stroke-width="100" stroke="#7FD89B" d="M30 300 L30 0"/>
+        </svg>
       </div>
     </div>
 
