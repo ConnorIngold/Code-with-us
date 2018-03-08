@@ -1,12 +1,12 @@
 <div class="profile-page">
-<h1 class="name text-center">User.name profile</h1>
+<h1 class="name text-center"><%= @user.user_name %></h1>
 
   <div class="profile-grid">
 
     <div class="photo-grid-item-1">
       <div class="show-white-card text-center">
         <div class="card-show-header">
-           <h4>user.name</h4>
+           <h4><%= @user.full_name %></h4>
         </div>
         <div class="avatar-large text-center" style="background-image: url(<%= image_path('Me.jpg',
           width: 300, height: 300, crop: :thumb) %>)">
@@ -17,13 +17,13 @@
     <div class="description-grid-item-2">
       <div class="description">
         <h2>This is the user description </h2>
-          <p>user.description</p>
+          <p><%= @user.description %></p>
       </div>
     </div>
 
     <div class="follow-me-grid-item-3">
       <div class="description">
-        <h2>This is where you can follow me </h2>
+        <h2>put github link here</h2>
       </div>
     </div>
 
