@@ -8,6 +8,7 @@ a{
   height: 200px;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
   background-size: cover;
+  background-position: center;
   // background-color: white;
   color: black;
   border: 1px solid rgba(0, 0, 0, 0.2);
@@ -45,7 +46,7 @@ a{
       .status-o{
         padding: 6px;
         width: 27%;
-        background-color: green;
+        background: linear-gradient(135deg, rgba(85,163,13,1) 0%, rgba(182,237,0,1) 100%);
         border-radius: 25px;
         margin-right: 5px;
         display: flex;

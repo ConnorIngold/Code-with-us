@@ -93,6 +93,11 @@ body {
   margin-right: 1%;
   height: auto;
   width: auto;
+  p{
+    color: $brand-success;
+    text-align: center;
+    margin-top: 12.5px;
+  }
 }
 
 .name{
@@ -100,11 +105,7 @@ body {
   text-align: center;
 }
 
-p{
-  color: $brand-success;
-  text-align: center;
-  margin-top: 12.5px;
-}
+
 // first section ends here
 
 
