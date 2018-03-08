@@ -1,20 +1,4 @@
-<div class="container">
-  <div class="edit user form">
-    <h1>Edit Profile</h1>
 
-    <%= simple_form_for(@user) do |f| %>
-      <%= f.input :full_name %>
-      <%= f.input :description %>
-      <%= f.input :photo %>
-      <%= f.input :photo_cache, as: :hidden  %>
-        <%= f.simple_fields_for :tech_project do |t|%>
-          <%= t.input :technologies, collection: @technologies, as: :check_boxes %>
-        <% end %>
-      <%= f.button :submit, "Edit"%>
-    <% end %>
-
-  </div>
-</div>
 
 <div class="container">
   <div class="row">
@@ -54,6 +38,7 @@
   </div>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 <script>
   $(document).ready(function(){
     $(".technology-choice").click(function(){

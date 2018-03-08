@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    raise
     @user = current_user
     @user.update(user_params)
     @user.technologies = []
