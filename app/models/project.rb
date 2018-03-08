@@ -1,7 +1,7 @@
 class Project < ApplicationRecord
   belongs_to :owner, :class_name => :User, :foreign_key => "user_id"
   has_many :project_invites
-  has_many :tasks
+  has_many :tasks, dependent: :destroy
   has_many :users, through: :project_invites
   has_many :tech_projects, dependent: :destroy
   has_many :technologies, through: :tech_projects

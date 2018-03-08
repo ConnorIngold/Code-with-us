@@ -51,64 +51,66 @@ Technology.create!(
 )
 Technology.create!(
   name: 'React',
-
+  photo: 'react.png'
 )
 Technology.create!(
   name: 'SQL',
-
+  photo: 'sql-database.png',
 )
 Technology.create!(
   name: 'Python',
-
+  photo: 'python.png'
 )
 Technology.create!(
   name: 'C#',
- }
+  photo: 'c#.png'
+)
 Technology.create!(
   name: 'PHP',
+  photo: 'php.png'
 )
 Technology.create!(
-    name: 'C++'
-
-)
-Technology.create!(
-  name: 'Objective-C',
-
+  name: 'Perl',
+  photo: 'perl.png'
 )
 Technology.create!(
   name: 'Java',
+  photo: 'java.png'
 )
 Technology.create!(
-  name: 'Angular'
+  name: 'Angular',
+  photo: 'angular.png'
 )
 Technology.create!(
   name: 'C++',
-
+  photo: 'c++.png'
 )
 Technology.create!(
   name: 'Scala',
+  photo: 'scala.png'
 )
 Technology.create!(
-  name: 'Shell',
-
+  name: 'Jquery',
+  photo: 'jquery.png'
 )
 Technology.create!(
-  name: 'Swift';
+  name: 'Swift',
+  photo: 'swift.png'
 )
 Technology.create!(
   name: 'Typescript',
-
+  photo: 'typescript.png'
 )
 Technology.create!(
-  name: 'Django'
-
+  name: 'Django',
+  photo: 'django.png'
 )
 Technology.create!(
-    name: '.Net Framework'
+  name: '.Net Framework',
+  photo: 'net.png'
 )
 
 puts "Tech seeding complete boi"
-
 
 
 sumai = User.create!(
@@ -131,7 +133,12 @@ sam = User.create!(
   password: "123456",
   git_hub: "SamTy234"
   )
-
+connor = User.create!(
+  email: "connoringold@gmail.com",
+  full_name: "Connor",
+  password: "123456",
+  git_hub: "killercarwash"
+  )
 
 Project.create!(
     name: 'Code With Us',
@@ -151,7 +158,12 @@ Project.create!(
     category: 'Hobbie',
     user_id: sam.id,
 )
-
+Project.create!(
+    name: 'My Portfolio',
+    aim: "A website that allows me to manage my professional portfolio",
+    category: 'Learning',
+    user_id: connor.id,
+)
 
 
 puts "User and Project seeding complete boi"
