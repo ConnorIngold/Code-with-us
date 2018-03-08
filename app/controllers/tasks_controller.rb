@@ -9,7 +9,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @project = Project.find(params[:project_id])
     @task.project = @project
-    @user = User.where(email: user_params[:user_id]).first
+    @user = User.where(full_name: user_params[:user_id]).first
     @task.user = @user
     if @task.save
       redirect_to project_path(@project)
@@ -28,7 +28,7 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
     @project = Project.find(params[:project_id])
-    @user = User.where(email: user_params[:user_id]).first
+    @user = User.where(full_name: user_params[:user_id]).first
     @task.user = nil
     @task.user = @user
     @task.update(task_params)
@@ -43,6 +43,22 @@ class TasksController < ApplicationController
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
+    redirect_to project_path(@task.project)
+    authorize @task
+  end
+
+  def complete
+    @task = Task.find(params[:id])
+    @task.complete = true
+    @task.save
+    redirect_to project_path(@task.project)
+    authorize @task
+  end
+
+  def not_complete
+    @task = Task.find(params[:id])
+    @task.complete = false
+    @task.save
     redirect_to project_path(@task.project)
     authorize @task
   end

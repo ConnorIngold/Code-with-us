@@ -1,8 +1,13 @@
 # require 'faker'
 # require 'open-uri'
 
+TechProject.destroy_all
+ProjectInvite.destroy_all
+Technology.destroy_all
+Project.destroy_all
+User.destroy_all
 
-# Technology.destroy_all
+
 
 
 # puts 'Seeding tech...'
@@ -25,68 +30,87 @@
 # Technology.destroy_all
 
 Technology.create!(
-    name: 'Ruby'
+  name: 'Ruby',
+  photo: 'ruby.png'
 )
 Technology.create!(
-    name: 'HTML'
+  name: 'HTML',
+  photo: 'html.png'
 )
 Technology.create!(
-    name: 'CSS'
+  name: 'CSS',
+  photo: 'css.png'
 )
 Technology.create!(
-    name: 'Javascript'
+  name: 'JS',
+  photo: 'js.png'
 )
 Technology.create!(
-    name: 'Ruby on Rails'
+  name: 'Rails',
+  photo: 'rails.png'
 )
 Technology.create!(
-    name: 'React'
+  name: 'React',
+  photo: 'react.png'
 )
 Technology.create!(
-    name: 'SQL'
+  name: 'SQL',
+  photo: 'sql-database.png',
 )
 Technology.create!(
-    name: 'Python'
+  name: 'Python',
+  photo: 'python.png'
 )
 Technology.create!(
-    name: 'C#'
+  name: 'C#',
+  photo: 'c#.png'
 )
 Technology.create!(
-    name: 'C++'
+  name: 'PHP',
+  photo: 'php.png'
 )
 Technology.create!(
-    name: 'PHP'
+  name: 'Perl',
+  photo: 'perl.png'
 )
 Technology.create!(
-    name: 'Java'
+  name: 'Java',
+  photo: 'java.png'
 )
 Technology.create!(
-    name: 'Angular'
+  name: 'Angular',
+  photo: 'angular.png'
 )
 Technology.create!(
-    name: 'Scala'
+  name: 'C++',
+  photo: 'c++.png'
 )
 Technology.create!(
-    name: 'Perl'
+  name: 'Scala',
+  photo: 'scala.png'
 )
 Technology.create!(
-    name: 'Swift'
+  name: 'Jquery',
+  photo: 'jquery.png'
 )
 Technology.create!(
-    name: 'Jquery'
+  name: 'Swift',
+  photo: 'swift.png'
 )
 Technology.create!(
-    name: 'Typescript'
+  name: 'Typescript',
+  photo: 'typescript.png'
 )
 Technology.create!(
-    name: 'Django'
+  name: 'Django',
+  photo: 'django.png'
 )
 Technology.create!(
-    name: '.Net Framework'
+  name: '.Net Framework',
+  photo: 'net.png'
 )
 
-puts "Tech seeding complete"
-
+puts "Tech seeding complete boi"
 
 
 sumai = User.create!(
@@ -96,7 +120,6 @@ sumai = User.create!(
   git_hub: "SumaiK"
   )
 
-
 alex = User.create!(
   email: "alex.s-a@hotmail.com",
   full_name: "Alex",
@@ -104,32 +127,45 @@ alex = User.create!(
   git_hub: "AlexS-a"
   )
 
-
 sam = User.create!(
   email: "1516828@brunel.ac.uk",
   full_name: "Sam",
   password: "123456",
   git_hub: "SamTy234"
   )
-
+connor = User.create!(
+  email: "connoringold@gmail.com",
+  full_name: "Connor",
+  password: "123456",
+  git_hub: "killercarwash"
+  )
 
 Project.create!(
     name: 'Code With Us',
     aim: "A website that helps coders to connect and to create projects using different technologies",
     category: 'Project',
-    user_id: 1
+    user_id: sumai.id,
 )
 Project.create!(
     name: 'Short Cuts',
     aim: "A website that helps our customers find the nearest and cheapest place to get their hair cut",
     category: 'Design',
-    user_id: 2
+    user_id: alex.id,
 )
 Project.create!(
     name: 'Game On',
     aim: "A website that allows users to find games to rent from fellow gamers",
     category: 'Hobbie',
-    user_id: 3
+    user_id: sam.id,
+)
+Project.create!(
+    name: 'My Portfolio',
+    aim: "A website that allows me to manage my professional portfolio",
+    category: 'Learning',
+    user_id: connor.id,
 )
 
-puts "projects seeding complete"
+
+puts "User and Project seeding complete boi"
+
+

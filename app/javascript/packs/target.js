@@ -1,18 +1,16 @@
 var ProgressBar = require('progressbar.js');
 console.log(ProgressBar);
-  // progressbar.js@1.0.0 version is used
+// progressbar.js@1.0.0 version is used
 // Docs: http://progressbarjs.readthedocs.org/en/1.0.0/
-
-
-// var line = new ProgressBar.Line('#container');
-
-var bar = new ProgressBar.Line(".target-container", {
-  strokeWidth: 15,
+var svgPath = document.getElementById('progress');
+var bar = new ProgressBar.Path(svgPath, {
+  strokeWidth: 1000,
   easing: 'easeInOut',
   duration: 3000,
   color: '#7FD89B',
   trailColor: '#eee',
   trailWidth: 1,
+<<<<<<< HEAD
   svgStyle: {width: '100%', height: '100%'},
   text: {
     style: {
@@ -33,6 +31,10 @@ var bar = new ProgressBar.Line(".target-container", {
   step: (state, bar) => {
     bar.setText(Math.round(bar.value() * 100) + ' %');
   }
+=======
+  svgStyle: {width: '100%', height: '100%'}
+>>>>>>> aad0bdf429439c4c3d871247bb5707f51a4caa75
 });
+
 
 bar.animate(1.0);  // Number from 0.0 to 1.0

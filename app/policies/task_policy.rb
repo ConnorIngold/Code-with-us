@@ -16,4 +16,12 @@ class TaskPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
+
+  def complete?
+    true
+  end
+
+  def not_complete?
+    true
+  end
 end

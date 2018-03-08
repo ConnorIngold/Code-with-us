@@ -54,14 +54,15 @@
               <%= task.description %>
               <%= task.difficulty %>
               <% if task.complete === true %>
-                <p> Completed </p>
+                <p>completed</p>
               <% elsif task.complete === false %>
-                <p> Incomplete </p>
+                <p>incomplete</p>
+
               <% end %>
               <br>
                 <% if (task.user == current_user || @project.owner == current_user) && task.complete === false %>
                   <%= link_to "Completed", complete_path(task) %>
-                <% elsif (task.user == current_user || @project.owner == current_user) && task.complete = true %>
+                <% else (task.user == current_user || @project.owner == current_user) && task.complete = true %>
                   <%= link_to "Incomplete", not_complete_path(task) %>
                 <% end %>
                 <%= link_to "Delete Task", task_path(task), method: :delete %>
@@ -73,6 +74,7 @@
             <% end %>
           </div>
           <div id="tab-2" class="tab-content">
+
             <% @project.tasks.each do |task| %>
               <%= task.name %>
               <%= task.description %>
@@ -90,6 +92,10 @@
           <div id="tab-4" class="tab-content">
             <%= link_to "Edit this project", edit_project_path(@project) %>
             <%= link_to "Delete project", project_path(@project), method: :delete %>
+          </div>
+          <div id="tab-3" class="tab-content">
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
           </div>
         </div>
       </div>
@@ -125,9 +131,11 @@
 </div>
 
 
+<%= link_to "Edit this project", edit_project_path(@project) %>
+<%= link_to "Delete project", project_path(@project), method: :delete %>
 <%= link_to "Back to seach", projects_path %>
+<br>
 <br>
 
 <%= javascript_pack_tag 'target' %>
 <%= javascript_pack_tag 'task' %>
-

@@ -1,3 +1,7 @@
+a{
+  text-decoration: none !important;
+}
+
 .projects-card{
   padding: 13px;
   width: 60vw;
@@ -9,6 +13,7 @@
   border: 1px solid rgba(0, 0, 0, 0.2);
   /* margin: 10px 0; */
   margin-left: 10%;
+  margin-top: 10px;
   opacity: 0.9;
   box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.2);
   border-radius: 16px;

@@ -1,7 +1,9 @@
 class Project < ApplicationRecord
+  CATEGORIES= ["Learning", "Professional", "Charity", "Hobby"]
+
   belongs_to :owner, :class_name => :User, :foreign_key => "user_id"
   has_many :project_invites
-  has_many :tasks
+  has_many :tasks, dependent: :destroy
   has_many :users, through: :project_invites
   has_many :tech_projects, dependent: :destroy
   has_many :technologies, through: :tech_projects
@@ -25,4 +27,13 @@ class Project < ApplicationRecord
 
   mount_uploader :image, PhotoUploader
 
+  def display_users
+    accepted_users = []
+    self.users.each do |user|
+      user.project_invites.each do |invite|
+        accepted_users << user if invite.status == "accepted"
+      end
+    end
+    return accepted_users
+  end
 end

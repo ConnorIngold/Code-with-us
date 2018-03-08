@@ -40,6 +40,13 @@
   color: #616668;
   font-size: 14px;
 }
+
+.navbar-code-link{
+  color: white;
+  font-size: 18px;
+  padding: 6px;
+  border-radius: 5px;
+}
 .navbar-wagon-link:hover {
   color: #da552f;
   text-decoration: none;
@@ -74,4 +81,9 @@
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
+}
+
+.fa-github{
+  font-size: 21px;
+  margin-right: 4px;
 }
