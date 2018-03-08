@@ -76,93 +76,24 @@
           <h4 class="modal-title" id="myModalLabel">Log in</h4>
         </div>
         <div class="modal-body">
-          <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            <div class="form-inputs">
-              <%= f.input :email, required: false, autofocus: true %>
-              <%= f.input :password, required: false %>
-              <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <div class="form-actions">
-              <%= f.button :submit, "Log in", class: "btn btn-success" %>
-            </div>
-            <a href="#myModal2" data-toggle="modal" data-dismiss="modal"
-            class="btn btn-default">Sign-up</a>
-            <a href="#myModal3" data-toggle="modal" data-dismiss="modal"
-            class="btn btn-default">Forgot your password?</a>
+          <p>Hi, we here at code with us understand the importance of having a GitHub accountwhen collaborating on a project. Github makes collaborating on multiple projects very easy and its services are excellent.If you don't have an account please create one using this link:
+            <br>
+            <br>
+            <a href="https://github.com/" class="btn github-btn"><i class="fa fa-github"></i>Sign up to GitHub</a>
+            <br>
+            <br>
+          If you do have one, then please sign in to our site with this link:
+            <br>
+            <br>
             <a href="/users/auth/github" class="btn github-btn"><i class="fa fa-github"></i>Sign in with GitHub</a>
-          <% end %>
+       </p>
         </div>
-      </div>
-    </div>
-  </div>
-
-<!-- Sign-up modal -->
-  <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Sign up</h4>
-        </div>
-        <div class="modal-body">
-          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-            <%= f.error_notification %>
-
-          <div class="form-inputs">
-            <%= f.input :email, required: true, autofocus: true %>
-            <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-            <%= f.input :password_confirmation, required: true %>
-           <!-- TODO Add two input fields for full name and Github-->
-          </div>
-
-        </div>
-
         <div class="modal-footer">
-          <div class="form-actions">
-            <%= f.button :submit, "Sign up", class: "btn btn-success" %>
-          </div>
-          <a href="#myModal" data-toggle="modal" data-dismiss="modal"
-          class="btn btn-default">Log in</a>
-          <a href="#myModal3" data-toggle="modal" data-dismiss="modal"
-          class="btn btn-default">Forgot your password?</a>
-          <a href="/users/auth/github" class="btn github-btn">Sign in with GitHub</a>
-          <% end %>
+          <p>Happy coding!</p>
         </div>
       </div>
     </div>
   </div>
-
-  <!-- Forgot password modal -->
-  <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Forgot your password?</h4>
-        </div>
-        <div class="modal-body">
-          <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-            <%= f.error_notification %>
-            <div class="form-inputs">
-              <%= f.input :email, required: true, autofocus: true %>
-            </div>
-          <div class="modal-footer">
-            <div class="form-actions">
-              <%= f.button :submit, "Send me reset password instructions", class: "btn btn-success" %>
-            </div>
-            <a href="#myModal" data-toggle="modal" data-dismiss="modal"
-            class="btn btn-default">Log in</a>
-            <a href="#myModal2" data-toggle="modal" data-dismiss="modal"
-            class="btn btn-default">Sign-up</a>
-          <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <% end %>
 </div>
 
