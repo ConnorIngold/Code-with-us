@@ -113,7 +113,7 @@
 }
 
 .target-container {
-  padding-right: 50px;
+  padding-right: 150px;
 
 }
 
@@ -125,4 +125,12 @@
   text-align: center;
   grid-row: 4 / span 1;
   grid-column: 1 / span 1;
+}
+
+
+.title {
+
+  h3 {
+    font-size: 30px;
+  }
 }
