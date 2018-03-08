@@ -28,6 +28,7 @@ User.destroy_all
 # puts 'Tech Seeded boi'
 
 # Technology.destroy_all
+puts "Starting seed for you, hold tight ...."
 
 Technology.create!(
   name: 'Ruby',
@@ -55,7 +56,7 @@ Technology.create!(
 )
 Technology.create!(
   name: 'SQL',
-  photo: 'sql-database.png',
+  photo: 'sql.png',
 )
 Technology.create!(
   name: 'Python',
@@ -106,64 +107,53 @@ Technology.create!(
   photo: 'django.png'
 )
 Technology.create!(
-  name: '.Net Framework',
-  photo: 'net.png'
+  name: 'Net-framework',
+  photo: 'Net-framework.png'
 )
 
-puts "Tech seeding complete boi"
+puts "Tech seeding complete my g"
 
 
-sumai = User.create!(
-  email: "sumaikhayat@gmail.com",
-  full_name: "Sumai",
-  password: "123456",
-  git_hub: "SumaiK"
-  )
+# sumai = User.create!(
+#   email: "sumaikhayat@gmail.com",
+#   full_name: "Sumai",
+#   password: "123456",
+#   user_name: "SumaiK"
+#   )
 
-alex = User.create!(
-  email: "alex.s-a@hotmail.com",
-  full_name: "Alex",
-  password: "123456",
-  git_hub: "AlexS-a"
-  )
+# alex = User.create!(
+#   email: "alex.s-a@hotmail.com",
+#   full_name: "Alex",
+#   password: "123456",
+#   user_name: "AlexS-a"
+#   )
 
-sam = User.create!(
-  email: "1516828@brunel.ac.uk",
-  full_name: "Sam",
-  password: "123456",
-  git_hub: "SamTy234"
-  )
-connor = User.create!(
-  email: "connoringold@gmail.com",
-  full_name: "Connor",
-  password: "123456",
-  git_hub: "killercarwash"
-  )
+# connor = User.create!(
+#   email: "connoringold@gmail.com",
+#   full_name: "Connor",
+#   password: "123456",
+#   user_name: "killercarwash"
+#   )
 
-Project.create!(
-    name: 'Code With Us',
-    aim: "A website that helps coders to connect and to create projects using different technologies",
-    category: 'Project',
-    user_id: sumai.id,
-)
-Project.create!(
-    name: 'Short Cuts',
-    aim: "A website that helps our customers find the nearest and cheapest place to get their hair cut",
-    category: 'Design',
-    user_id: alex.id,
-)
-Project.create!(
-    name: 'Game On',
-    aim: "A website that allows users to find games to rent from fellow gamers",
-    category: 'Hobbie',
-    user_id: sam.id,
-)
-Project.create!(
-    name: 'My Portfolio',
-    aim: "A website that allows me to manage my professional portfolio",
-    category: 'Learning',
-    user_id: connor.id,
-)
+# Project.create!(
+#     name: 'Code With Us',
+#     aim: "A website that helps coders to connect and to create projects using different technologies",
+#     category: 'Project',
+#     user_id: sumai.id,
+# )
+# Project.create!(
+#     name: 'Short Cuts',
+#     aim: "A website that helps our customers find the nearest and cheapest place to get their hair cut",
+#     category: 'Design',
+#     user_id: alex.id,
+# )
+
+# Project.create!(
+#     name: 'My Portfolio',
+#     aim: "A website that allows me to manage my professional portfolio",
+#     category: 'Learning',
+#     user_id: connor.id,
+# )
 
 
 puts "User and Project seeding complete boi"
