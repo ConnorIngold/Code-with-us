@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :projects
   has_many :project_invites
+  has_many :projects, through: :project_invites
   has_many :tech_users
   has_many :tasks
   has_many :technologies, through: :tech_users
@@ -15,4 +16,5 @@ class User < ApplicationRecord
   # validates :user_name
   # validates :git_hub, presence: true, uniqueness: true
   mount_uploader :photo, PhotoUploader
+
 end

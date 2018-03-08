@@ -25,4 +25,13 @@ class Project < ApplicationRecord
 
   mount_uploader :image, PhotoUploader
 
+  def display_users
+    accepted_users = []
+    self.users.each do |user|
+      user.project_invites.each do |invite|
+        accepted_users << user if invite.status == "accepted"
+      end
+    end
+    return accepted_users
+  end
 end

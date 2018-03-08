@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20180307112555) do
     t.string "category"
     t.boolean "private", default: false
     t.string "image"
-    t.boolean "open"
+    t.boolean "open", default: true
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

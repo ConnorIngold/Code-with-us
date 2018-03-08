@@ -1,0 +1,9 @@
+<% @project_invites.each do |invite| %>
+  <% if invite.user == current_user %>
+    <%= invite.message %>
+    <%= link_to invite.project.name, project_path(invite.project) %>
+    <%= invite.status %>
+    <%= link_to invite.project.owner.full_name, user_path(invite.project.owner) %>
+    <%= link_to "Edit request", edit_project_invite_path(invite) %>
+  <% end %>
+<% end %>
