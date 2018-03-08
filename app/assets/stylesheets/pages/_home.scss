@@ -1,5 +1,5 @@
-.container{
-  .form{
+.container {
+  .form {
     background-color: #f7f7f7;
     border-radius: 0.6%;
     margin-top: 10px;
@@ -11,8 +11,13 @@
 
 body {
   padding-right: 0 !important;
+}
+
+.everything {
+  padding-right: 0 !important;
  // the banner start here
 }
+
 .banner {
   color: white;
   text-align: center;
@@ -43,8 +48,9 @@ body {
 }
 // and ends here
 
+
 // first section starts here
-.recent-projects-container {
+.first-section {
   background-color: white;
   display: flex;
   height: 400px;
@@ -70,24 +76,23 @@ body {
 // container
 
 .innerflex {
- display: flex;
- flex-direction: row;
- flex-wrap: wrap;
- width: 90%;
- height: 700px;
- margin-bottom: 40px;
- border-radius: 10px;
- // background-color: lightgrey;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 90%;
+  height: 700px;
+  margin-bottom: 40px;
+  border-radius: 10px;
 }
 
-.ninja{
+.ninja {
   margin-left: auto;
   margin-right: auto;
   display: block;
   border-radius: 50%;
 }
 
-.cardcontainer{
+.cardcontainer {
   width: 31% !important;
   margin-left: 1%;
   margin-right: 1%;
@@ -95,17 +100,48 @@ body {
   width: auto;
 }
 
-.name{
+.name {
   color: $brand-success;
   text-align: center;
+  &-description {
+    color: $brand-success;
+    text-align: center;
+    margin-top: 12.5px;
+    // text-shadow: 1px 1px #fdf5e6;
+  }
 }
 
-p{
-  color: $brand-success;
-  text-align: center;
-  margin-top: 12.5px;
-}
+
 // first section ends here
+
+
+// second section starts here
+.second-section {
+  background-color: white;
+  display: flex;
+  height: 400px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.all-text{
+    width: 50%;
+    margin-left: 15%;
+    height: auto;
+    text-align: right;
+    color: $brand-success;
+}
+
+.connected{
+margin-left: 15px;
+}
+
+.all-description{
+  margin-top: 10px;
+}
+// second section ends here
 
 
 
