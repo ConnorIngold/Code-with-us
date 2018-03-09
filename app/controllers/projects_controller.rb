@@ -15,15 +15,15 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
-    @tech_project = TechProject.new
     @technologies = Technology.all
     authorize @project
   end
 
   def create
     @project = Project.new(project_params)
+    @technologies = Technology.all
     @project.owner = current_user
-    tech_p_params[:technologies].each do |tech|
+    tech_p_params[:technology_ids].each do |tech|
       if tech.length > 0
         @technology = Technology.find(tech.to_i)
         @project.technologies  << @technology
@@ -45,9 +45,9 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
-    @project.update(project_params)
     @project.technologies = []
-    tech_p_params[:technologies].each do |tech|
+    @project.update(project_params)
+    tech_p_params[:technology_ids].each do |tech|
         if tech.length > 0
       @technology = Technology.find(tech.to_i)
       @project.technologies  << @technology
@@ -73,10 +73,10 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:name, :aim, :category, :image)
+    params.require(:project).permit(:name, :aim, :category)
   end
 
   def tech_p_params
-    params[:project].require(:tech_project).permit({technologies:[]})
+    params.require(:project).permit({technology_ids:[]})
   end
 end

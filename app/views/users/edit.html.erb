@@ -1,5 +1,3 @@
-
-
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
@@ -16,16 +14,14 @@
         </div>
           <div class="form-group">
             <label class="control-label check_boxes optional">Technologies</label>
-            <input type="hidden" name="post[technology_ids][]" value="">
+            <input type="hidden" name="user[technology_ids][]" value="">
             <div class="technology-choices">
               <% @technologies.each do |technology| %>
-              <div class="technology-choice">
-                <input type="checkbox" class="hidden" value="<%= technology.id %>" name="post[technology_ids][]" id="post_technology_ids_<%= technology.id %>">
-                <label for="post_technology_ids_<%= technology.id %>">
-                  <%= technology.name %>
-                  <i class="fa fa-check"></i>
-                </label>
-              </div>
+                  <input type="checkbox" class="hidden" value="<%= technology.id %>" name="user[technology_ids][]" id="user_technology_ids_<%= technology.id %>">
+                  <label for="user_technology_ids_<%= technology.id %>" disabled='true' class="technology-choice <%= @user.technologies.include?(technology) ? 'active' : '' %>">
+                    <%= technology.name %>
+                    <i class="fa fa-check"></i>
+                  </label>
               <% end %>
              </div>
           </div>
@@ -41,8 +37,20 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 <script>
   $(document).ready(function(){
-    $(".technology-choice").click(function(){
+    $(".technology-choice").each(function() {
+        console.log($(this).prev('input'))
+      if ($(this).hasClass('active')) {
+        $(this).prev('input').attr('checked', true);
+      }
+    })
+    $(".technology-choice").click(function(event){
+      event.preventDefault();
       $(this).toggleClass("active");
+      if ($(this).hasClass('active')) {
+        $(this).prev('input').attr('checked', true);
+      } else {
+        $(this).prev('input').removeAttr('checked');
+      }
     });
   });
 </script>

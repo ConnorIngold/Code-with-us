@@ -1,20 +1,8 @@
-<%= simple_form_for @project do |f| %>
-  <%= f.input :name %>
-  <%= f.input :aim %>
-  <%= f.input :category, collection: Project::CATEGORIES, prompt: "What is the purpose of this project?" %>
-  <%= f.simple_fields_for :tech_project do |t|%>
-    <%= t.input :technologies, collection: @technologies, as: :check_boxes %>
-  <% end %>
-  <%= f.input :image %>
-  <%= f.input :image_cache, as: :hidden %>
-<%= f.button :submit, class: "btn btn-success" %>
-<% end %>
-
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
       <div class="form-user">
-        <h1>Edit Project</h1>
+        <h1>New Project</h1>
         <%= simple_form_for(@project) do |f| %>
         <div class="row">
           <div class="col-xs-12">
@@ -30,21 +18,17 @@
         </div>
           <div class="form-group">
             <label class="control-label check_boxes optional">Technologies</label>
-            <input type="hidden" name="post[technology_ids][]" value="">
+            <input type="hidden" name="project[technology_ids][]" value="">
             <div class="technology-choices">
               <% @technologies.each do |technology| %>
-              <div class="technology-choice">
-                <input type="checkbox" class="hidden" value="<%= technology.id %>" name="post[technology_ids][]" id="post_technology_ids_<%= technology.id %>">
-                <label for="post_technology_ids_<%= technology.id %>">
-                  <%= technology.name %>
-                  <i class="fa fa-check"></i>
-                </label>
-              </div>
+                  <input type="checkbox" class="hidden" value="<%= technology.id %>" name="project[technology_ids][]" id="project_technology_ids_<%= technology.id %>">
+                  <label for="project_technology_ids_<%= technology.id %>" disabled='true' class="technology-choice <%= @project.technologies.include?(technology) ? 'active' : '' %>">
+                    <%= technology.name %>
+                    <i class="fa fa-check"></i>
+                  </label>
               <% end %>
              </div>
           </div>
-          <%= f.input :image %>
-          <%= f.input :image_cache, as: :hidden %>
           <%= f.submit "Save", class: "btn btn-primary"  %>
         <% end %>
       </div>
@@ -55,8 +39,20 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 <script>
   $(document).ready(function(){
-    $(".technology-choice").click(function(){
+    $(".technology-choice").each(function() {
+        console.log($(this).prev('input'))
+      if ($(this).hasClass('active')) {
+        $(this).prev('input').attr('checked', true);
+      }
+    })
+    $(".technology-choice").click(function(event){
+      event.preventDefault();
       $(this).toggleClass("active");
+      if ($(this).hasClass('active')) {
+        $(this).prev('input').attr('checked', true);
+      } else {
+        $(this).prev('input').removeAttr('checked');
+      }
     });
   });
 </script>
