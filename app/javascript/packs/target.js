@@ -11,8 +11,6 @@ var bar = new ProgressBar.Path(svgPath, {
   //   trailWidth: 2
   // }
 });
-
-
 bar.animate(1.0);  // Number from 0.0 to 1.0
 // strokeWidth: 10,
 //   trailWidth: 2,

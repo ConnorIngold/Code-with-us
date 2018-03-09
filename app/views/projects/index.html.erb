@@ -1,17 +1,23 @@
-<div class="container text-center">
-  <div class="search-bar-index">
-    <%= form_tag projects_path, :method => 'get' do %>
-      <%= text_field_tag :search, params[:search], placeholder: "Search for a project"%>
-      <%= submit_tag "Go", :name => nil, class: "search-go" %>
-    <% end %>
+  <div class="search-bar-index search-banner">
+        <%= form_tag projects_path, :method => 'get', class: "search-field" do %>
+          <i class="fa fa-search" aria-hidden="true"></i>
+          <div class="field">
+          <%= text_field_tag :search, params[:search], placeholder: "Search for a project", id: "search-index"%>
+          </div>
+          <%= submit_tag "Search", :name => nil, class: "search-go" %>
+          <% end %>
   </div>
+
+
+
+<div class="container text-center">
 
   <% @projects.each do |project| %>
     <%= link_to project_path(project) do  %>
      <div class="projects-card" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.9) 50%), url('<%= cl_image_path project.image if project.image.present? %>');">
       <div class="flex-left">
         <div class="project-details">
-          <h1><%= project.name %></h1>
+          <h1><%= truncate(project.name) %></h1>
           <p class="last-updated"><%= project.updated_at %></p>
 
           <% if project.open %>
