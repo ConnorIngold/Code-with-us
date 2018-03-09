@@ -11,16 +11,28 @@ justify-content: center;
 }
 
 .search-field{
-  background-color: white;
+  background-color: #F5F5F5;
   height: 60px;
-  width: 60%;
+  width: 64%;
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
+
+  &:hover{
+    background-color: white;
+  }
 }
 .search-go{
+  width: 133px;
   border-radius: 5px;
-  background-color: white;
+  background: linear-gradient(to bottom, rgba(210,255,82,1) 0%, rgba(210,255,82,1) 23%, rgba(145,232,66,1) 100%);
+  opacity: 0.8;
+  &:hover{
+    transition: 0.5s;
+    opacity: 1;
+  }
+
+
   // border: 1px solid grey;
 }
 
@@ -28,6 +40,10 @@ justify-content: center;
   width: 728px;
   height: 61px;
   background: transparent;
+  border: 0;
+  &:focus{
+    outline: none !important;
+  }
 }
   .fa-search{
     font-size: 42px;
