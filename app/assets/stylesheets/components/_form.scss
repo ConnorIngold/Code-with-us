@@ -49,6 +49,7 @@
   flex: 0 0 30%;
   text-align: center;
   &:hover {
+    transition: 0.5s;
     opacity: 1;
     cursor: pointer;
   }
