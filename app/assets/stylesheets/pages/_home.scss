@@ -127,11 +127,13 @@ body {
 }
 
 .all-text{
-    width: 50%;
-    margin-left: 15%;
-    height: auto;
-    text-align: right;
-    color: $brand-success;
+  width: 550px;
+  height: auto;
+  margin-left: 15%;
+  height: auto;
+  direction: rtl;
+  text-align: justify;
+  color: $brand-success;
 }
 
 .connected{
