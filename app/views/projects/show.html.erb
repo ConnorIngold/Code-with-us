@@ -38,7 +38,22 @@
       </div>
     </div>
 
-    <div class="tasks-grid-item-2">
+    <div class="details-grid-item-2">
+      <div class="details">
+        <h3 class="description"><%= @project.owner.full_name %> </h3>
+          <p><%= @project.aim %></p>
+          <% @project.users.each do |users| %>
+            <%= users.email %>
+          <% end %>
+          <% @project.technologies.each do |technology| %>
+            <%= technology.name %>
+          <% end %>
+          <br>
+          <%= @project.open %>
+      </div>
+    </div>
+
+    <div class="tasks-grid-item-3">
       <div class="task-container">
         <ul class="tabs">
           <li class="tab-link current" data-tab="To-Do">Tasks To-Do</li>
