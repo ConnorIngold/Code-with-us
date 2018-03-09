@@ -29,7 +29,7 @@
 
         <div class="tags">
           <% project.technologies.each do |technology| %>
-            <%= image_tag technology.name.downcase, :style => "height:50px;width:50px;" %>
+            <%= image_tag "#{technology.name.downcase}.png", :style => "height:50px;width:50px;" %>
           <% end %>
         </div>
       </div>
