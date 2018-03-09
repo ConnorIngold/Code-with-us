@@ -37,7 +37,7 @@
 
           <p>List project they are member of</p>
             <% @projects.each do |project| %>
-              <% if project.users.include?(@user) %>
+              <% if project.users.merge(ProjectInvite.accepted_users).include?(@user) %>
                 <%= link_to project.name, project_path(project) %>
               <% end %>
             <% end %>

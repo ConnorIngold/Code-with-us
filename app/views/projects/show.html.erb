@@ -169,8 +169,6 @@
       <div class="buttons">
         <% if @project.owner == current_user || @project.users.merge(ProjectInvite.accepted_users) == current_user%>
           <h3> Message Team Button</h3>
-        <% elsif @project.users.merge(ProjectInvite.pending_users) %>
-          <h3>Pending invite</h3>
         <% else %>
           <%= link_to "Request invite", new_project_project_invite_path(@project) %>
         <% end %>
