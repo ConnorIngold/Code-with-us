@@ -1,13 +1,3 @@
-<% @project.project_invites.each do |invite| %>
-  <%= invite.user.email %>
-  <%= invite.message %>
-  <% if invite.user == current_user %>
-   <%= link_to "Edit your invite", edit_project_invite_path(@project,invite) %>
-   <%= link_to "Delete request", project_invite_path(invite), method: :delete %>
-  <% end %>
-<% end %>
-
-
 <div class="project-page">
   <div class="project-grid">
 
@@ -19,7 +9,7 @@
           <div class="details">
             <p><%= @project.aim %></p>
             <% @project.users.each do |users| %>
-              <%= users.email %>
+              <%= users.full_name %>
             <% end %>
             <% @project.technologies.each do |technology| %>
               <%= technology.name %>
@@ -70,7 +60,7 @@
               <li class="message">
                 <img class="avatar" src="images/gab.png" alt="">
                 <div class="message-name">
-                  <h3><%= task.user.email %></h3>
+                  <h3><%= task.user.full_name %></h3>
                   <p>10/07/17</p>
                 </div>
                 <div class="description">
@@ -105,7 +95,7 @@
               <li class="message">
                 <img class="avatar" src="images/gab.png" alt="">
                 <div class="message-name">
-                  <h3><%= task.user.email %></h3>
+                  <h3><%= task.user.full_name %></h3>
                   <p>10/07/17</p>
                 </div>
                 <div class="description">
@@ -177,13 +167,15 @@
 
     <div class="buttons-grid-item-4">
       <div class="buttons">
-        <% if @project.owner == current_user %>
+        <% if @project.owner == current_user || @project.users.merge(ProjectInvite.accepted_users) == current_user%>
           <h3> Message Team Button</h3>
+        <% elsif @project.users.merge(ProjectInvite.pending_users) %>
+          <h3>Pending invite</h3>
         <% else %>
           <%= link_to "Request invite", new_project_project_invite_path(@project) %>
         <% end %>
         <% @project.project_invites.each do |invite| %>
-          <%= invite.user.email %>
+          <%= invite.user.full_name %>
           <%= invite.message %>
           <% if invite.user == current_user %>
            <%= link_to "Edit your invite", edit_project_invite_path(@project,invite) %>
