@@ -12,66 +12,96 @@
   margin: 0px 15% 10px 15%;
 }
 
-.name-grid-item-1 {
+.project-details-grid-item-1 {
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 20px;
   font-size: 30px;
   text-align: center;
-  grid-row: 1 / span 1;
+  grid-row: 1 / span 2;
   grid-column: 1 / span 1 ;
 }
 
-.details-grid-item-2 {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 20px;
-  font-size: 30px;
-  text-align: center;
-  grid-row: 2 / span 1;
-  grid-column: 1 / span 1;
-}
+.details {
+  .status-o{
+    padding-left: 5px;
+    width: 20%;
+    background-color: green;
+    border-radius: 25px;
+    margin-right: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .open  {
+      margin-bottom: 0px;
+      color: white;
+       font-size: 20px;
+        }
+      }
+      .status-c{
+        padding-left: 5px;
+        width: 30%;
+        background-color: red;
+        border-radius: 25px;
+        margin-right: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .closed {
+          margin-bottom: 0px;
+          color: white;
+          font-size: 20px;
+        }
+      }
+    }
 
-.tasks-grid-item-3 {
+
+.tasks-grid-item-2 {
   overflow: scroll;
-  background-color: rgba(255, 255, 255, 0.8);
+  // background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 20px;
   font-size: 30px;
-  text-align: center;
+  text-align: left;
   grid-row: 1 / span 4;
   grid-column: 2 / span 1;
+     // font-size: 20px;
 }
 
-ul.tabs{
-  margin: 0px;
-  padding: 0px;
-  list-style: none;
-}
-ul.tabs li{
-  background: none;
-  color: #222;
-  display: inline-block;
-  padding: 10px 15px;
-  cursor: pointer;
-}
+    ul  li {
 
-ul.tabs li.current{
-  background: #ededed;
-  color: #222;
-}
+      list-style: none;
+    }
+    ul.tabs{
+      margin: 0px;
+      padding: 0px;
+      list-style: none;
+    }
+    ul.tabs li{
+      background: none;
+      color: #222;
+      display: inline-block;
+      padding: 10px 15px;
+      cursor: pointer;
+      font-size: 20px;
+    }
 
-.tab-content{
-  display: none;
-  background: #ededed;
-  padding: 15px;
-}
+    ul.tabs li.current{
+      background: #ededed;
+      color: #222;
+    }
 
-.tab-content.current{
-  display: inherit;
-}
+    .tab-content{
+      display: none;
+      background: #ededed;
+      padding: 5px;
+    }
 
-.targets-grid-item-4 {
+    .tab-content.current{
+      display: inherit;
+    }
+
+.targets-grid-item-3 {
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 20px;
@@ -83,11 +113,11 @@ ul.tabs li.current{
 }
 
 .target-container {
-  padding-right: 70%;
+  padding-right: 150px;
 
 }
 
-.buttons-grid-item-5 {
+.buttons-grid-item-4 {
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 20px;
@@ -95,4 +125,12 @@ ul.tabs li.current{
   text-align: center;
   grid-row: 4 / span 1;
   grid-column: 1 / span 1;
+}
+
+
+.title {
+
+  h3 {
+    font-size: 30px;
+  }
 }
