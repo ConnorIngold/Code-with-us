@@ -1,5 +1,5 @@
 <div class="profile-page">
-<h1 class="name text-center"><%= @user.user_name %></h1>
+<h1 class="name text-center"><%= @user.full_name %></h1>
 
   <div class="profile-grid">
 
@@ -8,8 +8,11 @@
         <div class="card-show-header">
            <h4><%= @user.full_name %></h4>
         </div>
-        <div class="avatar-large text-center" style="background-image: url(<%= image_path('Me.jpg',
-          width: 300, height: 300, crop: :thumb) %>)">
+        <% if @user.photo.present? %>
+          <div class="avatar-large text-center" style="background-image: url('<%= cl_image_path @user.photo %>');">
+        <% else %>
+          <div class="avatar-large" style="background-image: url('https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png?w=300')">
+          <% end %>
         </div>
       </div>
     </div>

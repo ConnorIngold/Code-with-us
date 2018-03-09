@@ -2,6 +2,7 @@
 // console.log(ProgressBar);
 // progressbar.js@1.0.0 version is used
 // Docs: http://progressbarjs.readthedocs.org/en/1.0.0/
+
 // var svgPath = document.getElementById('progress');
 // var bar = new ProgressBar.Path(svgPath, {
 //   easing: 'easeInOut',

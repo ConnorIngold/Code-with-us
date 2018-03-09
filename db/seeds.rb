@@ -67,7 +67,7 @@ Technology.create!(
   photo: 'c#.png'
 )
 Technology.create!(
-  name: 'Typescript.png',
+  name: 'Typescript',
   photo: 'typescript.png'
 )
 Technology.create!(

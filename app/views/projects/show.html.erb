@@ -1,12 +1,12 @@
-<% @project.project_invites.each do |invite| %>
-  <%= invite.user.email %>
-  <%= invite.message %>
-  <% if invite.user == current_user %>
-   <%= link_to "Edit your invite", edit_project_invite_path(@project,invite) %>
-   <%= link_to "Delete request", project_invite_path(invite), method: :delete %>
-  <% end %>
-<% end %>
+<!-- <div class="row">
+  <div class="col-xs-3">
 
+  </div>
+  <div class="col-xs-9">
+
+  </div>
+</div>
+ -->
 
 <div class="project-page">
   <div class="project-grid">
@@ -19,7 +19,7 @@
           <div class="details">
             <p><%= @project.aim %></p>
             <% @project.users.each do |users| %>
-              <%= users.email %>
+              <%= users.full_name %>
             <% end %>
             <% @project.technologies.each do |technology| %>
               <%= technology.name %>
@@ -38,7 +38,22 @@
       </div>
     </div>
 
-    <div class="tasks-grid-item-2">
+    <div class="details-grid-item-2">
+      <div class="details">
+        <h3 class="description"><%= @project.owner.full_name %> </h3>
+          <p><%= @project.aim %></p>
+          <% @project.users.each do |users| %>
+            <%= users.email %>
+          <% end %>
+          <% @project.technologies.each do |technology| %>
+            <%= technology.name %>
+          <% end %>
+          <br>
+          <%= @project.open %>
+      </div>
+    </div>
+
+    <div class="tasks-grid-item-3">
       <div class="task-container">
         <ul class="tabs">
           <li class="tab-link current" data-tab="To-Do">Tasks To-Do</li>
@@ -55,7 +70,7 @@
               <li class="message">
                 <img class="avatar" src="images/gab.png" alt="">
                 <div class="message-name">
-                  <h3><%= task.user.email %></h3>
+                  <h3><%= task.user.full_name %></h3>
                   <p>10/07/17</p>
                 </div>
                 <div class="description">
@@ -90,7 +105,7 @@
               <li class="message">
                 <img class="avatar" src="images/gab.png" alt="">
                 <div class="message-name">
-                  <h3><%= task.user.email %></h3>
+                  <h3><%= task.user.full_name %></h3>
                   <p>10/07/17</p>
                 </div>
                 <div class="description">
@@ -120,8 +135,6 @@
             <%= link_to "Create a task", new_project_task_path(@project) %>
           <% end %>
           <div class="task-form">
-          <div class="container">
-            <div class="row">
               <div class="task-simple_form">
                 <% choices = [] %>
                 <% @project.users.each do |user| %>
@@ -138,8 +151,6 @@
                 <% end %>
               </div>
               <%= link_to "Back to Project", project_path(@project), class: "btn btn-primary form-back" %>
-            </div>
-          </div>
           </div>
         </div>
 
@@ -157,7 +168,6 @@
         <path id="progress" fill="#01a09e" stroke-width="100" stroke="#7FD89B" d="M30 250 L30 0"/>
         </svg>
       </div>
-
     </div>
 
     <div class="buttons-grid-item-4">
@@ -170,7 +180,7 @@
           <%= link_to "Request invite", new_project_project_invite_path(@project) %>
         <% end %>
         <% @project.project_invites.each do |invite| %>
-          <%= invite.user.email %>
+          <%= invite.user.full_name %>
           <%= invite.message %>
           <% if invite.user == current_user %>
            <%= link_to "Edit your invite", edit_project_invite_path(@project,invite) %>
@@ -183,45 +193,6 @@
 </div>
 
 <%= link_to "Back to seach", projects_path %>
-<br>
+
 
 <%= javascript_pack_tag 'task' %>
-
-
-<%incomplete_counter = @project.tasks.where(complete: false).length %>
-<% complete_counter = @project.tasks.where(complete: true).length%>
-<p>List of incompleted task <%= incomplete_counter %></p>
-<% @project.tasks.each do |task| %>
-  <% if task.complete === false %>
-    <%= task.name %>
-    <%= task.user.email %>
-    <%= task.description %>
-    <%= task.complete %>
-    <% if task.user == current_user || @project.owner == current_user %>
-      <%= link_to "Completed", complete_path(task) %>
-    <% end %>
-    <% if @project.owner == current_user %>
-      <%= link_to "Edit Task", edit_project_task_path(@project, task) %>
-      <%= link_to "Delete Task", task_path(task), method: :delete %>
-    <% end %>
-  <% end %>
-<% end %>
-
-<br>
-<br>
-<p>List of completed tasks <%= complete_counter %></p>
-<% @project.tasks.each do |task| %>
-  <% if task.complete === true %>
-    <%= task.name %>
-    <%= task.user.email %>
-    <%= task.description %>
-    <%= task.complete %>
-    <% if task.user == current_user || @project.owner == current_user %>
-      <%= link_to "Uncomplete", not_complete_path(task) %>
-    <% end %>
-    <% if @project.owner == current_user %>
-      <%= link_to "Edit Task", edit_project_task_path(@project, task) %>
-      <%= link_to "Delete Task", task_path(task), method: :delete %>
-    <% end %>
-  <% end %>
-<% end %>
