@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     @user = current_user
     @user.update(user_params)
     @user.technologies = []
-    tech_p_params[:technologies].each do |tech|
+    tech_p_params[:technology_ids].each do |tech|
       if tech.length > 0
         @technology = Technology.find(tech.to_i)
         @user.technologies  << @technology
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   private
 
   def tech_p_params
-    params[:user].require(:tech_project).permit({technologies:[]})
+    params.require(:user).permit({technology_ids:[]})
   end
 
   def set_user
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:description, :photo, :photo_cache)
+    params.require(:user).permit(:description, :photo, :photo_cache, :technology_ids)
   end
 end
 
