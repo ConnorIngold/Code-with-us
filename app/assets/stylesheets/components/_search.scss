@@ -1,4 +1,5 @@
 .search-bar-index{
+  position: relative;
   #search{
     width: 55%;
     padding: 10px;
@@ -6,7 +7,16 @@
     border-radius: 5px;
   }
   .search-go{
-    padding: 10px 13px;
+    padding: 13px 14px;
+    border-radius: 10px;
+    background-color: #00ae45;
+  }
+  .fa-search{
+    position: absolute;
+    top: 20%;
+    right: 27%;
+    font-size: 33px;
+    opacity: 0.3;
   }
 
 }

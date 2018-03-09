@@ -1,8 +1,10 @@
 <div class="container text-center">
   <div class="search-bar-index">
     <%= form_tag projects_path, :method => 'get' do %>
-      <%= text_field_tag :search, params[:search], placeholder: "Search for a project"%>
-      <%= submit_tag "Go", :name => nil, class: "search-go" %>
+      <div class="search-field">
+        <span><%= text_field_tag :search, params[:search], placeholder: "Search for a project"%><i class="fa fa-search" aria-hidden="true"></i></span>
+        <%= submit_tag "Search", :name => nil, class: "search-go" %>
+      </div>
     <% end %>
   </div>
 
@@ -11,7 +13,7 @@
      <div class="projects-card" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.9) 50%), url('<%= cl_image_path project.image if project.image.present? %>');">
       <div class="flex-left">
         <div class="project-details">
-          <h1><%= project.name %></h1>
+          <h1><%= truncate(project.name) %></h1>
           <p class="last-updated"><%= project.updated_at %></p>
 
           <% if project.open %>
