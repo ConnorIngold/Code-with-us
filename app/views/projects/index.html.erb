@@ -1,11 +1,15 @@
   <div class="search-bar-index search-banner">
-    <%= form_tag projects_path, :method => 'get' do %>
-      <div class="search-field">
-        <span><%= text_field_tag :search, params[:search], placeholder: "Search for a project"%><i class="fa fa-search" aria-hidden="true"></i></span>
-        <%= submit_tag "Search", :name => nil, class: "search-go" %>
-      </div>
-    <% end %>
+        <%= form_tag projects_path, :method => 'get', class: "search-field" do %>
+          <i class="fa fa-search" aria-hidden="true"></i>
+          <div class="field">
+          <%= text_field_tag :search, params[:search], placeholder: "Search for a project"%>
+          </div>
+          <%= submit_tag "Search", :name => nil, class: "search-go" %>
+          <% end %>
   </div>
+
+
+
 <div class="container text-center">
 
   <% @projects.each do |project| %>
