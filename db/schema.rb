@@ -102,7 +102,6 @@ ActiveRecord::Schema.define(version: 20180308151504) do
     t.string "full_name"
     t.string "photo"
     t.text "description"
-    t.string "user_name"
     t.string "provider"
     t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
