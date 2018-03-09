@@ -1,11 +1,11 @@
 # require 'faker'
 # require 'open-uri'
 
-TechProject.destroy_all
-ProjectInvite.destroy_all
-Technology.destroy_all
-Project.destroy_all
-User.destroy_all
+# TechProject.destroy_all
+# ProjectInvite.destroy_all
+# Technology.destroy_all
+# Project.destroy_all
+# User.destroy_all
 
 
 
