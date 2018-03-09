@@ -2,7 +2,7 @@
         <%= form_tag projects_path, :method => 'get', class: "search-field" do %>
           <i class="fa fa-search" aria-hidden="true"></i>
           <div class="field">
-          <%= text_field_tag :search, params[:search], placeholder: "Search for a project"%>
+          <%= text_field_tag :search, params[:search], placeholder: "Search for a project", id: "search-index"%>
           </div>
           <%= submit_tag "Search", :name => nil, class: "search-go" %>
           <% end %>
