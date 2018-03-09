@@ -1,3 +1,18 @@
+<!-- <div class="row">
+  <div class="col-xs-3">
+
+  </div>
+  <div class="col-xs-9">
+
+  </div>
+</div>
+ -->
+
+
+
+
+
+
 <% @project.project_invites.each do |invite| %>
   <%= invite.user.email %>
   <%= invite.message %>
@@ -120,8 +135,6 @@
             <%= link_to "Create a task", new_project_task_path(@project) %>
           <% end %>
           <div class="task-form">
-          <div class="container">
-            <div class="row">
               <div class="task-simple_form">
                 <% choices = [] %>
                 <% @project.users.each do |user| %>
@@ -138,8 +151,6 @@
                 <% end %>
               </div>
               <%= link_to "Back to Project", project_path(@project), class: "btn btn-primary form-back" %>
-            </div>
-          </div>
           </div>
         </div>
 
