@@ -2,14 +2,13 @@
   height: calc(100vh - 70px);
 }
 
-.container-grid {
-  display: grid;
+.project-grid {
   height: 100vh;
   grid-template-rows: 10% 40% 50% 10%;
   grid-template-columns: 30% 70%;
   background-color: #FFFFFF;
-  color: #050517;
-  margin: 0px 15% 10px 15% !important;
+  color: #040f0f;
+  margin: 0px 10% 0px 10% !important;
   /* NEW */
   /* min-height: 0; */
   // min-width: 0;
@@ -59,7 +58,10 @@
       }
     }
 
+.task-container {
 
+  display: grid;
+}
 .tasks-grid-item-2 {
   overflow-y: hidden;
   height: 100% !important;
