@@ -16,9 +16,16 @@ h1 {
   font-size: 30px;
   margin: 0px !important;
   font-size: 25px !important;
+  h3{
+    color: green;
+  }
 }
 
-
+.buttons{
+  h3{
+    color: red;
+  }
+}
 
 .targets {
   background-color: rgba(255, 255, 255, 0.8);
