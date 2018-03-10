@@ -38,21 +38,6 @@
       </div>
     </div>
 
-    <div class="details-grid-item-2">
-      <div class="details">
-        <h3 class="description"><%= @project.owner.full_name %> </h3>
-          <p><%= @project.aim %></p>
-          <% @project.users.each do |users| %>
-            <%= users.email %>
-          <% end %>
-          <% @project.technologies.each do |technology| %>
-            <%= technology.name %>
-          <% end %>
-          <br>
-          <%= @project.open %>
-      </div>
-    </div>
-
     <div class="tasks-grid-item-3">
       <div class="task-container">
         <ul class="tabs">
@@ -187,6 +172,7 @@
         <% end %>
       </div>
     </div>
+
   </div>
 </div>
 
