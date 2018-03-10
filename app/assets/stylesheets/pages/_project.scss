@@ -3,47 +3,47 @@
   background-color: #FFFFFF;
 }
 
-.title {
-  p {
-    font-size: 30px;
+h1 {
+  margin: 0px !important;
+  font-size: 25px !important;
+  color: #040f0f;
   }
-}
 
-.name {
+.title {
+  border: 1px solid $brand-success;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
   font-size: 30px;
+  margin: 0px !important;
+  font-size: 25px !important;
 }
 
-.project-details-grid-item-1 {
+
+
+.targets {
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 20px;
   font-size: 30px;
   text-align: center;
-  grid-row: 1 / span 2;
-  grid-column: 1 / span 1 ;
-}
 
+  .box{
+  padding: 10px;
 
-.details {
+    p{
 
+    }
+  }
 }
 
 .task-container {
-  display: grid;
-}
-
-.tasks-grid-item-2 {
-  overflow-y: hidden;
-  height: 100% !important;
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 20px;
   font-size: 30px;
   text-align: left;
-  grid-row: 1 / span 4;
-  grid-column: 2 / span 1;
-  // font-size: 20px;
 }
+
 
     ul  li {
 
@@ -78,21 +78,6 @@
       display: inherit;
     }
 
-.targets-grid-item-3 {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 20px;
-  font-size: 30px;
-  text-align: center;
-  grid-row: 3 / span 1;
-  grid-column: 1 / span 1;
-  height: 350px;
-}
-
-.targets {
-  padding: 10px;
-
-}
 
 .buttons-grid-item-4 {
   background-color: rgba(255, 255, 255, 0.8);
@@ -100,8 +85,6 @@
   padding: 20px;
   font-size: 30px;
   text-align: center;
-  grid-row: 4 / span 1;
-  grid-column: 1 / span 1;
 }
 
 
