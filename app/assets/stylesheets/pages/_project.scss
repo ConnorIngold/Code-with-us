@@ -1,16 +1,16 @@
 .project-page {
-  min-height: calc(100vh - 70px - 100px);
+  max-height: calc(100vh - 70px);
+  background-color: #FFFFFF;
 }
 
-.project-grid {
-  display: grid;
-  // height: 100%;
-  height: calc(100vh - 70px - 100px);
-  grid-template-rows: 10% 40% 50% 10%;
-  grid-template-columns: 30% 70%;
-  background-color: #FFFFFF;
-  color: #050517;
-  margin: 0px 15% 10px 15%;
+.title {
+  p {
+    font-size: 30px;
+  }
+}
+
+.name {
+  font-size: 30px;
 }
 
 .project-details-grid-item-1 {
@@ -23,44 +23,19 @@
   grid-column: 1 / span 1 ;
 }
 
-.details {
-  .status-o{
-    padding-left: 5px;
-    width: 20%;
-    background-color: green;
-    border-radius: 25px;
-    margin-right: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    .open  {
-      margin-bottom: 0px;
-      color: white;
-       font-size: 20px;
-        }
-      }
-      .status-c{
-        padding-left: 5px;
-        width: 30%;
-        background-color: red;
-        border-radius: 25px;
-        margin-right: 5px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        .closed {
-          margin-bottom: 0px;
-          color: white;
-          font-size: 20px;
-        }
-      }
-    }
 
+.details {
+
+}
+
+.task-container {
+  display: grid;
+}
 
 .tasks-grid-item-2 {
-  overflow-y: auto !important;
-  height: 500px !important;
-  // background-color: rgba(255, 255, 255, 0.8);
+  overflow-y: hidden;
+  height: 100% !important;
+  background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 20px;
   font-size: 30px;
@@ -114,8 +89,8 @@
   height: 350px;
 }
 
-.target-container {
-  padding-right: 150px;
+.targets {
+  padding: 10px;
 
 }
 
@@ -130,9 +105,4 @@
 }
 
 
-.title {
 
-  h3 {
-    font-size: 30px;
-  }
-}
