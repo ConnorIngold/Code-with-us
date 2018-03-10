@@ -2,18 +2,16 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-3">
-          <div class="title">
-            <h1><%= @project.name %></h1>
-            <h3 class="description"><%= @project.owner.full_name %> </h3>
-            <div class="details">
-              <p><%= @project.aim %></p>
-              <% @project.users.each do |users| %>
-                <%= users.full_name %>
-              <% end %>
-              <% @project.technologies.each do |technology| %>
-                <%= technology.name %>
-              <% end %>
-            </div>
+          <div class="details">
+            <h1 class="title"><%= @project.name %></h1>
+            <h3 class="description"><%= @project.owner.full_name %></h3>
+            <p><%= @project.aim %></p>
+            <% @project.users.each do |users| %>
+              <%= users.full_name %>
+            <% end %>
+            <% @project.technologies.each do |technology| %>
+              <%= technology.name %>
+            <% end %>
           </div>
 
           <div class="targets">
@@ -124,21 +122,27 @@
               <%= link_to "Create a task", new_project_task_path(@project) %>
             <% end %>
             <div class="task-form">
-                <div class="task-simple_form">
-                  <% choices = [] %>
-                  <% @project.users.each do |user| %>
-                    <% choices << user.email %>
-                  <% end %>
-                  <% choices << @project.owner.email %>
+              <div class="container">
+                <div class="row">
+                  <div class="task-simple_form">
+                    <% choices = [] %>
+                    <% @project.users.each do |user| %>
+                      <% choices << user.full_name %>
+                    <% end %>
+                    <% choices << @project.owner.full_name %>
 
-                  <%= simple_form_for [@project, @task] do |f| %>
-                    <%= f.input :name %>
-                    <%= f.input :description  %>
-                    <%= f.input :difficulty, collection: [1,2,3,4,5]%>
-                    <%= f.input :user_id, collection: choices %>
-                  <%= f.button :submit, class: "btn btn-success" %>
-                  <% end %>
+                    <%= simple_form_for [@project, @task] do |f| %>
+                      <%= f.input :name %>
+                      <%= f.input :description  %>
+                      <%= f.input :difficulty, collection: [1,2,3,4,5]%>
+                      <%= f.input :user_id, collection: choices %>
+                    <%= f.button :submit, class: "btn btn-success" %>
+                    <% end %>
+                  </div>
+                  <%= link_to "Back to Project", project_path(@project), class: "btn btn-primary form-back" %>
                 </div>
+              </div>
+            </div>
                 <%= link_to "Back to Project", project_path(@project), class: "btn btn-primary form-back" %>
             </div>
           </div>
