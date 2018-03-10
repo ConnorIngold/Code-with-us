@@ -1,16 +1,19 @@
 .project-page {
-  min-height: calc(100vh - 70px);
+  height: calc(100vh - 70px);
 }
 
-.project-grid {
+.container-grid {
   display: grid;
-  height: 100%;
-  // max-height: calc(100vh - 70px - 100px);
+  height: 100vh;
   grid-template-rows: 10% 40% 50% 10%;
   grid-template-columns: 30% 70%;
   background-color: #FFFFFF;
   color: #050517;
-  margin: 0px 15% 10px 15%;
+  margin: 0px 15% 10px 15% !important;
+  /* NEW */
+  /* min-height: 0; */
+  // min-width: 0;
+  // max-height: calc(100vh - 70px - 100px);
 }
 
 .project-details-grid-item-1 {
@@ -58,8 +61,8 @@
 
 
 .tasks-grid-item-2 {
-  // overflow-y: auto !important;
-  // height: 500px !important;
+  overflow-y: hidden;
+  height: 100% !important;
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 20px;
