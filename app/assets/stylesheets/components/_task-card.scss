@@ -4,19 +4,43 @@
   height: 100px;
 }
 
+.avatar-bordered {
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  border: white 1px solid;
+}
+
+.avatar-large {
+  width: 80px;
+}
+
 .message {
   display: flex;
   align-items: center;
   padding: 10px;
+  margin: 10px;
   border: 1px solid black;
   border-radius: 5px;
+      border-left: 6px solid red; /*will need to change for difficulty logic*/
 }
-.message:last-child {
-  border-bottom: none;
+
+.message:hover {
+  background: #f7f7fa;
+  cursor: pointer;
 }
+
+.message-status:hover p {
+  transform: scale(1.32);
+  color: #d80a0a;
+}
+
+.message-name:hover h3 {
+  color: #5898f1;
+  transform: scale(1.2);
+}
+
 .description {
   flex-grow: 1;
-  padding-left: 50px;
+  padding: 5px;
   p {
   font-family: 'Varela Round', sans-serif;
   font-size: 20px;
@@ -30,12 +54,15 @@
   font-size: 15px;
   margin-bottom: 0px;
 }
+
 .message-name p {
   font-size: 13px;
   font-weight: lighter;
   opacity: 0.6;
   margin-top: 5px;
+  padding-left: 5px;
 }
+
 .message-body {
   padding-left: 10px;
   font-size: 13px;
@@ -64,5 +91,65 @@
   color: red;
 }
 .status.pending {
-  color: lightgrey;
+  color: #fbfaf8;
+}
+
+
+
+/*Might need to use for further css design*/
+
+.product {
+  display: flex;
+  align-items: center;
+  transition: all 0.15s ease;
+}
+
+.product-body {
+  flex: 1 1 auto;
+}
+
+.product-arrow {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid transparent;
+  border-bottom: 9px solid black;
+  border-radius: 2px;
+  margin: auto;
+  transition: all 0.15s ease;
+}
+
+.product-upvote {
+  transition: all 0.15s ease;
+}
+
+.product:hover {
+  background: #f7f7fa;
+  cursor: pointer;
+}
+/* Upvote gets a bit bigger */
+.product:hover .product-upvote {
+  transform: scale(1.2);
+}
+
+/* 2 - Hover effects on product-upvote */
+
+/* Text color turns blue */
+.product-upvote:hover {
+  color: #5898f1;
+  cursor: pointer;
+}
+/* Arrow triangle turns blue */
+.product-upvote:hover .product-arrow {
+  border-bottom: 9px solid #5898f1;
+}
+
+.profile-header-infos {
+  display: flex;
+  align-items: center;
+}
+.profile-header-username {
+  flex: 1 1 auto;
+  padding: 20px;
 }

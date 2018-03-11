@@ -1,17 +1,19 @@
 <div class="project-page">
   <div class="container">
-    <div class="row">
+    <div class="row row-no-padding">
       <div class="col-xs-3">
           <div class="details">
-            <h1 class="title"><%= @project.name %></h1>
-            <h3 class="description"><%= @project.owner.full_name %></h3>
-            <p><%= @project.aim %></p>
-            <% @project.users.each do |users| %>
-              <%= users.full_name %>
-            <% end %>
-            <% @project.technologies.each do |technology| %>
-              <%= technology.name %>
-            <% end %>
+            <h1><%= @project.name %></h1>
+            <div class="description">
+              <h3><%= @project.owner.full_name %></h3>
+              <p><%= @project.aim %></p>
+              <% @project.users.each do |users| %>
+                <%= users.full_name %>
+              <% end %>
+              <% @project.technologies.each do |technology| %>
+                <%= technology.name %>
+              <% end %>
+            </div>
           </div>
 
           <div class="targets">
@@ -52,7 +54,7 @@
             <% @project.tasks.each do |task| %>
               <% if task.complete === false %>
                 <li class="message">
-                  <img class="avatar" src="images/gab.png" alt="">
+                  <img class="avatar" src="" alt="">
                   <div class="message-name">
                     <h3><%= task.user.full_name %></h3>
                     <p>10/07/17</p>
@@ -65,7 +67,7 @@
                   </div>
                   <div class="message-status">
                     <p class="status-pending"><%= task.complete %></p>
-                    <p class="price"><%= task.difficulty %></p>
+                    <p class="difficulty text-center"><%= task.difficulty %></p>
                   </div>
                 </li>
                 <% if task.user == current_user || @project.owner == current_user %>
@@ -87,7 +89,7 @@
             <% @project.tasks.each do |task| %>
               <% if task.complete === true %>
                 <li class="message">
-                  <img class="avatar" src="images/gab.png" alt="">
+                  <img class="avatar" src="" alt="">
                   <div class="message-name">
                     <h3><%= task.user.full_name %></h3>
                     <p>10/07/17</p>
@@ -100,7 +102,7 @@
                   </div>
                   <div class="message-status">
                     <p class="status-pending"><%= task.complete %></p>
-                    <p class="price"><%= task.difficulty %></p>
+                    <p class="difficulty text-center"><%= task.difficulty %></p>
                   </div>
                 </li>
                 <% if task.user == current_user || @project.owner == current_user %>

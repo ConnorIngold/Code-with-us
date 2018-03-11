@@ -3,18 +3,35 @@
   background-color: #FFFFFF;
 }
 
-.title h1 {
-  border: 1px solid $brand-success;
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 20px;
-  font-size: 30px;
-  margin: 0px !important;
-  font-size: 25px !important;
-
-  h3{
-    color: green;
-  }
+.container {
+  max-width: 900px;
+  margin: 0 auto;
 }
+
+.details {
+  margin: 5px;
+  border: 1px solid #dadadb;
+  background-color: #f4f1f9;
+  box-shadow: 1px 1px 5px #888888;
+
+.details h1 h3 {
+  border: 1px solid #dadadb;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin-top: 0px !important;
+  margin-bottom: 5px;
+  font-family: "Raleway", "Helvetica", "sans-serif";
+  font-weight: 500;
+}
+
+
+  h3{  color: black; }
+  p { font-size: 20px;  }
+
+.row-no-padding > [class*="col-"] {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
 
 .buttons{
   h3{
@@ -23,72 +40,130 @@
 }
 
 
+
 .targets {
-  background-color: rgba(255, 255, 255, 0.8);
+  margin: 5px;
+  background-color: #f4f1f9;
+  /*background-color: rgba(255, 255, 255, 0.8);*/
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 20px;
   font-size: 30px;
   text-align: center;
+}
 
-  .box{
-  padding: 10px;
-
-    p{
-
-    }
-  }
+.target-bar {
+  width: 200px;
+  height: 260px;
+  padding-right: 100px;
 }
 
 .task-container {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 20px;
+  overflow-x: hidden !important;
+  margin: 5px;
+  height: 800px;
+  box-shadow: 1px 1px 5px #888888;
+  border: 1px solid #dadadb;
+  padding: 5px;
   font-size: 30px;
   text-align: left;
 }
 
 
-    ul  li {
+#To-Do {
+border-left: 1px solid  #dadadb;
+border-right: 1px solid  #dadadb;
+border-bottom: 1px solid  #dadadb;
 
-      list-style: none;
+}
+#Completed {
+border-left: 1px solid  #dadadb;
+border-right: 1px solid  #dadadb;
+border-bottom: 1px solid  #dadadb;
+
+}
+#Create {
+border-left: 1px solid  #dadadb;
+border-right: 1px solid  #dadadb;
+border-bottom: 1px solid  #dadadb;
+
+}
+#Options {
+border-left: 1px solid  #dadadb;
+border-right: 1px solid  #dadadb;
+border-bottom: 1px solid  #dadadb;
+}
+
+    ul  li {
+      /*list-style: none;*/
     }
-    ul.tabs{
+    .tabs{
       margin: 0px;
       padding: 0px;
       list-style: none;
+      display: flex;
+      background: #f4f1f9;
     }
-    ul.tabs li{
-      background: none;
+    .tabs li{
+      background: #dedce3;
       color: #222;
       display: inline-block;
       padding: 10px 15px;
       cursor: pointer;
       font-size: 20px;
+
     }
 
-    ul.tabs li.current{
-      background: #ededed;
-      color: #222;
+    .tabs li.current{
+    background: #f4f1f9;
+    color: #222;
+
+    border-top: 1px solid #dadadb;
+    border-left: 1px solid #dadadb;
+    border-right: 1px solid #dadadb;
+    border-bottom: 0px;
     }
+
+    .tabs li:hover {
+  cursor: pointer;
+  text-decoration: none;
+  opacity: 0.3;
+  color: black;
+}
 
     .tab-content{
       display: none;
-      background: #ededed;
+      background: #f4f1f9;
       padding: 5px;
     }
 
     .tab-content.current{
       display: inherit;
+      overflow-x: hidden !important;
     }
 
+.tab:first-child {
+    border-radius: 10px 0 0 0;
+}
 
-.buttons-grid-item-4 {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 20px;
+.tab:last-child {
+    border-radius: 10px 0 0 0;
+}
+
+.tab.active {
+  background: white;
+  color: black;
+}
+
+.buttons {
+  margin: 5px;
+  background-color: #f4f1f9;
+  box-shadow: 1px 1px 5px #888888;
+  border: 1px solid #dadadb;
   font-size: 30px;
   text-align: center;
 }
+
+
 
 
 
