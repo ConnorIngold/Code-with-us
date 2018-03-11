@@ -11,9 +11,7 @@
   border: 1px solid black;
   border-radius: 5px;
 }
-.message:last-child {
-  border-bottom: none;
-}
+
 .description {
   flex-grow: 1;
   padding-left: 50px;
@@ -64,5 +62,5 @@
   color: red;
 }
 .status.pending {
-  color: lightgrey;
+  color: #fbfaf8;
 }

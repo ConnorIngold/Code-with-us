@@ -3,14 +3,19 @@
   background-color: #FFFFFF;
 }
 
-.owner {
+.details {
   border: 1px solid $brand-success;
   background-color: rgba(255, 255, 255, 0.8);
   padding: 20px;
-  font-size: 30px;
+  h1 {
+  color: black;
 
   h3{
-    color: green;
+    color: black;
+  p {
+    font-size: 20px;
+      }
+    }
   }
 }
 
