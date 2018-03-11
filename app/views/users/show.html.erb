@@ -93,13 +93,16 @@
       <div class="show-white-card text-center">
         <div class="show-white-card text-center">
           <div class="card-show-header">
-            <h4>Setting</h4>
+            <h4>Settings</h4>
           </div>
           <div class="card-show-body">
           <div class="edit-link">
             <%= link_to "Edit Profile", edit_user_path(@user) %>
           </div>
-            <p>Edit projects</p>
+            <p>Edit projects and Project requests</p>
+            <% if @user == current_user %>
+            <%= link_to "Edit your requests", project_invites_path %>
+            <% end %>
           </div>
         </div>
       </div>
@@ -109,7 +112,8 @@
 </div>
 
 
-<p>Project request index page with edit button</p>
+
 <% if @user == current_user %>
 <%= link_to "Edit your requests", project_invites_path %>
 <% end %>
+
