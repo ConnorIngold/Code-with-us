@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-xs-3">
           <div class="details">
-            <h1 class="title"><%= @project.name %></h1>
+            <h1 class="owner"><%= @project.name %></h1>
             <h3 class="description"><%= @project.owner.full_name %></h3>
             <p><%= @project.aim %></p>
             <% @project.users.each do |users| %>
