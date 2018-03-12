@@ -1,3 +1,118 @@
+.projects-card-show{
+  padding: 13px;
+  width: 50vw;
+  height: 200px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  background-size: cover;
+  background-position: center;
+  // background-color: white;
+  color: black;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  /* margin: 10px 0; */
+  margin-left: 10%;
+  margin-top: 10px;
+  opacity: 0.85;
+  box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+    .flex-left{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      // background: red;
+      width: 550%;
+      text-align: left;
+      .project-details{
+        h1{
+          margin-top: 0px;
+          font-size: 24px;
+          margin-bottom: 0px;
+          color: white;
+        }
+        .last-updated{
+          font-size: 18px;
+          font-style: thin;
+          margin-bottom: 0px;
+          color: white;
+        }
+
+        .status-o{
+          padding: 6px;
+          width: 75px;
+          background: linear-gradient(135deg, rgba(85,163,13,1) 0%, rgba(182,237,0,1) 100%);
+          border-radius: 25px;
+          margin-right: 5px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .w-circle{
+            padding: 4px;
+            width: 5%;
+            height: 6px;
+            background-color: white;
+            border-radius: 5px;
+          }
+          .open{
+            margin-bottom: 0px;
+            color: white;
+          }
+
+        }
+
+        .status-c{
+          padding: 6px;
+          width: 75px;
+          background-color: red;
+          border-radius: 25px;
+          margin-right: 5px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .w-circle{
+            padding: 4px;
+            width: 5%;
+            height: 6px;
+            background-color: white;
+            border-radius: 5px;
+          }
+          .closed{
+            margin-bottom: 0px;
+            color: white;
+          }
+
+        }
+
+        .tags{
+          float: left;
+          color: white;
+        }
+      }
+    }
+
+    .flex-right{
+      display: flex;
+      flex-direction: column;
+      // background: blue;
+      width: 100%;
+      float: right; // Check this!!
+      .avi-detail{
+        background-size: cover;
+        width: 90px;
+        height: 90px;
+        border-radius: 16px;
+        float: right;
+      }
+    }
+
+    &:hover{
+      transition: 0.4s;
+      opacity: 1;
+    }
+}
+
 .project-page {
   max-height: calc(100vh - 70px);
   background-color: #FFFFFF;
