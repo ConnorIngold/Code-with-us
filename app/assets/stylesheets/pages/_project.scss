@@ -13,6 +13,7 @@
   border: 1px solid #dadadb;
   background-color: #f4f1f9;
   box-shadow: 1px 1px 5px #888888;
+}
 
 .details h1 h3 {
   border: 1px solid #dadadb;
@@ -73,29 +74,30 @@
 border-left: 1px solid  #dadadb;
 border-right: 1px solid  #dadadb;
 border-bottom: 1px solid  #dadadb;
-
 }
+
 #Completed {
 border-left: 1px solid  #dadadb;
 border-right: 1px solid  #dadadb;
 border-bottom: 1px solid  #dadadb;
-
 }
+
 #Create {
 border-left: 1px solid  #dadadb;
 border-right: 1px solid  #dadadb;
 border-bottom: 1px solid  #dadadb;
-
 }
+
 #Options {
 border-left: 1px solid  #dadadb;
 border-right: 1px solid  #dadadb;
 border-bottom: 1px solid  #dadadb;
 }
 
-    ul  li {
-      /*list-style: none;*/
-    }
+    // ul  li {
+    //   /*list-style: none;*/
+    // }
+
     .tabs{
       margin: 0px;
       padding: 0px;
@@ -103,6 +105,7 @@ border-bottom: 1px solid  #dadadb;
       display: flex;
       background: #f4f1f9;
     }
+
     .tabs li{
       background: #dedce3;
       color: #222;
@@ -116,7 +119,6 @@ border-bottom: 1px solid  #dadadb;
     .tabs li.current{
     background: #f4f1f9;
     color: #222;
-
     border-top: 1px solid #dadadb;
     border-left: 1px solid #dadadb;
     border-right: 1px solid #dadadb;

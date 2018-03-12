@@ -46,10 +46,12 @@
   font-size: 20px;
   }
 }
+
 .message-name {
   padding-left: 10px;
   min-width: 100px;
 }
+
 .message-name h3 {
   font-size: 15px;
   margin-bottom: 0px;
@@ -68,28 +70,35 @@
   font-size: 13px;
   color: rgba(0,0,0,0.7);
 }
+
 .message-body {
   padding-left: 20px;
   color: rgba(0,0,0,0.4);
 }
+
 .message-body strong{
   color: rgba(0,0,0,0.9);
   color: rgba(0,0,0,0.9);
 }
+
 .message-body p {
   margin: 6px 0;
 }
+
 .message-status {
   font-size: 14px;
   font-weight: bold;
   margin: 10px;
 }
+
 .status.accepted {
   color: #04A366;
 }
+
 .status.declined {
   color: red;
 }
+
 .status.pending {
   color: #fbfaf8;
 }
