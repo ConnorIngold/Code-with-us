@@ -30,8 +30,8 @@ class MessagesController < ApplicationController
   def update
     @message = Message.find(params[:id])
     @user = User.where(full_name: user_params[:user_id]).first
-    @message.user = nil
-    @message.user = @user
+    @message.recipient = nil
+    @message.recipient = @user
     @message.update(message_params)
     if message.save
       redirect_to project_path(@message.project)
