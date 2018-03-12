@@ -47,67 +47,67 @@ Technology.create!(
 )
 Technology.create!(
   name: 'Rails',
-  remote_photo_url:
+
 )
 Technology.create!(
   name: 'React',
-  remote_photo_url:
+
 )
 Technology.create!(
   name: 'SQL',
-  remote_photo_url:
+
 )
 Technology.create!(
   name: 'Python',
-  remote_photo_url:
+
 )
 Technology.create!(
   name: 'C#',
-  remote_photo_url:
+
 )
 Technology.create!(
   name: 'Typescript',
-  remote_photo_url:
+
 )
 Technology.create!(
   name: 'PHP',
-  remote_photo_url:
+
 )
 Technology.create!(
   name: 'Perl',
-  remote_photo_url:
+
 )
 Technology.create!(
   name: 'Java',
-  remote_photo_url:
+
 )
 Technology.create!(
   name: 'Angular',
-  remote_photo_url:
+
 )
 Technology.create!(
   name: 'C++',
-  remote_photo_url:
+
 )
 Technology.create!(
   name: 'Scala',
-  remote_photo_url:
+
 )
 Technology.create!(
   name: 'Jquery',
-  remote_photo_url:
+
 )
 Technology.create!(
   name: 'Swift',
-  remote_photo_url:
+
 )
 Technology.create!(
   name: 'Django',
-  remote_photo_url:
+
 )
 Technology.create!(
   name: 'Net-framework',
-  remote_photo_url:
+
 )
 
 puts "Tech seeding complete my g"

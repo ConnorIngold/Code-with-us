@@ -35,7 +35,7 @@
 
         <div class="tags">
           <% project.technologies.each do |technology| %>
-            <%= image_tag "#{technology.name.downcase}", :style => "height:50px;width:50px;" %>
+            <%= cl_image_tag "#{technology.photo}", :style => "height:50px;width:50px;" %>
           <% end %>
         </div>
       </div>
