@@ -75,11 +75,12 @@
         <div class="card-show-header">
           <h4>User technologies</h4>
         </div>
-        <div class="card-show-body">
-          <% @user.technologies.each do |tech| %>
-            <%= cl_image_tag "#{tech.photo}", :style => "height:50px;width:50px;" %>
-          <% end %>
-        </div>
+        
+          <div class="tags">
+            <% @user.technologies.each do |technology| %>
+              <%= image_tag "#{technology.name.downcase}", :style => "height:30px;width:30px;" %>
+            <% end %>
+          </div>
       </div>
     </div>
 
