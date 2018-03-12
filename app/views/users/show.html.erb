@@ -1,6 +1,4 @@
 <div class="profile-page">
-<h1 class="name text-center"><%= @user.full_name %></h1>
-
   <div class="profile-grid">
 
     <div class="photo-grid-item-1">
@@ -19,8 +17,7 @@
 
     <div class="description-grid-item-2">
       <div class="description">
-        <h2>This is the user description </h2>
-          <p><%= @user.description %></p>
+        <p><%= @user.description %></p>
       </div>
     </div>
 
@@ -75,12 +72,11 @@
         <div class="card-show-header">
           <h4>User technologies</h4>
         </div>
-        
-          <div class="tags">
-            <% @user.technologies.each do |technology| %>
-              <%= image_tag "#{technology.name.downcase}", :style => "height:30px;width:30px;" %>
-            <% end %>
-          </div>
+        <div class="card-show-body">
+          <% @user.technologies.each do |tech| %>
+            <%= cl_image_tag "#{tech.photo}", :style => "height:50px;width:50px;" %>
+          <% end %>
+        </div>
       </div>
     </div>
 
@@ -144,9 +140,11 @@
           <div class="card-show-header">
             <h4>Settings</h4>
           </div>
-          <div class="card-show-body">
+          <!-- <div class="card-show-body"> -->
           <div class="edit-link">
             <%= link_to "Edit Profile", edit_user_path(@user) %>
+            <a href= <%= edit_user_path(@user) %> class="profile-link"><i class="fa fa-edit" aria-hidden="true"></i>
+            </a>
           </div>
             <p>Edit projects and Project requests</p>
             <% if @user == current_user %>
@@ -159,10 +157,4 @@
 
   </div>
 </div>
-
-
-
-<% if @user == current_user %>
-<%= link_to "Edit your requests", project_invites_path %>
-<% end %>
 

@@ -1,33 +1,29 @@
+<div class="project">
 <div class="row">
   <div class="col-xs-3">
     <div class="sidebar">
-      <h1><%= @project.name %></h1>
-      <p><%= @project.owner.full_name %></p>
-      <%= cl_image_tag @project.owner.photo, class: 'avi-small'   %>
-      <hr>
       <div class="sidebar-details">
-        <p><%= @project.aim %></p>
-
+      <h1><%= @project.name %></h1>
+      <p><%= @project.aim %></p>
+      <hr>
+          <!-- TODO delete img below and use photo of users on project -->
         <div class="sidebar-users">
+          <h4>Meet the team:</h4>
           <% @project.users.each do |users| %>
+          <%= cl_image_tag @project.owner.photo, class: 'avi-small'   %>
             <%= cl_image_tag users.photo, class: 'sidebar-img-user' %>
           <% end %>
-          <!-- TODO delete img below and use photo of users on project -->
-          <%= image_tag 'https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png?w=300',  class: 'sidebar-img-user' %>
-          <%= image_tag 'https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png?w=300',  class: 'sidebar-img-user' %>
-          <%= image_tag 'https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png?w=300',  class: 'sidebar-img-user' %>
-          <%= image_tag 'https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png?w=300',  class: 'sidebar-img-user' %>
         </div>
-
-
       </div>
       <hr>
+
       <div class="sidebar-tags">
         <% @project.technologies.each do |technology| %>
           <span class="tag"><%= technology.name %></span>
         <% end %>
       </div>
       <hr>
+      <h3>Project Progess</h3>
       <div class="sidebar-progress">
         <div id="arthur-progress" class="radial-progress" data-value="<%= @project.tasks.where(complete: true).length.fdiv(@project.tasks.count.to_f) %>">
         </div>
@@ -37,44 +33,29 @@
         </div>
       </div>
       <hr>
-      <div class="">
-        <% if @project.owner == current_user || @project.users.merge(ProjectInvite.accepted_users) == current_user%>
-          <h3> Message Team Button </h3>
+
+      <div class="buttons">
+        <% if @project.owner == current_user || @project.users.merge(ProjectInvite.accepted_users).include?(current_user)%>
+        <%= link_to "Send a message", new_project_message_path(@project) %>
+        <% elsif @project.users.merge(ProjectInvite.pending_users).include?(current_user) %>
+          <h3> Invite pending</h3>
+        <% elsif @project.users.merge(ProjectInvite.declined_users).include?(current_user) %>
+          <h3> Invite declinded</h3>
         <% else %>
           <%= link_to "Request invite", new_project_project_invite_path(@project) %>
         <% end %>
         <% @project.project_invites.each do |invite| %>
-          <%= invite.user.full_name %>
-          <%= invite.message %>
+          <!-- <%= invite.user.full_name %> -->
+          <!-- <%= invite.message %> -->
           <% if invite.user == current_user %>
            <%= link_to "Edit your invite", edit_project_invite_path(@project,invite) %>
            <%= link_to "Delete request", project_invite_path(invite), method: :delete %>
           <% end %>
         <% end %>
-
-          <div class="buttons">
-            <% if @project.owner == current_user || @project.users.merge(ProjectInvite.accepted_users).include?(current_user)%>
-              <h3> Message Team Button</h3>
-            <% elsif @project.users.merge(ProjectInvite.pending_users).include?(current_user) %>
-              <h3> Invite pending</h3>
-            <% elsif @project.users.merge(ProjectInvite.declined_users).include?(current_user) %>
-              <h3> Invite declinded</h3>
-            <% else %>
-              <%= link_to "Request invite", new_project_project_invite_path(@project) %>
-            <% end %>
-            <% @project.project_invites.each do |invite| %>
-              <%= invite.user.full_name %>
-              <%= invite.message %>
-              <% if invite.user == current_user %>
-               <%= link_to "Edit your invite", edit_project_invite_path(@project,invite) %>
-               <%= link_to "Delete request", project_invite_path(invite), method: :delete %>
-              <% end %>
-            <% end %>
-          </div>
       </div>
-
     </div>
   </div>
+
   <div class="col-xs-9">
     <div class="project-tabs">
 
@@ -84,78 +65,37 @@
         <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Completed Tasks</a></li>
         <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
         <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Options</a></li>
+      <% if @project.owner == current_user || @project.users.merge(ProjectInvite.accepted_users) %>
+        <li role="presentation"><a href= <%= new_project_task_path(@project) %> class="profile-link"><i class="fa fa-plus-square" aria-hidden="true"></i> Create a New Task</a></li>
+      <% end %>
+
       </ul>
 
       <!-- Tab panes -->
-      <div class="create-task">
-      <% if @project.owner == current_user || @project.users.merge(ProjectInvite.accepted_users) %>
-        <%= link_to "Create a New task", new_project_task_path(@project), class: "btn btn-primary" %>
-      <% end %>
-      </div>
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="home">
+          <!-- Partials that are found in the project folder -->
           <%= render 'tasks', project: @project %>
         </div>
 
         <div role="tabpanel" class="tab-pane" id="profile">
           <%= render 'completed', project: @project %>
         </div>
+
         <div role="tabpanel" class="tab-pane" id="messages">
           <%= render 'message-box', project: @project %>
         </div>
+
         <div role="tabpanel" class="tab-pane" id="settings">
-          <div class="list">
-            <%= link_to "Edit this project", edit_project_path(@project), class: "btn btn-primary" %>
-            <%= link_to "Delete project", project_path(@project), class: "btn btn-danger", method: :delete %>
-          </div>
+          <%= render 'options', project: @project %>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
-
+</div>
 
 <%= javascript_pack_tag 'progress' %>
 
-<br>
-<br>
-<p>Project open or close links</p>
-<% if current_user == @project.owner && @project.open === true %>
-  <%= link_to "Make this project closed", closed_path(@project) %>
-<% elsif  current_user == @project.owner && @project.open === false%>
-  <%= link_to "Make this project open", open_path(@project) %>
-<% end %>
-<br>
-<br>
-<p>Project private or not</p>
-<% if current_user == @project.owner && @project.private === true %>
-  <%= link_to "Make this project public", public_path(@project) %>
-<% elsif current_user == @project.owner && @project.private === false %>
-  <%= link_to "Make this project private", private_path(@project) %>
-<% end %>
-<br>
-<br>
-<p>Message logic</p>
-<% if @project.users.merge(ProjectInvite.accepted_users).include?(current_user) || @project.owner == current_user %>
-  <%= link_to "Send a message", new_project_message_path(@project)  %>
-  <p>the current messages</p>
-  <% @project.messages.each do |message| %>
-    <p>recipient</p>
-    <%= link_to message.recipient.full_name, user_path(message.recipient) %>
-    <p>sender</p>
-    <%= link_to message.sender.full_name, user_path(message.sender) %>
-    <p>content</p>
-    <%= message.content %>
-    <br>
-    <% if message.sender == current_user || message.recipient == current_user %>
-      <%= link_to "delete this message", message_path(message), method: :delete %>
-    <% end %>
-    <% if message.sender == current_user %>
-      <%= link_to "edit this meesage", edit_project_message_path(@project, message) %>
-    <% end %>
-  <% end %>
-<% end %>
 
 

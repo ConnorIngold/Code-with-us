@@ -112,7 +112,6 @@ ActiveRecord::Schema.define(version: 20180312163359) do
     t.string "full_name"
     t.string "photo"
     t.text "description"
-    t.string "user_name"
     t.string "provider"
     t.string "uid"
     t.string "github"
