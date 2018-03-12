@@ -65,8 +65,9 @@
 
         .status-c{
           padding: 6px;
-          width: 75px;
-          background-color: red;
+          width: 100px;
+          background: linear-gradient(135deg, rgba(248,80,50,1) 0%,
+           rgba(246,41,12,1) 33%, rgba(250,111,92,1) 91%, rgba(250,111,92,1) 100%);
           border-radius: 25px;
           margin-right: 5px;
           display: flex;
