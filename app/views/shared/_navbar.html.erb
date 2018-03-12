@@ -4,6 +4,10 @@
     <%= image_tag "logo.png", height: 50 %>
   <% end %>
 
+  <%= form_tag projects_path, id: 'search-form', :method => 'get' do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search for a project"  %>
+  <%= submit_tag "Go", :name => nil %>
+  <% end %>
   <!-- Right Navigation -->
   <% if user_signed_in? %>
 
