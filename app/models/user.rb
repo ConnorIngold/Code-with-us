@@ -1,11 +1,11 @@
 class User < ApplicationRecord
-  has_many :projects, dependent: :destroy
+  has_many :projects
   has_many :project_invites
   has_many :projects, through: :project_invites
   has_many :tech_users
   has_many :tasks
   has_many :technologies, through: :tech_users
-  has_many :my_projects, foreign_key: "user_id", class_name: "Project"
+  has_many :my_projects, foreign_key: "user_id", class_name: "Project", dependent: :destroy
   has_many :messages, dependent: :destroy
   #User.first.my_projects = there project they created
   #User.first.projects =  project they are working for

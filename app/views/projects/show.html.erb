@@ -175,6 +175,27 @@
 <% elsif current_user == @project.owner && @project.private === false %>
   <%= link_to "Make this project private", private_path(@project) %>
 <% end %>
+<br>
+<br>
+<p>Message logic</p>
+<% if @project.users.merge(ProjectInvite.accepted_users).include?(current_user) || @project.owner == current_user %>
+<%= link_to "Send a message", new_project_message_path(@project)  %>
+<p>the current messages</p>
+<% @project.messages.each do |message| %>
+  <p>recipient</p>
+  <%= link_to message.recipient.full_name, user_path(message.recipient) %>
+  <p>sender</p>
+  <%= link_to message.sender.full_name, user_path(message.sender) %>
+  <p>content</p>
+  <%= message.content %>
+  <br>
+  <% if message.sender == current_user || message.recipient == current_user %>
+    <%= link_to "edit this meesage", edit_project_message_path(@project, message) %>
+    <%= link_to "delete this message", message_path(message), method: :delete %>
+  <% end %>
+<% end %>
+
+<% end %>
 
 
 <%= javascript_pack_tag 'task' %>
