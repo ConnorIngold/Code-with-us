@@ -29,6 +29,8 @@
               <% end %>
              </div>
           </div>
+          <%= f.input :image %>
+          <%= f.input :image_cache, as: :hidden  %>
           <%= f.submit "Save", class: "btn btn-primary"  %>
         <% end %>
       </div>
