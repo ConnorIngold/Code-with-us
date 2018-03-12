@@ -100,7 +100,8 @@
 }
 
 .task-buttons {
-  padding-bottom: 10px;
+
+padding-bottom: 10px;
 border-bottom: 1px solid #dadadb;
 }
 
@@ -111,4 +112,9 @@ border-bottom: 1px solid #dadadb;
 .profile-header-username {
   flex: 1 1 auto;
   padding: 20px;
+}
+
+
+.btn-success {
+  margin-top: 0px !important;
 }
