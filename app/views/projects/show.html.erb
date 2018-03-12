@@ -1,7 +1,6 @@
-<h1>Hello</h1>
 <div class="project-page">
   <div class="container">
-    <div class="row row-no-padding">
+    <div class="row">
       <div class="col-xs-3">
           <div class="details">
             <h1><%= @project.name %></h1>
@@ -159,6 +158,23 @@
 
 
 <%= link_to "Back to seach", projects_path %>
+
+<br>
+<br>
+<p>Project open or close links</p>
+<% if current_user == @project.owner && @project.open === true %>
+  <%= link_to "Make this project closed", closed_path(@project) %>
+<% elsif  current_user == @project.owner && @project.open === false%>
+  <%= link_to "Make this project open", open_path(@project) %>
+<% end %>
+<br>
+<br>
+<p>Project private or not</p>
+<% if current_user == @project.owner && @project.private === true %>
+  <%= link_to "Make this project public", public_path(@project) %>
+<% elsif current_user == @project.owner && @project.private === false %>
+  <%= link_to "Make this project private", private_path(@project) %>
+<% end %>
 
 
 <%= javascript_pack_tag 'task' %>
