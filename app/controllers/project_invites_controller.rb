@@ -55,7 +55,7 @@ class ProjectInvitesController < ApplicationController
     @project = @project_invite.project
     @user = @project_invite.user
     if @project_invite.save
-    redirect_to edit_project_path(@project_invite.project)
+    redirect_to project_path(@project_invite.project)
     else
       render :new
     end
@@ -66,7 +66,7 @@ class ProjectInvitesController < ApplicationController
     @project_invite = ProjectInvite.find(params[:id])
     @project_invite.status = "declined"
     @project_invite.save
-    redirect_to edit_project_path(@project_invite.project)
+    redirect_to project_path(@project_invite.project)
     authorize @project_invite
   end
 
