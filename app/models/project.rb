@@ -7,6 +7,7 @@ class Project < ApplicationRecord
   has_many :users, through: :project_invites
   has_many :tech_projects, dependent: :destroy
   has_many :technologies, through: :tech_projects
+  has_many :messages, dependent: :destroy
   # Project.first.owner=  the project admin
   # Project.first.users = all the users in the project
 
