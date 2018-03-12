@@ -54,6 +54,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 40px;
 }
 // div wrapped around the h3 text
 .border-for-the-h3-below {
@@ -126,6 +127,8 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: 85px;
+  margin-bottom: 85px;
 }
 
 .all-text{
@@ -191,7 +194,8 @@
   padding-left: 40px;
   justify-content: right;
   flex-direction: row;
-  margin-top: 50px;
+  margin-top: 25px;
+  margin-bottom: 85px;
 }
 
 .innerdiv-with-image-and-text{
@@ -261,6 +265,7 @@
   text-align: center;
   margin-bottom: 60px;
 }
-
-
+img.rocket {
+    margin-top: 30px;
+}
 //fourth section ends here
