@@ -23,8 +23,12 @@
           </div>
 
           <div class="buttons">
-            <% if @project.owner == current_user || @project.users.merge(ProjectInvite.accepted_users) == current_user%>
+            <% if @project.owner == current_user || @project.users.merge(ProjectInvite.accepted_users).include?(current_user)%>
               <h3> Message Team Button</h3>
+            <% elsif @project.users.merge(ProjectInvite.pending_users).include?(current_user) %>
+              <h3> Invite pending</h3>
+            <% elsif @project.users.merge(ProjectInvite.declined_users).include?(current_user) %>
+              <h3> Invite declinded</h3>
             <% else %>
               <%= link_to "Request invite", new_project_project_invite_path(@project) %>
             <% end %>
