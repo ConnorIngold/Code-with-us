@@ -15,7 +15,7 @@ a{
   /* margin: 10px 0; */
   margin-left: 10%;
   margin-top: 10px;
-  opacity: 0.9;
+  opacity: 0.85;
   box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.2);
   border-radius: 16px;
   display: flex;
@@ -27,7 +27,7 @@ a{
     flex-direction: column;
     justify-content: space-between;
     // background: red;
-    width: 50%;
+    width: 550%;
     text-align: left;
     .project-details{
       h1{
@@ -45,7 +45,7 @@ a{
 
       .status-o{
         padding: 6px;
-        width: 27%;
+        width: 75px;
         background: linear-gradient(135deg, rgba(85,163,13,1) 0%, rgba(182,237,0,1) 100%);
         border-radius: 25px;
         margin-right: 5px;
@@ -68,7 +68,7 @@ a{
 
       .status-c{
         padding: 6px;
-        width: 33%;
+        width: 75px;
         background-color: red;
         border-radius: 25px;
         margin-right: 5px;
@@ -112,6 +112,7 @@ a{
   }
 
   &:hover{
+    transition: 0.4s;
     opacity: 1;
   }
   .tag {

@@ -1,5 +1,5 @@
 <div class="profile-page">
-<h1 class="name text-center"><%= @user.user_name %></h1>
+<h1 class="name text-center"><%= @user.full_name %></h1>
 
   <div class="profile-grid">
 
@@ -8,8 +8,11 @@
         <div class="card-show-header">
            <h4><%= @user.full_name %></h4>
         </div>
-        <div class="avatar-large text-center" style="background-image: url(<%= image_path('Me.jpg',
-          width: 300, height: 300, crop: :thumb) %>)">
+        <% if @user.photo.present? %>
+          <div class="avatar-large text-center" style="background-image: url('<%= cl_image_path @user.photo %>');">
+        <% else %>
+          <div class="avatar-large" style="background-image: url('https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png?w=300')">
+          <% end %>
         </div>
       </div>
     </div>
@@ -37,7 +40,7 @@
 
           <p>List project they are member of</p>
             <% @projects.each do |project| %>
-              <% if project.users.include?(@user) %>
+              <% if project.users.merge(ProjectInvite.accepted_users).include?(@user) %>
                 <%= link_to project.name, project_path(project) %>
               <% end %>
             <% end %>
@@ -90,13 +93,16 @@
       <div class="show-white-card text-center">
         <div class="show-white-card text-center">
           <div class="card-show-header">
-            <h4>Setting</h4>
+            <h4>Settings</h4>
           </div>
           <div class="card-show-body">
           <div class="edit-link">
             <%= link_to "Edit Profile", edit_user_path(@user) %>
           </div>
-            <p>Edit projects</p>
+            <p>Edit projects and Project requests</p>
+            <% if @user == current_user %>
+            <%= link_to "Edit your requests", project_invites_path %>
+            <% end %>
           </div>
         </div>
       </div>
@@ -106,7 +112,8 @@
 </div>
 
 
-<p>Project request index page with edit button</p>
+
 <% if @user == current_user %>
 <%= link_to "Edit your requests", project_invites_path %>
 <% end %>
+

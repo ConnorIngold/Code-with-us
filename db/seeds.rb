@@ -26,8 +26,7 @@
 # js = Technology.new(name: 'JS')
 # js.save
 # puts 'Tech Seeded boi'
-
-# Technology.destroy_all
+Technology.destroy_all
 puts "Starting seed for you, hold tight ...."
 
 Technology.create!(
@@ -67,7 +66,7 @@ Technology.create!(
   photo: 'c#.png'
 )
 Technology.create!(
-  name: 'Typescript.png',
+  name: 'Typescript',
   photo: 'typescript.png'
 )
 Technology.create!(
@@ -101,10 +100,6 @@ Technology.create!(
 Technology.create!(
   name: 'Swift',
   photo: 'swift.png'
-)
-Technology.create!(
-  name: 'Typescript',
-  photo: 'typescript.png'
 )
 Technology.create!(
   name: 'Django',
