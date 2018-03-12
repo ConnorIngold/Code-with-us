@@ -1,6 +1,7 @@
 .project-page {
   max-height: calc(100vh - 70px);
   background-color: #FFFFFF;
+  border-top: 1px solid #dadadb;
 }
 
 .details {
@@ -36,12 +37,11 @@
 }
 
 
-
 .targets {
   margin: 5px;
   background-color: #f4f1f9;
-  /*background-color: rgba(255, 255, 255, 0.8);*/
-  border: 1px solid rgba(0, 0, 0, 0.8);
+  box-shadow: 1px 1px 5px #888888;
+  border: 1px solid #dadadb;
   padding: 20px;
   font-size: 30px;
   text-align: center;
@@ -57,13 +57,17 @@
   overflow-x: hidden !important;
   margin: 5px;
   height: 800px;
-  box-shadow: 1px 1px 5px #888888;
-  border: 1px solid #dadadb;
+  // box-shadow: 1px 1px 5px #888888;
+  // border: 1px solid #dadadb;
   padding: 5px;
   font-size: 30px;
   text-align: left;
+  // border-radius: 5px;
 }
 
+.list {
+
+}
 
 #To-Do {
 border-left: 1px solid  #dadadb;
@@ -87,6 +91,7 @@ border-bottom: 1px solid  #dadadb;
 border-left: 1px solid  #dadadb;
 border-right: 1px solid  #dadadb;
 border-bottom: 1px solid  #dadadb;
+
 }
 
     // ul  li {
@@ -103,12 +108,13 @@ border-bottom: 1px solid  #dadadb;
 
     .tabs li{
       background: #dedce3;
-      color: #222;
+      // color: #222;
       display: inline-block;
       padding: 10px 15px;
       cursor: pointer;
       font-size: 20px;
-
+      flex: 0 0 25%;
+      border-radius: 20px;
     }
 
     .tabs li.current{
@@ -138,12 +144,12 @@ border-bottom: 1px solid  #dadadb;
       overflow-x: hidden !important;
     }
 
-.tab:first-child {
-    border-radius: 10px 0 0 0;
+li:first-child {
+    border-radius: 20px 0 0 0;
 }
 
-.tab:last-child {
-    border-radius: 10px 0 0 0;
+li:last-child {
+    border-radius: 0 20px 0 0;
 }
 
 .tab.active {

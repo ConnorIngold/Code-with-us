@@ -64,11 +64,11 @@
         <div class="card-show-header">
           <h4>User technologies</h4>
         </div>
-        <div class="card-show-body">
-          <% @user.technologies.each do |tech| %>
-            <%= tech.name %>
-          <% end %>
-        </div>
+          <div class="tags">
+            <% @user.technologies.each do |technology| %>
+              <%= image_tag "#{technology.name.downcase}", :style => "height:30px;width:30px;" %>
+            <% end %>
+          </div>
       </div>
     </div>
 
