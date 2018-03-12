@@ -177,34 +177,6 @@
   // border-radius: 5px;
 }
 
-.list {
-
-}
-
-#To-Do {
-border-left: 1px solid  #dadadb;
-border-right: 1px solid  #dadadb;
-border-bottom: 1px solid  #dadadb;
-}
-
-#Completed {
-border-left: 1px solid  #dadadb;
-border-right: 1px solid  #dadadb;
-border-bottom: 1px solid  #dadadb;
-}
-
-#Create {
-border-left: 1px solid  #dadadb;
-border-right: 1px solid  #dadadb;
-border-bottom: 1px solid  #dadadb;
-}
-
-#Options {
-border-left: 1px solid  #dadadb;
-border-right: 1px solid  #dadadb;
-border-bottom: 1px solid  #dadadb;
-
-}
 
     .tabs{
       margin: 0px;
@@ -249,10 +221,6 @@ border-bottom: 1px solid  #dadadb;
       display: inherit;
       overflow-x: hidden !important;
     }
-
-li:first-child {
-    border-radius: 20px 0 0 0;
-}
 
 li:last-child {
     border-radius: 0 20px 0 0;

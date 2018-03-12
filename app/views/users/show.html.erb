@@ -152,6 +152,8 @@
           <div class="card-show-body">
           <div class="edit-link">
             <%= link_to "Edit Profile", edit_user_path(@user) %>
+            <a href= <%= edit_user_path(@user) %> class="profile-link"><i class="fa fa-edit" aria-hidden="true"></i>
+            </a>
           </div>
             <p>Edit projects and Project requests</p>
             <% if @user == current_user %>
@@ -164,10 +166,4 @@
 
   </div>
 </div>
-
-
-
-<% if @user == current_user %>
-<%= link_to "Edit your requests", project_invites_path %>
-<% end %>
 
