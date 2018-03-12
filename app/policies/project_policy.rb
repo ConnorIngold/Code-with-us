@@ -15,4 +15,20 @@ class ProjectPolicy < ApplicationPolicy
   def destroy?
     record.owner == user
   end
+
+  def closed?
+    true
+  end
+
+  def open?
+    true
+  end
+
+  def private?
+    true
+  end
+
+  def public?
+    true
+  end
 end

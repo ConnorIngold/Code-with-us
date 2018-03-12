@@ -69,12 +69,42 @@ class ProjectsController < ApplicationController
     authorize @project
   end
 
+  def closed
+    @project = Project.find(params[:id])
+    @project.open = false
+    @project.save
+    redirect_to project_path(@project)
+    authorize @project
+  end
 
+  def open
+    @project = Project.find(params[:id])
+    @project.open = true
+    @project.save
+    redirect_to project_path(@project)
+    authorize @project
+  end
+
+  def private
+    @project = Project.find(params[:id])
+    @project.private = true
+    @project.save
+    redirect_to project_path(@project)
+    authorize @project
+  end
+
+  def public
+    @project = Project.find(params[:id])
+    @project.private = false
+    @project.save
+    redirect_to project_path(@project)
+    authorize @project
+  end
 
   private
 
   def project_params
-    params.require(:project).permit(:name, :aim, :category)
+    params.require(:project).permit(:name, :aim, :category, :image)
   end
 
   def tech_p_params

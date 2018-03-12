@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180308151504) do
+ActiveRecord::Schema.define(version: 20180312163359) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "messages", force: :cascade do |t|
+    t.string "content"
+    t.integer "sender_id"
+    t.integer "recipient_id"
+    t.bigint "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_messages_on_project_id"
+  end
 
   create_table "pg_search_documents", force: :cascade do |t|
     t.text "content"
@@ -102,12 +113,18 @@ ActiveRecord::Schema.define(version: 20180308151504) do
     t.string "full_name"
     t.string "photo"
     t.text "description"
+    t.string "user_name"
     t.string "provider"
     t.string "uid"
+    t.string "github"
+    t.string "facebook"
+    t.string "twitter"
+    t.string "linkedin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "messages", "projects"
   add_foreign_key "project_invites", "projects"
   add_foreign_key "project_invites", "users"
   add_foreign_key "projects", "users"

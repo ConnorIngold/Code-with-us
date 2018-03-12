@@ -31,83 +31,83 @@ puts "Starting seed for you, hold tight ...."
 
 Technology.create!(
   name: 'Ruby',
-  photo: 'ruby.png'
+  remote_photo_url: 'http://pngimg.com/uploads/ruby/ruby_PNG29.png'
 )
 Technology.create!(
   name: 'HTML',
-  photo: 'html.png'
+  remote_photo_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/2000px-HTML5_logo_and_wordmark.svg.png'
 )
 Technology.create!(
   name: 'CSS',
-  photo: 'css.png'
+  remote_photo_url: 'https://vignette.wikia.nocookie.net/howtoprogram/images/a/a9/CSS3.png/revision/latest/scale-to-width-down/342?cb=20130422012035'
 )
 Technology.create!(
   name: 'JS',
-  photo: 'js.png'
+  remote_photo_url: 'https://upload.wikimedia.org/wikipedia/commons/d/dc/Javascript-shield.png'
 )
 Technology.create!(
   name: 'Rails',
-  photo: 'rails.png'
+  remote_photo_url: 'https://cdn-images-1.medium.com/max/1600/1*-oIlwIWlt0BDN4b5a9rRCQ.png'
 )
 Technology.create!(
   name: 'React',
-  photo: 'react.png'
+  remote_photo_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/512px-React-icon.svg.png'
 )
 Technology.create!(
   name: 'SQL',
-  photo: 'sql.png',
+  remote_photo_url: 'https://cdn0.iconfinder.com/data/icons/superuser-extension-light/512/675277-data_database_sql_query-128.png'
 )
 Technology.create!(
   name: 'Python',
-  photo: 'python.png'
+  remote_photo_url: 'https://vignette.wikia.nocookie.net/lpunb/images/b/b1/Logo_Python.png/revision/latest?cb=20130301171443'
 )
 Technology.create!(
   name: 'C#',
-  photo: 'c#.png'
+  remote_photo_url: 'https://redbridgecourses.com/wp-content/uploads/2014/09/C.png'
 )
 Technology.create!(
   name: 'Typescript',
-  photo: 'typescript.png'
+  remote_photo_url: 'https://rynop.files.wordpress.com/2016/09/ts.png?w=816'
 )
 Technology.create!(
   name: 'PHP',
-  photo: 'php.png'
+  remote_photo_url: 'http://www.freepngimg.com/thumb/php/6-2-php-logo-png-image-thumb.png'
 )
 Technology.create!(
   name: 'Perl',
-  photo: 'perl.png'
+  remote_photo_url: 'http://diginetinfosystems.com/content/img1/perl-scripting-training.jpg'
 )
 Technology.create!(
   name: 'Java',
-  photo: 'java.png'
+  remote_photo_url: 'http://www.slowfoodtruck.com/wp-content/uploads/2017/04/java-logo.png'
 )
 Technology.create!(
   name: 'Angular',
-  photo: 'angular.png'
+  remote_photo_url: 'https://angular.io/assets/images/logos/angular/angular.svg'
 )
 Technology.create!(
   name: 'C++',
-  photo: 'c++.png'
+  remote_photo_url: 'https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg'
 )
 Technology.create!(
   name: 'Scala',
-  photo: 'scala.png'
+  remote_photo_url: 'http://www.verifyrecruitment.com/blog/wp-content/uploads/2015/10/Scala1.png'
 )
 Technology.create!(
   name: 'Jquery',
-  photo: 'jquery.png'
+  remote_photo_url: 'https://vignette.wikia.nocookie.net/howtoprogram/images/9/93/JQuery.png/revision/latest?cb=20130423012006'
 )
 Technology.create!(
   name: 'Swift',
-  photo: 'swift.png'
+  remote_photo_url: 'https://cdn.macrumors.com/article-new/2014/06/swift.png'
 )
 Technology.create!(
   name: 'Django',
-  photo: 'django.png'
+  remote_photo_url: 'http://www.unixstickers.com/image/cache/data/stickers/django/django_badge.sh-600x600.png'
 )
 Technology.create!(
   name: 'Net-framework',
-  photo: 'Net-framework.png'
+  remote_photo_url: 'https://i0.wp.com/www.andersrodland.com/wp-content/uploads/2017/05/NET-Framework-4.7.png?resize=300%2C300&ssl=1'
 )
 
 puts "Tech seeding complete my g"

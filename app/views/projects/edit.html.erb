@@ -11,10 +11,16 @@
           <div class="col-xs-12">
             <%= f.input :aim, placeholder: 'Aim of project' %>
           </div>
-        </div>
           <div class="col-xs-12">
             <%= f.input :category, collection: Project::CATEGORIES, prompt: "What is the purpose of this project?" %>
           </div>
+
+          <div class="col-xs-12">
+            <%= f.input :image %>
+            <%= f.input :image_cache, as: :hidden  %>
+          </div>
+
+        </div>
         </div>
           <div class="form-group">
             <label class="control-label check_boxes optional">Technologies</label>

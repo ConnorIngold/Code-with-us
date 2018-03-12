@@ -3,7 +3,7 @@
     <div class="row">
       <div class="task-simple_form">
         <% choices = [] %>
-        <% @project.users.each do |user| %>
+        <% @project.users.merge(ProjectInvite.accepted_users).each do |user| %>
           <% choices << user.full_name %>
         <% end %>
         <% choices << @project.owner.full_name %>
