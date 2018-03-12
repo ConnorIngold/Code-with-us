@@ -1,8 +1,8 @@
 Arguments: 
-  /usr/bin/node /usr/share/yarn/bin/yarn.js check --integrity
+  /usr/bin/node /usr/share/yarn/bin/yarn.js install progressbar.js
 
 PATH: 
-  /home/sumai/.rbenv/versions/2.4.3/lib/ruby/gems/2.4.0/bin:/home/sumai/.rbenv/versions/2.4.3/bin:/home/sumai/.rbenv/libexec:/home/sumai/.rbenv/plugins/ruby-build/bin:./bin:./node_modules/.bin:/home/sumai/.rbenv/shims:/home/sumai/.rbenv/bin:/home/sumai/bin:/home/sumai/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+  /home/sumai/.rbenv/versions/2.4.3/bin:/home/sumai/.rbenv/libexec:/home/sumai/.rbenv/plugins/ruby-build/bin:./bin:./node_modules/.bin:/home/sumai/.rbenv/shims:/home/sumai/.rbenv/bin:/home/sumai/bin:/home/sumai/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/sbin
 
 Yarn version: 
   1.5.1
@@ -6093,9 +6093,9 @@ Lockfile:
       window-size "0.1.0"
 
 Trace: 
-  Error: Found 1 errors.
+  Error: `install` has been replaced with `add` to add new dependencies. Run "yarn add progressbar.js" instead.
       at new MessageError (/usr/share/yarn/lib/cli.js:186:110)
-      at /usr/share/yarn/lib/cli.js:59470:13
+      at Object.<anonymous> (/usr/share/yarn/lib/cli.js:21987:13)
       at Generator.next (<anonymous>)
       at step (/usr/share/yarn/lib/cli.js:98:30)
       at /usr/share/yarn/lib/cli.js:109:13

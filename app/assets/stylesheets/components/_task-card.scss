@@ -9,7 +9,7 @@
   display: flex;
   align-items: center;
   padding: 10px;
-  margin: 10px;
+  margin: 30px 20px 10px 10px;
   border: 1px solid black;
   border-radius: 5px;
   border-left: 6px solid red; /*will need to change for difficulty logic*/
@@ -36,6 +36,7 @@
   p {
   font-family: 'Varela Round', sans-serif;
   font-size: 20px;
+  padding-right: 10px;
   }
 }
 
@@ -47,6 +48,7 @@
 .task-name h3 {
   font-size: 15px;
   margin-bottom: 0px;
+  padding-left: 5px;
 }
 
 .task-name p {

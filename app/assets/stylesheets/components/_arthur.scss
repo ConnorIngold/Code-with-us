@@ -1,0 +1,70 @@
+.sidebar {
+  height: calc(100vh - 70px);
+  background-color: #34495e;
+  color: white;
+  padding: 20px;
+  h1 {
+    font-size: 40px;
+  }
+  p {
+    font-size: 20px;
+    opacity: .7;
+  }
+  hr {
+    opacity: .3;
+  }
+}
+
+.sidebar-tags {
+  display: flex;
+  flex-wrap: wrap;
+  span {
+    flex: 1 0 auto;
+  }
+
+  .tag {
+    padding: 5px;
+    margin: 5px;
+    border-radius: 10px;
+    background-color: gray;
+    color: white;
+    text-align: center;
+  }
+}
+
+.sidebar-users {
+  .sidebar-img-user {
+    border-radius: 50%;
+    width: 40px;
+    margin-right: -5px;
+    box-shadow: 2px 2px 3px rgba(0,0,0,0.1)
+  }
+}
+
+#arthur-progress {
+  width: 100px;
+  margin-right: 20px;
+}
+
+.sidebar-progress {
+  display: flex;
+}
+
+.nav-tabs {
+  height: 6%;
+}
+
+.create-task {
+  height: 6%;
+}
+
+.tab-content {
+overflow-x: hidden;
+height: 88%;
+}
+
+.project-tabs {
+  height: calc(100vh - 70px);
+
+}
+

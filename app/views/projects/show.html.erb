@@ -1,156 +1,99 @@
-<div class="project-page">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-3">
-          <div class="details">
-            <h1><%= @project.name %></h1>
-            <div class="description">
-              <h3><%= @project.owner.full_name %></h3>
-              <p><%= @project.aim %></p>
-              <% @project.users.each do |users| %>
-                <%= users.full_name %>
-              <% end %>
-            </div>
-            <div class="tags">
-              <% @project.technologies.each do |technology| %>
-                <%= image_tag "#{technology.name.downcase}", :style => "height:30px;width:30px;" %>
-              <% end %>
-            </div>
-          </div>
+<div class="row">
+  <div class="col-xs-3">
+    <div class="sidebar">
+      <h1><%= @project.name %></h1>
+      <p><%= @project.owner.full_name %></p>
+      <%= cl_image_tag @project.owner.photo, class: 'avi-small'   %>
+      <hr>
+      <div class="sidebar-details">
+        <p><%= @project.aim %></p>
 
-          <div class="targets">
-            <div class="box">
-              <p>Total of: <%= @project.tasks.count %> tasks</p>
-              <% complete_counter = @project.tasks.where(complete: true).length%>
-              <% incomplete_counter = @project.tasks.where(complete: false).length %>
-              <p>Total of: <%= complete_counter %> completed tasks</p>
-              <p>Total of: <%= incomplete_counter %> incomplete tasks</p>
-            </div>
-          </div>
+        <div class="sidebar-users">
+          <% @project.users.each do |users| %>
+            <%= cl_image_tag users.photo, class: 'sidebar-img-user' %>
+          <% end %>
+          <!-- TODO delete img below and use photo of users on project -->
+          <%= image_tag 'https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png?w=300',  class: 'sidebar-img-user' %>
+          <%= image_tag 'https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png?w=300',  class: 'sidebar-img-user' %>
+          <%= image_tag 'https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png?w=300',  class: 'sidebar-img-user' %>
+          <%= image_tag 'https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png?w=300',  class: 'sidebar-img-user' %>
+        </div>
 
-          <div class="buttons">
-            <% if @project.owner == current_user || @project.users.merge(ProjectInvite.accepted_users) == current_user%>
-              <h3> Message Team Button </h3>
-            <% else %>
-              <%= link_to "Request invite", new_project_project_invite_path(@project) %>
-            <% end %>
-            <% @project.project_invites.each do |invite| %>
-              <%= invite.user.full_name %>
-              <%= invite.message %>
-              <% if invite.user == current_user %>
-               <%= link_to "Edit your invite", edit_project_invite_path(@project,invite) %>
-               <%= link_to "Delete request", project_invite_path(invite), method: :delete %>
-              <% end %>
-            <% end %>
-          </div>
+      </div>
+      <hr>
+      <div class="sidebar-tags">
+        <% @project.technologies.each do |technology| %>
+          <span class="tag"><%= technology.name %></span>
+        <% end %>
+      </div>
+      <hr>
+      <div class="sidebar-progress">
+        <div id="arthur-progress" class="radial-progress" data-value="<%= @project.tasks.where(complete: true).length.fdiv(@project.tasks.count.to_f) %>">
+        </div>
+        <div class="section">
+          <h4><%= @project.tasks.where(complete: true).length %> <small>Completed</small></h4>
+          <h4><%= @project.tasks.where(complete: false).length %> <small>Tasks to-do</small></h4>
+        </div>
+      </div>
+      <hr>
+      <div class="">
+        <% if @project.owner == current_user || @project.users.merge(ProjectInvite.accepted_users) == current_user%>
+          <h3> Message Team Button </h3>
+        <% else %>
+          <%= link_to "Request invite", new_project_project_invite_path(@project) %>
+        <% end %>
+        <% @project.project_invites.each do |invite| %>
+          <%= invite.user.full_name %>
+          <%= invite.message %>
+          <% if invite.user == current_user %>
+           <%= link_to "Edit your invite", edit_project_invite_path(@project,invite) %>
+           <%= link_to "Delete request", project_invite_path(invite), method: :delete %>
+          <% end %>
+        <% end %>
       </div>
 
-      <div class="col-xs-9">
-        <div class="task-container">
-          <ul class="tabs">
-            <li class="tab-link current" data-tab="To-Do">Tasks To-Do</li>
-            <li class="tab-link" data-tab="Completed">Completed Tasks</li>
-            <li class="tab-link" data-tab="Create">Message Box</li>
-            <li class="tab-link" data-tab="Options">Options</li>
-          </ul>
+    </div>
+  </div>
+  <div class="col-xs-9">
+    <div class="project-tabs">
 
-          <div id="To-Do" class="tab-content current">
-            <% if @project.owner == current_user || @project.users.merge(ProjectInvite.accepted_users) %>
-              <%= link_to "Create a New task", new_project_task_path(@project), class: "btn btn-primary" %>
-            <% end %>
-            <% @project.tasks.each do |task| %>
-              <% if task.complete === false %>
-                <li class="task">
-                  <div class="avatar">
-                  <% if  User.find(@project.user_id).photo.present?%>
-                    <%= cl_image_tag  User.find(@project.user_id).photo, class: 'avi-small'  %>
-                  <% else %>
-                    <div class="avi-small" style="background-image: url('https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png?w=300');">
-                    </div>
-                  <% end %>
-                  </div>
-                  <div class="task-name">
-                    <h3><%= task.user.full_name %></h3>
-                    <p>10/07/17</p>
-                  </div>
-                  <div class="description">
-                    <p><strong><%= task.name %></strong></p>
-                    <p><%= task.description %></p>
-                  </div>
-                  <div class="task-status">
-                    <p class="difficulty text-center"><%= task.difficulty %></p>
-                  </div>
-                </li>
-                <div class="task-buttons">
-                <% if task.user == current_user || @project.owner == current_user %>
-                  <%= link_to "Completed", complete_path(task), class: "btn btn-success" %>
-                <% end %>
-                <% if @project.owner == current_user %>
-                  <%= link_to "Edit Task", edit_project_task_path(@project, task), class: "btn btn-info" %>
-                  <%= link_to "Delete Task", task_path(task), class: "btn btn-danger", method: :delete %>
-                <% end %>
-                </div>
-              <% end %>
-            <% end %>
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Tasks To-do</a></li>
+        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Completed Tasks</a></li>
+        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Options</a></li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="create-task">
+      <% if @project.owner == current_user || @project.users.merge(ProjectInvite.accepted_users) %>
+        <%= link_to "Create a New task", new_project_task_path(@project), class: "btn btn-primary" %>
+      <% end %>
+      </div>
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="home">
+          <%= render 'tasks', project: @project %>
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="profile">
+          <%= render 'completed', project: @project %>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="messages">
+          <%= render 'message-box', project: @project %>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="settings">
+          <div class="list">
+            <%= link_to "Edit this project", edit_project_path(@project), class: "btn btn-primary" %>
+            <%= link_to "Delete project", project_path(@project), class: "btn btn-danger", method: :delete %>
           </div>
-
-          <div id="Completed" class="tab-content">
-            <% if @project.owner == current_user || @project.users.merge(ProjectInvite.accepted_users) %>
-              <%= link_to "Create a New task", new_project_task_path(@project), class: "btn btn-primary" %>
-            <% end %>
-            <% @project.tasks.each do |task| %>
-              <% if task.complete === true %>
-                <li class="task">
-                  <div class="avatar">
-                  <% if  User.find(@project.user_id).photo.present?%>
-                    <%= cl_image_tag  User.find(@project.user_id).photo, class: 'avi-small'  %>
-                  <% else %>
-                    <div class="avi-small" style="background-image: url('https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png?w=300');">
-                    </div>
-                  <% end %>
-                  </div>
-                  <div class="task-name">
-                    <h3><%= task.user.full_name %></h3>
-                    <p>10/07/17</p>
-                  </div>
-                  <div class="description">
-                    <p><strong><%= task.name %></strong></p>
-                    <p><%= task.description %></p>
-                  </div>
-                  <div class="task-status">
-                    <p class="difficulty text-center"><%= task.difficulty %></p>
-                  </div>
-                </li>
-                <% if task.user == current_user || @project.owner == current_user %>
-                  <%= link_to "Incompleted", not_complete_path(task), class: "btn btn-secondary" %>
-                <% end %>
-                <% if @project.owner == current_user %>
-                  <%= link_to "Edit Task", edit_project_task_path(@project, task), class: "btn btn-info" %>
-                  <%= link_to "Delete Task", task_path(task), class: "btn btn-danger", method: :delete %>
-                <% end %>
-              <% end %>
-            <% end %>
-          </div>
-
-          <div id="Messages" class="tab-content">
-            <div class="message-box">
-             <%= link_to "Back to Project", project_path(@project), class: "btn btn-primary" %>
-            </div>
-          </div>
-
-          <div id="Options" class="tab-content">
-            <div class="list">
-              <div class="options-list">
-              <%= link_to "Edit this project", edit_project_path(@project), class: "btn btn-primary" %>
-              <%= link_to "Delete project", project_path(@project), class: "btn btn-danger", method: :delete %>
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<%= javascript_pack_tag 'task' %>
+
+
+<%= javascript_pack_tag 'progress' %>
+

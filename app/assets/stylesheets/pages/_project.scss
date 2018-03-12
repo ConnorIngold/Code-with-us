@@ -20,14 +20,8 @@
   font-weight: 500;
 }
 
-
   h3{  color: black; }
   p { font-size: 20px;  }
-
-.row-no-padding > [class*="col-"] {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-}
 
 
 .buttons{
@@ -94,10 +88,6 @@ border-bottom: 1px solid  #dadadb;
 
 }
 
-    // ul  li {
-    //   /*list-style: none;*/
-    // }
-
     .tabs{
       margin: 0px;
       padding: 0px;
@@ -133,11 +123,11 @@ border-bottom: 1px solid  #dadadb;
   color: black;
 }
 
-    .tab-content{
-      display: none;
-      background: #f4f1f9;
-      padding: 5px;
-    }
+    // .tab-content{
+    //   display: none;
+    //   background: #f4f1f9;
+    //   padding: 5px;
+    // }
 
     .tab-content.current{
       display: inherit;
