@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :projects
+  has_many :projects, dependent: :destroy
   has_many :project_invites
   has_many :projects, through: :project_invites
   has_many :tech_users
