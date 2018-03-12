@@ -116,6 +116,7 @@
 // first section ends here
 
 
+
 // second section starts here
 .second-section {
   background-color: white;
@@ -128,21 +129,138 @@
 }
 
 .all-text{
-    width: 50%;
-    margin-left: 15%;
-    height: auto;
-    text-align: right;
-    color: $brand-success;
+  width: 50%;
+  margin-left: 15%;
+  height: auto;
+  direction: rtl;
+  text-align: justify;
+  color: $brand-success;
+}
+
+.title{
+  opacity:1;
+}
+.title:hover{
+  opacity:0.5;
 }
 
 .connected{
-margin-left: 15px;
+  margin-left: 15px;
 }
 
 .all-description{
   margin-top: 10px;
+  margin-bottom: 10%;
 }
+
+.title {
+  padding: 1px;
+}
+// button starts here
+
+.btn-medium {
+  color: $brand-success;
+  border: 2px solid $brand-success;
+  padding: 10px 15px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  direction: ltr;
+  position: relative;
+  margin-top: 20px;
+  // top: 1150px;
+  // right: 10;
+}
+.btn-medium:hover {
+  color: white;
+  border: 2px solid white;
+  background-color: $brand-success;
+}
+
+//button ends here
+
 // second section ends here
 
+// thrid section starts here
+.third-section{
+  // background-color: #f2f2f2;
+  display: flex;
+  height: 400px;
+  width: 100%;
+  padding: 30px;
+  padding-left: 40px;
+  justify-content: right;
+  flex-direction: row;
+  margin-top: 50px;
+}
+
+.innerdiv-with-image-and-text{
+    color: $brand-success;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 700px;
+    margin-bottom: 40px;
+    border-radius: 10px
+}
+
+.image-to-the-right{
+  float: right;
+  padding-left: 245px;
+}
+
+.all-text2{
+  margin-left: 35px;
+}
+
+.title2{
+  margin-bottom: 35px;
+}
+
+.paragragh{
+  width: 553px;
+  height: auto;
+  text-align: justify;
+  margin-bottom: 60px;
+}
+//thrid section ends here
 
 
+//fourth section starts here
+.forth-section{
+  // background-color: #f2f2f2;
+  display: flex;
+  height: 400px;
+  width: 100%;
+  padding: 30px;
+  padding-left: 40px;
+  justify-content: right;
+  flex-direction: row;
+  margin-top: 10px;
+}
+
+.image-on-both-sides{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 400px;
+  margin-bottom: 40px;
+  border-radius: 10px;
+}
+
+.card-for-first-image{
+  // margin-left: auto;
+  margin-right: 20px;
+  display: block;
+}
+
+.all-text3{
+  color: $brand-success;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+
+//fourth section ends here
