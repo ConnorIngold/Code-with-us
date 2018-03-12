@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :project_invites, only: [:new, :create]
     resources :tasks, only: [:new, :create, :edit, :update]
     resources :project_techs, only: [:index]
+    resources :messages, only: [:create, :new, :edit, :update, :destory]
   end
   resources :project_invites, only: [:index, :edit, :update, :destroy]
   resources :tasks, only: [:destroy]
