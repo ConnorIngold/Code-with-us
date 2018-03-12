@@ -7,5 +7,5 @@ class ProjectInvite < ApplicationRecord
   scope :pending_users, -> {where(status: 'pending')}
   # Project.find(6).users.merge(ProjectInvite.accepted_users)
   # ABOVE WILL RETURN ONLY ACCEPTED USERS OF A PROJECT
-  # Project.findI(6).users.merge(ProjectInvite.pending_users)
+  # Project.find(6).users.merge(ProjectInvite.pending_users)
 end
