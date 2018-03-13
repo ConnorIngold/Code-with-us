@@ -47,10 +47,8 @@
             <h4>Edit your projects</h4>
           </div>
           <div class="project-list text-center">
-            <!-- <ul> -->
             <% @user.my_projects.each do |project| %>
-            <li><%= link_to project.name, edit_project_path(project), {:style=>'color:#FFFFFF;', :class => "css_class"} %></li>
-            <!-- </ul> -->
+            <li><%= link_to project.name, edit_project_path(project), {:style=>'color:#FFFFFF;', :class => "css_class"} %>  <i class="fa fa-edit" aria-hidden="true" style='color:#15497C;' ></i></li>
             <% end %>
           </div>
         </div>
@@ -73,13 +71,13 @@
           <div class="edit-link text-center">
             <% if @user == current_user %>
             <%= link_to "Edit Profile", edit_user_path(@user), {:style=>'color:#FFFFFF;', :class => "css_class"} %>
-            <a href= <%= edit_user_path(@user) %> style='color:#FFFFFF;' class="profile-link"><i class="fa fa-edit" aria-hidden="true"></i></a>
+            <a href= <%= edit_user_path(@user) %> style='color:#15497C;' class="profile-link"><i class="fa fa-edit" aria-hidden="true"></i></a>
             <% end %>
           </div>
           <div class="edit-link text-center">
             <% if @user == current_user %>
             <%= link_to "Edit your project requests", project_invites_path, {:style=>'color:#FFFFFF;', :class => "css_class"} %>
-            <a href= <%= project_invites_path %> style='color:#FFFFFF;' class="profile-link"><i class="fa fa-edit" aria-hidden="true"></i></a>
+            <a href= <%= project_invites_path %> style='color:#15497C;' class="profile-link"><i class="fa fa-edit" aria-hidden="true"></i></a>
             <% end %>
           </div>
         </div>

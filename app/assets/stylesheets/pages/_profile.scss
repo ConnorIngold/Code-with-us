@@ -12,6 +12,7 @@
 }
 
 .profile {
+  margin-bottom: 5px;
   padding: 5px;
   color: #2c89d1;
   h4 {
@@ -21,24 +22,26 @@
 
 .user-flex {
   display: flex;
+  justify-content: space-around;
   box-shadow: 1px 1px 5px #888888;
   border: 1px solid #dadadb;
+  height: 200px;
 }
 
 .avatar-large {
   background-size: cover;
   width: 180px;
   height: 150px;
-  border-radius: 48%;
+  border-radius: 20%;
   display: block;
-  margin-left: 5px;
+  margin: 20px;
 }
 
 .find-me{
-  display: flex;
+  // display: flex;
   width: 200px;
   padding: 5px;
-  margin-left: 10px;
+  margin: 20px;
   font-size: 20px;
   text-align: right;
 
@@ -72,9 +75,9 @@
 
 .show-white-card-projects {
   background-color: #FFFFFF;
-    border-radius: 15px 50px;
+  border-radius: 15px 50px;
   margin-right: 10px !important;
-  width: 90%;
+  width: 83%;
   h4 {
   color: #ffffff;
   margin: 15px !important;
@@ -116,14 +119,16 @@
 }
 
 .bio {
-  padding: 5px;
+  margin-top: 5px;
+  padding: 5px 5px;
   p {
     font-size: 15px;
+      padding: 10px;
   }
 }
 
 .edit-projects {
-  margin: 5px;
+  margin: 10px 5px 10px 5px;
   border: 1px solid #dadadb;
   box-shadow: 1px 1px 5px #888888;
   h4 {
@@ -137,6 +142,7 @@
 
 .project-list {
   color: white;
+  padding: 10px;
       li {
     list-style: none;
   }
@@ -154,6 +160,7 @@
   background-color: #ffffff;
   text-align: center;
   font-size: 15px;
+  padding: 10px;
   }
 }
 
@@ -165,14 +172,21 @@
   h4 {
     color: #2c89d1;
   }
-  p {background-color: #ffffff;
+  p {
+  padding: 10px;
+  background-color: #ffffff;
   text-align: center;
   font-size: 20px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
   }
 }
 
-.all-projects {
-  // height: calc(100vh - 70px);
+.user-techn {
+  padding: 10px;
+}
+
+.edit-link {
+    padding: 5px;
 }
 
 .user-projects {
@@ -186,12 +200,12 @@
 
 .user-projects-card-show{
   padding: 13px;
-  width: 50vw;
+  width: 40vw;
   height: 200px;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  // text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
   background-size: cover;
   background-position: center;
-  color: #2c89d1;
+  color: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.2);
   margin: 10px 0;
   margin-left: 10%;
