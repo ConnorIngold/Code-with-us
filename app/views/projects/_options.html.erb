@@ -1,3 +1,65 @@
+<div class="options-list">
+  <ul>
+    <li>
+      <h5>Make this Project open or closed?</h5>
+      <p>Closed project means no one else can join the group</p>
+      <% if current_user == @project.owner && @project.open === true %>
+        <%= link_to "Make this project closed", closed_path(@project) %>
+      <% elsif  current_user == @project.owner && @project.open === false%>
+        <%= link_to "Make this project open", open_path(@project) %>
+      <% end %>
+
+      <hr>
+
+      <p>Project private or not</p>
+      <% if current_user == @project.owner && @project.private === true %>
+        <%= link_to "Make this project public", public_path(@project) %>
+      <% elsif current_user == @project.owner && @project.private === false %>
+        <%= link_to "Make this project private", private_path(@project) %>
+      <% end %>
+
+      <hr>
+
+      <% if @project.owner == current_user || @project.users.merge(ProjectInvite.accepted_users).include?(current_user)%>
+      <%= link_to "Send a message", new_project_message_path(@project) %>
+      <% elsif @project.users.merge(ProjectInvite.pending_users).include?(current_user) %>
+        <h3> Invite pending</h3>
+      <% elsif @project.users.merge(ProjectInvite.declined_users).include?(current_user) %>
+        <h3> Invite declinded</h3>
+      <% else %>
+        <%= link_to "Request invite", new_project_project_invite_path(@project) %>
+      <% end %>
+      <% @project.project_invites.each do |invite| %>
+         <% unless invite.status == "accepted" %>
+           <%= invite.user.full_name %>
+           <%= invite.message %>
+         <% end %>
+         <br>
+         <% if invite.user == current_user && invite.status == "accepted" %>
+           <%= link_to "Remove yourself from group", project_invite_path(invite), method: :delete %>
+         <% elsif invite.user == current_user %>
+           <%= link_to "Edit your invite", edit_project_invite_path(@project,invite) %>
+           <%= link_to "Delete request", project_invite_path(invite), method: :delete %>
+        <% end %>
+      <% end %>
+
+      <hr>
+
+      <div class="list">
+        <% if current_user == @project.owner  %>
+        <%= link_to "Edit this project", edit_project_path(@project), class: "btn btn-primary" %>
+        <%= link_to "Delete project", project_path(@project), class: "btn btn-danger", method: :delete %>
+        <% end %>
+      </div>
+
+    </li>
+  </ul>
+</div>
+
+
+<hr>
+<hr>
+
         <div class="list">
           <p>Project open or close links</p>
           <% if current_user == @project.owner && @project.open === true %>
@@ -13,6 +75,8 @@
           <% elsif current_user == @project.owner && @project.private === false %>
             <%= link_to "Make this project private", private_path(@project) %>
           <% end %>
+
+
           <% if current_user == @project.owner  %>
           <%= link_to "Edit this project", edit_project_path(@project), class: "btn btn-primary" %>
           <%= link_to "Delete project", project_path(@project), class: "btn btn-danger", method: :delete %>
