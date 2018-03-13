@@ -21,19 +21,15 @@
 
       .tags-result{
         width: 50%;
-        margin: 10px 0;
         box-shadow: 1px 2px 4px rgba(0,0,0,0.3);
         opacity: 0.8;
+        z-index: 100;
         &:hover{
           transition: 0.4s;
           opacity: 1;
-          background: #eff0f2;
+          cursor: pointer;
         }
-        &.active{
-          transition: 0.5s;
-          background: #268fe0;
 
-        }
       }
     }
 
@@ -75,3 +71,8 @@
 }
 
 
+
+
+.tag-active {
+  background: #5dabea;
+}
