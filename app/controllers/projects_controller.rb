@@ -18,6 +18,11 @@ class ProjectsController < ApplicationController
       @projects = policy_scope(Project).where(private: false).project_search(params[:search])
     end
     @technologies = Technology.all
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show

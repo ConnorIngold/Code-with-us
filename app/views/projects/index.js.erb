@@ -1,0 +1,12 @@
+var resultsDisplay = document.querySelector('.results')
+resultsDisplay.innerHTML = ''
+
+var tagsFlex = document.querySelector('.tags-flex')
+tagsFlex.innerHTML = ''
+
+
+var partialTags = "<%= j render 'shared/tags', technologies: @technologies, selected_technologies_names: @selected_technologies_names %>"
+tagsFlex.insertAdjacentHTML('afterbegin', partialTags)
+
+var partialProjects = "<%= j render 'shared/projects', projects: @projects %>"
+resultsDisplay.insertAdjacentHTML('afterbegin', partialProjects)
