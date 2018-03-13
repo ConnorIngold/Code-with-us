@@ -26,16 +26,17 @@
 
     <div class="follow-me-grid-item-3">
       <div class="description">
-          <a href= <%= @user.github %> class="github-link"><i class="fa fa-github"></i>
-            Github
+          <h3>Find me on</h3>
+          <a class="btn github-link" href= <%= @user.github %> ><i class="fa fa-github"></i>
+            GitHub
           </a>
-          <a href= <%= @user.facebook %> class="facebook-link"><i class="fa fa-facebook" aria-hidden="true"></i>
+          <a class="btn facebook-link" href= <%= @user.facebook %> ><i class="fa fa-facebook" aria-hidden="true"></i>
             Facebook
           </a>
-          <a href= <%= @user.twitter %> class="twitter-link"><i class="fa fa-twitter" aria-hidden="true"></i>
+          <a class="btn twitter-link" href= <%= @user.twitter %> ><i class="fa fa-twitter" aria-hidden="true"></i>
             Twitter
           </a>
-          <a href= <%= @user.linkedin %> class="linkedin-link"><i class="fa fa-linkedin" aria-hidden="true"></i>
+          <a  class="btn linkedin-link" href= <%= @user.linkedin %> ><i class="fa fa-linkedin" aria-hidden="true"></i>
             LinkedIn
           </a>
       </div>
@@ -75,10 +76,10 @@
         <div class="card-show-header">
           <h4>User technologies</h4>
         </div>
-        
+
           <div class="tags">
             <% @user.technologies.each do |technology| %>
-              <%= image_tag "#{technology.name.downcase}", :style => "height:30px;width:30px;" %>
+              <%= cl_image_tag technology.photo, :style => "height:30px;width:30px;" %>
             <% end %>
           </div>
       </div>
