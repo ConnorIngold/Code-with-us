@@ -17,4 +17,16 @@
       <%= link_to "edit this meesage", edit_project_message_path(@project, message) %>
     <% end %>
   <% end %>
+    <% choices = [] %>
+    <% @project.users.merge(ProjectInvite.accepted_users).each do |user| %>
+      <% choices << user.full_name %>
+    <% end %>
+    <% choices << @project.owner.full_name %>
+    <% choices.delete(current_user.full_name) %>
+
+    <%= simple_form_for [@project, @message] do  |f| %>
+      <%= f.input :content %>
+      <%= f.input :recipient_id, collection: choices %>
+    <%= f.button :submit, class: "btn btn-success" %>
+    <% end %>
 <% end %>
