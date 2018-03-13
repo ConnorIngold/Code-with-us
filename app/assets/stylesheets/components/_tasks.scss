@@ -3,9 +3,35 @@
   background-color: #34495e;
   color: white;
   padding: 20px;
-  h1 h4 h3 {
-    font-size: 40px;
+  overflow-y: scroll;
+
+  .section{
+    height: 50px;
+    margin-top: 27px;
+  }
+
+  .button-choice{
+    text-align: center;
+    margin-top: 10px;
+
+  }
+
+  .bottom-line{
+    margin-top: 6px;
+    margin-bottom: 6px;
+  }
+
+  h1{
+    font-size: 28px;
+  }
+  h3{
+    font-size: 20px;
+    margin-top: 0px;
+  }
+  h4 {
+    font-size: 18px;
     color: white;
+    margin: 0px;
   }
   p {
     font-size: 20px;
@@ -63,7 +89,6 @@ h3 {
 // .nav-tabs {
 //   height: 6%;
 // }
-
 
 .project-tabs {
   height: calc(100vh - 70px);
