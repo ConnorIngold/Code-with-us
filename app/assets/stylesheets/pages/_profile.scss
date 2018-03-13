@@ -1,162 +1,265 @@
 .profile-page {
- min-height: calc(100vh - 70px - 100px);
+ // min-height: calc(100vh - 70px - 100px);
 }
 
-.profile-grid {
-  display: grid;
-  height: 100%;
-  grid-template-columns: 20% 60% 20%;
-  grid-template-rows: 15% 35% 40% 10%;
-  background-color: #FFFFFF;
-  color: #050517;
-  padding: 10px;
-  margin: 10px 10% 10px 10%;
+.profile-details {
+  height: calc(100vh - 70px);
+  margin: 10px;
+  padding: 5%;
+  border: 1px solid #dadadb;
+  background-color: #2c89d1;
+  border-radius: 5px;
 }
 
-.photo-grid-item-1 {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+.profile {
+  // border: 1px solid #dadadb;
+  // background-color: #ffffff;
+  // box-shadow: 1px 1px 5px #888888;
   padding: 5px;
-  font-size: 20px;
-  text-align: center;
-  grid-row: 1 / span 1;
-  grid-column: 1 / span 1 ;
+  color: #2c89d1;
+}
+
+.user-flex {
+  display: flex;
 }
 
 .avatar-large {
   background-size: cover;
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 150px;
   border-radius: 48%;
-  margin-left: auto;
-  margin-right: auto;
   display: block;
+  margin-left: 5px;
 }
 
-.description-grid-item-2 {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+.find-me{
+  width: 200px;
   padding: 5px;
+  margin-left: 10px;
   font-size: 20px;
-  text-align: left;
-  grid-row: 1 / span 1;
-  grid-column: 2 / span 1;
-}
-
-.follow-me-grid-item-3 {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 5px;
-  font-size: 20px;
-  text-align: center;
-  grid-row: 1 / span 1;
-  grid-column: 3 / span 1;
-}
-
-.follow-me-grid-item-3{
-  .description{
-    display: flex;
-    flex-direction: column;
+  text-align: right;
+    ul { margin-bottom: 0px;
+    li {
+    list-style: none;
+    }
   }
 }
 
-.list-projects-grid-item-4 {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 5px;
-  font-size: 20px;
-  text-align: center;
-  grid-row: 2 / span 1;
-  grid-column: 1 / span 1;
-}
-
-.dashboard-grid-item-5 {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 5px;
-  font-size: 20px;
-  text-align: center;
-  grid-row: 2 / span 1;
-  grid-column: 2 / span 2;
-}
-
-.dashboard-card {
-  margin: 10px;
-  width: 98%;
-  height: 30vh;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
-  background-size: cover;
-  background-color: #FFFFFF;
-  color: #050517;
-  border: 1px solid rgba(0, 0, 0, 0.5);
-  opacity: 0.9;
-  box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.2);
-}
-
-.technologies-grid-item-6 {
-  background-color: rgba(255, 255, 255, 0.8);
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 5px;
-  font-size: 20px;
-  text-align: center;
-  grid-row: 3 / span 1;
-  grid-column: 1 / span 1;
-}
-
-.projects-card-grid-item-7 {
-  background-color: rgba(255, 255, 255, 0.8);
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 5px;
-  font-size: 20px;
-  text-align: center;
-  grid-row: 3 / span 2;
-  grid-column: 2 / span 2;
-}
-
-.profile-project-card {
-  margin: 10px;
-  width: 98%;
-  height: 20vh;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
-  background-size: cover;
-  background-color: #FFFFFF;
-  color: #050517;
-  border: 1px solid rgba(0, 0, 0, 0.5);
-  opacity: 0.9;
-  box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.2);
-}
-
-.settings-grid-item-8 {
-  background-color: rgba(255, 255, 255, 0.8);
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 5px;
-  font-size: 20px;
-  text-align: center;
-  grid-row: 4 / span 1;
-  grid-column: 1 / span 1;
-}
-
-
 .show-white-card {
-  // margin-top: 2%;
   background-color: #FFFFFF;
   border-radius: 2px;
 
-  .card-show-header {
+
+.card-show-header {
     border-radius: 2px;
-    background-color: $brand-success;
     h4 {
+    margin-top: 0px;
     padding: 1px;
+    color: #2c89d1;
   }
 
   .card-show-body {
     padding: 2px;
+    }
   }
 }
+
+.user-desc {
+  margin-top: 5px;
+  h4 {
+    color: #2c89d1;
+  }
+  p {
+  padding: 5px;
+  font-size: 15px;
+  text-align: left;
+  color: #ffffff;
+  }
 }
+
+.user-projects {
+  margin-top: 5px;
+  h4 {
+    color: #2c89d1;
+  }
+  p {color: #ffffff;
+  }
+}
+
+.project-list {
+  color: white;
+}
+
+.user-technologies {
+  margin-top: 10px;
+  h4 {
+    color: #2c89d1;
+  }
+  p {
+  background-color: #ffffff;
+  text-align: center;
+  font-size: 20px;
+  }
+}
+
+.settings {
+  margin-top: 10px;
+  h4 {
+    color: #2c89d1;
+  }
+  p {background-color: #ffffff;
+  text-align: center;
+  font-size: 20px;
+  }
+}
+
+.user-projects-card {
+  margin-top: 10px;
+  margin-right: 2%;
+  padding: 5px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.user-projects-card-show{
+padding: 13px;
+width: 50vw;
+height: 200px;
+text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+background-size: cover;
+background-position: center;
+color: #2c89d1;
+border: 1px solid rgba(0, 0, 0, 0.2);
+margin: 10px 0;
+margin-left: 10%;
+margin-top: 10px;
+opacity: 0.85;
+box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.2);
+border-radius: 16px;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+    .flex-left{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      // background: red;
+      width: 550%;
+      text-align: left;
+      .project-details{
+        h1{
+          margin-top: 0px;
+          font-size: 24px;
+          margin-bottom: 0px;
+          color: white;
+        }
+        .last-updated{
+          font-size: 18px;
+          font-style: thin;
+          margin-bottom: 0px;
+          color: white;
+        }
+
+        .status-o{
+          padding: 6px;
+          width: 75px;
+          background: linear-gradient(135deg, rgba(85,163,13,1) 0%, rgba(182,237,0,1) 100%);
+          border-radius: 25px;
+          margin-right: 5px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .w-circle{
+            padding: 4px;
+            width: 5%;
+            height: 6px;
+            background-color: white;
+            border-radius: 5px;
+          }
+          .open{
+            margin-bottom: 0px;
+            color: white;
+          }
+
+        }
+
+        .status-c{
+          padding: 6px;
+          width: 100px;
+          background: linear-gradient(135deg, rgba(248,80,50,1) 0%,
+           rgba(246,41,12,1) 33%, rgba(250,111,92,1) 91%, rgba(250,111,92,1) 100%);
+          border-radius: 25px;
+          margin-right: 5px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .w-circle{
+            padding: 4px;
+            width: 5%;
+            height: 6px;
+            background-color: white;
+            border-radius: 5px;
+          }
+          .closed{
+            margin-bottom: 0px;
+            color: white;
+          }
+
+        }
+
+        .tags{
+          float: left;
+          color: white;
+        }
+      }
+    }
+
+    .flex-right{
+      display: flex;
+      flex-direction: column;
+      // background: blue;
+      width: 100%;
+      float: right; // Check this!!
+      .avi-detail{
+        background-size: cover;
+        width: 90px;
+        height: 90px;
+        border-radius: 16px;
+        float: right;
+        .progress {
+          margin-top: 10px;
+        }
+      }
+    }
+
+    &:hover{
+      transition: 0.4s;
+      opacity: 0.6;
+    }
+}
+
+// .dashboard {
+//   margin: 10px;
+//   width: 98%;
+//   height: 30vh;
+//   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+//   background-size: cover;
+//   background-color: #FFFFFF;
+//   opacity: 0.9;
+  // border: 1px solid #dadadb;
+  // background-color: #ffffff;
+  // box-shadow: 1px 1px 5px #888888;
+// }
+
+// .profile-project-card {
+//   margin: 10px;
+//   width: 98%;
+//   height: 20vh;
+//   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+//   background-size: cover;
+//   background-color: #FFFFFF;
+//   color: #050517;
+//   border: 1px solid rgba(0, 0, 0, 0.5);
+//   opacity: 0.9;
+//   box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.2);
+// }
