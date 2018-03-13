@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
     else
       @projects = policy_scope(Project).where(private: false).global_search(params[:search])
     end
+    @technologies = Technology.all
   end
 
   def show

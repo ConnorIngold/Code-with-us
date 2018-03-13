@@ -1,0 +1,59 @@
+.wholeflex{
+  display: flex;
+  justify-content: space-between;
+
+  .sidebar-results{
+    // display: flex;
+    // justify-content: space-around;
+    flex-direction: column;
+    width: 30vw;
+    height: 100vh;
+    background: #394c70;
+
+
+
+    .tags-flex{
+      margin-top: 40px;
+      .row{
+        width: 100%;
+      }
+    }
+
+    .tagwithname{
+      width: 128px;
+      padding: 0px;
+      // padding: 5px;
+      // border-radius: 12%;
+      // background: gray;
+      display: flex;
+      margin-top: 5px;
+      margin-left: 17px;
+    }
+
+      .tag-icon{
+        width: 25px;
+        height: 25px;
+      }
+
+      h1{
+        font-size: 18px;
+        font-weight: bold;
+        color: gray;
+        margin: 0px;
+        margin-left: 5px;
+        opacity: 0.8;
+        &:hover{
+          transition: 0.5s;
+          color: white;
+        }
+      }
+
+  }
+
+  .results{
+    width: 67vw;
+  }
+
+}
+
+
