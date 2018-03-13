@@ -59,54 +59,50 @@
   // border-radius: 5px;
 }
 
+.tabs{
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  display: flex;
+  background: #f4f1f9;
+}
 
-    .tabs{
-      margin: 0px;
-      padding: 0px;
-      list-style: none;
-      display: flex;
-      background: #f4f1f9;
-    }
-
-    .tabs li{
-      background: #dedce3;
-      // color: #222;
-      display: inline-block;
-      padding: 10px 15px;
-      cursor: pointer;
-      font-size: 20px;
-      flex: 0 0 25%;
-      border-radius: 20px;
-    }
-
-    .tabs li.current{
-    background: #f4f1f9;
-    color: #222;
-    border-top: 1px solid #dadadb;
-    border-left: 1px solid #dadadb;
-    border-right: 1px solid #dadadb;
-    border-bottom: 0px;
-    }
-
-    .tabs li:hover {
+.tabs li{
+  background: #dedce3;
+  // color: #222;
+  display: inline-block;
+  padding: 10px 15px;
   cursor: pointer;
-  text-decoration: none;
-  opacity: 0.3;
-  color: black;
+  font-size: 20px;
+  flex: 0 0 25%;
+  border-radius: 20px;
+}
+
+.tabs li.current{
+background: #f4f1f9;
+color: #222;
+border-top: 1px solid #dadadb;
+border-left: 1px solid #dadadb;
+border-right: 1px solid #dadadb;
+border-bottom: 0px;
+}
+
+.tabs li:hover {
+cursor: pointer;
+text-decoration: none;
+opacity: 0.3;
+color: black;
 }
 
  .section small {
   color: white;
  }
 
-    .tab-content.current{
-      display: inherit;
-      overflow-x: hidden !important;
-    }
-
-li:last-child {
-    border-radius: 0 20px 0 0;
+.tab-content.current{
+  display: inherit;
+  overflow-x: hidden !important;
 }
+
 
 .tab.active {
   background: white;
