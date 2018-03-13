@@ -3,18 +3,26 @@
   background-color: #34495e;
   color: white;
   padding: 20px;
-  h1 h4 {
-    margin-top: 0px;
+  h1 h4 h3 {
     font-size: 40px;
     color: white;
   }
   p {
     font-size: 20px;
     opacity: .7;
+    color: white;
   }
   hr {
     opacity: .3;
   }
+}
+
+.sidebar-details h1 {
+  margin-top: 0px;
+}
+
+h3 {
+  color: white;
 }
 
 .sidebar-tags {
@@ -66,3 +74,6 @@ height: 94%;
   height: calc(100vh - 70px);
 }
 
+.task-buttons {
+  padding-left: 10px;
+}

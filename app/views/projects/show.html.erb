@@ -9,8 +9,8 @@
           <!-- TODO delete img below and use photo of users on project -->
         <div class="sidebar-users">
           <h4>Meet the team:</h4>
-          <% @project.users.each do |users| %>
           <%= cl_image_tag @project.owner.photo, class: 'avi-small'   %>
+          <% @project.users.merge(ProjectInvite.accepted_users).each do |users| %>
             <%= cl_image_tag users.photo, class: 'sidebar-img-user' %>
           <% end %>
         </div>
@@ -43,14 +43,6 @@
           <h3> Invite declinded</h3>
         <% else %>
           <%= link_to "Request invite", new_project_project_invite_path(@project) %>
-        <% end %>
-        <% @project.project_invites.each do |invite| %>
-          <!-- <%= invite.user.full_name %> -->
-          <!-- <%= invite.message %> -->
-          <% if invite.user == current_user %>
-           <%= link_to "Edit your invite", edit_project_invite_path(@project,invite) %>
-           <%= link_to "Delete request", project_invite_path(invite), method: :delete %>
-          <% end %>
         <% end %>
       </div>
     </div>

@@ -11,13 +11,17 @@
     </div>
     <div class="tags-flex" style="overflow-y:scroll;">
       <div class="row">
-        <% @technologies.each do |tech| %>
+        <% @technologies.each do |tech|%>
+        <% tech_in_params = @selected_technologies_names.include?(tech.name) %>
+        <% link_params = tech_in_params ? @selected_technologies_names - [tech.name] : @selected_technologies_names + [tech.name] %>
+        <%= link_to projects_path(technologies: link_params.empty? ? nil : link_params.join('_'), search: params[:search]) do %>
           <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 tags-result">
             <div class="tagwithname">
               <%= cl_image_tag tech.photo, class: "tag-icon" %>
-                <h1><%= tech.name %></h1>
+              <h1><%= tech.name %></h1>
             </div>
           </div>
+        <% end %>
         <% end %>
       </div>
     </div>
@@ -38,6 +42,7 @@
                   <% end %>
                 </p>
 
+
                 <% if project.open %>
                   <div class="status-o">
                     <div class="w-circle"> </div>
@@ -50,6 +55,7 @@
                   </div>
                 <% end %>
               </div>
+
 
               <div class="tags">
                 <% project.technologies.each_with_index do |technology, index| %>
