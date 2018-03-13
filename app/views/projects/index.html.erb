@@ -12,7 +12,7 @@
     <div class="tags-flex">
       <div class="row">
         <% @technologies.each do |tech| %>
-          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
             <div class="tagwithname">
               <%= cl_image_tag tech.photo, class: "tag-icon" %>
               <h1><%= tech.name %></h1>
@@ -27,8 +27,7 @@
       <% @projects.each do |project| %>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
           <div class="projects-card" data-aos="zoom-in" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.9) 50%), url('<%= cl_image_path project.image if project.image.present? %>');">
-<!--             <a class="card-link" href="#" ></a>
- -->            <%= link_to "", project_path(project), class: "card-link"  %>
+           <%= link_to "", project_path(project), class: "card-link"  %>
             <div class="flex-left">
               <div class="project-details">
                 <h1><%= truncate(project.name) %></h1>
@@ -48,8 +47,10 @@
               </div>
 
               <div class="tags">
-                <% project.technologies.each do |technology| %>
-                  <%= cl_image_tag "#{technology.photo}", :style => "height:50px;width:50px;" %>
+                <% project.technologies.each_with_index do |technology, index| %>
+                  <% unless index > 4 %>
+                    <%= cl_image_tag "#{technology.photo}", :style => "height:50px;width:50px;" %>
+                  <% end %>
                 <% end %>
               </div>
             </div>
