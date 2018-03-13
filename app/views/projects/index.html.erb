@@ -9,7 +9,7 @@
         <%= submit_tag "Search", :name => nil, class: "search-go" %>
       <% end %>
     </div>
-    <div class="tags-flex" style="overflow-y:scroll;">
+    <div class="tags-flex">
       <div class="row">
         <% @technologies.each do |tech|%>
         <% tech_in_params = @selected_technologies_names.include?(tech.name) %>
@@ -26,7 +26,7 @@
       </div>
     </div>
   </div>
-  <div class="results">
+  <div class="results" style="overflow-y:scroll;">
     <div class="row">
       <% @projects.each do |project| %>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 card-result">
