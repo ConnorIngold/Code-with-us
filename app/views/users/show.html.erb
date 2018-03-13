@@ -1,7 +1,7 @@
-<div class="profile-page">
+<div class="profile-page" style="background-image: linear-gradient(-225deg, rgba(52,73,94,0.9) 30%, rgba(0,36,61,0.4) 90%);" >
 <div class="row">
   <div class="col-sm-4">
-    <div class="profile-details" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 50%);">
+    <div class="profile-details">
       <div class="profile">
         <div class="show-white-card text-center">
           <h4><%= @user.full_name %>'s Profile</h4>
@@ -36,16 +36,18 @@
         <div class="show-white-card text-center">
           <h4>Bio</h4>
         </div>
-          <p><%= @user.description %></p>
+          <p style='color:#FFFFFF;' ><%= @user.description %></p>
       </div>
 
       <div class="user-projects text-center">
         <div class="show-white-card text-center">
           <h4>Edit your projects</h4>
         </div>
-        <div class="project-list">
+        <div class="project-list text-center">
+          <!-- <ul> -->
           <% @user.my_projects.each do |project| %>
-            <%= link_to project.name, edit_project_path(project), {:style=>'color:#FFFFFF;', :class => "css_class"} %>
+          <li><%= link_to project.name, edit_project_path(project), {:style=>'color:#FFFFFF;', :class => "css_class"} %></li>
+          <!-- </ul> -->
           <% end %>
         </div>
       </div>
@@ -85,9 +87,7 @@
   <div class="col-sm-8">
     <div class="user-projects-card">
       <div class="show-white-card text-center">
-        <div class="card-show-header">
-          <h4>All of <%= @user.full_name %>'s Projects</h4>
-        </div>
+        <h4>All of <%= @user.full_name %>'s Projects</h4>
       </div>
       <div class="cards-profile">
         <% @projects.each do |project| %>
@@ -116,7 +116,6 @@
                     </div>
                   <% end %>
                 </div>
-                <div class="progress"></div>
               </div>
             </div>
             <% end %>
