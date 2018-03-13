@@ -1,16 +1,28 @@
 class ProjectsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    if params[:search].nil? or params[:search].blank?
-     @projects = policy_scope(Project).where(private: false)
+    @technologies = Technology.all
+    @selected_technologies_names = params[:technologies]&.split('_') || []
+    if params[:technologies].present?
+      if params[:search].nil? || params[:search].blank?
+        @projects = policy_scope(Project).where(private: false)
+      else
+        @projects = policy_scope(Project).where(private: false).project_search(params[:search])
+      end
+      @selected_technologies_names.each do |tech_name|
+        @projects = @projects.select { |p| p.technologies.include? Technology.where(name: tech_name).first }
+      end
+    elsif params[:search].nil? || params[:search].blank?
+      @projects = policy_scope(Project).where(private: false)
     else
-      @projects = policy_scope(Project).where(private: false).global_search(params[:search])
+      @projects = policy_scope(Project).where(private: false).project_search(params[:search])
     end
   end
 
   def show
     @project = Project.find(params[:id])
     @task = Task.new
+    @message = Message.new
     authorize @project
   end
 

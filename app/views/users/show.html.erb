@@ -6,7 +6,6 @@
         <div class="show-white-card text-center">
           <h4><%= @user.full_name %>'s Profile</h4>
         </div>
-
           <div class="user-flex">
           <% if @user.photo.present? %>
             <div class="avatar-large" style="background-image: url('<%= cl_image_path @user.photo %>');">
