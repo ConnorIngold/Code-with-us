@@ -11,6 +11,7 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @task = Task.new
+    @message = Message.new
     authorize @project
   end
 
