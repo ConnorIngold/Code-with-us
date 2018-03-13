@@ -1,7 +1,7 @@
 <div class="profile-page">
-  <div class="profile-grid">
-
-    <div class="photo-grid-item-1">
+<div class="row">
+  <div class="col-sm-4">
+    <div class="profile">
       <div class="show-white-card text-center">
         <div class="card-show-header">
            <h4><%= @user.full_name %></h4>
@@ -12,62 +12,32 @@
           <div class="avatar-large" style="background-image: url('https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png?w=300')">
           <% end %>
         </div>
-      </div>
-    </div>
-
-    <div class="description-grid-item-2">
-      <div class="description">
-        <p><%= @user.description %></p>
-      </div>
-    </div>
-
-    <div class="follow-me-grid-item-3">
-      <div class="description">
-          <a href= <%= @user.github %> class="github-link"><i class="fa fa-github"></i>
-            Github
-          </a>
-          <a href= <%= @user.facebook %> class="facebook-link"><i class="fa fa-facebook" aria-hidden="true"></i>
-            Facebook
-          </a>
-          <a href= <%= @user.twitter %> class="twitter-link"><i class="fa fa-twitter" aria-hidden="true"></i>
-            Twitter
-          </a>
-          <a href= <%= @user.linkedin %> class="linkedin-link"><i class="fa fa-linkedin" aria-hidden="true"></i>
-            LinkedIn
-          </a>
-      </div>
-    </div>
-
-    <div class="list-projects-grid-item-4">
-      <div class="show-white-card text-center">
-        <div class="card-show-header">
-          <p>List projects you are the Admin</p>
-            <% @user.my_projects.each do |project| %>
-              <%= link_to project.name, project_path(project) %>
-            <% end %>
-
-          <p>List project they are member of</p>
-            <% @projects.each do |project| %>
-              <% if project.users.merge(ProjectInvite.accepted_users).include?(@user) %>
-                <%= link_to project.name, project_path(project) %>
-              <% end %>
-            <% end %>
+        <div class="find-me">
+            <a href= <%= @user.github %> class="github-link"><i class="fa fa-github"></i>
+              Github
+            </a>
+            <a href= <%= @user.facebook %> class="facebook-link"><i class="fa fa-facebook" aria-hidden="true"></i>
+              Facebook
+            </a>
+            <a href= <%= @user.twitter %> class="twitter-link"><i class="fa fa-twitter" aria-hidden="true"></i>
+              Twitter
+            </a>
+            <a href= <%= @user.linkedin %> class="linkedin-link"><i class="fa fa-linkedin" aria-hidden="true"></i>
+              LinkedIn
+            </a>
         </div>
       </div>
     </div>
 
-    <div class="dashboard-grid-item-5">
-      <div class="show-white-card text-center">
-        <div class="card-show-header">
-          <h4>Current Projects | Completed Projects </h4>
-        </div>
-        <div class="dashboard-card">
-          <p>Overall data</p>
+    <div class="show-white-card text-center">
+      <div class="card-show-header">
+        <div class="description">
+          <p><%= @user.description %></p>
         </div>
       </div>
     </div>
 
-    <div class="technologies-grid-item-6">
+    <div class="user-technologies">
       <div class="show-white-card text-center">
         <div class="card-show-header">
           <h4>User technologies</h4>
@@ -80,7 +50,27 @@
       </div>
     </div>
 
-    <div class="projects-card-grid-item-7">
+    <div class="settings">
+      <div class="show-white-card text-center">
+        <div class="card-show-header">
+          <h4>Settings</h4>
+        </div>
+        <!-- <div class="card-show-body"> -->
+        <div class="edit-link">
+          <%= link_to "Edit Profile", edit_user_path(@user) %>
+          <a href= <%= edit_user_path(@user) %> class="profile-link"><i class="fa fa-edit" aria-hidden="true"></i>
+          </a>
+        </div>
+          <p>Edit projects and Project requests</p>
+          <% if @user == current_user %>
+          <%= link_to "Edit your requests", project_invites_path %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-8">
+    <div class="user-projects-card">
       <div class="show-white-card text-center">
         <div class="card-show-header">
           <h4>Projects</h4>
@@ -95,18 +85,6 @@
                 <div class="project-details">
                   <h1><%= truncate(project.name) %></h1>
                   <p class="last-updated"><%= project.updated_at %></p>
-
-                  <% if project.open %>
-                    <div class="status-o">
-                      <div class="w-circle"> </div>
-                      <p class="open">OPEN</p>
-                    </div>
-                  <% else %>
-                    <div class="status-c">
-                      <div class="w-circle"> </div>
-                      <p class="closed">CLOSED</p>
-                    </div>
-                  <% end %>
                 </div>
 
                 <div class="tags">
@@ -133,28 +111,25 @@
         <% end %>
       </div>
     </div>
-
-    <div class="settings-grid-item-8">
-      <div class="show-white-card text-center">
-        <div class="show-white-card text-center">
-          <div class="card-show-header">
-            <h4>Settings</h4>
-          </div>
-          <!-- <div class="card-show-body"> -->
-          <div class="edit-link">
-            <%= link_to "Edit Profile", edit_user_path(@user) %>
-            <a href= <%= edit_user_path(@user) %> class="profile-link"><i class="fa fa-edit" aria-hidden="true"></i>
-            </a>
-          </div>
-            <p>Edit projects and Project requests</p>
-            <% if @user == current_user %>
-            <%= link_to "Edit your requests", project_invites_path %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div>
 </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

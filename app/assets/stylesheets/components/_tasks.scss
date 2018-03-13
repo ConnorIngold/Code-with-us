@@ -3,7 +3,7 @@
   background-color: #34495e;
   color: white;
   padding: 20px;
-  h1 h4 {
+  h1 h4 h3 {
     margin-top: 0px;
     font-size: 40px;
     color: white;
@@ -11,10 +11,15 @@
   p {
     font-size: 20px;
     opacity: .7;
+    color: white;
   }
   hr {
     opacity: .3;
   }
+}
+
+h3 {
+  color: white;
 }
 
 .sidebar-tags {
