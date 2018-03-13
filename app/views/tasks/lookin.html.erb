@@ -1,0 +1,19 @@
+<% categories.each do |category| %>
+    <% cat_in_params = selected_categories_slugs.include?(category.slug) %>
+    <% link_params = cat_in_params ? selected_categories_slugs - [category.slug] : selected_categories_slugs + [category.slug] %>
+    <%= link_to knowledge_tutorials_path(categories: link_params.empty? ? nil : link_params.join('_'), query: params[:query], types: params[:types]), class: 'tutorials-sidebar-link', remote: true do %>
+      <div class="tutorial-sidebar-category <%= 'active' if cat_in_params %>" style="color: <%= category.color %>">
+        <% category_videos = params[:query] ? @tutorials.select { |t| t.category == category } : category.articles %>
+        <% category_videos = category_videos.select { |t| selected_types.include? t.type } if params[:types] %>
+        <p><%= category.name %> <small>(<%= category_videos.length %>)</small></p>
+        <i class="mdi <%= cat_in_params ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline' %>"></i>
+      </div>
+    <% end %>
+  <% end %>
+
+<% technologies.each do |tech|%>
+  <% tech_in_params = selected_technologies_names.include?(tech.name) %>
+  <% link_params = tech_in_params ? selected_technologies_names - [tech.name] : selected_technologies_names + [tech.name] %>
+  <%= link_to projects_path(technologies: link_params.empty? ? nil : link_params.join('_'), search: params[:search]) remote: true do %>
+    <%= tech.name %>
+  <% end %>

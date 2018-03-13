@@ -26,6 +26,12 @@ class Project < ApplicationRecord
       tsearch: { prefix: true }
     }
 
+  pg_search_scope :project_search,
+    against: [ :name, :category ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
   mount_uploader :image, PhotoUploader
 
   def display_users
