@@ -4,7 +4,7 @@
 }
 
 .profile-details {
-  margin: 10px;
+  margin: 20px;
   padding: 5px;
   border: 1px solid #dadadb;
   box-shadow: 1px 1px 5px #888888;
@@ -61,9 +61,10 @@
   border-radius: 2px;
   h4 {
   color: #2c89d1;
-  margin-top: 0px !important;
+  margin: 0px !important;
   padding: 2px;
   p {
+    padding: 5px;
     color: #ffffff;
   }
   }
@@ -71,13 +72,15 @@
 
 .show-white-card-projects {
   background-color: #FFFFFF;
-  border-radius: 2px;
+    border-radius: 15px 50px;
   margin-right: 10px !important;
+  width: 90%;
   h4 {
-  color: #2c89d1;
+  color: #ffffff;
   margin: 15px !important;
   padding: 2px;
   p {
+    font-size: 15px;
     color: #ffffff;
   }
   }
@@ -97,20 +100,26 @@
 
 
 .user-desc {
-  // margin-top: 5px;
-  margin: 5px;
+  margin: 0px 5px;
   border: 1px solid #dadadb;
   box-shadow: 1px 1px 5px #888888;
-  padding: 5px;
+  // padding: 5px; margin-left: 5px;
   h4 {
     color: #2c89d1;
   p {
-  padding: 5px;
+
   font-size: 15px;
   text-align: left;
   color: #ffffff;
   }
 }
+}
+
+.bio {
+  padding: 5px;
+  p {
+    font-size: 15px;
+  }
 }
 
 .edit-projects {
@@ -120,7 +129,9 @@
   h4 {
     color: #2c89d1;
   }
-  p {color: #ffffff;
+  p {
+    color: #ffffff;
+    font-size: 15px;
   }
 }
 
@@ -133,7 +144,7 @@
 
 
 .user-technologies {
-  margin-top: 10px;
+ margin: 10px 5px 10px 5px;
   border: 1px solid #dadadb;
   box-shadow: 1px 1px 5px #888888;
   h4 {
@@ -142,12 +153,15 @@
   p {
   background-color: #ffffff;
   text-align: center;
-  font-size: 20px;
+  font-size: 15px;
   }
 }
 
 .settings {
-  margin-top: 10px;
+  margin: 10px 5px 10px 5px;
+    // margin: 5px;
+  border: 1px solid #dadadb;
+  box-shadow: 1px 1px 5px #888888;
   h4 {
     color: #2c89d1;
   }
@@ -162,7 +176,6 @@
 }
 
 .user-projects {
-
   margin: 10px;
   padding: 5px;
   overflow: hidden;
@@ -172,23 +185,23 @@
 }
 
 .user-projects-card-show{
-padding: 13px;
-width: 50vw;
-height: 200px;
-text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
-background-size: cover;
-background-position: center;
-color: #2c89d1;
-border: 1px solid rgba(0, 0, 0, 0.2);
-margin: 10px 0;
-margin-left: 10%;
-margin-top: 10px;
-opacity: 0.85;
-box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.2);
-border-radius: 16px;
-display: flex;
-flex-direction: row;
-justify-content: space-between;
+  padding: 13px;
+  width: 50vw;
+  height: 200px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  background-size: cover;
+  background-position: center;
+  color: #2c89d1;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  margin: 10px 0;
+  margin-left: 10%;
+  margin-top: 10px;
+  opacity: 0.85;
+  box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
     .flex-left{
       display: flex;
       flex-direction: column;
