@@ -15,19 +15,17 @@
         <p>10/07/17</p>
       </div>
       <div class="description">
-        <p><strong><%= task.name %></strong></p>
+        <p><strong><%= link_to task.name, edit_project_task_path(@project, task) %>  </strong><i class="fa fa-edit" aria-hidden="true"></i></p>
         <p><%= task.description %></p>
       </div>
       <div class="task-status">
         <p class="difficulty text-center"><%= task.difficulty %></p>
       </div>
     </li>
+    <div class="task-buttons">
     <% if task.user == current_user || project.owner == current_user %>
-      <%= link_to "Incomplete", not_complete_path(task), class: "btn btn-secondary" %>
+      <%= link_to "Mark as Incomplete", not_complete_path(task), class: "btn btn-info" %>
     <% end %>
-    <% if project.owner == current_user %>
-      <%= link_to "Edit Task", edit_project_task_path(@project, task), class: "btn btn-info" %>
-      <%= link_to "Delete Task", task_path(task), class: "btn btn-danger", method: :delete %>
-    <% end %>
+    </div>
   <% end %>
 <% end %>

@@ -116,10 +116,10 @@
 }
 //Okay you're good.
 
-.project-page {
-  max-height: calc(100vh - 70px);
+
+
+.project {
   background-color: #FFFFFF;
-  border-top: 1px solid #dadadb;
 }
 
 .details {
@@ -133,7 +133,7 @@
   border: 1px solid #dadadb;
   background-color: rgba(255, 255, 255, 0.8);
   margin-top: 0px !important;
-  margin-bottom: 5px;
+  // margin-bottom: 5px;
   font-family: "Raleway", "Helvetica", "sans-serif";
   font-weight: 500;
 }
@@ -177,34 +177,6 @@
   // border-radius: 5px;
 }
 
-.list {
-
-}
-
-#To-Do {
-border-left: 1px solid  #dadadb;
-border-right: 1px solid  #dadadb;
-border-bottom: 1px solid  #dadadb;
-}
-
-#Completed {
-border-left: 1px solid  #dadadb;
-border-right: 1px solid  #dadadb;
-border-bottom: 1px solid  #dadadb;
-}
-
-#Create {
-border-left: 1px solid  #dadadb;
-border-right: 1px solid  #dadadb;
-border-bottom: 1px solid  #dadadb;
-}
-
-#Options {
-border-left: 1px solid  #dadadb;
-border-right: 1px solid  #dadadb;
-border-bottom: 1px solid  #dadadb;
-
-}
 
     .tabs{
       margin: 0px;
@@ -241,20 +213,14 @@ border-bottom: 1px solid  #dadadb;
   color: black;
 }
 
-    // .tab-content{
-    //   display: none;
-    //   background: #f4f1f9;
-    //   padding: 5px;
-    // }
+ .section small {
+  color: white;
+ }
 
     .tab-content.current{
       display: inherit;
       overflow-x: hidden !important;
     }
-
-li:first-child {
-    border-radius: 20px 0 0 0;
-}
 
 li:last-child {
     border-radius: 0 20px 0 0;
