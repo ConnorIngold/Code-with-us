@@ -1,64 +1,86 @@
-  <div class="search-bar-index search-banner">
-        <%= form_tag projects_path, :method => 'get', class: "search-field" do %>
-          <i class="fa fa-search" aria-hidden="true"></i>
-          <div class="field">
+<div class="wholeflex">
+  <div class="sidebar-results">
+    <div class="search-bar-index ">
+      <%= form_tag projects_path, :method => 'get', class: "search-field" do %>
+        <i class="fa fa-search" aria-hidden="true"></i>
+        <div class="field">
           <%= text_field_tag :search, params[:search], placeholder: "Search for a project", id: "search-index"%>
+        </div>
+        <%= submit_tag "Search", :name => nil, class: "search-go" %>
+      <% end %>
+    </div>
+    <div class="tags-flex" style="overflow-y:scroll;">
+      <div class="row">
+        <% @technologies.each do |tech|%>
+        <% tech_in_params = @selected_technologies_names.include?(tech.name) %>
+        <% link_params = tech_in_params ? @selected_technologies_names - [tech.name] : @selected_technologies_names + [tech.name] %>
+        <%= link_to projects_path(technologies: link_params.empty? ? nil : link_params.join('_'), search: params[:search]) do %>
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 tags-result">
+            <div class="tagwithname">
+              <%= cl_image_tag tech.photo, class: "tag-icon" %>
+              <h1><%= tech.name %></h1>
+            </div>
           </div>
-          <%= submit_tag "Search", :name => nil, class: "search-go" %>
-          <% end %>
-  </div>
-
-  <% @technologies.each do |tech|%>
-    <% tech_in_params = @selected_technologies_names.include?(tech.name) %>
-    <% link_params = tech_in_params ? @selected_technologies_names - [tech.name] : @selected_technologies_names + [tech.name] %>
-    <%= link_to projects_path(technologies: link_params.empty? ? nil : link_params.join('_'), search: params[:search]) do %>
-      <%= tech.name %>
-    <% end %>
-  <% end %>
-
-
-<div class="container text-center">
-
-  <% @projects.each do |project| %>
-    <%= link_to project_path(project) do  %>
-     <div class="projects-card" data-aos="zoom-in" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.9) 50%), url('<%= cl_image_path project.image if project.image.present? %>');">
-      <div class="flex-left">
-        <div class="project-details">
-          <h1><%= truncate(project.name) %></h1>
-          <p class="last-updated"><%= project.updated_at %></p>
-
-          <% if project.open %>
-            <div class="status-o">
-              <div class="w-circle"> </div>
-              <p class="open">OPEN</p>
-            </div>
-          <% else %>
-            <div class="status-c">
-              <div class="w-circle"> </div>
-              <p class="closed">CLOSED</p>
-            </div>
-          <% end %>
-        </div>
-
-        <div class="tags">
-          <% project.technologies.each do |technology| %>
-            <%= cl_image_tag "#{technology.photo}", :style => "height:50px;width:50px;" %>
-          <% end %>
-        </div>
-      </div>
-
-      <div class="flex-right">
-        <div class="avatar-card">
-          <% if  User.find(project.user_id).photo.present?%>
-            <%= cl_image_tag  User.find(project.user_id).photo, class: 'avi-detail'  %>
-          <% else %>
-            <div class="avi-detail" style="background-image: url('https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png?w=300');">
-            </div>
-          <% end %>
-        </div>
-        <div class="progress"></div>
+        <% end %>
+        <% end %>
       </div>
     </div>
-    <% end %>
-  <% end %>
+  </div>
+  <div class="results">
+    <div class="row">
+      <% @projects.each do |project| %>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 card-result">
+          <div class="projects-card" data-aos="zoom-in" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 50%), url('<%= cl_image_path project.image if project.image.present? %>');">
+           <%= link_to "", project_path(project), class: "card-link"  %>
+            <div class="flex-left">
+              <div class="project-details">
+                <h1><%= truncate(project.name) %></h1>
+                <p class="last-updated">
+                  <% if project.tasks.blank? %>
+                  <% else %>
+                    <%= project.last_update_on_project %>
+                  <% end %>
+                </p>
+
+
+                <% if project.open %>
+                  <div class="status-o">
+                    <div class="w-circle"> </div>
+                    <p class="open">OPEN</p>
+                  </div>
+                <% else %>
+                  <div class="status-c">
+                    <div class="w-circle"> </div>
+                    <p class="closed">CLOSED</p>
+                  </div>
+                <% end %>
+              </div>
+
+
+              <div class="tags">
+                <% project.technologies.each_with_index do |technology, index| %>
+                  <% unless index > 4 %>
+                    <%= cl_image_tag "#{technology.photo}", :style => "height:50px;width:50px;" %>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+
+            <div class="flex-right">
+              <div class="avatar-card">
+                <% if  User.find(project.user_id).photo.present?%>
+                  <%= cl_image_tag  User.find(project.user_id).photo, class: 'avi-detail'  %>
+                <% else %>
+                  <div class="avi-detail" style="background-image: url('https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png?w=300');">
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
+
+<%= javascript_pack_tag 'tags' %>
