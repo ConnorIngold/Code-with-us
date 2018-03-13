@@ -8,6 +8,13 @@
           <% end %>
   </div>
 
+  <% @technologies.each do |tech|%>
+    <% tech_in_params = @selected_technologies_names.include?(tech.name) %>
+    <% link_params = tech_in_params ? @selected_technologies_names - [tech.name] : @selected_technologies_names + [tech.name] %>
+    <%= link_to projects_path(technologies: link_params.empty? ? nil : link_params.join('_'), search: params[:search]) do %>
+      <%= tech.name %>
+    <% end %>
+  <% end %>
 
 
 <div class="container text-center">
