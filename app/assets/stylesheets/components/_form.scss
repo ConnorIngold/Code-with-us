@@ -96,3 +96,24 @@
    .file_button_container input {
        opacity: 0;
    }
+
+
+.cover{
+  background-image: linear-gradient(to right, #141e30, #243b55);
+  margin-top: 50px;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.task-form{
+  display: flex;
+  width: 1300px;
+  height: 400px;
+  margin-bottom: 150px;
+}
+
+.control-label{
+  color: white;
+  margin: auto;
+  text-align: center;
+}
