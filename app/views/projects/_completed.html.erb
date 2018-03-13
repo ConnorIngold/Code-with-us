@@ -1,0 +1,31 @@
+
+<% project.tasks.each do |task| %>
+  <% if task.complete === true %>
+    <li class="task">
+      <div class="avatar">
+      <% if  User.find(@project.user_id).photo.present?%>
+        <%= cl_image_tag  User.find(@project.user_id).photo, class: 'avi-small'  %>
+      <% else %>
+        <div class="avi-small" style="background-image: url('https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png?w=300');">
+        </div>
+      <% end %>
+      </div>
+      <div class="task-name">
+        <h3><%= task.user.full_name %></h3>
+        <p>10/07/17</p>
+      </div>
+      <div class="description">
+        <p><strong><%= link_to task.name, edit_project_task_path(@project, task) %>  </strong><i class="fa fa-edit" aria-hidden="true"></i></p>
+        <p><%= task.description %></p>
+      </div>
+      <div class="task-status">
+        <p class="difficulty text-center"><%= task.difficulty %></p>
+      </div>
+    </li>
+    <div class="task-buttons">
+    <% if task.user == current_user || project.owner == current_user %>
+      <%= link_to "Mark as Incomplete", not_complete_path(task), class: "btn btn-info" %>
+    <% end %>
+    </div>
+  <% end %>
+<% end %>

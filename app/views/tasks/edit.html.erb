@@ -1,9 +1,10 @@
 <div class="task-form">
   <div class="container">
     <div class="row">
+      <%= link_to "Back to Project", project_path(@project), class: "btn btn-primary form-back" %>
       <div class="task-simple_form">
         <% choices = [] %>
-        <% @project.users.each do |user| %>
+        <% @project.users.merge(ProjectInvite.accepted_users).each do |user| %>
           <% choices << user.full_name %>
         <% end %>
         <% choices << @project.owner.full_name %>
@@ -16,7 +17,7 @@
         <%= f.button :submit, class: "btn btn-success" %>
         <% end %>
       </div>
-      <%= link_to "Back to Project", project_path(@project), class: "btn btn-primary form-back" %>
+      <%= link_to "Delete Task", @task, class: "btn btn-danger", method: :delete %>
     </div>
   </div>
 </div>

@@ -27,7 +27,7 @@
   background-size: cover;
   width: 200px;
   height: 200px;
-  border-radius: 5px;
+  border-radius: 48%;
   margin-left: auto;
   margin-right: auto;
   display: block;
@@ -38,7 +38,7 @@
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 5px;
   font-size: 20px;
-    text-align: left;
+  text-align: left;
   grid-row: 1 / span 1;
   grid-column: 2 / span 1;
 }
@@ -51,6 +51,13 @@
   text-align: center;
   grid-row: 1 / span 1;
   grid-column: 3 / span 1;
+}
+
+.follow-me-grid-item-3{
+  .description{
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .list-projects-grid-item-4 {

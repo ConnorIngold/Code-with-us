@@ -1,6 +1,4 @@
 <div class="profile-page">
-<h1 class="name text-center"><%= @user.full_name %></h1>
-
   <div class="profile-grid">
 
     <div class="photo-grid-item-1">
@@ -19,14 +17,25 @@
 
     <div class="description-grid-item-2">
       <div class="description">
-        <h2>This is the user description </h2>
-          <p><%= @user.description %></p>
+        <p><%= @user.description %></p>
       </div>
     </div>
 
     <div class="follow-me-grid-item-3">
       <div class="description">
-        <h2>put github link here</h2>
+          <h3>Find me on</h3>
+          <a class="btn github-link" href= <%= @user.github %> ><i class="fa fa-github"></i>
+            GitHub
+          </a>
+          <a class="btn facebook-link" href= <%= @user.facebook %> ><i class="fa fa-facebook" aria-hidden="true"></i>
+            Facebook
+          </a>
+          <a class="btn twitter-link" href= <%= @user.twitter %> ><i class="fa fa-twitter" aria-hidden="true"></i>
+            Twitter
+          </a>
+          <a  class="btn linkedin-link" href= <%= @user.linkedin %> ><i class="fa fa-linkedin" aria-hidden="true"></i>
+            LinkedIn
+          </a>
       </div>
     </div>
 
@@ -64,11 +73,11 @@
         <div class="card-show-header">
           <h4>User technologies</h4>
         </div>
-        <div class="card-show-body">
-          <% @user.technologies.each do |tech| %>
-            <%= tech.name %>
-          <% end %>
-        </div>
+          <div class="tags">
+            <% @user.technologies.each do |technology| %>
+              <%= cl_image_tag technology.photo, :style => "height:30px;width:30px;" %>
+            <% end %>
+          </div>
       </div>
     </div>
 
@@ -78,14 +87,51 @@
           <h4>Projects</h4>
         </div>
       </div>
+      <div class="cards-profile">
+        <% @projects.each do |project| %>
+          <% if project.users.include?(current_user) || project.owner == current_user %>
+            <%= link_to project_path(project) do  %>
+             <div class="projects-card-show" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.9) 50%), url('<%= cl_image_path project.image if project.image.present? %>');">
+              <div class="flex-left">
+                <div class="project-details">
+                  <h1><%= truncate(project.name) %></h1>
+                  <p class="last-updated"><%= project.updated_at %></p>
 
-      <div class="profile-project-card">
-      </div>
+                  <% if project.open %>
+                    <div class="status-o">
+                      <div class="w-circle"> </div>
+                      <p class="open">OPEN</p>
+                    </div>
+                  <% else %>
+                    <div class="status-c">
+                      <div class="w-circle"> </div>
+                      <p class="closed">CLOSED</p>
+                    </div>
+                  <% end %>
+                </div>
 
-      <div class="profile-project-card">
-      </div>
+                <div class="tags">
+                  <% project.technologies.each do |technology| %>
+                    <%= cl_image_tag "#{technology.photo}", :style => "height:50px;width:50px;" %>
+                  <% end %>
+                </div>
+              </div>
 
-      <div class="profile-project-card">
+              <div class="flex-right">
+                <div class="avatar-card">
+                  <% if  User.find(project.user_id).photo.present?%>
+                    <%= cl_image_tag  User.find(project.user_id).photo, class: 'avi-detail'  %>
+                  <% else %>
+                    <div class="avi-detail" style="background-image: url('https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png?w=300');">
+                    </div>
+                  <% end %>
+                </div>
+                <div class="progress"></div>
+              </div>
+            </div>
+            <% end %>
+          <% end %>
+        <% end %>
       </div>
     </div>
 
@@ -95,9 +141,11 @@
           <div class="card-show-header">
             <h4>Settings</h4>
           </div>
-          <div class="card-show-body">
+          <!-- <div class="card-show-body"> -->
           <div class="edit-link">
             <%= link_to "Edit Profile", edit_user_path(@user) %>
+            <a href= <%= edit_user_path(@user) %> class="profile-link"><i class="fa fa-edit" aria-hidden="true"></i>
+            </a>
           </div>
             <p>Edit projects and Project requests</p>
             <% if @user == current_user %>
@@ -110,10 +158,4 @@
 
   </div>
 </div>
-
-
-
-<% if @user == current_user %>
-<%= link_to "Edit your requests", project_invites_path %>
-<% end %>
 

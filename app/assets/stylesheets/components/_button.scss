@@ -3,6 +3,7 @@
   font-weight: bold;
   margin-top: 1% !important;
   border-radius: 4px;
+  color: white;
 
 }
 
@@ -11,4 +12,40 @@
   background-color: #00C84D;
   border-radius: 5px;
   color: white;
+}
+
+.github-link{
+  background: linear-gradient(to bottom, rgba(48,158,11,1) 0%, rgba(36,232,18,1) 100%);
+  padding: 10px;
+  opacity: 0.9;
+
+  &:hover{
+    transition: 0.5s;
+    opacity: 1;
+  }
+
+}
+
+.facebook-link{
+  background: #524eb3;
+
+  &:hover{
+    transition: 0.5s;
+  }
+}
+
+.twitter-link{
+  background: #0be0e0;
+
+  &:hover{
+    transition: 0.5s;
+  }
+}
+
+.linkedin-link{
+  background: #064ce2;
+
+  &:hover{
+    transition: 0.5s;
+  }
 }

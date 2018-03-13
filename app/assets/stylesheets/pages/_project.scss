@@ -1,5 +1,124 @@
-.project-page {
-  max-height: calc(100vh - 70px);
+// DO NOT TOUCH THIS SUMAI
+.projects-card-show{
+  padding: 13px;
+  width: 50vw;
+  height: 200px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  background-size: cover;
+  background-position: center;
+  // background-color: white;
+  color: black;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  /* margin: 10px 0; */
+  margin-left: 10%;
+  margin-top: 10px;
+  opacity: 0.85;
+  box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+    .flex-left{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      // background: red;
+      width: 550%;
+      text-align: left;
+      .project-details{
+        h1{
+          margin-top: 0px;
+          font-size: 24px;
+          margin-bottom: 0px;
+          color: white;
+        }
+        .last-updated{
+          font-size: 18px;
+          font-style: thin;
+          margin-bottom: 0px;
+          color: white;
+        }
+
+        .status-o{
+          padding: 6px;
+          width: 75px;
+          background: linear-gradient(135deg, rgba(85,163,13,1) 0%, rgba(182,237,0,1) 100%);
+          border-radius: 25px;
+          margin-right: 5px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .w-circle{
+            padding: 4px;
+            width: 5%;
+            height: 6px;
+            background-color: white;
+            border-radius: 5px;
+          }
+          .open{
+            margin-bottom: 0px;
+            color: white;
+          }
+
+        }
+
+        .status-c{
+          padding: 6px;
+          width: 100px;
+          background: linear-gradient(135deg, rgba(248,80,50,1) 0%,
+           rgba(246,41,12,1) 33%, rgba(250,111,92,1) 91%, rgba(250,111,92,1) 100%);
+          border-radius: 25px;
+          margin-right: 5px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .w-circle{
+            padding: 4px;
+            width: 5%;
+            height: 6px;
+            background-color: white;
+            border-radius: 5px;
+          }
+          .closed{
+            margin-bottom: 0px;
+            color: white;
+          }
+
+        }
+
+        .tags{
+          float: left;
+          color: white;
+        }
+      }
+    }
+
+    .flex-right{
+      display: flex;
+      flex-direction: column;
+      // background: blue;
+      width: 100%;
+      float: right; // Check this!!
+      .avi-detail{
+        background-size: cover;
+        width: 90px;
+        height: 90px;
+        border-radius: 16px;
+        float: right;
+      }
+    }
+
+    &:hover{
+      transition: 0.4s;
+      opacity: 1;
+    }
+}
+//Okay you're good.
+
+
+
+.project {
   background-color: #FFFFFF;
 }
 
@@ -14,19 +133,13 @@
   border: 1px solid #dadadb;
   background-color: rgba(255, 255, 255, 0.8);
   margin-top: 0px !important;
-  margin-bottom: 5px;
+  // margin-bottom: 5px;
   font-family: "Raleway", "Helvetica", "sans-serif";
   font-weight: 500;
 }
 
-
   h3{  color: black; }
   p { font-size: 20px;  }
-
-.row-no-padding > [class*="col-"] {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-}
 
 
 .buttons{
@@ -36,12 +149,11 @@
 }
 
 
-
 .targets {
   margin: 5px;
   background-color: #f4f1f9;
-  /*background-color: rgba(255, 255, 255, 0.8);*/
-  border: 1px solid rgba(0, 0, 0, 0.8);
+  box-shadow: 1px 1px 5px #888888;
+  border: 1px solid #dadadb;
   padding: 20px;
   font-size: 30px;
   text-align: center;
@@ -57,41 +169,14 @@
   overflow-x: hidden !important;
   margin: 5px;
   height: 800px;
-  box-shadow: 1px 1px 5px #888888;
-  border: 1px solid #dadadb;
+  // box-shadow: 1px 1px 5px #888888;
+  // border: 1px solid #dadadb;
   padding: 5px;
   font-size: 30px;
   text-align: left;
+  // border-radius: 5px;
 }
 
-
-#To-Do {
-border-left: 1px solid  #dadadb;
-border-right: 1px solid  #dadadb;
-border-bottom: 1px solid  #dadadb;
-}
-
-#Completed {
-border-left: 1px solid  #dadadb;
-border-right: 1px solid  #dadadb;
-border-bottom: 1px solid  #dadadb;
-}
-
-#Create {
-border-left: 1px solid  #dadadb;
-border-right: 1px solid  #dadadb;
-border-bottom: 1px solid  #dadadb;
-}
-
-#Options {
-border-left: 1px solid  #dadadb;
-border-right: 1px solid  #dadadb;
-border-bottom: 1px solid  #dadadb;
-}
-
-    // ul  li {
-    //   /*list-style: none;*/
-    // }
 
     .tabs{
       margin: 0px;
@@ -103,12 +188,13 @@ border-bottom: 1px solid  #dadadb;
 
     .tabs li{
       background: #dedce3;
-      color: #222;
+      // color: #222;
       display: inline-block;
       padding: 10px 15px;
       cursor: pointer;
       font-size: 20px;
-
+      flex: 0 0 25%;
+      border-radius: 20px;
     }
 
     .tabs li.current{
@@ -127,23 +213,17 @@ border-bottom: 1px solid  #dadadb;
   color: black;
 }
 
-    .tab-content{
-      display: none;
-      background: #f4f1f9;
-      padding: 5px;
-    }
+ .section small {
+  color: white;
+ }
 
     .tab-content.current{
       display: inherit;
       overflow-x: hidden !important;
     }
 
-.tab:first-child {
-    border-radius: 10px 0 0 0;
-}
-
-.tab:last-child {
-    border-radius: 10px 0 0 0;
+li:last-child {
+    border-radius: 0 20px 0 0;
 }
 
 .tab.active {
