@@ -1,90 +1,89 @@
 <div class="project">
-<div class="row">
-  <div class="col-xs-3">
-    <div class="sidebar">
-      <div class="sidebar-details">
-      <h1><%= @project.name %></h1>
-      <p><%= @project.aim %></p>
-      <hr>
-          <!-- TODO delete img below and use photo of users on project -->
-        <div class="sidebar-users">
-          <h4>Meet the team:</h4>
-          <%= cl_image_tag @project.owner.photo, class: 'avi-small'   %>
-          <% @project.users.merge(ProjectInvite.accepted_users).each do |users| %>
-            <%= cl_image_tag users.photo, class: 'sidebar-img-user' %>
+  <div class="row">
+    <div class="col-xs-3">
+      <div class="sidebar">
+        <div class="sidebar-details">
+          <h1><%= @project.name %></h1>
+          <p><%= @project.aim %></p>
+          <hr class="bottom-line">
+            <!-- TODO delete img below and use photo of users on project -->
+          <div class="sidebar-users">
+            <%= cl_image_tag @project.owner.photo, class: 'avi-small'   %>
+            <% @project.users.merge(ProjectInvite.accepted_users).each do |users| %>
+              <%= cl_image_tag users.photo, class: 'sidebar-img-user' %>
+            <% end %>
+          </div>
+        </div>
+        <hr class="bottom-line">
+
+          <div class="sidebar-tags">
+            <% @project.technologies.each do |technology| %>
+              <span class="tag"><%= technology.name %></span>
+            <% end %>
+          </div>
+        <hr class="bottom-line">
+        <h3>Project Progess</h3>
+        <div class="sidebar-progress">
+          <div id="arthur-progress" class="radial-progress" data-value="<%= @project.tasks.where(complete: true).length.fdiv(@project.tasks.count.to_f) %>">
+          </div>
+          <div class="section">
+            <h4><%= @project.tasks.where(complete: true).length %> <small>Completed</small></h4>
+            <h4><%= @project.tasks.where(complete: false).length %> <small>Tasks to-do</small></h4>
+          </div>
+        </div>
+        <hr class="bottom-line">
+
+        <div class="button-choice">
+          <% if @project.owner == current_user || @project.users.merge(ProjectInvite.accepted_users).include?(current_user)%>
+          <%= link_to "Send a message", new_project_message_path(@project), class: "side-show-button btn btn-success" %>
+          <% elsif @project.users.merge(ProjectInvite.pending_users).include?(current_user) %>
+            <h3> Invite pending</h3>
+          <% elsif @project.users.merge(ProjectInvite.declined_users).include?(current_user) %>
+            <h3> Invite declinded</h3>
+          <% else %>
+            <%= link_to "Request invite", new_project_project_invite_path(@project) %>
           <% end %>
         </div>
       </div>
-      <hr>
-
-      <div class="sidebar-tags">
-        <% @project.technologies.each do |technology| %>
-          <span class="tag"><%= technology.name %></span>
-        <% end %>
-      </div>
-      <hr>
-      <h3>Project Progess</h3>
-      <div class="sidebar-progress">
-        <div id="arthur-progress" class="radial-progress" data-value="<%= @project.tasks.where(complete: true).length.fdiv(@project.tasks.count.to_f) %>">
-        </div>
-        <div class="section">
-          <h4><%= @project.tasks.where(complete: true).length %> <small>Completed</small></h4>
-          <h4><%= @project.tasks.where(complete: false).length %> <small>Tasks to-do</small></h4>
-        </div>
-      </div>
-      <hr>
-
-      <div class="buttons">
-        <% if @project.owner == current_user || @project.users.merge(ProjectInvite.accepted_users).include?(current_user)%>
-        <%= link_to "Send a message", new_project_message_path(@project) %>
-        <% elsif @project.users.merge(ProjectInvite.pending_users).include?(current_user) %>
-          <h3> Invite pending</h3>
-        <% elsif @project.users.merge(ProjectInvite.declined_users).include?(current_user) %>
-          <h3> Invite declinded</h3>
-        <% else %>
-          <%= link_to "Request invite", new_project_project_invite_path(@project) %>
-        <% end %>
-      </div>
     </div>
-  </div>
 
-  <div class="col-xs-9">
-    <div class="project-tabs">
+    <div class="col-xs-9">
+      <div class="project-tabs">
 
-      <!-- Nav tabs -->
-      <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Tasks To-do</a></li>
-        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Completed Tasks</a></li>
-        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
-        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Options</a></li>
-      <% if @project.owner == current_user || @project.users.merge(ProjectInvite.accepted_users) %>
-        <li role="presentation"><a href= <%= new_project_task_path(@project) %> class="profile-link"><i class="fa fa-plus-square" aria-hidden="true"></i> Create a New Task</a></li>
-      <% end %>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Tasks To-do</a></li>
+          <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Completed Tasks</a></li>
+          <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+          <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Options</a></li>
+        <% if @project.owner == current_user || @project.users.merge(ProjectInvite.accepted_users) %>
+          <li role="presentation"><a href= <%= new_project_task_path(@project) %> class="profile-link"><i class="fa fa-plus-square" aria-hidden="true"></i> Create a New Task</a></li>
+        <% end %>
 
-      </ul>
+        </ul>
 
-      <!-- Tab panes -->
-      <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="home">
-          <!-- Partials that are found in the project folder -->
-          <%= render 'tasks', project: @project %>
-        </div>
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="home">
+            <!-- Partials that are found in the project folder -->
+            <%= render 'tasks', project: @project %>
+          </div>
 
-        <div role="tabpanel" class="tab-pane" id="profile">
-          <%= render 'completed', project: @project %>
-        </div>
+          <div role="tabpanel" class="tab-pane" id="profile">
+            <%= render 'completed', project: @project %>
+          </div>
 
-        <div role="tabpanel" class="tab-pane" id="messages">
-          <%= render 'message-box', project: @project %>
-        </div>
+          <div role="tabpanel" class="tab-pane" id="messages">
+            <%= render 'message-box', project: @project %>
+          </div>
 
-        <div role="tabpanel" class="tab-pane" id="settings">
-          <%= render 'options', project: @project %>
+          <div role="tabpanel" class="tab-pane" id="settings">
+            <%= render 'options', project: @project %>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </div>
 
 <%= javascript_pack_tag 'progress' %>
