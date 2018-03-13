@@ -12,7 +12,7 @@
 }
 
 .form-user {
-  background: white;
+  background-color: linear-gradient(360deg, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
   margin-top: 50px;
   padding: 20px;
   border-radius: 5px;
@@ -20,7 +20,7 @@
     text-align: center;
     font-weight: bold;
     font-size: 25px;
-    color: #666666;
+    color: #fff;
     margin-bottom: 50px;
     margin-top: 0px;
   }
@@ -59,3 +59,40 @@
   }
 }
 
+.div-label{
+  color: white;
+  text-align: center;
+    textarea{
+      text-align: center;
+    }
+    input{
+      text-align: center;
+    }
+    select{
+      text-align: center;
+    }
+}
+
+.form-control{
+  text-align: center;
+}
+
+#project_image {
+  margin: 0 auto;
+}
+
+ .file_button_container,
+  .file_button_container input {
+       margin: 10px auto;
+       height: 47px;
+       width: 263px;
+   }
+
+   .file_button_container {
+       background: transparent url(http://i.stack.imgur.com/BT5AB.png) left top no-repeat;
+       crop-top: 10%;
+   }
+
+   .file_button_container input {
+       opacity: 0;
+   }
