@@ -1,8 +1,9 @@
 .profile-page {
- min-height: calc(100vh - 70px - 100px);
+ // min-height: calc(100vh - 70px - 100px);
 }
 
 .profile-details {
+  height: calc(100vh - 70px);
   margin: 10px;
   padding: 5%;
   border: 1px solid #dadadb;
@@ -11,9 +12,9 @@
 }
 
 .profile {
-  border: 1px solid #dadadb;
-  background-color: #ffffff;
-  box-shadow: 1px 1px 5px #888888;
+  // border: 1px solid #dadadb;
+  // background-color: #ffffff;
+  // box-shadow: 1px 1px 5px #888888;
   padding: 5px;
   color: #2c89d1;
 }
@@ -36,7 +37,7 @@
   padding: 5px;
   margin-left: 10px;
   font-size: 20px;
-  text-align: center;
+  text-align: right;
     ul { margin-bottom: 0px;
     li {
     list-style: none;
@@ -86,6 +87,9 @@
   }
 }
 
+.project-list {
+  color: white;
+}
 
 .user-technologies {
   margin-top: 10px;
@@ -102,7 +106,7 @@
 .settings {
   margin-top: 10px;
   h4 {
-    color: white;
+    color: #2c89d1;
   }
   p {background-color: #ffffff;
   text-align: center;
@@ -113,15 +117,12 @@
 .user-projects-card {
   margin-top: 10px;
   margin-right: 2%;
-  // border: 1px solid #dadadb;
-  // background-color: #ffffff;
-  // box-shadow: 1px 1px 5px #888888;
   padding: 5px;
   font-size: 20px;
   text-align: center;
 }
 
-.projects-card-show{
+.user-projects-card-show{
 padding: 13px;
 width: 50vw;
 height: 200px;

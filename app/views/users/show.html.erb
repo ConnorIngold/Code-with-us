@@ -4,9 +4,9 @@
     <div class="profile-details" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 50%);">
       <div class="profile">
         <div class="show-white-card text-center">
-          <div class="card-show-header">
-             <h4><%= @user.full_name %></h4>
-          </div>
+          <h4><%= @user.full_name %>'s Profile</h4>
+        </div>
+
           <div class="user-flex">
           <% if @user.photo.present? %>
             <div class="avatar-large" style="background-image: url('<%= cl_image_path @user.photo %>');">
@@ -16,22 +16,21 @@
           </div>
           <div class="find-me">
             <ul>
-              <li><a href= <%= @user.github %> class="github-link"><i class="fa fa-github"></i>
+              <li><a href= <%= @user.github %> style='color:#FFFFFF;' class="github-link"><i class="fa fa-github" style='color:#FFFFFF;' ></i>
                 Github
               </a></li>
-              <li><a href= <%= @user.facebook %> class="facebook-link"><i class="fa fa-facebook" aria-hidden="true"></i>
+              <li><a href= <%= @user.facebook %> style='color:#FFFFFF;' class="facebook-link"><i class="fa fa-facebook" aria-hidden="true" style='color:#FFFFFF;' ></i>
                 Facebook
               </a></li>
-              <li><a href= <%= @user.twitter %> class="twitter-link"><i class="fa fa-twitter" aria-hidden="true"></i>
+              <li><a href= <%= @user.twitter %> style='color:#FFFFFF;' class="twitter-link"><i class="fa fa-twitter" aria-hidden="true" style='color:#FFFFFF;' ></i>
                 Twitter
               </a></li>
-              <li><a href= <%= @user.linkedin %> class="linkedin-link"><i class="fa fa-linkedin" aria-hidden="true"></i>
+              <li><a href= <%= @user.linkedin %> style='color:#FFFFFF;' class="linkedin-link"><i class="fa fa-linkedin" aria-hidden="true" style='color:#FFFFFF;' ></i>
                 LinkedIn
               </a></li>
             </ul>
             </div>
           </div>
-        </div>
       </div>
 
       <div class="user-desc text-center">
@@ -43,11 +42,13 @@
 
       <div class="user-projects text-center">
         <div class="show-white-card text-center">
-          <h4>Edit projects you are the Admin</h4>
+          <h4>Edit your projects</h4>
         </div>
+        <div class="project-list">
           <% @user.my_projects.each do |project| %>
-            <%= link_to project.name, edit_project_path(project) %>
+            <%= link_to project.name, edit_project_path(project), {:style=>'color:#FFFFFF;', :class => "css_class"} %>
           <% end %>
+        </div>
       </div>
 
       <div class="user-technologies text-center">
@@ -66,14 +67,14 @@
         </div>
           <div class="edit-link text-center">
             <% if @user == current_user %>
-            <%= link_to "Edit Profile", edit_user_path(@user) %>
-            <a href= <%= edit_user_path(@user) %> class="profile-link"><i class="fa fa-edit" aria-hidden="true"></i></a>
+            <%= link_to "Edit Profile", edit_user_path(@user), {:style=>'color:#FFFFFF;', :class => "css_class"} %>
+            <a href= <%= edit_user_path(@user) %> style='color:#FFFFFF;' class="profile-link"><i class="fa fa-edit" aria-hidden="true"></i></a>
             <% end %>
           </div>
           <div class="edit-link text-center">
             <% if @user == current_user %>
-            <%= link_to "Edit your project requests", project_invites_path %>
-            <a href= <%= project_invites_path %> class="profile-link"><i class="fa fa-edit" aria-hidden="true"></i></a>
+            <%= link_to "Edit your project requests", project_invites_path, {:style=>'color:#FFFFFF;', :class => "css_class"} %>
+            <a href= <%= project_invites_path %> style='color:#FFFFFF;' class="profile-link"><i class="fa fa-edit" aria-hidden="true"></i></a>
             <% end %>
           </div>
         </div>
@@ -93,7 +94,7 @@
         <% @projects.each do |project| %>
           <% if project.users.include?(current_user) || project.owner == current_user %>
             <%= link_to project_path(project) do  %>
-             <div class="projects-card-show" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 50%), url('<%= cl_image_path project.image if project.image.present? %>');">
+             <div class="user-projects-card-show" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.3) 30%, rgba(0,0,0,0.7) 60%), url('<%= cl_image_path project.image if project.image.present? %>');">
               <div class="flex-left">
                 <div class="project-details">
                   <h1><%= truncate(project.name) %></h1>
