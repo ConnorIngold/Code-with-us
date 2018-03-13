@@ -1,113 +1,103 @@
 <div class="profile-page">
-  <div class="profile-grid">
-
-    <div class="photo-grid-item-1">
-      <div class="show-white-card text-center">
-        <div class="card-show-header">
-           <h4><%= @user.full_name %></h4>
+<div class="row">
+  <div class="col-sm-4">
+    <div class="profile-details" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 50%);">
+      <div class="profile">
+        <div class="show-white-card text-center">
+          <h4><%= @user.full_name %>'s Profile</h4>
         </div>
-        <% if @user.photo.present? %>
-          <div class="avatar-large text-center" style="background-image: url('<%= cl_image_path @user.photo %>');">
-        <% else %>
-          <div class="avatar-large" style="background-image: url('https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png?w=300')">
+          <div class="user-flex">
+          <% if @user.photo.present? %>
+            <div class="avatar-large" style="background-image: url('<%= cl_image_path @user.photo %>');">
+          <% else %>
+            <div class="avatar-large" style="background-image: url('https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png?w=300')">
+            <% end %>
+          </div>
+          <div class="find-me">
+            <ul>
+              <li><a href= <%= @user.github %> style='color:#FFFFFF;' class="github-link"><i class="fa fa-github" style='color:#FFFFFF;' ></i>
+                Github
+              </a></li>
+              <li><a href= <%= @user.facebook %> style='color:#FFFFFF;' class="facebook-link"><i class="fa fa-facebook" aria-hidden="true" style='color:#FFFFFF;' ></i>
+                Facebook
+              </a></li>
+              <li><a href= <%= @user.twitter %> style='color:#FFFFFF;' class="twitter-link"><i class="fa fa-twitter" aria-hidden="true" style='color:#FFFFFF;' ></i>
+                Twitter
+              </a></li>
+              <li><a href= <%= @user.linkedin %> style='color:#FFFFFF;' class="linkedin-link"><i class="fa fa-linkedin" aria-hidden="true" style='color:#FFFFFF;' ></i>
+                LinkedIn
+              </a></li>
+            </ul>
+            </div>
+          </div>
+      </div>
+
+      <div class="user-desc text-center">
+        <div class="show-white-card text-center">
+          <h4>Bio</h4>
+        </div>
+          <p><%= @user.description %></p>
+      </div>
+
+      <div class="user-projects text-center">
+        <div class="show-white-card text-center">
+          <h4>Edit your projects</h4>
+        </div>
+        <div class="project-list">
+          <% @user.my_projects.each do |project| %>
+            <%= link_to project.name, edit_project_path(project), {:style=>'color:#FFFFFF;', :class => "css_class"} %>
           <% end %>
         </div>
       </div>
-    </div>
 
-    <div class="description-grid-item-2">
-      <div class="description">
-        <p><%= @user.description %></p>
-      </div>
-    </div>
-
-    <div class="follow-me-grid-item-3">
-      <div class="description">
-          <h3>Find me on</h3>
-          <a class="btn github-link" href= <%= @user.github %> ><i class="fa fa-github"></i>
-            GitHub
-          </a>
-          <a class="btn facebook-link" href= <%= @user.facebook %> ><i class="fa fa-facebook" aria-hidden="true"></i>
-            Facebook
-          </a>
-          <a class="btn twitter-link" href= <%= @user.twitter %> ><i class="fa fa-twitter" aria-hidden="true"></i>
-            Twitter
-          </a>
-          <a  class="btn linkedin-link" href= <%= @user.linkedin %> ><i class="fa fa-linkedin" aria-hidden="true"></i>
-            LinkedIn
-          </a>
-      </div>
-    </div>
-
-    <div class="list-projects-grid-item-4">
-      <div class="show-white-card text-center">
-        <div class="card-show-header">
-          <p>List projects you are the Admin</p>
-            <% @user.my_projects.each do |project| %>
-              <%= link_to project.name, project_path(project) %>
-            <% end %>
-
-          <p>List project they are member of</p>
-            <% @projects.each do |project| %>
-              <% if project.users.merge(ProjectInvite.accepted_users).include?(@user) %>
-                <%= link_to project.name, project_path(project) %>
-              <% end %>
-            <% end %>
-        </div>
-      </div>
-    </div>
-
-    <div class="dashboard-grid-item-5">
-      <div class="show-white-card text-center">
-        <div class="card-show-header">
-          <h4>Current Projects | Completed Projects </h4>
-        </div>
-        <div class="dashboard-card">
-          <p>Overall data</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="technologies-grid-item-6">
-      <div class="show-white-card text-center">
-        <div class="card-show-header">
+      <div class="user-technologies text-center">
+        <div class="show-white-card text-center">
           <h4>User technologies</h4>
         </div>
-          <div class="tags">
-            <% @user.technologies.each do |technology| %>
-              <%= cl_image_tag technology.photo, :style => "height:30px;width:30px;" %>
+      <div class="user-technologies">
+          <% @user.technologies.each do |tech| %>
+            <%= cl_image_tag "#{tech.photo}", :style => "height:50px;width:50px;" %>
+          <% end %>
+      </div>
+
+      <div class="settings">
+        <div class="show-white-card text-center">
+          <h4>Settings</h4>
+        </div>
+          <div class="edit-link text-center">
+            <% if @user == current_user %>
+            <%= link_to "Edit Profile", edit_user_path(@user), {:style=>'color:#FFFFFF;', :class => "css_class"} %>
+            <a href= <%= edit_user_path(@user) %> style='color:#FFFFFF;' class="profile-link"><i class="fa fa-edit" aria-hidden="true"></i></a>
             <% end %>
           </div>
+          <div class="edit-link text-center">
+            <% if @user == current_user %>
+            <%= link_to "Edit your project requests", project_invites_path, {:style=>'color:#FFFFFF;', :class => "css_class"} %>
+            <a href= <%= project_invites_path %> style='color:#FFFFFF;' class="profile-link"><i class="fa fa-edit" aria-hidden="true"></i></a>
+            <% end %>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <div class="projects-card-grid-item-7">
+    </div>
+  </div>
+
+  <div class="col-sm-8">
+    <div class="user-projects-card">
       <div class="show-white-card text-center">
         <div class="card-show-header">
-          <h4>Projects</h4>
+          <h4>All of <%= @user.full_name %>'s Projects</h4>
         </div>
       </div>
       <div class="cards-profile">
         <% @projects.each do |project| %>
           <% if project.users.include?(current_user) || project.owner == current_user %>
             <%= link_to project_path(project) do  %>
-             <div class="projects-card-show" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.9) 50%), url('<%= cl_image_path project.image if project.image.present? %>');">
+             <div class="user-projects-card-show" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.3) 30%, rgba(0,0,0,0.7) 60%), url('<%= cl_image_path project.image if project.image.present? %>');">
               <div class="flex-left">
                 <div class="project-details">
                   <h1><%= truncate(project.name) %></h1>
                   <p class="last-updated"><%= project.updated_at %></p>
-
-                  <% if project.open %>
-                    <div class="status-o">
-                      <div class="w-circle"> </div>
-                      <p class="open">OPEN</p>
-                    </div>
-                  <% else %>
-                    <div class="status-c">
-                      <div class="w-circle"> </div>
-                      <p class="closed">CLOSED</p>
-                    </div>
-                  <% end %>
                 </div>
 
                 <div class="tags">
@@ -134,28 +124,25 @@
         <% end %>
       </div>
     </div>
-
-    <div class="settings-grid-item-8">
-      <div class="show-white-card text-center">
-        <div class="show-white-card text-center">
-          <div class="card-show-header">
-            <h4>Settings</h4>
-          </div>
-          <!-- <div class="card-show-body"> -->
-          <div class="edit-link">
-            <%= link_to "Edit Profile", edit_user_path(@user) %>
-            <a href= <%= edit_user_path(@user) %> class="profile-link"><i class="fa fa-edit" aria-hidden="true"></i>
-            </a>
-          </div>
-            <p>Edit projects and Project requests</p>
-            <% if @user == current_user %>
-            <%= link_to "Edit your requests", project_invites_path %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div>
 </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

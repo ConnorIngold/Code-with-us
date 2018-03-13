@@ -45,7 +45,7 @@ class ProjectInvitesController < ApplicationController
   def destroy
     @project_invite = ProjectInvite.find(params[:id])
     @project_invite.destroy
-    redirect_to project_path(project_invite.project)
+    redirect_to project_path(@project_invite.project)
     authorize @project_invite
   end
 

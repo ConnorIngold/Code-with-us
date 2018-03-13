@@ -8,24 +8,27 @@ a{
 
 .projects-card{
   padding: 13px;
-  width: 60vw;
-  height: 200px;
+  width: 30vw;
+  min-height: 200px;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
   background-size: cover;
   background-position: center;
   // background-color: white;
-  color: black;
+  // color: black;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  /* margin: 10px 0; */
-  margin-left: 10%;
-  margin-top: 10px;
-  opacity: 0.85;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  opacity: 0.85 !important;
   box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.2);
   border-radius: 16px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 
+  &:hover{
+    transition: 0.4s;
+    opacity: 1 !important;
+  }
   .flex-left{
     display: flex;
     flex-direction: column;
@@ -116,34 +119,40 @@ a{
     }
   }
 
-  &:hover{
-    transition: 0.4s;
-    opacity: 1;
-  }
-  .tag {
-    padding: 7px;
-    background-color: gray;
-    border-radius: 18px;
-    color: white;
-    margin-right: 6px;
-    font-weight: bold;
+
+  .card-link {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    z-index: 2;
   }
 
-  .ruby-tag{
-    background-color: red;
-  }
+  // .tag {
+  //   padding: 7px;
+  //   background-color: gray;
+  //   border-radius: 18px;
+  //   color: white;
+  //   margin-right: 6px;
+  //   font-weight: bold;
+  // }
 
-  .html-tag{
-    background-color: purple;
-  }
+  // .ruby-tag{
+  //   background-color: red;
+  // }
 
-  .css-tag{
-    background-color: orange;
-  }
+  // .html-tag{
+  //   background-color: purple;
+  // }
 
-  .js-tag{
-    background-color: blue;
-  }
+  // .css-tag{
+  //   background-color: orange;
+  // }
+
+  // .js-tag{
+  //   background-color: blue;
+  // }
 
 
 }

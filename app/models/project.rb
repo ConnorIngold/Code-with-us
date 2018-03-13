@@ -26,6 +26,12 @@ class Project < ApplicationRecord
       tsearch: { prefix: true }
     }
 
+  pg_search_scope :project_search,
+    against: [ :name, :category ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
   mount_uploader :image, PhotoUploader
 
   def display_users
@@ -36,5 +42,11 @@ class Project < ApplicationRecord
       end
     end
     return accepted_users
+  end
+
+  def last_update_on_project
+    # Sorting through the tasks array on the updated column in descending order
+    # then selecting the first one and storing
+    self.tasks.order(updated_at: :desc).first.updated_at
   end
 end
