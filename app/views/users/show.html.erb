@@ -1,71 +1,84 @@
 <div class="profile-page">
 <div class="row">
   <div class="col-sm-4">
-    <div class="profile">
-      <div class="show-white-card text-center">
-        <div class="card-show-header">
-           <h4><%= @user.full_name %></h4>
-        </div>
-        <% if @user.photo.present? %>
-          <div class="avatar-large text-center" style="background-image: url('<%= cl_image_path @user.photo %>');">
-        <% else %>
-          <div class="avatar-large" style="background-image: url('https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png?w=300')">
-          <% end %>
-        </div>
-        <div class="find-me">
-            <a href= <%= @user.github %> class="github-link"><i class="fa fa-github"></i>
-              Github
-            </a>
-            <a href= <%= @user.facebook %> class="facebook-link"><i class="fa fa-facebook" aria-hidden="true"></i>
-              Facebook
-            </a>
-            <a href= <%= @user.twitter %> class="twitter-link"><i class="fa fa-twitter" aria-hidden="true"></i>
-              Twitter
-            </a>
-            <a href= <%= @user.linkedin %> class="linkedin-link"><i class="fa fa-linkedin" aria-hidden="true"></i>
-              LinkedIn
-            </a>
+    <div class="profile-details" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 50%);">
+      <div class="profile">
+        <div class="show-white-card text-center">
+          <div class="card-show-header">
+             <h4><%= @user.full_name %></h4>
+          </div>
+          <div class="user-flex">
+          <% if @user.photo.present? %>
+            <div class="avatar-large" style="background-image: url('<%= cl_image_path @user.photo %>');">
+          <% else %>
+            <div class="avatar-large" style="background-image: url('https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png?w=300')">
+            <% end %>
+          </div>
+          <div class="find-me">
+            <ul>
+              <li><a href= <%= @user.github %> class="github-link"><i class="fa fa-github"></i>
+                Github
+              </a></li>
+              <li><a href= <%= @user.facebook %> class="facebook-link"><i class="fa fa-facebook" aria-hidden="true"></i>
+                Facebook
+              </a></li>
+              <li><a href= <%= @user.twitter %> class="twitter-link"><i class="fa fa-twitter" aria-hidden="true"></i>
+                Twitter
+              </a></li>
+              <li><a href= <%= @user.linkedin %> class="linkedin-link"><i class="fa fa-linkedin" aria-hidden="true"></i>
+                LinkedIn
+              </a></li>
+            </ul>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="show-white-card text-center">
-      <div class="card-show-header">
-        <div class="description">
+      <div class="user-desc text-center">
+        <div class="show-white-card text-center">
+          <h4>Bio</h4>
+        </div>
           <p><%= @user.description %></p>
-        </div>
       </div>
-    </div>
 
-    <div class="user-technologies">
-      <div class="show-white-card text-center">
-        <div class="card-show-header">
+      <div class="user-projects text-center">
+        <div class="show-white-card text-center">
+          <h4>Edit projects you are the Admin</h4>
+        </div>
+          <% @user.my_projects.each do |project| %>
+            <%= link_to project.name, edit_project_path(project) %>
+          <% end %>
+      </div>
+
+      <div class="user-technologies text-center">
+        <div class="show-white-card text-center">
           <h4>User technologies</h4>
         </div>
-        <div class="card-show-body">
+      <div class="user-technologies">
           <% @user.technologies.each do |tech| %>
             <%= cl_image_tag "#{tech.photo}", :style => "height:50px;width:50px;" %>
           <% end %>
-        </div>
       </div>
-    </div>
 
-    <div class="settings">
-      <div class="show-white-card text-center">
-        <div class="card-show-header">
+      <div class="settings">
+        <div class="show-white-card text-center">
           <h4>Settings</h4>
         </div>
-        <!-- <div class="card-show-body"> -->
-        <div class="edit-link">
-          <%= link_to "Edit Profile", edit_user_path(@user) %>
-          <a href= <%= edit_user_path(@user) %> class="profile-link"><i class="fa fa-edit" aria-hidden="true"></i>
-          </a>
+          <div class="edit-link text-center">
+            <% if @user == current_user %>
+            <%= link_to "Edit Profile", edit_user_path(@user) %>
+            <a href= <%= edit_user_path(@user) %> class="profile-link"><i class="fa fa-edit" aria-hidden="true"></i></a>
+            <% end %>
+          </div>
+          <div class="edit-link text-center">
+            <% if @user == current_user %>
+            <%= link_to "Edit your project requests", project_invites_path %>
+            <a href= <%= project_invites_path %> class="profile-link"><i class="fa fa-edit" aria-hidden="true"></i></a>
+            <% end %>
+          </div>
         </div>
-          <p>Edit projects and Project requests</p>
-          <% if @user == current_user %>
-          <%= link_to "Edit your requests", project_invites_path %>
-          <% end %>
       </div>
+
     </div>
   </div>
 
@@ -73,14 +86,14 @@
     <div class="user-projects-card">
       <div class="show-white-card text-center">
         <div class="card-show-header">
-          <h4>Projects</h4>
+          <h4>All of <%= @user.full_name %>'s Projects</h4>
         </div>
       </div>
       <div class="cards-profile">
         <% @projects.each do |project| %>
           <% if project.users.include?(current_user) || project.owner == current_user %>
             <%= link_to project_path(project) do  %>
-             <div class="projects-card-show" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.9) 50%), url('<%= cl_image_path project.image if project.image.present? %>');">
+             <div class="projects-card-show" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 50%), url('<%= cl_image_path project.image if project.image.present? %>');">
               <div class="flex-left">
                 <div class="project-details">
                   <h1><%= truncate(project.name) %></h1>

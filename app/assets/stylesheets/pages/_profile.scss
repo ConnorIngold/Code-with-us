@@ -2,43 +2,60 @@
  min-height: calc(100vh - 70px - 100px);
 }
 
+.profile-details {
+  margin: 10px;
+  padding: 5%;
+  border: 1px solid #dadadb;
+  background-color: #2c89d1;
+  border-radius: 5px;
+}
+
 .profile {
   border: 1px solid #dadadb;
-  background-color: FFFFF2;
+  background-color: #ffffff;
   box-shadow: 1px 1px 5px #888888;
   padding: 5px;
+  color: #2c89d1;
+}
+
+.user-flex {
+  display: flex;
 }
 
 .avatar-large {
   background-size: cover;
-  width: 200pxک
-  height: 200px;
+  width: 180px;
+  height: 150px;
   border-radius: 48%;
-  margin-left: auto;
-  margin-right: auto;
   display: block;
+  margin-left: 5px;
 }
 
 .find-me{
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 200px;
   padding: 5px;
+  margin-left: 10px;
   font-size: 20px;
   text-align: center;
-  grid-row: 1 / span 1;
-  grid-column: 3 / span 1;
+    ul { margin-bottom: 0px;
+    li {
+    list-style: none;
+    }
+  }
 }
 
 .show-white-card {
-  // margin-top: 2%;
+
   background-color: #FFFFFF;
   border-radius: 2px;
 
-  .card-show-header {
+
+.card-show-header {
     border-radius: 2px;
-    // background-color: $brand-success;
     h4 {
+    margin-top: 0px;
     padding: 1px;
+    color: #2c89d1;
   }
 
   .card-show-body {
@@ -47,77 +64,81 @@
   }
 }
 
-.description {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+.user-desc {
+  margin-top: 5px;
+  h4 {
+    color: #2c89d1;
+  }
+  p {
   padding: 5px;
-  font-size: 20px;
+  font-size: 15px;
   text-align: left;
+  color: #ffffff;
+  }
 }
 
-// .dashboard {
-//   margin: 10px;
-//   width: 98%;
-//   height: 30vh;
-//   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
-//   background-size: cover;
-//   background-color: #FFFFFF;
-//   color: #050517;
-//   border: 1px solid rgba(0, 0, 0, 0.5);
-//   opacity: 0.9;
-//   box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.2);
-// }
+.user-projects {
+  margin-top: 5px;
+  h4 {
+    color: #2c89d1;
+  }
+  p {color: #ffffff;
+  }
+}
+
 
 .user-technologies {
-  background-color: rgba(255, 255, 255, 0.8);
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 5px;
-  font-size: 20px;
+  margin-top: 10px;
+  h4 {
+    color: #2c89d1;
+  }
+  p {
+  background-color: #ffffff;
   text-align: center;
+  font-size: 20px;
+  }
 }
 
 .settings {
-  background-color: rgba(255, 255, 255, 0.8);
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 5px;
-  font-size: 20px;
+  margin-top: 10px;
+  h4 {
+    color: white;
+  }
+  p {background-color: #ffffff;
   text-align: center;
+  font-size: 20px;
+  }
 }
 
 .user-projects-card {
-  background-color: rgba(255, 255, 255, 0.8);
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+  margin-right: 2%;
+  // border: 1px solid #dadadb;
+  // background-color: #ffffff;
+  // box-shadow: 1px 1px 5px #888888;
   padding: 5px;
   font-size: 20px;
   text-align: center;
 }
 
 .projects-card-show{
-  padding: 13px;
-  width: 50vw;
-  height: 200px;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
-  background-size: cover;
-  background-position: center;
-  // background-color: white;
-  color: black;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  /* margin: 10px 0; */
-  margin-left: 10%;
-  margin-top: 10px;
-  opacity: 0.85;
-  box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.2);
-  border-radius: 16px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-
+padding: 13px;
+width: 50vw;
+height: 200px;
+text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+background-size: cover;
+background-position: center;
+color: #2c89d1;
+border: 1px solid rgba(0, 0, 0, 0.2);
+margin: 10px 0;
+margin-left: 10%;
+margin-top: 10px;
+opacity: 0.85;
+box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.2);
+border-radius: 16px;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
     .flex-left{
       display: flex;
       flex-direction: column;
@@ -205,15 +226,30 @@
         height: 90px;
         border-radius: 16px;
         float: right;
+        .progress {
+          margin-top: 10px;
+        }
       }
     }
 
     &:hover{
       transition: 0.4s;
-      opacity: 1;
+      opacity: 0.6;
     }
 }
 
+// .dashboard {
+//   margin: 10px;
+//   width: 98%;
+//   height: 30vh;
+//   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+//   background-size: cover;
+//   background-color: #FFFFFF;
+//   opacity: 0.9;
+  // border: 1px solid #dadadb;
+  // background-color: #ffffff;
+  // box-shadow: 1px 1px 5px #888888;
+// }
 
 // .profile-project-card {
 //   margin: 10px;
