@@ -16,7 +16,7 @@
       </div>
       <% if task.user == current_user || project.owner == current_user %>
       <div class="description">
-        <p><strong><%= link_to task.name, edit_project_task_path(@project, task) %>  </strong><i class="fa fa-edit" aria-hidden="true"></i></p>
+        <p><strong><%= link_to task.name, edit_project_task_path(@project, task) %> </strong><a href= <%= edit_project_task_path(@project, task) %> style='color:#5898f1;' ><i class="fa fa-edit" aria-hidden="true"></i></a>
         <p><%= task.description %></p>
       </div>
       <div class="task-status">

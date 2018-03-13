@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-sm-4">
     <div class="profile-details">
-      <div class="profile">
+      <div class="profile text-center">
         <div class="show-white-card text-center">
           <h4><%= @user.full_name %>'s Profile</h4>
         </div>
@@ -33,16 +33,16 @@
       </div>
 
       <div class="user-desc text-center">
-        <div class="show-white-card text-center">
+        <!-- <div class="show-white-card text-center"> -->
           <h4>Bio</h4>
-        </div>
+        <!-- </div> -->
           <p style='color:#FFFFFF;' ><%= @user.description %></p>
       </div>
 
-      <div class="user-projects text-center">
-        <div class="show-white-card text-center">
+      <div class="edit-projects text-center">
+        <!-- <div class="show-white-card text-center"> -->
           <h4>Edit your projects</h4>
-        </div>
+        <!-- </div> -->
         <div class="project-list text-center">
           <!-- <ul> -->
           <% @user.my_projects.each do |project| %>
@@ -56,7 +56,7 @@
         <div class="show-white-card text-center">
           <h4>User technologies</h4>
         </div>
-      <div class="user-technologies">
+      <div class="user-techn">
           <% @user.technologies.each do |tech| %>
             <%= cl_image_tag "#{tech.photo}", :style => "height:50px;width:50px;" %>
           <% end %>
@@ -85,10 +85,11 @@
   </div>
 
   <div class="col-sm-8">
-    <div class="user-projects-card">
-      <div class="show-white-card text-center">
-        <h4>All of <%= @user.full_name %>'s Projects</h4>
-      </div>
+  <div class="all-projects">
+    <div class="show-white-card-projects text-center">
+      <h4>All of <%= @user.full_name %>'s Projects</h4>
+    </div>
+    <div class="user-projects">
       <div class="cards-profile">
         <% @projects.each do |project| %>
           <% if project.users.include?(current_user) || project.owner == current_user %>
@@ -123,6 +124,7 @@
         <% end %>
       </div>
     </div>
+  </div>
   </div>
 </div>
 </div>

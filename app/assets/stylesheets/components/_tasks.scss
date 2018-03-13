@@ -60,18 +60,18 @@ h3 {
   display: flex;
 }
 
-.nav-tabs {
-  height: 6%;
-}
+// .nav-tabs {
+//   height: 6%;
+// }
 
+
+.project-tabs {
+  height: calc(100vh - 70px);
+}
 
 .tab-content {
 overflow-x: hidden;
 height: 94%;
-}
-
-.project-tabs {
-  height: calc(100vh - 70px);
 }
 
 .task-buttons {
