@@ -69,6 +69,46 @@
 </div>
 
 
+ <hr>
+ <hr>
+ <hr>
+ <hr>
 
 
+
+        <% if @project.owner == current_user || @project.users.merge(ProjectInvite.accepted_users).include?(current_user)%>
+        <%= link_to "Send a message", new_project_message_path(@project) %>
+        <% elsif @project.users.merge(ProjectInvite.pending_users).include?(current_user) %>
+          <h3> Invite pending</h3>
+        <% elsif @project.users.merge(ProjectInvite.declined_users).include?(current_user) %>
+          <h3> Invite declinded</h3>
+        <% else %>
+          <%= link_to "Request invite", new_project_project_invite_path(@project) %>
+        <% end %>
+        <% @project.project_invites.each do |invite| %>
+           <% unless invite.status == "accepted" %>
+             <%= invite.user.full_name %>
+             <%= invite.message %>
+           <% end %>
+           <br>
+           <% if invite.user == current_user && invite.status == "accepted" %>
+             <%= link_to "Remove yourself from group", project_invite_path(invite), method: :delete %>
+           <% elsif invite.user == current_user %>
+             <%= link_to "Edit your invite", edit_project_invite_path(@project,invite) %>
+             <%= link_to "Delete request", project_invite_path(invite), method: :delete %>
+          <% end %>
+        <% end %>
+
+
+<br>
+
+<% @project.users.merge(ProjectInvite.accepted_users).each do |user| %>
+    <% user.project_invites.each do |invite| %>
+      <% if @project.project_invites.include?(invite) %>
+      <p>Remove users</p>
+      <br>
+      <%= link_to user.full_name, decline_path(invite) %>
+    <% end %>
+  <% end %>
+<% end %>
 

@@ -9,6 +9,7 @@
 
 }
 
+
 .everything {
   padding-right: 0 !important;
  // the banner start here
@@ -94,6 +95,8 @@
   margin-right: auto;
   display: block;
   border-radius: 50%;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
 }
 
 .cardcontainer {
