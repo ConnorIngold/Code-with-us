@@ -48,7 +48,7 @@
           </div>
           <div class="project-list text-center">
             <% @user.my_projects.each do |project| %>
-            <li><%= link_to project.name, edit_project_path(project), {:style=>'color:#FFFFFF;', :class => "css_class"} %>  <i class="fa fa-edit" aria-hidden="true" style='color:#FFFFFF;' ></i></li>
+            <li><%= link_to project.name, edit_project_path(project), {:style=>'color:#FFFFFF;', :class => "css_class"} %><a href= <%= edit_project_path(project) %> style='color:#FFFFFF;' class="profile-link">  <i class="fa fa-edit" aria-hidden="true" style='color:#FFFFFF;' ></i></li>
             <% end %>
           </div>
         </div>
@@ -87,7 +87,7 @@
 
     <div class="col-sm-8">
       <div class="all-projects">
-        <div class="show-white-card-projects text-center" style="background-image: linear-gradient(-225deg, rgba(255,255,255,0.9) 10%, rgba(52,73,94,1) 31.8%);">
+        <div class="show-white-card-projects text-center" style="background-image: linear-gradient(-225deg, rgba(255,255,255,0.9) 18.5%, rgba(52,73,94,1) 5%);">
           <h4>All of <%= @user.full_name %>'s Projects</h4>
         </div>
         <div class="user-projects">

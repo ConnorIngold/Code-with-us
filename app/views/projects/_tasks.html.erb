@@ -1,4 +1,3 @@
-
 <% project.tasks.each do |task| %>
   <% if task.complete === false %>
     <li class="task">
@@ -12,16 +11,16 @@
       </div>
       <div class="task-name">
         <h3><%= task.user.full_name %></h3>
-        <p>10/07/17</p>
+        <p><%= task.created_at %></p>
       </div>
       <% if task.user == current_user || project.owner == current_user %>
       <div class="description">
         <p><strong><%= link_to task.name, edit_project_task_path(@project, task) %> </strong><a href= <%= edit_project_task_path(@project, task) %> style='color:#5898f1;' ><i class="fa fa-edit" aria-hidden="true"></i></a>
         <p><%= task.description %></p>
+      <% end %>
       </div>
       <div class="task-status">
         <p class="difficulty text-center"><%= task.difficulty %></p>
-        <% end %>
       </div>
     </li>
     <div class="task-buttons">
