@@ -8,14 +8,19 @@
 }
 
 .form-control {
-  // width: 50%;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-bottom: 2px solid white;
+  color: white;
 }
 
 .form-user {
   background-color: linear-gradient(360deg, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
   margin-top: 50px;
-  padding: 20px;
   border-radius: 5px;
+  width: 50%;
+  margin-left: 24%;
   h1 {
     text-align: center;
     font-weight: bold;
@@ -31,12 +36,15 @@
   }
 }
 
+
+
 // Checkboxes design
 .technology-choices {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin: 20px 0;
+  width: 50%;
+  margin-left: 24%;
 }
 
 .technology-choice {
@@ -73,34 +81,32 @@
     }
 }
 
-.form-control{
-  text-align: center;
-}
 
 #project_image {
-  margin: 0 auto;
+  // margin: 0 auto;
 }
 
- .file_button_container,
-  .file_button_container input {
-       margin: 10px auto;
-       height: 47px;
-       width: 263px;
-   }
 
-   .file_button_container {
-       background: transparent url(http://i.stack.imgur.com/BT5AB.png) left top no-repeat;
-       crop-top: 10%;
-   }
+.file_button_container input {
+  margin: 10px auto;
+  height: 47px;
+  width: 263px;
+ }
 
-   .file_button_container input {
-       opacity: 0;
-   }
+.file_button_container {
+  background: transparent url(http://i.stack.imgur.com/BT5AB.png) left top no-repeat;
+  crop-top: 10%;
+  margin-left: 26%;
+
+}
+
+.file_button_container input {
+  opacity: 0;
+}
 
 
 .cover{
   background-image: linear-gradient(to right, #141e30, #243b55);
-  margin-top: 50px;
   padding: 20px;
   border-radius: 5px;
 }
@@ -117,3 +123,15 @@
   margin: auto;
   text-align: center;
 }
+
+.task-simple_form{
+  .form-group{
+    margin-bottom: 2%;
+    margin-left: 25%;
+    width: 50%;
+  }
+}
+option{
+  color: black;
+}
+
