@@ -1,6 +1,6 @@
     <div class="row">
       <% projects.each do |project| %>
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 card-result">
+        <div class="col-xs-12 col-sm-6 card-result">
           <div class="projects-card" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 50%), url('<%= cl_image_path project.image if project.image.present? %>');">
            <%= link_to "", project_path(project), class: "card-link"  %>
             <div class="flex-left">
