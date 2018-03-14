@@ -1,21 +1,4 @@
-
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <div class="form-user">
-        <h1>Edit Project</h1>
-        <%= simple_form_for(@project) do |f| %>
-        <div class="row">
-          <div class="col-xs-12">
-            <%= f.input :name, placeholder: "Name" %>
-          </div>
-          <div class="col-xs-12">
-            <%= f.input :aim, placeholder: 'Aim of project' %>
-          </div>
-          <div class="col-xs-12">
-            <%= f.input :category, collection: Project::CATEGORIES, prompt: "What is the purpose of this project?" %>
-          </div>
-
+<div class="cover">
   <div class="container text-center">
     <div class="form-user">
       <h1>Edit Project</h1>
@@ -47,10 +30,15 @@
      </div>
   </div>
 
-    <%= f.submit "Save", class: "btn btn-primary"  %>
+    <div class="proj-edit">
+      <%= f.submit "Save Change", class: "btn btn-success"  %>
+      <%= link_to "Back to Project", project_path(@project), class: "btn btn-primary form-back" %>
+      <%= link_to "Delete Task", @task, class: "btn btn-danger", method: :delete %>
+    </div>
     <% end %>
   </div>
 </div>
+
 
 
 
@@ -62,6 +50,7 @@
   <%= link_to "accept", accept_path(invite), class: "btn btn-success accept-button" %>
   <%= link_to "decline", decline_path(invite),  class: "btn btn-danger decline" %>
 <% end %>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 <script>
@@ -83,4 +72,3 @@
     });
   });
 </script>
-

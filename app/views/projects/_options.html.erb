@@ -27,7 +27,7 @@
       <hr>
 
       <% if @project.owner == current_user || @project.users.merge(ProjectInvite.accepted_users).include?(current_user)%>
-      <h5> Send messages to your team</h5>
+      <h5> Send messages to your team </h5>
       <%= link_to "Send a message", new_project_message_path(@project) %>
       <% elsif @project.users.merge(ProjectInvite.pending_users).include?(current_user) %>
 
@@ -68,7 +68,6 @@
         <% if current_user == @project.owner  %>
         <h5> Current Project: </h5>
         <p><%= link_to "Edit this project", edit_project_path(@project), class: "btn btn-primary" %></p>
-        <p><%= link_to "Delete project", project_path(@project), class: "btn btn-danger", method: :delete %></p>
         <% end %>
       </div>
 
@@ -76,7 +75,7 @@
   </ul>
 </div>
 
-
+<!--
  <hr>
  <hr>
  <hr>
@@ -120,3 +119,4 @@
   <% end %>
 <% end %>
 
+ -->
