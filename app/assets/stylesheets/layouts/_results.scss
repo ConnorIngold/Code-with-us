@@ -71,6 +71,14 @@
 
 }
 
+//Scrolling
+.tags-flex::-webkit-scrollbar{
+  width: 5px;
+}
+
+.results::-webkit-scrollbar{
+  width: 5px;
+}
 
 
 
