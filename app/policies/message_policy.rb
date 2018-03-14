@@ -15,4 +15,8 @@ class MessagePolicy < ApplicationPolicy
   def destroy?
     return true
   end
+
+  def get_new_messages?
+    true
+  end
 end

@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  [:create, :new, :edit, :update, :destory]
+  skip_before_action :authenticate_user!, only: [:get_new_messages]
   def new
     @message = Message.new
     @project = Project.find(params[:project_id])
@@ -12,15 +12,25 @@ class MessagesController < ApplicationController
     @message.sender = current_user
     @project = Project.find(params[:project_id])
     @message.project = @project
+    authorize @message
     if @message.save
-      redirect_to project_path(@project)
-      format.html { render 'projects/message' }
-      format.js
+      respond_to do |format|
+        format.html { render 'messages/new' }
+        format.js
+      end
     else
+      raise
       render :new
     end
-    authorize @message
   end
+
+  # def get_new_messages(last_message_where_sender_wasnt_me)
+  #   @message = Message.new
+  #   authorize @message
+  #   respond_to do |format|
+  #     format.json { render json: {new_messages: Message.where("created_at < ?", ) } }
+  #   end
+  # end
 
   def edit
     @message = Message.find(params[:id])

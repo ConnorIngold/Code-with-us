@@ -1,12 +1,14 @@
-<% if @project.users.merge(ProjectInvite.accepted_users).include?(current_user) || @project.owner == current_user %>
-  <%= link_to "Send a message", new_project_message_path(@project)  %>
-  <% @project.messages.each do |message| %>
-    <br>
-    <%= link_to message.sender.full_name, user_path(message.sender) %>
-    <br>
-    <%= message.content %>
-    <br>
-   <% end %>
+<div id="messages-box">
+  <% if @project.users.merge(ProjectInvite.accepted_users).include?(current_user) || @project.owner == current_user %>
+    <%#= link_to "Send a message", new_project_message_path(@project)  %>
+    <% @project.messages.each do |message| %>
+      <br>
+      <%= link_to message.sender.full_name, user_path(message.sender) %>
+      <br>
+      <%= message.content %>
+      <br>
+    <% end %>
+  </div>
     <%# if message.sender == current_user %>
 <!--       <%#= link_to "delete this message", message_path(message), method: :delete %>
     <%# end %>
@@ -26,3 +28,5 @@
     <%= f.button :submit, class: "btn btn-success" %>
     <% end %>
 <% end %>
+
+<%#= javascript_pack_tag 'messagePolling' %>
