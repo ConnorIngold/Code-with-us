@@ -8,7 +8,7 @@
   height: calc(100vh - 70px);
 
   .sidebar-results{
-    width: 30vw;
+    width: 300px;
     height: 100%;
     background: #0e131d;
 
@@ -40,7 +40,6 @@
     .tagwithname{
       display: flex;
       height: 65px;
-      justify-content: center;
       align-items: center;
     }
 
@@ -65,8 +64,7 @@
   }
 
   .results{
-    width: 70vw;
-    overflow-y: scroll;
+    width: 7
   }
 
 }
@@ -84,4 +82,12 @@
 
 .tag-active {
   background: #5dabea;
+}
+
+
+@media(max-width: 700px) {
+  .wholeflex {
+    flex-direction: column;
+  }
+
 }

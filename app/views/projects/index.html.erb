@@ -1,5 +1,5 @@
 <div class="wholeflex">
-  <div class="sidebar-results">
+  <div class="sidebar-results  ">
     <div class="search-bar-index ">
       <%= form_tag projects_path, :method => 'get', class: "search-field" do %>
 
@@ -16,7 +16,7 @@
       <%= render 'shared/tags', technologies: @technologies, selected_technologies_names: @selected_technologies_names %>
     </div>
   </div>
-  <div class="results" style="overflow-y:scroll;">
+  <div class="results">
 
       <%= render 'shared/projects', projects: @projects %>
   </div>
