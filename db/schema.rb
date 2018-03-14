@@ -113,8 +113,11 @@ ActiveRecord::Schema.define(version: 20180312163359) do
     t.string "facebook"
     t.string "twitter"
     t.string "linkedin"
+    t.string "photo"
+    t.string "full_name"
     t.string "uid"
     t.string "provider"
+    t.text "description"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
