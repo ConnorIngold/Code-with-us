@@ -1,22 +1,19 @@
-<h1>message-box</h1>
 <% if @project.users.merge(ProjectInvite.accepted_users).include?(current_user) || @project.owner == current_user %>
   <%= link_to "Send a message", new_project_message_path(@project)  %>
-  <p>the current messages</p>
   <% @project.messages.each do |message| %>
-    <p>recipient</p>
-    <%= link_to message.recipient.full_name, user_path(message.recipient) %>
-    <p>sender</p>
+    <br>
     <%= link_to message.sender.full_name, user_path(message.sender) %>
-    <p>content</p>
+    <br>
     <%= message.content %>
     <br>
-    <% if message.sender == current_user || message.recipient == current_user %>
-      <%= link_to "delete this message", message_path(message), method: :delete %>
-    <% end %>
-    <% if message.sender == current_user %>
-      <%= link_to "edit this meesage", edit_project_message_path(@project, message) %>
-    <% end %>
-  <% end %>
+   <% end %>
+    <%# if message.sender == current_user %>
+<!--       <%#= link_to "delete this message", message_path(message), method: :delete %>
+    <%# end %>
+    <%# if message.sender == current_user %>
+<%#= link_to "edit this meesage", edit_project_message_path(@project, message) %>
+    <%# end %>
+  <%# end %> -->
     <% choices = [] %>
     <% @project.users.merge(ProjectInvite.accepted_users).each do |user| %>
       <% choices << user.full_name %>
@@ -24,9 +21,8 @@
     <% choices << @project.owner.full_name %>
     <% choices.delete(current_user.full_name) %>
 
-    <%= simple_form_for [@project, @message] do  |f| %>
+    <%= simple_form_for [@project, @message], remote: true do  |f| %>
       <%= f.input :content %>
-      <%= f.input :recipient_id, collection: choices %>
     <%= f.button :submit, class: "btn btn-success" %>
     <% end %>
 <% end %>

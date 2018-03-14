@@ -9,12 +9,13 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     @user = User.where(full_name: params[:message][:recipient_id]).first
-    @message.recipient = @user
     @message.sender = current_user
     @project = Project.find(params[:project_id])
     @message.project = @project
     if @message.save
       redirect_to project_path(@project)
+      format.html { render 'projects/message' }
+      format.js
     else
       render :new
     end
