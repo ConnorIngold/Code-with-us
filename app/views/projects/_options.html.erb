@@ -106,3 +106,17 @@
              <%= link_to "Delete request", project_invite_path(invite), method: :delete %>
           <% end %>
         <% end %>
+
+
+<br>
+
+<% @project.users.merge(ProjectInvite.accepted_users).each do |user| %>
+    <% user.project_invites.each do |invite| %>
+      <% if @project.project_invites.include?(invite) %>
+      <p>Remove users</p>
+      <br>
+      <%= link_to user.full_name, decline_path(invite) %>
+    <% end %>
+  <% end %>
+<% end %>
+

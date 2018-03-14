@@ -1,3 +1,8 @@
+.search-bar-index{
+  margin-top: 30px;
+}
+
+
 .search-banner{
 background-image: linear-gradient(-45deg, rgba(0,0,0,0.6) 0%,
   rgba(0,0,0,0.6) ),
@@ -11,7 +16,7 @@ justify-content: center;
 }
 
 .search-field{
-  background-color: #ededed;
+  background-color: #222430;
   height: 60px;
   // width: 64%;
   border-radius: 5px;
@@ -21,14 +26,14 @@ justify-content: center;
 
 
   &:hover{
-    background-color: white;
+    background-color: #30313a;
   }
 }
 .search-go{
   width: 133px;
   border-radius: 5px;
-  background: linear-gradient(to bottom, rgba(210,255,82,1) 0%, rgba(210,255,82,1) 23%, rgba(145,232,66,1) 100%);
-  opacity: 0.8;
+  color: white;
+  background: linear-gradient(to bottom, rgba(76,76,76,1) 0%, rgba(0,0,0,1) 0%, rgba(17,17,17,0.92) 47%, rgba(43,43,43,0.87) 84%, rgba(19,19,19,0.84) 100%);  opacity: 0.8;
   &:hover{
     transition: 0.5s;
     opacity: 1;
@@ -43,6 +48,8 @@ justify-content: center;
   height: 61px;
   background: transparent;
   border: 0;
+  color: white;
+
   &:focus{
     outline: none !important;
   }
