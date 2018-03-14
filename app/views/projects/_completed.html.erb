@@ -1,6 +1,6 @@
 <% project.tasks.each do |task| %>
   <% if task.complete === true %>
-    <li class="task">
+    <li class="task-completed">
       <div class="avatar">
       <% if  task.user.photo.present?%>
         <%= cl_image_tag  task.user.photo, class: 'avi-small'  %>
@@ -16,17 +16,16 @@
       <% if task.user == current_user || project.owner == current_user %>
       <div class="description">
         <p><strong><%= link_to task.name, edit_project_task_path(@project, task) %> </strong><a href= <%= edit_project_task_path(@project, task) %> style='color:#5898f1;' ><i class="fa fa-edit" aria-hidden="true"></i></a>
-        <p><%= task.description %></p>
+        <p><%= task.description %><a href= <%= not_complete_path(task) %> style='color:#ce0500;' > <i class="fa fa-times" aria-hidden="true"></i></a></p>
       <% end %>
       </div>
       <div class="task-status">
+        <p class="text-center"> Difficulty: </p>
         <p class="difficulty text-center"><%= task.difficulty %></p>
       </div>
     </li>
     <div class="task-buttons">
-    <% if task.user == current_user || project.owner == current_user %>
-      <%= link_to "Mark as Incomplete", not_complete_path(task), class: "btn btn-info" %>
-    <% end %>
+
     </div>
   <% end %>
 <% end %>
