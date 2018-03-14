@@ -8,14 +8,19 @@
 }
 
 .form-control {
-  // width: 50%;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-bottom: 2px solid white;
+  color: white;
 }
 
 .form-user {
   background-color: linear-gradient(360deg, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
   margin-top: 50px;
-  padding: 20px;
   border-radius: 5px;
+  width: 50%;
+  margin-left: 24%;
   h1 {
     text-align: center;
     font-weight: bold;
@@ -31,12 +36,15 @@
   }
 }
 
+
+
 // Checkboxes design
 .technology-choices {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin: 20px 0;
+  width: 50%;
+  margin-left: 24%;
 }
 
 .technology-choice {
@@ -78,7 +86,7 @@
 }
 
 #project_image {
-  margin: 0 auto;
+  // margin: 0 auto;
 }
 
  .file_button_container,
@@ -124,3 +132,7 @@
     width: 50%;
   }
 }
+option{
+  color: black;
+}
+

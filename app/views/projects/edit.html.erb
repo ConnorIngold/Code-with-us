@@ -1,45 +1,39 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <div class="form-user">
-        <h1>Edit Project</h1>
-        <%= simple_form_for(@project) do |f| %>
-        <div class="row">
-          <div class="col-xs-12">
-            <%= f.input :name, placeholder: "Name" %>
-          </div>
-          <div class="col-xs-12">
-            <%= f.input :aim, placeholder: 'Aim of project' %>
-          </div>
-          <div class="col-xs-12">
-            <%= f.input :category, collection: Project::CATEGORIES, prompt: "What is the purpose of this project?" %>
-          </div>
+<div class="cover">
+  <div class="container text-center">
+    <div class="form-user">
+      <h1>Edit Project</h1>
+      <%= simple_form_for(@project) do |f| %>
+      <%= f.input :name, placeholder: "Name" %>
+      <%= f.input :aim, placeholder: "What's the aim of this project?" %>
+      <%= f.input :category, collection: Project::CATEGORIES, prompt: "What is the purpose of this project?" %>
+      <div class="div-label">
+        <label for="image">Image</label>
 
-          <div class="col-xs-12">
-            <%= f.input :image %>
-            <%= f.input :image_cache, as: :hidden  %>
-          </div>
-
+        <div class="file_button_container">
+          <%= f.input :image, label: false%>
+          <%= f.input :image_cache, as: :hidden  %>
         </div>
-        </div>
-          <div class="form-group">
-            <label class="control-label check_boxes optional">Technologies</label>
-            <div class="technology-choices">
-              <% @technologies.each do |technology| %>
-                  <input type="checkbox" class="hidden" value="<%= technology.id %>" name="project[technology_ids][]" id="project_technology_ids_<%= technology.id %>">
-                  <label for="project_technology_ids_<%= technology.id %>" disabled='true' class="technology-choice <%= @project.technologies.include?(technology) ? 'active' : '' %>">
-                    <%= technology.name %>
-                    <i class="fa fa-check"></i>
-                  </label>
-              <% end %>
-             </div>
-          </div>
-          <%= f.submit "Save", class: "btn btn-primary"  %>
-        <% end %>
       </div>
     </div>
+
+  <div class="form-group">
+    <label class="control-label check_boxes optional">Technologies</label>
+    <div class="technology-choices">
+      <% @technologies.each do |technology| %>
+        <input type="checkbox" class="hidden" value="<%= technology.id %>" name="project[technology_ids][]" id="project_technology_ids_<%= technology.id %>">
+        <label for="project_technology_ids_<%= technology.id %>" disabled='true' class="technology-choice <%= @project.technologies.include?(technology) ? 'active' : '' %>">
+          <%= technology.name %>
+          <i class="fa fa-check"></i>
+        </label>
+      <% end %>
+     </div>
+  </div>
+
+    <%= f.submit "Save", class: "btn btn-primary"  %>
+    <% end %>
   </div>
 </div>
+
 
 <% @project.project_invites.each do |invite| %>
   <%= invite.user.email %>
