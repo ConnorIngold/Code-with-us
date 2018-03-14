@@ -3,11 +3,11 @@
     <div class="form-user">
       <h1>Edit Project</h1>
       <%= simple_form_for(@project) do |f| %>
-      <%= f.input :name, placeholder: "Name" %>
-      <%= f.input :aim, placeholder: "What's the aim of this project?" %>
-      <%= f.input :category, collection: Project::CATEGORIES, prompt: "What is the purpose of this project?" %>
+      <%= f.input :name, placeholder: "Name", :label => false %>
+      <%= f.input :aim, placeholder: "What's the aim of this project?", :label => false %>
+      <%= f.input :category, collection: Project::CATEGORIES, prompt: "What is the purpose of this project?", :label => false %>
       <div class="div-label">
-        <label for="image">Image</label>
+        <label for="image">Upload a photo</label>
 
         <div class="file_button_container">
           <%= f.input :image, label: false%>
@@ -17,7 +17,7 @@
     </div>
 
   <div class="form-group">
-    <label class="control-label check_boxes optional">Technologies</label>
+    <label class="control-label check_boxes optional">What Tech are you going to use ?</label>
     <div class="technology-choices">
       <% @technologies.each do |technology| %>
         <input type="checkbox" class="hidden" value="<%= technology.id %>" name="project[technology_ids][]" id="project_technology_ids_<%= technology.id %>">
