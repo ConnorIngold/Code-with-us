@@ -74,7 +74,7 @@
 }
 
 .form-control{
-  text-align: center;
+  // text-align: center;
 }
 
 #project_image {
@@ -100,7 +100,7 @@
 
 .cover{
   background-image: linear-gradient(to right, #141e30, #243b55);
-  margin-top: 50px;
+  // margin-top: 50px;
   padding: 20px;
   border-radius: 5px;
 }
@@ -116,4 +116,25 @@
   color: white;
   margin: auto;
   text-align: center;
+}
+
+
+.task-butt {
+  // display: flex;
+  flex-direction: column;
+  p {
+    margin-top: 10px;
+    padding: 10px;
+    color: white;
+    text-align: left;
+  }
+}
+
+.task-butt-edit {
+  display: flex;
+  justify-content: space-around;
+  // flex-direction: row;
+  .back {
+    margin-top: 20px;
+  }
 }
