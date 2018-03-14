@@ -29,8 +29,6 @@
               <% end %>
             </div>
           </div>
-
-          <div class="content-bottom">
             <div class="content-left">
                 <h1><%= truncate(project.name) %></h1>
                 <p class="last-updated">
@@ -45,12 +43,11 @@
               <div class="tags">
                 <% project.technologies.each_with_index do |technology, index| %>
                   <% unless index > 4 %>
-                    <%= cl_image_tag "#{technology.photo}", :style => "height:40px;width:40px;" %>
+                    <%= cl_image_tag "#{technology.photo}", :style => "height:50px;width:50px;" %>
                   <% end %>
                 <% end %>
               </div>
             </div>
-          </div>
         </div>
       </div>
     </div>
