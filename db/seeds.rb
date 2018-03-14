@@ -26,12 +26,12 @@
 # js = Technology.new(name: 'JS')
 # js.save
 # puts 'Tech Seeded boi'
-# Technology.destroy_all
+Technology.destroy_all
 puts "Starting seed for you, hold tight ...."
 
 Technology.create!(
   name: 'Ruby',
-  remote_photo_url: 'http://pngimg.com/uploads/ruby/ruby_PNG29.png'
+  remote_photo_url: 'https://pre00.deviantart.net/ec01/th/pre/i/2013/008/1/9/ruby_by_sakatagintoki117-d5qwq2l.png'
 )
 Technology.create!(
   name: 'HTML',

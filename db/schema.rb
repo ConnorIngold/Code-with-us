@@ -109,15 +109,15 @@ ActiveRecord::Schema.define(version: 20180312163359) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "full_name"
-    t.string "photo"
-    t.text "description"
-    t.string "provider"
-    t.string "uid"
     t.string "github"
     t.string "facebook"
     t.string "twitter"
     t.string "linkedin"
+    t.string "photo"
+    t.string "full_name"
+    t.string "uid"
+    t.string "provider"
+    t.text "description"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
