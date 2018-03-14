@@ -19,6 +19,27 @@
   background-color: linear-gradient(360deg, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
   margin-top: 50px;
   border-radius: 5px;
+  width: 50%;
+  margin-left: 24%;
+  h1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    color: #fff;
+    margin-bottom: 50px;
+    margin-top: 0px;
+  }
+  .btn {
+    width: 100%;
+    padding: 10px;
+    font-weight: bold;
+  }
+}
+
+.form-user-profile {
+  background-color: linear-gradient(360deg, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+  margin-top: 50px;
+  border-radius: 5px;
   // width: 50%;
   // margin-left: 24%;
   h1 {
@@ -37,7 +58,6 @@
 }
 
 
-
 // Checkboxes design for creating a project
 .technology-choices {
   display: flex;
@@ -52,8 +72,8 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  width: 50%;
-  margin-left: 24%;
+  // width: 50%;
+  // margin-left: 24%;
 }
 
 

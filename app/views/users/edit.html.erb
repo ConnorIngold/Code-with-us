@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <div class="form-user">
+      <div class="form-user-profile">
         <h1>Edit Profile</h1>
         <%= simple_form_for(@user) do |f| %>
         <div class="row">
@@ -19,9 +19,10 @@
             <%= f.input :linkedin, placeholder: 'Insert your profile link here' %>
           </div>
         </div>
+
           <div class="form-group">
             <div class="div-label">
-               <label class="control-label check_boxes optional">What Tech are you going to use ?</label>
+               <label class="control-label check_boxes optional">Which technologies are you going to use?</label>
             </div>
             <input type="hidden" name="user[technology_ids][]" value="">
             <div class="user-technology-choices">
