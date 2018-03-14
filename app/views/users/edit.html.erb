@@ -20,9 +20,12 @@
           </div>
         </div>
           <div class="form-group">
-            <label class="control-label check_boxes optional">Technologies</label>
+            <div class="div-label">
+               <label class="control-label check_boxes optional">What Tech are you going to use ?</label>
+            </div>
             <input type="hidden" name="user[technology_ids][]" value="">
-            <div class="technology-choices">
+            <div class="user-technology-choices">
+
               <% @technologies.each do |technology| %>
                   <input type="checkbox" class="hidden" value="<%= technology.id %>" name="user[technology_ids][]" id="user_technology_ids_<%= technology.id %>">
                   <label for="user_technology_ids_<%= technology.id %>" disabled='true' class="technology-choice <%= @user.technologies.include?(technology) ? 'active' : '' %>">
@@ -30,11 +33,11 @@
                     <i class="fa fa-check"></i>
                   </label>
               <% end %>
-             </div>
+            </div>
           </div>
           <%= f.input :photo %>
           <%= f.input :photo_cache, as: :hidden  %>
-          <%= f.submit "Save", class: "btn btn-primary"  %>
+          <%= f.submit "Save your project changes", class: "btn btn-primary"  %>
         <% end %>
       </div>
     </div>

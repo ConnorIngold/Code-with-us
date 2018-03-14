@@ -16,8 +16,8 @@
             <%= f.input :user_id, collection: choices %>
           <div class="task-butt">
             <%= f.button :submit, class: "btn btn-success" %>
-            <p>Or go</p>
-            <%= link_to "Back to Project", project_path(@project) %>
+            <p>Or</p>
+            <div class="back"><%= link_to "Back to Project", project_path(@project) %></div>
           <% end %>
           </div>
         </div>
