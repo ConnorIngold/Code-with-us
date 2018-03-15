@@ -114,13 +114,14 @@
 }
 
 
-.form-control{
-  text-align: center;
-}
+
 
 
 #project_image {
-  // margin: 0 auto;
+  margin-right: 30%;
+}
+#user_photo{
+  margin-right: 150px;
 }
 
 
@@ -132,9 +133,10 @@
  }
 
 .file_button_container {
-  background: transparent url(http://i.stack.imgur.com/BT5AB.png) left top no-repeat;
+  background: transparent url(https://i.imgur.com/zvNhAdT.png) left top no-repeat;
   crop-top: 10%;
-  margin-left: 26%;
+  margin-left: 34%;
+  cursor: pointer;
 
 }
 
@@ -221,5 +223,4 @@
 option{
   color: black;
 }
-
 
