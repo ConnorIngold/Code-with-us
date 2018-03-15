@@ -8,7 +8,6 @@
 }
 
 .profile-details {
-  margin: 20px;
   padding: 5px;
   border: 1px solid #dadadb;
   box-shadow: 1px 1px 5px #888888;
@@ -187,129 +186,18 @@
 
 .user-projects {
   width: 50vw;
+  height: 100vh;
   margin: 10px;
   padding: 5px;
-  overflow: hidden;
+  overflow-y: scroll;
   padding: 5px;
   font-size: 20px;
   text-align: center;
 }
 
-// .user-projects-card-show{
-//   padding: 13px;
-//   width: 40vw;
-//   height: 200px;
-//   // text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
-//   background-size: cover;
-//   background-position: center;
-//   color: #FFFFFF;
-//   border: 1px solid rgba(0, 0, 0, 0.2);
-//   margin: 10px 0;
-//   margin-left: 10%;
-//   margin-top: 10px;
-//   opacity: 0.85;
-//   box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.2);
-//   border-radius: 16px;
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: space-between;
-//     .flex-left{
-//       display: flex;
-//       flex-direction: column;
-//       justify-content: space-between;
-//       // background: red;
-//       width: 550%;
-//       text-align: left;
-//       .project-details{
-//         h1{
-//           margin-top: 0px;
-//           font-size: 24px;
-//           margin-bottom: 0px;
-//           color: white;
-//         }
-//         .last-updated{
-//           font-size: 18px;
-//           font-style: thin;
-//           margin-bottom: 0px;
-//           color: white;
-//         }
+.user-projects::-webkit-scrollbar{
+  width: 5px;
+}
 
-//         .status-o{
-//           padding: 6px;
-//           width: 75px;
-//           background: linear-gradient(135deg, rgba(85,163,13,1) 0%, rgba(182,237,0,1) 100%);
-//           border-radius: 25px;
-//           margin-right: 5px;
-//           display: flex;
-//           justify-content: space-between;
-//           align-items: center;
-//           .w-circle{
-//             padding: 4px;
-//             width: 5%;
-//             height: 6px;
-//             background-color: white;
-//             border-radius: 5px;
-//           }
-//           .open{
-//             margin-bottom: 0px;
-//             color: white;
-//           }
-
-//         }
-
-//         .status-c{
-//           padding: 6px;
-//           width: 100px;
-//           background: linear-gradient(135deg, rgba(248,80,50,1) 0%,
-//            rgba(246,41,12,1) 33%, rgba(250,111,92,1) 91%, rgba(250,111,92,1) 100%);
-//           border-radius: 25px;
-//           margin-right: 5px;
-//           display: flex;
-//           justify-content: space-between;
-//           align-items: center;
-//           .w-circle{
-//             padding: 4px;
-//             width: 5%;
-//             height: 6px;
-//             background-color: white;
-//             border-radius: 5px;
-//           }
-//           .closed{
-//             margin-bottom: 0px;
-//             color: white;
-//           }
-
-//         }
-
-//         .tags{
-//           float: left;
-//           color: white;
-//         }
-//       }
-//     }
-
-//     .flex-right{
-//       display: flex;
-//       flex-direction: column;
-//       // background: blue;
-//       width: 100%;
-//       float: right; // Check this!!
-//       .avi-detail{
-//         background-size: cover;
-//         width: 90px;
-//         height: 90px;
-//         border-radius: 16px;
-//         float: right;
-//         .progress {
-//           margin-top: 10px;
-//         }
-//       }
-//     }
-
-//     &:hover{
-//       transition: 0.4s;
-//       opacity: 0.6;
-//     }
-// }
 
 
