@@ -3,8 +3,6 @@
     <li>
       <h5>Make this Project open or closed? - Closed project means no one else can join the group</h5>
 
-
-
       <% if current_user == project.owner && project.open === true %>
         <%= link_to "Make this project closed", closed_path(project) %>
       <% elsif  current_user == project.owner && project.open === false%>
@@ -46,8 +44,8 @@
 
         <br>
 
-        <h5> Not happy with the current project?</h5>
          <% if invite.user == current_user && invite.status == "accepted" %>
+        <h5> Not happy with the current project?</h5>
            <%= link_to "Remove yourself from group", project_invite_path(invite), method: :delete %>
          <% elsif invite.user == current_user %>
            <h5> Invite changes </h5>

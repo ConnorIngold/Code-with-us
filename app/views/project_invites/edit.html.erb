@@ -1,5 +1,13 @@
-<%= simple_form_for [@project, @project_invite] do |f| %>
-  <%= f.input :message %>
-  <%= f.button :submit, class: "btn btn-success" %>
-<% end %>
-<%= link_to "Delete", project_invite_path(@project_invite), method: :delete%>
+
+<div class="cover">
+  <div class="container">
+    <div class="request-content">
+      <%= simple_form_for [@project, @project_invite] do |f| %>
+        <%= f.input :message %>
+      </div>
+      <div class="request-send-button">
+      <%= link_to "Delete Request", project_invite_path(@project_invite), method: :delete %>
+    </div>
+    <% end %>
+  </div>
+</div>
