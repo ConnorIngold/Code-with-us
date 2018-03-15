@@ -7,12 +7,9 @@
             <%= f.input :aim, placeholder: "What's the aim of this project?",:label => false  %>
             <%= f.input :category, collection: Project::CATEGORIES, prompt: "What is the purpose of this project?", :label => false %>
             <div class="div-label">
-              <label for="image">Upload a photo</label>
-
-
+              <label for="image" class="btn btn-primary">Upload a photo</label>
                 <%= f.input :image, label: false%>
                 <%= f.input :image_cache, as: :hidden  %>
-
             </div>
 
         </div>
