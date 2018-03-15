@@ -5,4 +5,5 @@ var newMessage = '<div class="sender"><p><%= j link_to @message.sender.full_name
 
 messages = document.getElementById('messages-box')
 messages.insertAdjacentHTML('beforeend', newMessage)
-
+inputBox =  document.getElementById('message_content')
+inputBox.value = ""

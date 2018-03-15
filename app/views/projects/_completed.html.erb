@@ -11,7 +11,7 @@
       </div>
       <div class="task-name">
         <h3><%= task.user.full_name %></h3>
-        <p><%= task.created_at %></p>
+        <p><%= task.created_at.strftime("%d/ %m/ %Y") %></p>
       </div>
       <% if task.user == current_user || project.owner == current_user %>
       <div class="description">
@@ -24,8 +24,6 @@
         <p class="difficulty text-center">Difficulty: <%= task.difficulty %></p>
       </div>
     </li>
-    <div class="task-buttons">
-
-    </div>
+     <hr>
   <% end %>
 <% end %>
