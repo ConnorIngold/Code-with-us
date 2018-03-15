@@ -1,7 +1,7 @@
 <div id="messages-box">
-  <% if @project.users.merge(ProjectInvite.accepted_users).include?(current_user) || @project.owner == current_user %>
-    <%#= link_to "Send a message", new_project_message_path(@project)  %>
-    <% @project.messages.each do |message| %>
+  <% if project.users.merge(ProjectInvite.accepted_users).include?(current_user) || project.owner == current_user %>
+    <%#= link_to "Send a message", new_project_message_path(project)  %>
+    <% project.messages.each do |message| %>
     <% if message.sender == current_user %>
       <div class="sender" id="message-sender">
         <p><%= link_to message.sender.full_name, user_path(message.sender) %></p>
@@ -17,12 +17,12 @@
     <hr>
   </div>
     <% choices = [] %>
-    <% @project.users.merge(ProjectInvite.accepted_users).each do |user| %>
+    <% project.users.merge(ProjectInvite.accepted_users).each do |user| %>
       <% choices << user.full_name %>
     <% end %>
-    <% choices << @project.owner.full_name %>
+    <% choices << project.owner.full_name %>
     <% choices.delete(current_user.full_name) %>
-      <%= simple_form_for [@project, @message], remote: true do  |f| %>
+      <%= simple_form_for [project, message], remote: true do  |f| %>
     <div class="message-content">
       <%= f.input :content %>
     </div>
