@@ -4,7 +4,7 @@
   <title>We're sorry, but something went wrong (500)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-  .rails-default-error-page {
+/*  .rails-default-error-page {
     background-color: #EFEFEF;
     color: #2E2F30;
     text-align: center;
@@ -50,14 +50,35 @@
     border-top-color: #DADADA;
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+  }*/
+
+  .fiveohfive{
+    min-height: 100vh;
+    min-width: 100vw;
+    background-image: url('https://media.giphy.com/media/njYrp176NQsHS/giphy.gif');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+  }
+  #code{
+    font-size: 144px;
+    color: #ad1212c9;
+    font-weight: 700;
+    margin-bottom: 10px;
+    margin-top: 0px;
+  }
+  #five-content{
+    color: #cececead;
+    font-size: 50px;
   }
   </style>
 </head>
 
 <body class="rails-default-error-page">
   <!-- This file lives in public/500.html -->
-  <div class="500-background" style="">
-
+  <div class="fiveohfive">
+    <p id="code">500 error</p>
+    <p id="five-content">Oops! This isn't supposed to happen</p>
   </div>
 </body>
 </html>
