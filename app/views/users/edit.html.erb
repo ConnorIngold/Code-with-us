@@ -36,8 +36,14 @@
               <% end %>
             </div>
           </div>
-          <%= f.input :photo %>
-          <%= f.input :photo_cache, as: :hidden  %>
+          <div class="div-label">
+            <label for="image">Upload a photo</label>
+
+            <div class="file_button_container">
+              <%= f.input :image, label: false%>
+              <%= f.input :image_cache, as: :hidden  %>
+            </div>
+          </div>
           <%= f.submit "Save your project changes", class: "btn btn-primary"  %>
         <% end %>
       </div>
