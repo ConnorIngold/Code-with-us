@@ -23,5 +23,6 @@ Rails.application.routes.draw do
   get 'projects/:id/open' => 'projects#open', as: 'open'
   get 'projects/:id/private' => 'projects#private', as: 'private'
   get 'projects/:id/public' => 'projects#public', as: 'public'
+  get 'projects/:id/messages/get_new_messages' => 'messages#get_new_messages', as: 'get_new_messages'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

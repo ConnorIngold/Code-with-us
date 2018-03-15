@@ -15,6 +15,7 @@
  // the banner start here
 }
 
+
 .banner {
   color: white;
   text-align: center;
@@ -26,9 +27,8 @@
 }
 
 .code {
-  position: absolute;
-  top: 15%;
-  left: 6%;
+  padding: 0px 30px 0px 30px;
+  margin-bottom: 200px;
 }
 .banner-content #search-form {
   opacity: 1 !important;
@@ -48,6 +48,10 @@
   color: rgb(255, 255, 255);
   opacity: 0.6;
   margin-bottom: 30px;
+}
+
+#search-form{
+
 }
 // and ends here
 
@@ -306,8 +310,6 @@ img.rocket {
 
 .card-container{
   width: 25%;
-  height: auto;
-  width: 300px;
 }
 
 img.team{
@@ -340,7 +342,7 @@ img.team{
 }
 
 .name2 {
-  color: #494949;
+  color: $brand-success;
   text-align: center;
   font-size: 24px;
   margin-top: 30px;

@@ -1,23 +1,27 @@
 <div class="cover">
   <div class="task-form">
     <div class="container">
-      <div class="row" style="text-align: center;">
+      <div class="row">
         <div class="task-simple_form">
           <% choices = [] %>
           <% @project.users.merge(ProjectInvite.accepted_users).each do |user| %>
             <% choices << user.full_name %>
           <% end %>
           <% choices << @project.owner.full_name %>
-          
+
           <%= simple_form_for [@project, @task] do |f| %>
             <%= f.input :name %>
             <%= f.input :description  %>
             <%= f.input :difficulty, collection: [1,2,3,4,5]%>
             <%= f.input :user_id, collection: choices %>
-          <%= f.button :submit, class: "btn btn-success" %>
+          <div class="task-butt">
+            <%= f.button :submit, class: "btn btn-success" %>
+            <p>Or</p>
+            <div class="back"><%= link_to "Back to Project", project_path(@project) %></div>
           <% end %>
+          </div>
         </div>
-        <%= link_to "Back to Project", project_path(@project), class: "btn btn-primary form-back" %>
+
       </div>
     </div>
   </div>

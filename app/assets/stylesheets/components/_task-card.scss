@@ -17,6 +17,18 @@
   border-left: 6px solid red; /*will need to change for difficulty logic*/
 }
 
+.task-completed {
+  background: #f3f3f3;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin: 10px 20px 10px 10px;
+  border: 1px solid #dadadb;
+  box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+  border-radius: 5px;
+  border-left: 6px solid #7FD89B; /*will need to change for difficulty logic*/
+}
+
 .task:hover {
   background: #f7f7fa;
   cursor: pointer;
@@ -29,18 +41,19 @@
 
 .task-name:hover h3 {
   color: #5898f1;
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 .description {
+  margin-left: 5px;
   flex-grow: 1;
   padding: 5px;
-  width: 80%;
   p {
   font-family: 'Varela Round', sans-serif;
   font-size: 20px;
   padding-right: 20px;
   color: black;
+  width: 80%;
   }
 }
 
@@ -116,6 +129,9 @@ border-bottom: 1px solid #dadadb;
   padding: 20px;
 }
 
+.difficulty {
+  margin-right: 5px;
+}
 
 // .btn-success .btn-info{
 //   margin-top: 0px !important;

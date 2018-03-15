@@ -1,7 +1,8 @@
+<div class="cover">
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <div class="form-user">
+      <div class="form-user-profile">
         <h1>Edit Profile</h1>
         <%= simple_form_for(@user) do |f| %>
         <div class="row">
@@ -18,10 +19,14 @@
             <%= f.input :linkedin, placeholder: 'Insert your profile link here' %>
           </div>
         </div>
+
           <div class="form-group">
-            <label class="control-label check_boxes optional">Technologies</label>
+            <div class="div-label">
+               <label class="control-label check_boxes optional">Which technologies are you going to use?</label>
+            </div>
             <input type="hidden" name="user[technology_ids][]" value="">
-            <div class="technology-choices">
+            <div class="user-technology-choices">
+
               <% @technologies.each do |technology| %>
                   <input type="checkbox" class="hidden" value="<%= technology.id %>" name="user[technology_ids][]" id="user_technology_ids_<%= technology.id %>">
                   <label for="user_technology_ids_<%= technology.id %>" disabled='true' class="technology-choice <%= @user.technologies.include?(technology) ? 'active' : '' %>">
@@ -29,15 +34,16 @@
                     <i class="fa fa-check"></i>
                   </label>
               <% end %>
-             </div>
+            </div>
           </div>
           <%= f.input :photo %>
           <%= f.input :photo_cache, as: :hidden  %>
-          <%= f.submit "Save", class: "btn btn-primary"  %>
+          <%= f.submit "Save your project changes", class: "btn btn-primary"  %>
         <% end %>
       </div>
     </div>
   </div>
+</div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>

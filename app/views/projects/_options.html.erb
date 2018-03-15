@@ -27,23 +27,31 @@
       <hr>
 
       <% if @project.owner == current_user || @project.users.merge(ProjectInvite.accepted_users).include?(current_user)%>
-      <h5> Send messages to your team</h5>
+      <h5> Send messages to your team </h5>
       <%= link_to "Send a message", new_project_message_path(@project) %>
       <% elsif @project.users.merge(ProjectInvite.pending_users).include?(current_user) %>
+
         <h3> Invite pending</h3>
       <% elsif @project.users.merge(ProjectInvite.declined_users).include?(current_user) %>
+
         <h3> Invite declinded</h3>
       <% else %>
       <h5> Send an invite request to the project owner</h5>
         <%= link_to "Request invite", new_project_project_invite_path(@project) %>
       <% end %>
+
       <% @project.project_invites.each do |invite| %>
-         <% unless invite.status == "accepted" %>
-         <h5> Recent invite details</h5>
-           <%= invite.user.full_name %>
-           <%= invite.message %>
-         <% end %>
-         <br>
+        <% unless invite.status == "accepted" %>
+        <h5> Recent invite details</h5>
+          <%= invite.user.full_name %>
+          <%= invite.message %>
+          <%= invite.status %>
+          <%= link_to "accept", accept_path(invite), class: "btn btn-success accept-button" %>
+          <%= link_to "decline", decline_path(invite),  class: "btn btn-danger decline" %>
+        <% end %>
+
+        <br>
+
         <h5> Not happy with the current project?</h5>
          <% if invite.user == current_user && invite.status == "accepted" %>
            <%= link_to "Remove yourself from group", project_invite_path(invite), method: :delete %>
@@ -60,7 +68,6 @@
         <% if current_user == @project.owner  %>
         <h5> Current Project: </h5>
         <p><%= link_to "Edit this project", edit_project_path(@project), class: "btn btn-primary" %></p>
-        <p><%= link_to "Delete project", project_path(@project), class: "btn btn-danger", method: :delete %></p>
         <% end %>
       </div>
 
@@ -68,7 +75,7 @@
   </ul>
 </div>
 
-
+<!--
  <hr>
  <hr>
  <hr>
@@ -112,3 +119,4 @@
   <% end %>
 <% end %>
 
+ -->

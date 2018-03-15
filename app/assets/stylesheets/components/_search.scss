@@ -1,9 +1,9 @@
 .search-bar-index{
-  // margin-top: 30px;
+  margin-top: 30px;
 }
 
 .nopadding {
-  padding: 0;
+ padding: 0;
 }
 
 .search-banner{
@@ -36,8 +36,8 @@ justify-content: center;
   width: 60px;
   border-radius: 5px;
   color: white;
-  border: none;
-  background: transparent;
+  background: linear-gradient(to bottom, rgba(76,76,76,1) 0%, rgba(0,0,0,1) 0%, rgba(17,17,17,0.92) 47%, rgba(43,43,43,0.87) 84%, rgba(19,19,19,0.84) 100%);  opacity: 0.8;
+
   &:hover{
     transition: 0.5s;
     opacity: 1;
