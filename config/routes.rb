@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks"}
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks"}, skip: [:sessions]
+    as :user do
+      get 'signin', to: 'pages#home', as: :new_user_session
+      post 'signin', to: 'pages#home', as: :user_session
+      delete 'signout', to: 'devise/sessions#destroy', as: :destroy_user_session
+    end
+
   root to: 'pages#home'
   resources :projects do
     resources :project_invites, only: [:new, :create]
@@ -25,4 +31,14 @@ Rails.application.routes.draw do
   get 'projects/:id/public' => 'projects#public', as: 'public'
   get 'projects/:id/messages/get_new_messages' => 'messages#get_new_messages', as: 'get_new_messages'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # devise_scope :user do
+  #   get 'login', to: 'pages#home'
+  # end
+
+  # devise_for :users, skip: [:sessions]
+  # as :user do
+  #   get 'signin', to: 'devise/sessions#new', as: :new_user_session
+  #   post 'signin', to: 'devise/sessions#create', as: :user_session
+  #   delete 'signout', to: 'devise/sessions#destroy', as: :destroy_user_session
+  # end
 end
