@@ -7,6 +7,10 @@
   justify-content: space-between;
   // height: calc(100vh - 70px);
 
+  .container{
+    // overflow-y: scroll;
+  }
+
   .sidebar-results{
     width: 35vw;
     height: 100%;
@@ -62,20 +66,20 @@
 
   }
 
-  .results{
-    padding: 20px;
-  }
+  // .results{
+  //   padding: 20px;
+  // }
 
 }
 
 //Scrolling
-.tags-flex::-webkit-scrollbar{
-  width: 5px;
-}
+// .tags-flex::-webkit-scrollbar{
+//   width: 5px;
+// }
 
-.results::-webkit-scrollbar{
-  width: 5px;
-}
+// .card-results::-webkit-scrollbar{
+//   width: 5px;
+// }
 
 
 
@@ -83,6 +87,11 @@
   background: #5dabea;
 }
 
+.card-results{
+  width: 65vw;
+  height: 100vh;
+  overflow-y: scroll;
+}
 
 @media(max-width: 976px){
   .project-details{
