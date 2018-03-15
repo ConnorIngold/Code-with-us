@@ -37,8 +37,8 @@
         <hr class="bottom-line">
 
         <div class="button-choice">
-          <% if @project.owner == current_user || @project.users.merge(ProjectInvite.accepted_users).include?(current_user)%>
-
+          <% if @project.owner == current_user%>
+            <%= link_to "See invites", '#settings', data: { toggle: "tab"}, id:"options-button" %>
           <% elsif @project.users.merge(ProjectInvite.pending_users).include?(current_user) %>
             <h3> Invite pending</h3>
           <% elsif @project.users.merge(ProjectInvite.declined_users).include?(current_user) %>
@@ -51,37 +51,37 @@
     </div>
 
     <div class="col-xs-9">
-
-
-
-
-
-
-
       <div class="project-tabs">
 
-        <!-- Nav tabs -->
-        <ul class="nav nav-tabs" role="tablist">
-          <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
-          <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
-          <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
-          <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
-        </ul>
+  <!-- Nav tabs -->
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Tasks To-do</a></li>
+            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Completed Tasks</a></li>
+            <li role="presentation" ><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+            <li role="presentation" id="opt-btn"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Options</a></li>
+          <% if @project.owner == current_user || @project.users.merge(ProjectInvite.accepted_users) %>
+            <li role="presentation"><a href= <%= new_project_task_path(@project) %> class="profile-link"><i class="fa fa-plus-square" aria-hidden="true"></i> Create a New Task</a></li>
+          <% end %>
 
+          </ul>
 
-        <!-- Tab panes -->
-        <div class="tab-content">
-          <div role="tabpanel" class="tab-pane active" id="home">
-            <%= render 'tasks', project: @project %>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="profile">
-            <%= render 'completed', project: @project %>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="messages">
-            <%= render 'message-box', project: @project, message: @message %>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="settings">
-            <%= render 'options', project: @project %>
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="home">
+              <!-- Partials that are found in the project folder -->
+              <%= render 'tasks', project: @project %>
+            </div>
+
+            <div role="tabpanel" class="tab-pane" id="profile">
+              <%= render 'completed', project: @project %>
+            </div>
+
+            <div role="tabpanel" class="tab-pane" id="messages">
+              <%= render 'message-box', project: @project, message: @message %>
+            </div>
+
+            <div role="tabpanel" class="tab-pane" id="settings">
+              <%= render 'options', project: @project %>
           </div>
         </div>
       </div>
@@ -92,4 +92,4 @@
 
 
 <%= javascript_pack_tag 'progress' %>
-<%= javascript_pack_tag 'message-button' %>
+<%= javascript_pack_tag 'option-button' %>
