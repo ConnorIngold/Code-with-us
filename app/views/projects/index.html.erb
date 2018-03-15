@@ -1,8 +1,7 @@
 <div class="wholeflex">
-  <div class="sidebar-results">
+  <div class="sidebar-results  ">
     <div class="search-bar-index ">
       <%= form_tag projects_path, :method => 'get', class: "search-field" do %>
-
         <div class="field" width="100%">
           <%= text_field_tag :search, params[:search], placeholder: "Search for a project", id: "search-index"%>
         </div>
@@ -11,14 +10,16 @@
         <% end %>
       <% end %>
     </div>
+
     <div class="tags-flex">
       <h2>Filter by</h2>
       <%= render 'shared/tags', technologies: @technologies, selected_technologies_names: @selected_technologies_names %>
     </div>
   </div>
-  <div class="results" style="overflow-y:scroll;">
-
-      <%= render 'shared/projects', projects: @projects %>
+  <div class="container">
+    <div class="card-results">
+    <%= render 'shared/projects', projects: @projects %>
+    </div>
   </div>
 </div>
 

@@ -5,16 +5,21 @@
 .wholeflex{
   display: flex;
   justify-content: space-between;
-  height: calc(100vh - 70px);
+  // height: calc(100vh - 70px);
+
+  .container{
+    // overflow-y: scroll;
+    padding: 0px;
+  }
 
   .sidebar-results{
-    width: 30vw;
+    width: 35vw;
     height: 100%;
     background: #0e131d;
 
     .tags-flex{
-      height: calc(100% - 100px);
-      overflow-y:scroll;
+      // height: calc(100% - 100px);
+      // overflow-y:scroll;
 
       h2{
         margin-top: 10px;
@@ -24,7 +29,6 @@
       }
 
       .tags-result{
-        width: 50%;
         box-shadow: 1px 2px 4px rgba(0,0,0,0.3);
         opacity: 0.8;
         z-index: 100;
@@ -40,7 +44,6 @@
     .tagwithname{
       display: flex;
       height: 65px;
-      justify-content: center;
       align-items: center;
     }
 
@@ -50,7 +53,7 @@
       }
 
       h1{
-        font-size: 18px;
+        font-size: 1.5vw;
         font-weight: bold;
         color: gray;
         margin: 0px;
@@ -64,19 +67,18 @@
 
   }
 
-  .results{
-    width: 70vw;
-    overflow-y: scroll;
-  }
+  // .results{
+  //   padding: 20px;
+  // }
 
 }
 
 //Scrolling
-.tags-flex::-webkit-scrollbar{
-  width: 5px;
-}
+// .tags-flex::-webkit-scrollbar{
+//   width: 5px;
+// }
 
-.results::-webkit-scrollbar{
+.card-results::-webkit-scrollbar{
   width: 5px;
 }
 
@@ -84,4 +86,42 @@
 
 .tag-active {
   background: #5dabea;
+}
+
+.card-results{
+  width: 73vw;
+  height: 100vh;
+  overflow-y: scroll;
+}
+@media(max-width: 770px){
+  .sidebar-results{
+    min-width: 320px !important;
+  }
+}
+
+@media(max-width: 976px){
+  .project-details{
+    max-width: 100px;
+  }
+  .sidebar-results{
+    min-width: 200px;
+    h1 {
+      font-size: 18px !important;
+    }
+  }
+}
+
+@media(max-width: 700px) {
+  .wholeflex {
+    flex-direction: column;
+  }
+  .sidebar-results{
+    min-width: 100% !important;
+  }
+
+  .project-details{
+    max-width: 100px;
+
+  }
+
 }

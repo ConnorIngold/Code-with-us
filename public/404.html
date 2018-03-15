@@ -4,7 +4,7 @@
   <title>The page you were looking for doesn't exist (404)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-  .rails-default-error-page {
+/*  .rails-default-error-page {
     background-color: #EFEFEF;
     color: #2E2F30;
     text-align: center;
@@ -51,17 +51,36 @@
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
+*/
+
+      .fourohfour{
+        min-height: 100vh;
+        min-width: 100vw;
+        background: url('https://media1.giphy.com/media/aOL3fsoTtf5yU/giphy.gif');
+        background-color: white;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        position: absolute;
+        font: 75px/75px Monoton, cursive;
+        text-align: center;
+        text-transform: uppercase;
+        text-shadow: 0 0 80px red,0 0 30px FireBrick,0 0 6px DarkRed;
+        color: red;
+      }
+      #error{
+        color: #fff;
+        text-shadow: 0 0 80px #ffffff,0 0 30px #008000,0 0 6px #0000ff;
+    }
+
   </style>
 </head>
 
 <body class="rails-default-error-page">
   <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <div>
-      <h1>The page you were looking for doesn't exist.</h1>
-      <p>You may have mistyped the address or the page may have moved.</p>
-    </div>
-    <p>If you are the application owner check the logs for more information.</p>
+  <div class="fourohfour">
+    <p>404 error</p>
+    <p id="error">It's not us</p>
   </div>
 </body>
 </html>
