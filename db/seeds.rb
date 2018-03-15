@@ -109,6 +109,10 @@ Technology.create!(
   name: 'Net-framework',
   remote_photo_url: 'https://i0.wp.com/www.andersrodland.com/wp-content/uploads/2017/05/NET-Framework-4.7.png?resize=300%2C300&ssl=1'
 )
+Technology.create!(
+  name: 'Unity',
+  remote_photo_url: 'http://www.stickpng.com/assets/images/58482b92cef1014c0b5e4a2d.png'
+)
 
 puts "Tech seeding complete my g"
 
