@@ -33,16 +33,17 @@ justify-content: center;
   }
 }
 .search-go{
-  width: 60px;
-  border-radius: 5px;
-  color: white;
-  background: linear-gradient(to bottom, rgba(76,76,76,1) 0%, rgba(0,0,0,1) 0%, rgba(17,17,17,0.92) 47%, rgba(43,43,43,0.87) 84%, rgba(19,19,19,0.84) 100%);  opacity: 0.8;
+  // width: 60px;
+  // border-radius: 5px;
+  // color: white;
+  // background: linear-gradient(to bottom, rgba(76,76,76,1) 0%, rgba(0,0,0,1) 0%, rgba(17,17,17,0.92) 47%, rgba(43,43,43,0.87) 84%, rgba(19,19,19,0.84) 100%);  opacity: 0.8;
 
-  &:hover{
-    transition: 0.5s;
-    opacity: 1;
-  }
-
+  // &:hover{
+  //   transition: 0.5s;
+  //   opacity: 1;
+  // }
+  background-color: transparent;
+  border: none;
 
   // border: 1px solid grey;
 }

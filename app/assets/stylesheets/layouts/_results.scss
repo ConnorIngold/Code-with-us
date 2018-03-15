@@ -9,6 +9,7 @@
 
   .container{
     // overflow-y: scroll;
+    padding: 0px;
   }
 
   .sidebar-results{
@@ -77,9 +78,9 @@
 //   width: 5px;
 // }
 
-// .card-results::-webkit-scrollbar{
-//   width: 5px;
-// }
+.card-results::-webkit-scrollbar{
+  width: 5px;
+}
 
 
 
@@ -88,9 +89,14 @@
 }
 
 .card-results{
-  width: 65vw;
+  width: 73vw;
   height: 100vh;
   overflow-y: scroll;
+}
+@media(max-width: 700px){
+  .sidebar-results{
+    min-width: 500px !important;
+  }
 }
 
 @media(max-width: 976px){
@@ -98,7 +104,7 @@
     max-width: 100px;
   }
   .sidebar-results{
-    min-width: 400px;
+    min-width: 200px;
     h1 {
       font-size: 18px !important;
     }
