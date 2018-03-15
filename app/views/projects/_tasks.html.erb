@@ -38,7 +38,7 @@
       <% end %>
   <% end %>
 <% else %>
-  <% if current_user == project.owner && project.users.merge(ProjectInvite.accepted_user).include?(current_user) %>
+  <% if current_user == project.owner || project.users.merge(ProjectInvite.accepted_users).include?(current_user) %>
     <h1>This is your project, create the first task</h1>
     <%= link_to "Create a task", new_project_task_path(project), class:"btn btn-primary"%>
    <% else %>
