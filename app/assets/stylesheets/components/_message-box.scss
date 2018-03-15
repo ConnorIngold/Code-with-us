@@ -1,15 +1,64 @@
-.div-the-first{
-background-color: RebeccaPurple;
+.message-content {
+ label{
+  font-weight: lighter !important;
+  color: black !important;
+  // border: 1px solid black !important;
+  .cont {
+  color: black !important;
+  border: 1px solid black !important;
+  box-shadow: 1px 1px 5px #888888 !important;
+    }
+  }
 }
 
-.div-the-second{
+.send-button {
+  margin-top: 100px;
+   margin-left: 25%;
 
 }
+.message-content {
+  // padding: 5px;
+  text-align: left;
+  margin-right: 50px;
+ input {
+  margin-top: 10px;
+  height: 100px;
+  text-align: left;
+  color: black !important;
+  border: 1px solid #9c9ca0 !important;
+  box-shadow: 1px 1px 3px #9c9ca0 !important;
 
-.div-the-third{
-
+  .recipient {
+color: black !important;
+   }
+  }
 }
 
-.div-the-foruth{
 
+.sender {
+  background-color: #376bba;
+  padding: 10px 15px;
+  border-radius: 10px;
+  margin-top: 10px;
+  width: 50%;
+      p {
+    color: white;
+    }
+  a {
+    color: white;
+    font-weight: bold;
+  }
+}
+
+
+.reciever {
+  background-color: $brand-success;
+  text-align: right;
+  padding: 10px 15px;
+  border-radius: 10px;
+  margin-top: 10px;
+  width: 50%;
+    a {
+    color: white;
+  }
 }
