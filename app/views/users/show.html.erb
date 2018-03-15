@@ -15,20 +15,18 @@
                 <% end %>
               </div>
               <div class="find-me">
-                <ul>
-                  <li><a href= <%= @user.github %> style='color:#FFFFFF;' class="github-link"><i class="fa fa-github" style='color:#FFFFFF;'></i>
-                    Github
-                  </a></li>
-                  <li><a href= <%= @user.facebook %> style='color:#FFFFFF;' class="facebook-link"><i class="fa fa-facebook" aria-hidden="true" style='color:#FFFFFF;'></i>
-                    Facebook
-                  </a></li>
-                  <li><a href= <%= @user.twitter %> style='color:#FFFFFF;' class="twitter-link"><i class="fa fa-twitter" aria-hidden="true" style='color:#FFFFFF;'></i>
-                    Twitter
-                  </a></li>
-                  <li><a href= <%= @user.linkedin %> style='color:#FFFFFF;' class="linkedin-link"><i class="fa fa-linkedin" aria-hidden="true" style='color:#FFFFFF;'></i>
-                    LinkedIn
-                  </a></li>
-                </ul>
+                <a href="<%= @user.github %>" class="github-link"><i class="fa fa-github"></i>
+                  Github
+                </a>
+                <a href= "<%= @user.facebook %>" class="facebook-link"><i class="fa fa-facebook" aria-hidden="true"></i>
+                  Facebook
+                </a>
+                <a href= "<%= @user.twitter %>" class="twitter-link"><i class="fa fa-twitter" aria-hidden="true"></i>
+                  Twitter
+                </a>
+                <a href="<%= @user.linkedin %>" class="linkedin-link"><i class="fa fa-linkedin" aria-hidden="true"></i>
+                  LinkedIn
+                </a>
                 </div>
               </div>
           </div>
@@ -39,6 +37,17 @@
             </div>
             <div class="bio">
               <p style='color:#FFFFFF;' ><%= @user.description %></p>
+            </div>
+          </div>
+
+          <div class="user-technologies text-center">
+            <div class="show-white-card text-center">
+              <h4>User technologies</h4>
+            </div>
+            <div class="user-techn">
+              <% @user.technologies.each do |tech| %>
+                <%= cl_image_tag "#{tech.photo}", :style => "height:50px;width:50px;" %>
+              <% end %>
             </div>
           </div>
 
@@ -53,16 +62,6 @@
             </div>
           </div>
 
-          <div class="user-technologies text-center">
-            <div class="show-white-card text-center">
-              <h4>User technologies</h4>
-            </div>
-            <div class="user-techn">
-              <% @user.technologies.each do |tech| %>
-                <%= cl_image_tag "#{tech.photo}", :style => "height:50px;width:50px;" %>
-              <% end %>
-            </div>
-          </div>
 
           <div class="settings">
             <div class="show-white-card text-center">

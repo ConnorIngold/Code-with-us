@@ -37,33 +37,23 @@
   background-position: center;
   width: 201px;
   border-radius: 10px;
-  /* height: auto; */
-  /* height: 145px; */
-  /* border-radius: 79%; */
-  /* display: block; */
   margin: 10px;
 }
 
 .find-me{
   width: 200px;
-  /* padding: 5px; */
-  /* margin: 20px; */
+  margin-top: 13px;
+  margin-right: 5px;
   font-size: 20px;
-  /* text-align: right; */
+  display:flex;
+  flex-direction: column;
 
-    ul {
-      padding-left: 0px;
-      margin-bottom: 0px;
-
-    li {
-    list-style: none;
-    a {
-      background-color: transparent;
-      color: white;
-      }
+  a {
+    color: white;
+    margin-bottom: 5px;
     }
-  }
 }
+
 
 .show-white-card {
   background-color: #FFFFFF;
