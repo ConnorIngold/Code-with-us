@@ -29,7 +29,7 @@
                 </a>
                 </div>
               </div>
-          </div>
+            </div>
           <div class="user-desc text-center">
             <div class="show-white-card text-center">
               <h4>Bio</h4>
@@ -58,18 +58,7 @@
               <li><%= link_to project.name, edit_project_path(project), {:style=>'color:#FFFFFF;', :class => "css_class"} %><a href= <%= edit_project_path(project) %> style='color:#FFFFFF;' class="profile-link">  <i class="fa fa-edit" aria-hidden="true" style='color:#FFFFFF;' ></i></li>
               <% end %>
             </div>
-        <div class="settings">
-          <div class="show-white-card text-center">
-            <h4>Settings</h4>
           </div>
-          <div class="edit-link text-center">
-            <% if @user == current_user %>
-            <%= link_to "Edit Profile", edit_user_path(@user), {:style=>'color:#FFFFFF;', :class => "css_class"} %>
-            <a href= <%= edit_user_path(@user) %> style='color:#FFFFFF;' class="profile-link"><i class="fa fa-edit" aria-hidden="true"></i></a>
-            <% end %>
-
-          </div>
-
 
           <div class="settings">
             <div class="show-white-card text-center">
@@ -88,9 +77,8 @@
               <% end %>
             </div>
           </div>
-
-        </div>
       </div>
+    </div>
 
       <div class="col-sm-8">
         <div class="all-projects">
