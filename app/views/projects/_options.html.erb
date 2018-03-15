@@ -1,79 +1,79 @@
-<div class="options-list" id="options-button">
-  <ul>
-    <li>
-      <h5>Make this Project open or closed? - Closed project means no one else can join the group</h5>
+<div class="options">
+  <div class="project-open">
+    <h5>Make this Project open or closed? - Closed project means no one else can join the group</h5>
+    <% if current_user == project.owner && project.open === true %>
+      <%= link_to "Make this project closed", closed_path(project) %>
+    <% elsif  current_user == project.owner && project.open === false%>
+      <%= link_to "Make this project open", open_path(project) %>
+    <% end %>
+  </div>
 
-      <% if current_user == project.owner && project.open === true %>
-        <%= link_to "Make this project closed", closed_path(project) %>
-      <% elsif  current_user == project.owner && project.open === false%>
-        <%= link_to "Make this project open", open_path(project) %>
+  <hr>
+
+  <div class="project-private">
+    <h5>Project private or not? - private means no one can see the project page unless invited</h5>
+    <% if current_user == project.owner && project.private === true %>
+      <%= link_to "Make this project public", public_path(project) %>
+    <% elsif current_user == project.owner && project.private === false %>
+      <%= link_to "Make this project private", private_path(project) %>
+    <% end %>
+  </div>
+
+  <hr>
+
+  <div class="project-invites">
+    <% if project.users.merge(ProjectInvite.pending_users).include?(current_user) %>
+      <h3> Invite pending</h3>
+    <% elsif project.users.merge(ProjectInvite.declined_users).include?(current_user) %>
+      <h3> Invite declinded</h3>
+    <% elsif !current_user == project.owner %>
+    <h5> Send an invite request to the project owner</h5>
+      <%= link_to "Request invite", new_project_project_invite_path(project), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
+  <div class="project-accepts">
+    <% if current_user == project.owner %>
+      <% project.project_invites.each do |invite| %>
+        <% unless invite.status == "accepted" %>
+        <h5> Recent invite details</h5>
+          <%= invite.user.full_name %>
+          <%= invite.message %>
+          <%= invite.status %>
+          <%= link_to "accept", accept_path(invite), class: "btn btn-success accept-button" %>
+          <%= link_to "decline", decline_path(invite),  class: "btn btn-danger decline" %>
       <% end %>
 
-      <hr>
-
-      <h5>Project private or not? - private means no one can see the project page unless invited</h5>
-      <% if current_user == project.owner && project.private === true %>
-        <%= link_to "Make this project public", public_path(project) %>
-      <% elsif current_user == project.owner && project.private === false %>
-        <%= link_to "Make this project private", private_path(project) %>
+      <% if invite.user == current_user && invite.status == "accepted" %>
+      <h5> Fancy a change? </h5>
+         <%= link_to "Remove yourself from group", project_invite_path(invite), class: "btn btn-danger", method: :delete %>
+       <% elsif invite.user == current_user %>
+         <h5> Make a change to your invite </h5>
+         <%= link_to "Edit your invite", edit_project_invite_path(project,invite) %>
+         <h5> Or you can click to delete your request </h5>
+         <%= link_to "Delete request", project_invite_path(invite), class: "btn btn-danger", method: :delete %>
       <% end %>
-
-      <hr>
-
-
-      <% if project.users.merge(ProjectInvite.pending_users).include?(current_user) %>
-        <h3> Invite pending</h3>
-      <% elsif project.users.merge(ProjectInvite.declined_users).include?(current_user) %>
-        <h3> Invite declinded</h3>
-      <% elsif !current_user == project.owner %>
-      <h5> Send an invite request to the project owner</h5>
-        <%= link_to "Request invite", new_project_project_invite_path(project) %>
       <% end %>
+    <% end %>
+  </div>
 
-      <% if current_user == project.owner %>
-        <% project.project_invites.each do |invite| %>
-          <% unless invite.status == "accepted" %>
-          <h5> Recent invite details</h5>
-            <%= invite.user.full_name %>
-            <%= invite.message %>
-            <%= invite.status %>
-            <%= link_to "accept", accept_path(invite), class: "btn btn-success accept-button" %>
-            <%= link_to "decline", decline_path(invite),  class: "btn btn-danger decline" %>
-          <% end %>
-
-
-        <br>
-
-         <% if invite.user == current_user && invite.status == "accepted" %>
-        <h5> Not happy with the current project?</h5>
-           <%= link_to "Remove yourself from group", project_invite_path(invite), method: :delete %>
-         <% elsif invite.user == current_user %>
-           <h5> Invite changes </h5>
-           <%= link_to "Edit your invite", edit_project_invite_path(project,invite) %>
-           <%= link_to "Delete request", project_invite_path(invite), method: :delete %>
+  <div class="project-user-list">
+    <% if current_user == project.owner %>
+      <h5> List of project members, click on their name to remove them from the team </h5>
+      <% project.users.merge(ProjectInvite.accepted_users).each do |user| %>
+        <% user.project_invites.each do |invite| %>
+          <p><%= link_to user.full_name, project_invite_path(invite), class: "btn btn-danger", method: :delete %></p>
+        <hr>
         <% end %>
       <% end %>
     <% end %>
-      <hr>
+  </div>
 
-      <div class="list">
-        <% if current_user == project.owner  %>
-        <h5> Current Project: </h5>
-        <p><%= link_to "Edit this project", edit_project_path(project), class: "btn btn-primary" %></p>
-        <% end %>
-      </div>
-
-      <hr>
-
-      <% if current_user == project.owner %>
-        <h5>Remove these people from group</h5>
-        <% project.users.merge(ProjectInvite.accepted_users).each do |user| %>
-          <% user.project_invites.each do |invite| %>
-            <%= link_to user.full_name, project_invite_path(invite), method: :delete %>
-          <% end %>
-         <% end %>
-        <% end %>
-    </li>
-  </ul>
+  <div class="list">
+    <% if current_user == project.owner  %>
+    <h5> Current Project: </h5>
+    <p><%= link_to "Edit this project", edit_project_path(project), class: "btn btn-primary" %></p>
+    <% end %>
+  </div>
 </div>
 
