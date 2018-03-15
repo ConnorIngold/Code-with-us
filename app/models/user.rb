@@ -10,7 +10,7 @@ class User < ApplicationRecord
   #User.first.my_projects = there project they created
   #User.first.projects =  project they are working for
 
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable
 
