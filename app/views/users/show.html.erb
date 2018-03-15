@@ -12,8 +12,9 @@
                 <div class="avatar-large" style="background-image: url('<%= cl_image_path @user.photo %>');">
               <% else %>
                 <div class="avatar-large" style="background-image: url('https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png?w=300')">
-                <% end %>
-              </div>
+              <% end %>
+                </div>
+
               <div class="find-me">
                 <a href="<%= @user.github %>" class="github-link"><i class="fa fa-github"></i>
                   Github
@@ -27,8 +28,8 @@
                 <a href="<%= @user.linkedin %>" class="linkedin-link"><i class="fa fa-linkedin" aria-hidden="true"></i>
                   LinkedIn
                 </a>
-                </div>
               </div>
+            </div>
             </div>
           <div class="user-desc text-center">
             <div class="show-white-card text-center">
