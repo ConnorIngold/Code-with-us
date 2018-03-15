@@ -19,7 +19,6 @@ class MessagesController < ApplicationController
         format.js
       end
     else
-      raise
       render :new
     end
   end

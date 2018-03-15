@@ -3,7 +3,7 @@
     <%#= link_to "Send a message", new_project_message_path(@project)  %>
     <% @project.messages.each do |message| %>
     <% if message.sender == current_user %>
-      <div class="sender" id="message-sender">
+      <div class="sender">
         <p><%= link_to message.sender.full_name, user_path(message.sender) %></p>
         <p><%= message.content %></p>
       </div>
@@ -27,5 +27,5 @@
       <%= f.input :content %>
     </div>
       <%= f.submit "Send Message", class: "btn btn-success" %>
-      <% end %>
+    <% end %>
 <% end %>

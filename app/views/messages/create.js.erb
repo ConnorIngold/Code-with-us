@@ -1,10 +1,8 @@
 console.log('test')
 
-var newMessage = '<p><%= j link_to message.sender.full_name, user_path(message.sender) %></p><p><%= j message.content %></p>'
+var newMessage = '<div class="sender"><p><%= j link_to @message.sender.full_name, user_path(@message.sender) %></p><p><%= j @message.content %></p></div>'
 
 
-messageBox = document.getElementById('message.sender')
-messageBox.insertINNERHTML(newMessage)
 messages = document.getElementById('messages-box')
-messages.insertAdjacentHTML('beforeend', messageBox)
+messages.insertAdjacentHTML('beforeend', newMessage)
 
