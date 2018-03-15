@@ -29,32 +29,41 @@
   justify-content: center;
 }
 
-.code {
-  padding: 0px 30px 0px 30px;
-  margin-bottom: 200px;
+.banner-content{
+  width: 100%;
+  text-align: center;
 }
+
 .banner-content #search-form {
   opacity: 1 !important;
+  width: 100%;
+  text-align: center;
   input {
     color: black;
     margin-bottom: 3%;
   }
 }
 .banner h1 {
+  text-align: justify;
+  -moz-text-align-last: center;
+  text-align-last: center;
   font-size: 50px;
   font-weight: bold;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
 }
 .banner p {
-  font-size: 25px;
+  font-size: 18px;
   font-weight: lighter;
   color: rgb(255, 255, 255);
-  opacity: 0.6;
-  margin-bottom: 30px;
+  opacity: 0.8;
 }
 
-#search-form{
 
+.about-paragraph{
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 // and ends here
 
@@ -120,7 +129,7 @@
 .name {
   color: $brand-success;
   text-align: center;
-  &-description {
+  &-descrtion {
     color: $brand-success;
     text-align: center;
     margin-top: 12.5px;
@@ -128,7 +137,10 @@
   }
 }
 
-
+.code{
+  width: 100%;
+  height: 100%;
+}
 
 // first section ends here
 
