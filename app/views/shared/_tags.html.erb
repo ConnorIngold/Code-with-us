@@ -3,7 +3,7 @@
         <% tech_in_params = selected_technologies_names.include?(tech.name) %>
         <% link_params = tech_in_params ? selected_technologies_names - [tech.name] : selected_technologies_names + [tech.name] %>
         <%= link_to projects_path(technologies: link_params.empty? ? nil : link_params.join('_'), search: params[:search]), remote: true do %>
-            <div class="col-xs-12 col-md-6">
+            <div class="col-xs-6 col-sm-12 col-md-6">
               <div class="tags-result">
                 <div class="tagwithname <%= 'tag-active' if tech_in_params %>">
                   <%= cl_image_tag tech.photo, class: "tag-icon" %>

@@ -93,9 +93,9 @@
   height: 100vh;
   overflow-y: scroll;
 }
-@media(max-width: 700px){
+@media(max-width: 770px){
   .sidebar-results{
-    min-width: 500px !important;
+    min-width: 320px !important;
   }
 }
 
@@ -115,7 +115,9 @@
   .wholeflex {
     flex-direction: column;
   }
-
+  .sidebar-results{
+    min-width: 100% !important;
+  }
 
   .project-details{
     max-width: 100px;
