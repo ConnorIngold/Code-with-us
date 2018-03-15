@@ -1,30 +1,36 @@
-<% project.tasks.each do |task| %>
-  <% if task.complete === false %>
-    <li class="task">
-      <div class="avatar">
-        <% if  task.user.photo.present?%>
-          <%= cl_image_tag  task.user.photo, class: 'avi-small'  %>
-        <% else %>
-          <div class="avi-small" style="background-image: url('https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png?w=300');">
+
+<% if project.tasks.present? %>
+  <% project.tasks.each do |task| %>
+    <% if task.complete === false %>
+      <li class="task">
+        <div class="avatar">
+          <% if  task.user.photo.present?%>
+            <%= cl_image_tag  task.user.photo, class: 'avi-small'  %>
+          <% else %>
+            <div class="avi-small" style="background-image: url('https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png?w=300');">
+            </div>
+          <% end %>
+        </div>
+        <div class="task-name">
+          <h3><%= task.user.full_name %></h3>
+          <p><%= task.created_at %></p>
+        </div>
+        <% if task.user == current_user || project.owner == current_user %>
+          <div class="description">
+            <p><strong><%= link_to task.name, edit_project_task_path(@project, task) %> </strong><a href= <%= edit_project_task_path(@project, task) %> style='color:#5898f1;' ><i class="fa fa-edit" aria-hidden="true"></i></a>
+            <p><%= task.description %><a href= <%= complete_path(task) %> style='color:#7FD89B;' > <i class="fa fa-check-square" aria-hidden="true"></i></a></p>
           </div>
         <% end %>
-      </div>
-      <div class="task-name">
-        <h3><%= task.user.full_name %></h3>
-        <p><%= task.created_at %></p>
-      </div>
-      <% if task.user == current_user || project.owner == current_user %>
-        <div class="description">
-          <p><strong><%= link_to task.name, edit_project_task_path(@project, task) %> </strong><a href= <%= edit_project_task_path(@project, task) %> style='color:#5898f1;' ><i class="fa fa-edit" aria-hidden="true"></i></a>
-          <p><%= task.description %><a href= <%= complete_path(task) %> style='color:#7FD89B;' > <i class="fa fa-check-square" aria-hidden="true"></i></a></p>
+        <div class="task-status">
+          <p class="text-center"> Difficulty: </p>
+          <p class="difficulty text-center"><%= task.difficulty %></p>
         </div>
-      <% end %>
-      <div class="task-status">
-        <p class="text-center"> Difficulty: </p>
-        <p class="difficulty text-center"><%= task.difficulty %></p>
+      </li>
+      <div class="task-buttons">
       </div>
-    </li>
-    <div class="task-buttons">
-    </div>
+    <% end %>
   <% end %>
-<% end %>
+<% else %>
+  <h1>This is your project, create the first task</h1>
+  <%= link_to "Create a task", new_project_task_path(project), class:"btn btn-primary"%>
+  <% end %>
