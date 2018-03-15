@@ -1,4 +1,3 @@
-
 <% if project.tasks.present? %>
   <% project.tasks.each do |task| %>
     <% if task.complete === false %>
@@ -13,7 +12,7 @@
         </div>
         <div class="task-name">
           <h3><%= task.user.full_name %></h3>
-          <p><%= task.created_at %></p>
+          <p><%= task.created_at.strftime("%d/ %m/ %Y") %></p>
         </div>
         <% if task.user == current_user || project.owner == current_user %>
           <div class="description">
@@ -25,13 +24,12 @@
           <p class="text-center"> Difficulty: </p>
           <p class="difficulty text-center"><%= task.difficulty %></p>
         </div>
-
       </li>
-
-
+      <hr>
       <% end %>
   <% end %>
 <% else %>
   <h1>This is your project, create the first task</h1>
   <%= link_to "Create a task", new_project_task_path(project), class:"btn btn-primary"%>
 <% end %>
+
