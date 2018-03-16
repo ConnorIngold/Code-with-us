@@ -9,21 +9,31 @@
         </div>
       <% end %>
       </div>
-      <div class="task-name">
-        <h3><%= task.user.full_name %></h3>
-        <p><%= task.created_at.strftime("%d/ %m/ %Y") %></p>
-      </div>
-      <% if task.user == current_user || project.owner == current_user %>
-      <div class="description">
-        <p><strong><%= link_to task.name, edit_project_task_path(project, task) %> </strong><a href= <%= edit_project_task_path(project, task) %> style='color:#5898f1;' ><i class="fa fa-edit" aria-hidden="true"></i></a>
-        <p><%= task.description %><a href= <%= not_complete_path(task) %> style='color:#ce0500;' > <i class="fa fa-times" aria-hidden="true"></i></a></p>
-      <% end %>
-      </div>
+        <div class="task-name">
+          <h3><%= task.user.full_name %></h3>
+          <p><%= task.created_at.strftime("%d/ %m/ %Y") %></p>
+        </div>
+          <div class="description">
+            <% if task.user == current_user || project.owner == current_user %>
+              <p><strong><%= link_to task.name, edit_project_task_path(project, task) %>
+              </strong><a href= <%= edit_project_task_path(project, task) %> style='color:#5898f1;' ><i class="fa fa-edit" aria-hidden="true"></i></a>
+            <% else %>
+              <p><%= task.name %></p>
+            <% end %>
+            <% if task.user == current_user || project.owner == current_user %>
+              <p><%= task.description %>
+              <a href= <%= complete_path(task) %> style='color:#7FD89B;' > <i class="fa fa-check-square" aria-hidden="true"></i></a></p>
+            <% else %>
+              <p><%= task.description %></p>
+            <% end %>
+          </div>
+    <% if task.complete === true %>
       <div class="task-status">
-        <!-- <p class="text-center"> </p> -->
-        <p class="difficulty text-center">Difficulty: <%= task.difficulty %></p>
+        <p class="text-center"> Difficulty: </p>
+        <p class="difficulty text-center"><%= task.difficulty %></p>
       </div>
-    </li>
-     <hr>
+    <% end %>
+  </li>
+  <hr>
   <% end %>
 <% end %>

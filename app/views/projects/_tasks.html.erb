@@ -28,14 +28,15 @@
               <p><%= task.description %></p>
             <% end %>
           </div>
-
-        <div class="task-status">
-          <p class="text-center"> Difficulty: </p>
-          <p class="difficulty text-center"><%= task.difficulty %></p>
-        </div>
+        <% if task.complete === false %>
+          <div class="task-status">
+            <p class="text-center"> Difficulty: </p>
+            <p class="difficulty text-center"><%= task.difficulty %></p>
+          </div>
+        <% end %>
       </li>
-      <hr>
-      <% end %>
+    <hr>
+    <% end %>
   <% end %>
 <% else %>
   <% if current_user == project.owner && project.users.merge(ProjectInvite.accepted_user).include?(current_user) %>
