@@ -44,7 +44,7 @@
           <% elsif @project.users.merge(ProjectInvite.declined_users).include?(current_user) %>
             <h3> Invite declinded</h3>
           <% else %>
-            <%= link_to "Request invite", new_project_project_invite_path(@project) %>
+            <%= link_to "Request invite", new_project_project_invite_path(@project), class:"btn btn-primary" %>
           <% end %>
         </div>
       </div>
