@@ -9,13 +9,10 @@
             <% shuffled_tech = project.technologies.shuffle %>
             <% shuffled_tech.each_with_index do |tech, i| %>
               <p class="top-tag">
-                <%= tech.name.upcase %>
-                <% if shuffled_tech.last == tech%>
-                  <%= "" %>
-                <% else %>
-                  <%= "," %>
-                <% end %>
+                <% unless i > 4 %>
+                  <%= tech.name.upcase %>
                 </p>
+              <% end %>
             <% end %>
           </div>
         </div>
