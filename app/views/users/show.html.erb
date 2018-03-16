@@ -88,7 +88,7 @@
           </div>
           <div class="user-projects">
             <% @projects.each do |project| %>
-              <% if project.users.include?(current_user) || project.owner == current_user %>
+              <% if project.users.merge(ProjectInvite.accepted_users).include?(current_user) || project.owner == current_user %>
                 <div class="projects-card">
                   <%= link_to "", project_path(project), class: "card-link"  %>
                   <div class="project-banner" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 50%), url('<%= cl_image_path project.image if project.image.present? %>');">
