@@ -10,10 +10,10 @@
           <% choices << @project.owner.full_name %>
 
           <%= simple_form_for [@project, @task] do |f| %>
-            <%= f.input :name %>
-            <%= f.input :description  %>
-            <%= f.input :difficulty, collection: [1,2,3,4,5]%>
-            <%= f.input :user_id, collection: choices %>
+            <%= f.input :name, placeholder: "What's the main focus of this task?", label: false  %>
+            <%= f.input :description, placeholder: "Describe this task", label: false  %>
+            <%= f.input :difficulty, collection: [1,2,3,4,5], prompt: "How hard is this task?", label: false%>
+            <%= f.input :user_id, collection: choices, prompt: "Who is this assigned to ?", label: false %>
           <div class="task-butt">
             <%= f.button :submit, class: "btn btn-success" %>
             <p>Or</p>
