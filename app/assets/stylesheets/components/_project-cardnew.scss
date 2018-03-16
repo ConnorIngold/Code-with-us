@@ -1,4 +1,17 @@
 .projects-card{
+  .tag-new{
+    display: flex;
+    margin-top: 5px;
+    .top-tag{
+      margin-left: 9px;
+      color: white;
+      /* outline: red; */
+      font-size: 16px;
+      text-shadow: 5px 4px 5px rgba(0,0,0,0.3);
+      font-weight: bolder;
+    }
+  }
+
   // border: 1px solid rgba(0, 0, 0, 0.2);
   position: relative;
   display: flex;

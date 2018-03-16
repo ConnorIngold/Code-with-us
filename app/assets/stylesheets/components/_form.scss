@@ -12,7 +12,7 @@
   border: none;
   box-shadow: none;
   border-bottom: 2px solid white;
-  color: white;
+  color: #827d7d;
 }
 
 .form-user {
@@ -168,15 +168,17 @@
 .task-butt {
   display: flex;
   justify-content: space-between;
-  align-content: center;
+  align-item: center;
+  text-align: center;
   width: 50%;
   margin-top: 50px;
   margin-left: 24%;
     p {
       color: white;
+      margin-top: 10px;
+      font-weight: bold;
     }
   a {
-    // margin-top: 10px;
     padding: 10px;
     color: white;
     text-align: left;
@@ -192,9 +194,6 @@
   width: 50%;
   margin-top: 50px;
   margin-left: 25%;
-  .back {
-    // margin-top: 20px;
-  }
 }
 
 

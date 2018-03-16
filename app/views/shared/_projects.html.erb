@@ -5,6 +5,19 @@
       <div class="projects-card">
         <%= link_to "", project_path(project), class: "card-link"  %>
         <div class="project-banner" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 50%), url('<%= cl_image_path project.image if project.image.present? %>');">
+          <div class="tag-new">
+            <% shuffled_tech = project.technologies.shuffle %>
+            <% shuffled_tech.each_with_index do |tech, i| %>
+              <p class="top-tag">
+                <%= tech.name.upcase %>
+                <% if shuffled_tech.last == tech%>
+                  <%= "" %>
+                <% else %>
+                  <%= "," %>
+                <% end %>
+                </p>
+            <% end %>
+          </div>
         </div>
         <div class="project-detail">
           <div class="content-top">
@@ -39,15 +52,6 @@
                     <%= project.last_update_on_project.strftime("last updated %b %d, %Y") %>
                   <% end %>
                 </p>
-            </div>
-            <div class="content-right">
-              <div class="tags">
-                <% project.technologies.each_with_index do |technology, index| %>
-                  <% unless index > 4 %>
-                    <%= cl_image_tag "#{technology.photo}", :style => "height:50px;width:50px;" %>
-                  <% end %>
-                <% end %>
-              </div>
             </div>
         </div>
       </div>
