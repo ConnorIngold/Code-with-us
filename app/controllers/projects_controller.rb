@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
       if params[:search].nil? || params[:search].blank?
         @projects = policy_scope(Project).where(private: false)
       else
-        @projects = policy_scope(Project).where(private: false).project_search(params[:search])
+        @projects = policy_scope(Project).where(private: false).global_search(params[:search])
       end
       @selected_technologies_names.each do |tech_name|
         @projects = @projects.select { |p| p.technologies.include? Technology.where(name: tech_name).first }
@@ -15,7 +15,7 @@ class ProjectsController < ApplicationController
     elsif params[:search].nil? || params[:search].blank?
       @projects = policy_scope(Project).where(private: false)
     else
-      @projects = policy_scope(Project).where(private: false).project_search(params[:search])
+      @projects = policy_scope(Project).where(private: false).global_search(params[:search])
     end
     @technologies = Technology.all
 
