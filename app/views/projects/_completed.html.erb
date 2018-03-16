@@ -22,7 +22,7 @@
             <% end %>
             <% if task.user == current_user || project.owner == current_user %>
               <p><%= task.description %>
-              <a href= <%= complete_path(task) %> style='color:#7FD89B;' > <i class="fa fa-check-square" aria-hidden="true"></i></a></p>
+              <a href= <%= not_complete_path(task) %> style='color:#ce0500;' > <i class="fa fa-times" aria-hidden="true"></i></a></p>
             <% else %>
               <p><%= task.description %></p>
             <% end %>
