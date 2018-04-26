@@ -83,17 +83,16 @@
   width: 5px;
 }
 
-
-
 .tag-active {
   background: #5dabea;
 }
 
-.card-results{
-  width: 73vw;
+.card-results {
+  // width: 73vw;
   height: 123vh;
   overflow-y: scroll;
 }
+
 @media(max-width: 770px){
   .sidebar-results{
     min-width: 320px !important;
@@ -112,7 +111,7 @@
   }
 }
 
-@media(max-width: 700px) {
+@media(max-width: 976px) {
   .wholeflex {
     flex-direction: column;
   }
@@ -122,7 +121,5 @@
 
   .project-details{
     max-width: 100px;
-
   }
-
 }
