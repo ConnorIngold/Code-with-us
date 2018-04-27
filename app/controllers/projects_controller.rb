@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
     @technologies = Technology.all
     @selected_technologies_names = params[:technologies]&.split('_') || []

@@ -32,7 +32,6 @@ class UsersController < ApplicationController
     authorize @user
   end
 
-
   private
 
   def tech_p_params

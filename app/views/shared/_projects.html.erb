@@ -3,7 +3,7 @@
   <% projects.each do |project| %>
     <div class="col-xs-12 col-sm-6">
       <div class="projects-card">
-        <%= link_to "", project_path(project), class: "card-link"  %>
+        <%= link_to "", project_path(project), class: "card-link" %>
         <div class="project-banner" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 50%), url('<%= cl_image_path project.image if project.image.present? %>');">
           <div class="tag-new">
             <% shuffled_tech = project.technologies.shuffle %>
@@ -19,8 +19,8 @@
         <div class="project-detail">
           <div class="content-top">
             <div class="avatar-card">
-              <% if  User.find(project.user_id).photo.present?%>
-                <%= cl_image_tag  User.find(project.user_id).photo, class: 'avi-detail'  %>
+              <% if User.find(project.user_id).photo.present? %>
+                <%= cl_image_tag  User.find(project.user_id).photo, class: 'avi-detail' %>
               <% else %>
                 <div class="avi-detail" style="background-image: url('https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png?w=300');">
                 </div>
@@ -29,12 +29,12 @@
             <div class="status-check">
               <% if project.open %>
                 <div class="status-o">
-                  <div class="w-circle"> </div>
+                  <div class="w-circle"></div>
                   <p class="open">OPEN</p>
                 </div>
               <% else %>
                 <div class="status-c">
-                  <div class="w-circle"> </div>
+                  <div class="w-circle"></div>
                   <p class="closed">CLOSED</p>
                 </div>
               <% end %>

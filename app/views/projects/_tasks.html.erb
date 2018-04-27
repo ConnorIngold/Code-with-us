@@ -3,8 +3,8 @@
     <% if task.complete === false %>
       <li class="task">
         <div class="avatar">
-          <% if  task.user.photo.present?%>
-            <%= cl_image_tag  task.user.photo, class: 'avi-small'  %>
+          <% if task.user.photo.present?%>
+            <%= cl_image_tag  task.user.photo, class: 'avi-small' %>
           <% else %>
             <div class="avi-small" style="background-image: url('https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png?w=300');">
             </div>
