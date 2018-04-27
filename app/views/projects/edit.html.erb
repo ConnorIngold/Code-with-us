@@ -10,14 +10,14 @@
         <label for="image">Upload a photo</label>
 
         <div class="file_button_container">
-          <%= f.input :image, label: false%>
-          <%= f.input :image_cache, as: :hidden  %>
+          <%= f.input :image, label: false %>
+          <%= f.input :image_cache, as: :hidden %>
         </div>
       </div>
     </div>
 
   <div class="form-group">
-    <label class="control-label check_boxes optional">What Tech are you going to use ?</label>
+    <label class="control-label check_boxes optional">What Tech are you going to use?</label>
     <div class="technology-choices">
       <% @technologies.each do |technology| %>
         <input type="checkbox" class="hidden" value="<%= technology.id %>" name="project[technology_ids][]" id="project_technology_ids_<%= technology.id %>">

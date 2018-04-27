@@ -3,7 +3,7 @@
     <div class="search-bar-index">
       <%= form_tag projects_path, :method => 'get', class: "search-field" do %>
         <div class="field" width="100%">
-          <%= text_field_tag :search, params[:search], placeholder: "Search for a project", id: "search-index"%>
+          <%= text_field_tag :search, params[:search], placeholder: "Search for a project", id: "search-index" %>
         </div>
         <%= button_tag(type: "submit", class: "search-go") do %>
             <i class="fa fa-search" aria-hidden="true"></i>

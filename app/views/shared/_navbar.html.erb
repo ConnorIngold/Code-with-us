@@ -17,14 +17,9 @@
       <div class="dropdown" id="menu-trigger">
 
         <% if current_user.photo? %>
-
-
-        <img src='<%= cl_image_path current_user.photo %>' class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
-
+          <img src='<%= cl_image_path current_user.photo %>' class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
         <% else %>
-
-           <img src='https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png?w=300' class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
-
+          <img src='https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png?w=300' class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
         <% end %>
 
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu" id="menu-drop-down">
@@ -40,7 +35,7 @@
           </li>
           <li>
             <%= link_to destroy_user_session_path, method: :delete do %>
-            <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+              <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
             <% end %>
           </li>
         </ul>
@@ -65,7 +60,7 @@
           </li>
           <li>
             <%= link_to destroy_user_session_path, method: :delete do %>
-            <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+              <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
             <% end %>
           </li>
         </ul>
